@@ -757,7 +757,7 @@ so $R_\sigma(\psi) \in \mathbb{R}$ for all $\psi$. With $\gamma \in
 R_\sigma} / \|e^{\gamma R}\|_2$ sends $\mathbb{R}^N$ to $\mathbb{R}^N$.
 The real subspace is therefore invariant under $F$. Since the Banach
 contraction (Section~\ref{sec:level2}) guarantees a unique fixed point in
-$L^2$, and the iteration starting from any real initial condition remains
+$(\mathbb{C}^N, \|\cdot\|_2)$ viewed as a complete metric space, and the iteration starting from any real initial condition remains
 real, the fixed point $\psi^* \in \mathbb{R}^N$.
 
 Each conditional slice $\mu_{S|c}(s) = \psi^*_{(c,s)} \in \mathbb{R}$,
@@ -767,7 +767,7 @@ real scalar.
 \end{proof}
 
 \begin{proposition}[Lorentzian conditioning produces quantum coherences]
-\textbf{(Rigorous.)}
+\textbf{(Sketch.)}
 \label{prop:lor_quantum}
 Let $\theta \neq 0$ and suppose the external field $h$ satisfies the
 genericity condition: there exist clock values $c, c'$ and system
@@ -818,14 +818,20 @@ distributions (real $\rho_{S|c}$, no interference), while Lorentzian
 conditioning produces genuinely different quantum states for different
 clock values (complex coherences that vary with $c$). The latter is the
 algebraic content of ``time evolution''---the clock-conditioned state
-carries $c$-dependent quantum information. No total Hilbert space was
-assumed; only the configuration space partition and $L^2$ normalization
-of the self-consistency measure were used.
+carries $c$-dependent quantum information. No separate total Hilbert
+space $\mathcal{H}_C \otimes \mathcal{H}_S$ was introduced as an axiom;
+the inner product structure on $\mathbb{C}^{d_S}$ that makes
+$\rho_{S|c}$ interpretable as a quantum density matrix is inherited from
+the $L^2$ normalization of $\psi^*$, not independently derived.
 \end{remark}
 
 This is how Axiom~\ref{ax:nohilbert} is realized: Hilbert space is not
-fundamental but is derived via measure conditioning from mass and
-Lorentzian signature.
+introduced as a separate axiom but emerges as the natural structure on
+the conditioned subsystem, inherited from the self-consistency measure.
+Whether this inheritance constitutes a full derivation of Hilbert
+structure from non-Hilbert inputs, or a relocation of that structure
+from axiom to normalization convention, remains an open question
+(Section~\ref{sec:open}).
 
 %----------------------------------------------------------------------
 \subsection{Local Hilbert space closes the loop}
