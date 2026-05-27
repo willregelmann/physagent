@@ -1,5 +1,5 @@
 # Numerical dependencies for the co-emergence toy model and its test suite.
-numpy>=1.24
+numpy>=2.4.6
 scipy>=1.10
 pytest>=7.0
 
