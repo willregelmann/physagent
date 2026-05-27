@@ -1,3 +1,2 @@
 @AGENTS.md
-@FRAMEWORK.md
 @METHODOLOGY.md
