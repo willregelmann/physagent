@@ -15,7 +15,7 @@ Run these in parallel:
 1. **Full paper**: Read `programs/$ARGUMENTS/index.tex`
 2. **Program README**: Read `programs/$ARGUMENTS/README.md`
 3. **Explorations**: List `programs/$ARGUMENTS/explorations/` to see what research has been done
-4. **Framework**: Read `FRAMEWORK.md` for axiom/assumption context
+4. **Conventions**: Read `AGENTS.md` for repository conventions, and the paper's own axiom/assumptions section for framework context
 
 ## Step 2: Analyze the structure
 

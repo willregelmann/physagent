@@ -1,0 +1,28 @@
+{
+  "hooks": {
+    "TeammateIdle": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/scripts/hooks/require-clean-sources.sh",
+            "timeout": 30,
+            "statusMessage": "Checking for uncommitted source changes..."
+          }
+        ]
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PROJECT_DIR}/scripts/hooks/require-clean-sources.sh",
+            "timeout": 30,
+            "statusMessage": "Verifying work is committed before completion..."
+          }
+        ]
+      }
+    ]
+  }
+}

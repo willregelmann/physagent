@@ -6,7 +6,7 @@ arguments:
     required: false
 ---
 
-You are orchestrating a two-pass dialectical review of a pull request for the paper "Gravity as Constraint." The first pass finds problems (adversarial critic). The second pass challenges those findings (steelman defender). The calibrated verdict table is the deliverable — not either pass alone.
+You are orchestrating a two-pass dialectical review of a pull request for one of the project's physics papers (under `programs/`). The first pass finds problems (adversarial critic). The second pass challenges those findings (steelman defender). The calibrated verdict table is the deliverable — not either pass alone.
 
 ## Step 1: Resolve the PR
 
