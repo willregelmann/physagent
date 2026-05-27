@@ -1,0 +1,57 @@
+name: semantic-review
+
+# Advisory semantic tier of the verification stack (see docs/agent-workflow.md):
+# an isolated LLM evaluator judges questions that aren't mechanically decidable —
+# here, whether load-bearing citations actually support the claims they're
+# attached to. Existence is already gated deterministically by verify-citations;
+# this is the harder claim-support question. It is ADVISORY (continue-on-error):
+# an LLM verdict never blocks a merge, but its findings surface in the run.
+#
+# Uses the claude-tests headless runner (LLM-as-evaluator) from the sibling repo.
+# Requires the repo secret CLAUDE_CODE_OAUTH_TOKEN (from `claude setup-token`);
+# without it the suite is skipped so the workflow stays green.
+
+on:
+  pull_request:
+    paths: ["programs/**/*.tex", ".claude/tests/**"]
+  workflow_dispatch:
+
+jobs:
+  claim-support:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Check out this repo
+        uses: actions/checkout@v4
+
+      - name: Check out claude-tests (LLM-as-evaluator runner)
+        uses: actions/checkout@v4
+        with:
+          repository: willregelmann/claude-tests
+          ref: main # needs the arbitrary-headless-tools change (claude-tests#4)
+          path: .claude-tests-runner
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run semantic claim-support evaluation
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::notice::CLAUDE_CODE_OAUTH_TOKEN not set — skipping semantic review."
+            exit 0
+          fi
+          python3 .claude-tests-runner/bin/run-tests.py citation-claim-support \
+            --junit semantic-results.xml --model sonnet
+
+      - name: Upload results
+        if: always() && hashFiles('semantic-results.xml') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: semantic-results
+          path: semantic-results.xml

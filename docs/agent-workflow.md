@@ -111,6 +111,25 @@ rigor into *demonstrated* rigor:
 | `tests` | The co-emergence numerical toy model and scaling tests pass (Python 3.10 / 3.12). |
 | `build-papers` | Every paper compiles with `pdflatex`. |
 | `verify-citations` | Every `\bibitem` resolves against Crossref/arXiv; the build fails on any unresolved reference. See [`tools/verify_citations.py`](../tools/verify_citations.py). |
+| `semantic-review` | *Advisory.* An isolated LLM evaluator judges questions that aren't mechanically decidable — e.g. whether load-bearing citations actually **support** their claims (`.claude/tests/citation-claim-support/`). |
+
+### Three tiers of verification
+
+The CI gates form a deliberate hierarchy from cheap-and-certain to
+judgment-and-advisory:
+
+| Tier | Question | Mechanism | Blocking? |
+|------|----------|-----------|-----------|
+| **Deterministic** | Does it compile / run / resolve? | `tests`, `build-papers`, `verify-citations` | yes |
+| **Semantic** | Does it overclaim / mis-cite / skip a self-check? | `semantic-review` — LLM-as-evaluator ([claude-tests](https://github.com/willregelmann/claude-tests)) | no (advisory) |
+| **Formal** | Is the proof actually valid? | Lean formalization (planned, issue #45) | yes, where formalized |
+
+The semantic tier is run by an **isolated evaluator with no implementation
+context** — the same anti-anchoring principle as the adversarial-review debate,
+but standing and repeatable. It is deliberately *advisory*: an LLM verdict
+flags an overclaim or a dubious citation for human attention, but never
+certifies mathematical truth — that stays with the deterministic and formal
+tiers, because an LLM judge can itself err.
 
 ## Citation discipline
 
