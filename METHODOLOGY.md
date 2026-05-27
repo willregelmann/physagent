@@ -27,7 +27,7 @@ Adversarial review has two distinct modes with different mandates. The human rev
 
 **Stress testing mode.** The adversarial agent actively tries to break the result. This means: constructing explicit counterexamples; identifying edge cases where the stated conditions are met but the conclusion fails; finding alternative interpretations of the same mathematics that lead to different conclusions; checking every limiting case against known results from a different direction. Stress testing is the appropriate mode for any result that would be used as a lemma in subsequent work or that makes a new physical prediction.
 
-In stress testing mode, the adversarial agent must explicitly attempt to find violations of the FRAMEWORK.md hidden-assumption warnings: Can time evolution be made to sneak back in? Is there a smuggled background structure? Is there a preferred observer or foliation hidden in the setup? A stress test that does not check these is incomplete.
+In stress testing mode, the adversarial agent must explicitly attempt to find violations of the framework's hidden-assumption warnings: Can time evolution be made to sneak back in? Is there a smuggled background structure? Is there a preferred observer or foliation hidden in the setup? A stress test that does not check these is incomplete.
 
 An agent must never claim a result is proven when it has only been sketched. PRs should clearly label work as one of:
 
@@ -95,7 +95,7 @@ The canonical pattern for a research debate:
 
 ### Shared context
 
-Claude Code agent teams automatically load the project's CLAUDE.md and everything it @-includes — AGENTS.md, FRAMEWORK.md, and METHODOLOGY.md. This means every teammate already has the framework axioms, the hidden-assumption warnings, the rigor standards, and these role descriptions without any additional setup. The spawn prompt provides task-specific parameters; the shared project context is inherited automatically.
+Claude Code agent teams automatically load the project's CLAUDE.md and everything it @-includes — AGENTS.md and METHODOLOGY.md. This means every teammate already has the hidden-assumption warnings, the rigor standards, and these role descriptions without any additional setup. The spawn prompt provides task-specific parameters; the shared project context is inherited automatically.
 
 ### Team size and task sizing
 
@@ -121,11 +121,11 @@ These roles recur across Explorations. When spawning teammates, reference the ro
 
 **Position agent.** Develops the strongest possible version of one assigned position. Works without seeing other positions. Proposes a specific mathematical structure, labels all claims Rigorous/Sketch/Conjecture, and honestly identifies where the position is underspecified. Does not hedge toward a middle ground — the point is genuine commitment to one direction so the synthesis has something to push against.
 
-**Synthesis agent.** Reads all position files after positions are complete. Runs two passes: (1) adversarial critique — for each position, find every hidden assumption, every appeal to existing structure rather than derivation, every violation of FRAMEWORK.md warnings; (2) defense assessment — for each criticism, determine whether it is a fatal flaw or a solvable gap. Then identifies structural convergence across positions and states what the surviving elements imply. Must explicitly check each FRAMEWORK.md hidden-assumption warning against each position.
+**Synthesis agent.** Reads all position files after positions are complete. Runs two passes: (1) adversarial critique — for each position, find every hidden assumption, every appeal to existing structure rather than derivation, every violation of the hidden-assumption warnings; (2) defense assessment — for each criticism, determine whether it is a fatal flaw or a solvable gap. Then identifies structural convergence across positions and states what the surviving elements imply. Must explicitly check each hidden-assumption warning against each position.
 
 **Drafter.** Writes LaTeX given a complete research summary and style reference. Does not conduct research or verify citations — those arrive as inputs. Matches the style of existing papers in the repo exactly. Labels all results with rigor levels. Attempts to compile the output and fixes errors.
 
-**Verifier.** Checks a derivation or PR for mathematical correctness (verification mode) or actively attempts to construct failure cases (stress testing mode). The human reviewer specifies which mode. In stress testing mode, must attempt to find violations of each FRAMEWORK.md hidden-assumption warning.
+**Verifier.** Checks a derivation or PR for mathematical correctness (verification mode) or actively attempts to construct failure cases (stress testing mode). The human reviewer specifies which mode. In stress testing mode, must attempt to find violations of each hidden-assumption warning.
 
 ### Quality gates via hooks
 
@@ -150,7 +150,7 @@ programs/<program-name>/explorations/YYYY-MM-DD-short-title.md
 They are committed directly to the main branch by the human author, not via a feature branch. An Exploration can produce:
 
 - **New issues**, if it identifies specific open problems worth pursuing.
-- **A PR modifying FRAMEWORK.md or METHODOLOGY.md**, if it changes the framework or process.
+- **A PR modifying METHODOLOGY.md**, if it changes the process.
 - **No further action**, if the result is purely negative — that is a valid outcome, and the Exploration is its own record.
 
 An Exploration does not produce a contribution to the paper directly. If it generates new mathematics, that mathematics must be developed in a subsequent issue-and-PR cycle with proper self-checks and adversarial review. The Exploration establishes direction; the PR establishes results.

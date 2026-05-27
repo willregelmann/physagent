@@ -1,0 +1,27 @@
+name: build-papers
+
+on:
+  push:
+    branches: [main]
+    paths: ["programs/**/*.tex"]
+  pull_request:
+    paths: ["programs/**/*.tex"]
+
+jobs:
+  pdflatex:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        program:
+          - co-emergence
+          - fixed-point-existence
+          - gaussian-gravitational-decoherence
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile ${{ matrix.program }}
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: index.tex
+          working_directory: programs/${{ matrix.program }}

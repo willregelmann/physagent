@@ -17,7 +17,6 @@ programs/                          — Each program has its own directory
   <program-name>/
     index.tex                      — The paper
     explorations/                  — Research investigations for this program
-FRAMEWORK.md                       — Axioms, requirements, and hidden-assumption warnings
 METHODOLOGY.md                     — Research-as-code workflow (read before contributing)
 ```
 
