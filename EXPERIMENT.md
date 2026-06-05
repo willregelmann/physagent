@@ -1,8 +1,7 @@
 # EXPERIMENT.md — Pre-registration of the Autonomous Research Experiment
 
-**Status:** Registered, not yet started. The start date is recorded here by the
-experimenter when the routines are enabled. This file is a protected path;
-agents do not edit it.
+**Status:** Running. Started 2026-06-05 by the experimenter (all seven routines
+enabled; see log). This file is a protected path; agents do not edit it.
 
 ## Hypothesis
 
@@ -23,8 +22,8 @@ audit. The experiment is designed so these two outcomes are distinguishable.
 | Parameter | Value |
 |---|---|
 | Duration | **90 days** from start date |
-| Start date | _(set by experimenter on enablement)_ |
-| End date | start + 90 days |
+| Start date | **2026-06-05** |
+| End date | **2026-09-03** (start + 90 days) |
 | Worker cadence / model | daily / opus |
 | Reviewer cadence / model | every 12h / opus |
 | Responder cadence / model | daily / sonnet |
@@ -122,3 +121,4 @@ terminal artifact, regardless of outcome.
 | 2026-06-05 | Pre-registered; infrastructure landed (autonomy bootstrap PR) |
 | 2026-06-05 | Phase D gate verification: tests 1a/2/4/5/6/7 passed as designed; test 3 found a claim-support false negative (assertions judged against sources, not the paper) — fixed by binding assertions to the paper's text (PR #58) |
 | 2026-06-05 | Branch protection `strict` (require up-to-date branches) disabled: with SHA-bound experimenter approvals and concurrent auto-merges, strict mode livelocks protected-path PRs (approve → behind → update → approval stale). Pre-registered as a tuning knob; required checks unaffected |
+| 2026-06-05 | **Experiment started.** Start date recorded and all seven routines enabled by the experimenter from the CLI (experimenter-authored PR, admin-merged per the documented protected-path procedure). Scout fired once manually post-enablement to seed the issue queue ahead of its Monday cadence |
