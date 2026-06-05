@@ -19,9 +19,12 @@ $ARGUMENTS is the optional PR number argument.
 
 Once you have the PR number, gather all context using tools. Run these in parallel:
 
-1. **PR metadata**: Run `gh pr view <number> --json title,body,baseRefName,headRefName,number` via Bash
+1. **PR metadata**: Run `gh pr view <number> --json title,body,baseRefName,headRefName,headRefOid,number` via Bash
 2. **PR diff**: Run `gh pr diff <number>` via Bash
-3. **Full paper**: Read the file `gravity-as-constraint.tex`
+3. **Full paper(s)**: Determine the affected program(s) from the diff —
+   `gh pr diff <number> --name-only | grep -oP '^programs/[^/]+' | sort -u` —
+   and read each affected program's `index.tex` (skip programs that have no
+   `index.tex` yet; for those, read the files the diff touches in full).
 4. **Methodology**: Read the file `METHODOLOGY.md`
 
 ## Step 3: Adversarial Critic (Pass 1)
@@ -250,9 +253,10 @@ Map verdicts to actions:
 - Overstated → **Note** (describe the real concern at correct severity)
 - Wrong → **Dismiss** (explain why)
 
-## Step 6: Offer to post
+## Step 6: Post the review
 
-After printing the synthesized review, ask the user:
+**Interactive mode** (a human is present): after printing the synthesized
+review, ask the user:
 
 "Post this review as a comment on PR #<number>?"
 
@@ -261,3 +265,19 @@ Use AskUserQuestion with two options:
 - **No** — Keep local only
 
 If yes, post via: `gh pr comment <number> --body "<review text>"`
+
+**Headless mode** (running inside the reviewer routine of the autonomous
+experiment — see `AUTONOMY.md` and `automation/routines/reviewer.md`): do not
+ask. Post the review as a PR comment, ending with the machine-readable verdict
+marker on its own final line, where `<sha>` is the `headRefOid` you gathered in
+Step 2 (the SHA you actually reviewed — if the branch has moved since, discard
+and do not post):
+
+```
+<!-- quorum:verdict accept sha=<sha> -->
+```
+
+Map the Assessment recommendation to the marker verdict: Accept → `accept`,
+Revise → `revise`, Reject → `reject`. The `quorum-gate` required check reads
+this marker; it is only honored when posted by the machine account or the
+experimenter.
