@@ -31,6 +31,10 @@ Discipline specific to the autonomous setting:
   exhaustively.
 - Check rigor labels against the actual argument. Mislabeled rigor is an
   automatic **revise**, minimum.
+- If the PR touches a README "In plain English" abstract — or changes a
+  headline result's rigor without updating it — check abstract↔paper
+  congruence. Plain-English overclaiming, or a stale abstract contradicting
+  the paper's new state, is a **revise** at minimum.
 
 Map the synthesis recommendation to a verdict:
 

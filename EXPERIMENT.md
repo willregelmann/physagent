@@ -120,3 +120,5 @@ terminal artifact, regardless of outcome.
 | Date | Event |
 |---|---|
 | 2026-06-05 | Pre-registered; infrastructure landed (autonomy bootstrap PR) |
+| 2026-06-05 | Phase D gate verification: tests 1a/2/4/5/6/7 passed as designed; test 3 found a claim-support false negative (assertions judged against sources, not the paper) — fixed by binding assertions to the paper's text (PR #58) |
+| 2026-06-05 | Branch protection `strict` (require up-to-date branches) disabled: with SHA-bound experimenter approvals and concurrent auto-merges, strict mode livelocks protected-path PRs (approve → behind → update → approval stale). Pre-registered as a tuning knob; required checks unaffected |

@@ -50,6 +50,11 @@ Read `METHODOLOGY.md` before contributing. It defines:
 - Accented names use LaTeX commands (e.g., `Di\'osi`, `M\o ller`)
 - Date format: Month YYYY
 - Authors: Will Regelmann, Claude (Anthropic)
+- Each program README maintains an `## In plain English` abstract for
+  non-physicist readers: every sentence traceable to a labeled result, no
+  claim stated above its rigor label, conjectures called conjectures in plain
+  English too. Updated in the same PR as any headline rigor change; the
+  governor freshness-sweeps monthly.
 
 ## Before starting work
 

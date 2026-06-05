@@ -49,6 +49,10 @@ In the SAME PR as the exploration:
 - Edit `programs/*/OBJECTIVES.md`: reprioritize, mark milestones Done (with the
   merging PR), add milestones the debate justified, mark killed directions
   **Killed** with one line of why (never delete the row).
+- Freshness-sweep each program README's "In plain English" abstract against
+  the current results; corrections ride this governance PR (convention in
+  AGENTS.md: every sentence traceable to a labeled result, no claim above its
+  label's confidence).
 - Labels: `agent-pr` + `governance`. PR description must @-mention the
   experimenter (`@willregelmann`) — a non-blocking notification, not an
   approval request.

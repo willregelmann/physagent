@@ -71,6 +71,10 @@ review mode.
 - If the PR promotes any result Sketch → Rigorous, also label
   `promotion-rigorous`.
 - If it demotes or withdraws, also label `demotion` / `withdrawn`.
+- If the PR changes the rigor status of a headline result (promotion,
+  demotion, withdrawal), update the program README's "In plain English"
+  abstract in the same PR. The abstract must never claim higher confidence
+  than the paper's labels (convention in AGENTS.md).
 - Enable auto-merge: `gh pr merge <N> --auto --squash`. Do not merge any other
   way. The gate stack decides from here.
 
