@@ -10,6 +10,21 @@ Every PR must target a specific issue. Speculative exploration that doesn't map 
 
 Agents have no merge authority. Only the human author merges.
 
+### Autonomous Experiment Mode
+
+For the duration of the experiment pre-registered in `EXPERIMENT.md`, the two
+human-in-the-loop rules above are superseded by the constitution in
+`AUTONOMY.md`: merge authority is delegated to a mechanical gate stack
+(deterministic CI → semantic claim-support → adversarial quorum →
+constitutional guard, with GitHub auto-merge as the executor), the human author
+acts as experimenter rather than reviewer, and explorations are merged via
+gated PRs rather than committed directly to `main`. Everything else in this
+document — rigor standards, the rigor lifecycle, citation discipline,
+adversarial review modes, team patterns, issue relations — remains in force
+unchanged and is enforced by the gate stack rather than by human review.
+`AUTONOMY.md` is the controlling document wherever the two conflict; outside
+the experiment window, this section is inert.
+
 ## Rigor Standards
 
 Every derivation in a PR must include self-checks documented in the PR description:
