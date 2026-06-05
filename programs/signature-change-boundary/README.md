@@ -2,6 +2,21 @@
 
 **Status:** Early note / musings
 
+## In plain English
+
+Spacetime has a built-in difference between time and space (its "signature").
+Some approaches to quantum cosmology imagine regions where that distinction
+switches off — geometry with no time direction at all — which raises the
+question: is the border between a timeless region and a normal one a tear, a
+wall, or something traversable? This program studies the simplest such border
+on a fixed, hand-prescribed background and finds it surprisingly tame:
+geometry, particle paths, and waves all either cross it or terminate on it in
+a finite, controlled way, with a precise asymmetry — paths through time end
+at the boundary, paths through space cross unharmed. These are early notes,
+not a paper; the core calculations are rigorous for the fixed background, one
+section is a sketch, and nothing here claims such borders actually occur in
+nature — only that they are not mathematically catastrophic.
+
 A fixed background whose metric changes signature across a degenerate hypersurface $\Sigma$ supports a Lorentzian region adjacent to a Euclidean one, and the crossing of $\Sigma$ by worldlines and fields is benign rather than singular. This program asks a narrow, foundational question: **can a fixed Euclidean background produce a Lorentzian region, and can worldlines cross the boundary between them?**
 
 ## Scope

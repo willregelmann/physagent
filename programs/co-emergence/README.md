@@ -2,6 +2,20 @@
 
 **Status:** Draft
 
+## In plain English
+
+Why does time exist, and why does quantum mechanics run on imaginary numbers?
+This program studies a model where the universe is a single, static,
+four-dimensional block — no built-in clock — and asks what structures it
+*must* contain to be consistent with itself. The central finding so far: in a
+small, exactly solvable model, self-consistency with a time-like (Lorentzian)
+geometry forces the wavefunction to develop complex phases — the raw
+ingredient of quantum interference — while a space-like (Riemannian) geometry
+stays purely classical. Pieces of this are rigorously proven (for small
+subsystems); much of the rest rests on extensive numerical evidence. The
+headline thesis — that mass, time, geometry, and quantum mechanics emerge
+together as a package — remains a conjecture, and is labeled as one.
+
 Mass, Lorentzian signature, local time, and local Hilbert space are four aspects of one structure. None exists without the others. They co-emerge as the unique cross-level self-consistent configuration of a four-dimensional block manifold with no evolution parameter, no background structure, and no fundamental Hilbert space.
 
 ## Paper structure

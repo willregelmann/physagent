@@ -4,6 +4,23 @@ The semiclassical Einstein equation admits self-consistent solutions at three le
 
 **Status:** Pre-submission draft
 
+## In plain English
+
+Einstein's equations say matter tells spacetime how to curve. Quantum
+mechanics says matter is fuzzy — it has no single definite arrangement.
+"Semiclassical gravity" is the proposal that spacetime curves in response to
+the *average* of that fuzziness, with no need to quantize gravity itself.
+Critics have long suspected this picture is not even self-consistent. This
+paper shows that it is: there exist geometries that exactly reproduce
+themselves — the curvature sourced by quantum matter living on the geometry
+is that same geometry. The result is rigorous near ordinary classical
+spacetimes when particles have mass, exact in a known cosmological example
+(Starobinsky), and conditional in the most general case (one assumption
+remains open). Massless particles such as light are not yet covered. None of
+this says nature actually works this way — only that the framework is
+internally coherent, with its breakdown scale (the Planck scale) derived
+rather than assumed.
+
 ## Results
 
 1. **Exact (Starobinsky, 1980).** The trace anomaly on FRW spacetime yields an exact de Sitter fixed point. **(Rigorous)**

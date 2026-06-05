@@ -4,6 +4,20 @@ The Einstein-Langevin equation predicts that gravitational decoherence of a rigi
 
 **Status:** Pre-submission draft
 
+## In plain English
+
+Put a small but massive object in two places at once — a quantum
+superposition — and gravity itself may destroy the superposition. Penrose and
+Diósi famously estimated how fast; experiments are inching toward testing it.
+This paper sharpens the prediction: the superposition should not decay
+exponentially (steadily, like radioactivity) but as a Gaussian — slowly at
+first, then all at once. The timescale agrees with the Penrose–Diósi estimate
+to within about 13%, but the *shape* of the decay differs, and it depends on
+the material: rigid crystals decay Gaussian, soft materials drift back toward
+exponential. Shape and material-dependence are things an experiment can
+check, distinguishing this account from its rivals. The prediction is derived
+at draft rigor and has not been tested by any experiment.
+
 ## Results
 
 1. The decoherence timescale is tau_coh = (4sqrt(2)/5) hbar/E_Delta ~ 1.13 tau_DP, determined by the same gravitational self-energy as the Diosi-Penrose prediction.
