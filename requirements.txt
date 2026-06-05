@@ -5,4 +5,4 @@ pytest>=7.0
 
 # Used by the standalone exploration/plotting scripts in programs/*/tests/
 # (not required to run the pytest suite).
-matplotlib>=3.7
+matplotlib>=3.10.9
