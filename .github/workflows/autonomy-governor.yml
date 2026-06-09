@@ -1,0 +1,19 @@
+name: autonomy-governor
+
+# Scheduled caller for the governor routine (automation/routines/governor.md).
+# Cadence: monthly, 1st at 09:00 UTC. The reusable runner gates on
+# AUTONOMY_ENABLED and guards the machine-account identity. workflow_dispatch
+# is provided for manual testing of a single role.
+
+on:
+  schedule:
+    - cron: "0 9 1 * *"
+  workflow_dispatch:
+
+jobs:
+  governor:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: governor
+      model: claude-opus-4-8
+    secrets: inherit

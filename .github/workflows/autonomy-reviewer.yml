@@ -1,0 +1,19 @@
+name: autonomy-reviewer
+
+# Scheduled caller for the reviewer routine (automation/routines/reviewer.md).
+# Cadence: twice daily, 05:00 and 17:00 UTC (the adversarial quorum). The
+# reusable runner gates on AUTONOMY_ENABLED and guards the machine-account
+# identity. workflow_dispatch is provided for manual testing of a single role.
+
+on:
+  schedule:
+    - cron: "0 5,17 * * *"
+  workflow_dispatch:
+
+jobs:
+  reviewer:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: reviewer
+      model: claude-opus-4-8
+    secrets: inherit

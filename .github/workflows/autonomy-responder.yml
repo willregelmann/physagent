@@ -1,0 +1,20 @@
+name: autonomy-responder
+
+# Scheduled caller for the responder routine (automation/routines/responder.md).
+# Cadence: daily 04:00 UTC (runs before reviewer 05:00 and worker 06:00 so
+# fixes land, get re-reviewed, then new work starts against an up-to-date
+# queue). The reusable runner gates on AUTONOMY_ENABLED and guards the
+# machine-account identity. workflow_dispatch is provided for manual testing.
+
+on:
+  schedule:
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+jobs:
+  responder:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: responder
+      model: claude-sonnet-4-6
+    secrets: inherit
