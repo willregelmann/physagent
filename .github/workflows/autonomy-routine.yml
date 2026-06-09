@@ -1,0 +1,100 @@
+name: autonomy-routine
+
+# Reusable runner for the seven autonomous routines (AUTONOMY.md). Each role's
+# scheduled caller (autonomy-<role>.yml) invokes this with its role + model.
+# Behavior lives in automation/routines/<role>.md; this file only establishes
+# the machine-account identity and runs a headless Claude Code session on the
+# role's pointer prompt.
+#
+# WHY THIS EXISTS: the original deployment ran the routines as claude.ai
+# scheduled remote agents, which authenticate GitHub with the *account's*
+# global connector — i.e. the experimenter's admin login. That voided every
+# authority boundary in AUTONOMY.md (write-not-admin, no self-verdict, no
+# protected-path self-approval). A GitHub Actions runner authenticates with a
+# credential we control (AUTONOMY_BOT_PAT), restoring the machine-account
+# identity by construction. See EXPERIMENT.md log (2026-06-09).
+#
+# IDENTITY: every git/gh operation authenticates as the machine account via
+# AUTONOMY_BOT_PAT, NOT the default GITHUB_TOKEN (whose actor is
+# github-actions[bot] — neither the machine account nor the experimenter, and
+# whose PRs would not trigger the required-check workflows). checkout runs with
+# persist-credentials:false so the default token's git credential cannot shadow
+# the PAT. A hard identity guard refuses to run the routine if the effective
+# login is not the AUTONOMY_BOT variable value — the exact check whose absence
+# caused the 2026-06-05 incident.
+#
+# KILL SWITCH: the job is gated on the repo variable AUTONOMY_ENABLED == 'true'.
+# Unset or any other value => every routine run skips. Flip that one variable to
+# start or stop the whole fleet; individual roles can also be disabled in the
+# Actions tab.
+
+on:
+  workflow_call:
+    inputs:
+      role:
+        description: Routine role; must match automation/routines/<role>.md
+        required: true
+        type: string
+      model:
+        description: Full Claude model ID to run this routine on
+        required: true
+        type: string
+
+jobs:
+  run:
+    name: ${{ inputs.role }}
+    if: ${{ vars.AUTONOMY_ENABLED == 'true' }}
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.AUTONOMY_BOT_PAT }}
+      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      ROLE: ${{ inputs.role }}
+      MODEL: ${{ inputs.model }}
+      AUTONOMY_BOT: ${{ vars.AUTONOMY_BOT }}
+    steps:
+      - name: Preflight — required secrets and variables present
+        run: |
+          set -euo pipefail
+          missing=
+          [ -z "${GH_TOKEN:-}" ] && missing="$missing AUTONOMY_BOT_PAT(secret)"
+          [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ] && missing="$missing CLAUDE_CODE_OAUTH_TOKEN(secret)"
+          [ -z "${AUTONOMY_BOT:-}" ] && missing="$missing AUTONOMY_BOT(var)"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing required configuration:$missing — cannot run the ${ROLE} routine."
+            exit 1
+          fi
+
+      - name: Check out repo (do not persist the default-token credential)
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Configure git/gh as the machine account, and GUARD the identity
+        run: |
+          set -euo pipefail
+          gh auth setup-git
+          git config --global user.name "${AUTONOMY_BOT}"
+          git config --global user.email "${AUTONOMY_BOT}@users.noreply.github.com"
+          ACTUAL=$(gh api user --jq .login)
+          echo "Effective GitHub identity: ${ACTUAL} (expected: ${AUTONOMY_BOT})"
+          if [ "${ACTUAL}" != "${AUTONOMY_BOT}" ]; then
+            echo "::error::Routine would run as '${ACTUAL}', not the machine account '${AUTONOMY_BOT}'."
+            echo "::error::Refusing to act. This is the identity guard the claude.ai deployment lacked (2026-06-05 incident)."
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Run the ${{ inputs.role }} routine
+        run: |
+          set -euo pipefail
+          PROMPT="You are the ${ROLE} routine of the self-consistency autonomous research experiment. Read AUTONOMY.md at the repository root first, then read automation/routines/${ROLE}.md and execute it exactly. If automation/routines/${ROLE}.md does not exist on this branch, the experiment infrastructure has not landed yet — exit immediately without taking any action."
+          claude -p "$PROMPT" \
+            --model "$MODEL" \
+            --permission-mode bypassPermissions

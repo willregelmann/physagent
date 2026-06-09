@@ -1,0 +1,19 @@
+name: autonomy-scout
+
+# Scheduled caller for the scout routine (automation/routines/scout.md).
+# Cadence: weekly, Monday 03:00 UTC. The reusable runner gates on
+# AUTONOMY_ENABLED and guards the machine-account identity. workflow_dispatch
+# is provided for manual testing of a single role.
+
+on:
+  schedule:
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+jobs:
+  scout:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: scout
+      model: claude-sonnet-4-6
+    secrets: inherit

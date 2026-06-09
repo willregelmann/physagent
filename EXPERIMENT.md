@@ -1,11 +1,14 @@
 # EXPERIMENT.md — Pre-registration of the Autonomous Research Experiment
 
-**Status:** Halted ~3h after first enablement (2026-06-05). The live identity
-check on the first routine run found routines authenticating as the
-experimenter's admin login rather than the machine account; all seven routines
-were disabled (kill switch step 1 — see log). Restart pending the auth fix;
-the start date will be re-recorded at restart. This file is a protected path;
-agents do not edit it.
+**Status:** Halted since first enablement (2026-06-05). Root cause confirmed
+2026-06-09: the claude.ai scheduled-agent runner authenticates GitHub with the
+account's global connector (the experimenter's admin login), and that connector
+cannot be repointed to the machine account per-routine — so the runner itself,
+not a setting, was the defect. The fleet is being **migrated to GitHub Actions
+scheduled workflows**, which authenticate with a credential we control
+(`AUTONOMY_BOT_PAT`); restart is gated on a green `autonomy-identity-probe` and
+on flipping `AUTONOMY_ENABLED`. The start date will be re-recorded at restart.
+This file is a protected path; agents do not edit it.
 
 ## Hypothesis
 
@@ -127,3 +130,4 @@ terminal artifact, regardless of outcome.
 | 2026-06-05 | Branch protection `strict` (require up-to-date branches) disabled: with SHA-bound experimenter approvals and concurrent auto-merges, strict mode livelocks protected-path PRs (approve → behind → update → approval stale). Pre-registered as a tuning knob; required checks unaffected |
 | 2026-06-05 | **Experiment started.** Start date recorded and all seven routines enabled by the experimenter from the CLI (experimenter-authored PR, admin-merged per the documented protected-path procedure). Scout fired once manually post-enablement to seed the issue queue ahead of its Monday cadence |
 | 2026-06-05 | **Halted at T+3h (kill switch step 1).** The manually-fired scout run doubled as the live identity check: its issues (#65, #66) were authored by the experimenter's login (`willregelmann`, admin) instead of the machine account (`will-physagent`) — the cloud environment's GitHub credential is the experimenter's, so every authority boundary that holds "by construction" (write-not-admin, no branch-protection bypass, experimenter/agent distinction) was void. All seven routines disabled via API within minutes; no PRs were opened and nothing merged under the wrong identity. Scout-filed issues kept — experimenter-authored `agent-ready` issues are valid per the label table. Remediation before restart: (1) rotate the bot PAT (also closing the earlier transcript-exposure note), (2) set the rotated PAT as the cloud environment's GitHub credential so routine runs operate as `will-physagent`, (3) re-fire one routine and verify its effective login on a created artifact, (4) re-enable all seven and re-record the start date. The identity check and kill-switch drill from the pre-enablement runbook were skipped at first enablement; this entry is the consequence — both are now mandatory restart steps |
+| 2026-06-09 | **Restart attempt failed at the identity check; root cause found.** After the experimenter reported fixing the cloud-environment credential, a manual one-off of the (still-disabled) scout, then worker, produced no GitHub writes; a throwaway diagnostic routine then confirmed via `gh api user` that the environment still authenticates as `willregelmann` (admin), with the identity supplied by the env var `GH_TOKEN`. Diagnosis: the claude.ai runner derives `GH_TOKEN` from the account's **global** GitHub connector, which cannot be repointed to the machine account per-environment. Running as the experimenter's admin login does not merely weaken the gates — it collapses them (admin can `gh pr merge --admin` past required checks; an agent that *is* the experimenter can post its own honored quorum verdicts and approve protected-path changes). Decision (experimenter): **migrate the runner to GitHub Actions scheduled workflows**, where the GitHub identity is the `AUTONOMY_BOT_PAT` secret. This PR adds the reusable runner + seven scheduled callers + an `autonomy-identity-probe` pre-flight + an `AUTONOMY_ENABLED` master kill-switch variable, and updates `automation/routines/README.md`. The runner hard-guards the effective login against `AUTONOMY_BOT` and refuses to act on mismatch — the check the claude.ai deployment structurally could not perform. Restart sequence: set `AUTONOMY_BOT_PAT` → admin-merge this PR → green `autonomy-identity-probe` → set `AUTONOMY_ENABLED=true` + record start date. The seven claude.ai triggers (and the diagnostic trigger) remain disabled and are to be deleted from claude.ai/code/routines |

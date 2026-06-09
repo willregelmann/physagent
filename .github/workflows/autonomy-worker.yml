@@ -1,0 +1,19 @@
+name: autonomy-worker
+
+# Scheduled caller for the worker routine (automation/routines/worker.md).
+# Cadence mirrors the pre-registered cadence: daily 06:00 UTC. The reusable
+# runner gates on AUTONOMY_ENABLED and guards the machine-account identity.
+# workflow_dispatch is provided for manual testing of a single role.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+
+jobs:
+  worker:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: worker
+      model: claude-opus-4-8
+    secrets: inherit

@@ -1,0 +1,51 @@
+name: autonomy-identity-probe
+
+# Pre-flight identity check for the autonomous fleet. Run manually
+#   gh workflow run autonomy-identity-probe.yml
+# AFTER setting the AUTONOMY_BOT_PAT secret and BEFORE flipping AUTONOMY_ENABLED
+# to true. Confirms the machine-account PAT authenticates as the login recorded
+# in the AUTONOMY_BOT variable, and that it is write-not-admin — the two checks
+# whose absence let the claude.ai deployment run as the experimenter (admin) and
+# silently void the gate stack (EXPERIMENT.md, 2026-06-05/06-09).
+#
+# This workflow is NOT gated by AUTONOMY_ENABLED and runs no Claude session — it
+# is a cheap auth assertion, intended to be green before the fleet is enabled.
+
+on:
+  workflow_dispatch:
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.AUTONOMY_BOT_PAT }}
+      AUTONOMY_BOT: ${{ vars.AUTONOMY_BOT }}
+      REPO: ${{ github.repository }}
+    steps:
+      - name: Verify the machine-account identity and permission level
+        run: |
+          set -euo pipefail
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::AUTONOMY_BOT_PAT secret not set — nothing to verify."; exit 1
+          fi
+          if [ -z "${AUTONOMY_BOT:-}" ]; then
+            echo "::error::AUTONOMY_BOT variable not set — cannot determine the expected login."; exit 1
+          fi
+
+          LOGIN=$(gh api user --jq .login)
+          echo "AUTONOMY_BOT_PAT authenticates as: ${LOGIN}"
+          echo "Expected (AUTONOMY_BOT variable):  ${AUTONOMY_BOT}"
+          if [ "${LOGIN}" != "${AUTONOMY_BOT}" ]; then
+            echo "::error::Identity mismatch — PAT is '${LOGIN}', expected '${AUTONOMY_BOT}'. Do NOT enable the fleet."
+            exit 1
+          fi
+
+          # Authority boundary: the machine account must be write, NOT admin.
+          ADMIN=$(gh api "repos/${REPO}" --jq '.permissions.admin')
+          echo "repo admin permission for this token: ${ADMIN}"
+          if [ "${ADMIN}" = "true" ]; then
+            echo "::error::Token has ADMIN on the repo. The authority-boundary model (AUTONOMY.md) requires write-not-admin — an admin token can bypass branch protection and self-approve. Fix the machine account's role before enabling."
+            exit 1
+          fi
+
+          echo "::notice::Identity OK: ${LOGIN} (write-not-admin). Safe to enable AUTONOMY_ENABLED."

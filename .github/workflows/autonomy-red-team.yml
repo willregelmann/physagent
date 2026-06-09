@@ -1,0 +1,21 @@
+name: autonomy-red-team
+
+# Scheduled caller for the red-team routine (automation/routines/red-team.md).
+# Cadence: every 3 days at 08:00 UTC. NOTE the cron `0 8 */3 * *` is
+# day-of-month based, so the interval compresses at month boundaries (e.g. the
+# 31st -> the 1st). Harmless; preserved from the pre-registered cadence. The
+# reusable runner gates on AUTONOMY_ENABLED and guards the machine-account
+# identity. workflow_dispatch is provided for manual testing of a single role.
+
+on:
+  schedule:
+    - cron: "0 8 */3 * *"
+  workflow_dispatch:
+
+jobs:
+  red-team:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: red-team
+      model: claude-opus-4-8
+    secrets: inherit

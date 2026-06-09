@@ -1,0 +1,19 @@
+name: autonomy-librarian
+
+# Scheduled caller for the librarian routine (automation/routines/librarian.md).
+# Cadence: weekly, Tuesday 03:00 UTC. The reusable runner gates on
+# AUTONOMY_ENABLED and guards the machine-account identity. workflow_dispatch
+# is provided for manual testing of a single role.
+
+on:
+  schedule:
+    - cron: "0 3 * * 2"
+  workflow_dispatch:
+
+jobs:
+  librarian:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: librarian
+      model: claude-sonnet-4-6
+    secrets: inherit
