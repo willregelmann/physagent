@@ -32,7 +32,7 @@ The paper leads with proved results, then develops the interpretive framework:
 
 - **`fixed-point-existence`** — Companion paper. Provides the Level 2 anchor: Banach contraction for massive fields (Rigorous), Starobinsky exact solution for conformal matter (Rigorous), Schauder existence (conditional). Results are cited, not re-derived.
 
-- **`self-consistency-hierarchy`** (DEPRECATED) — Previous version of this paper. The hierarchy framework originated there; the co-emergence thesis emerged from its explorations (B1, C1, signature-mass debate, mass gap debate). The explorations in that program are the research record for this one.
+- **`self-consistency-hierarchy`** (removed 2026-03, commit 782414f) — Previous version of this paper; the program directory no longer exists. The hierarchy framework originated there, and the co-emergence thesis emerged from its explorations (B1, C1, signature-mass debate, mass gap debate). Those explorations were restored from git history into this program's `explorations/` directory (2026-06), where they remain the research record for the results table below.
 
 ## Key results
 
