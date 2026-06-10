@@ -36,11 +36,12 @@ This is deliberately a **fixed-background, test-field** investigation.
   - timelike geodesics reach $\Sigma$ at finite proper time but have no timelike continuation; spacelike geodesics cross with character intact (the crossing asymmetry);
   - a free scalar's temporal equation has a regular singular (Fuchsian) point at $\Sigma$, Bessel-reducible with $\nu = \tfrac12$, so all modes are bounded and the canonical momentum is finite (no surface layer);
   - the stress-energy scalar invariants are bounded;
-  - all of the above are faces of one mechanism: every $g^{00}=1/\lambda$ is escorted by $\sqrt{|g|}=\sqrt{|\lambda|}$.
+  - all of the above are faces of one mechanism: every $g^{00}=1/\lambda$ is escorted by $\sqrt{|g|}=\sqrt{|\lambda|}$;
+  - the analysis is two-sided: the profile $\lambda \simeq -c\,\mathrm{sgn}(x^0)\,|x^0|^n$ gives a genuine signature change for every $n>0$, and each of §§3–6 is established from both the Lorentzian ($x^0>0$) and the Euclidean ($x^0<0$) sides.
 
-## Open points (from review, not yet addressed in the note)
+## Open points (from review)
 
-- **Degeneracy order vs. sign change.** The one-sided "reaches $\Sigma$ / Fuchsian regularity" results hold for all $n>0$ in $\lambda \simeq -c\,(x^0)^n$. The *two-sided* picture (an actual Euclidean region, and continuation across $\Sigma$) requires $\lambda$ to change sign, which $-c(x^0)^n$ provides only for odd integer $n$; for even $n$ the metric is Lorentzian on both sides (a degenerate tangency, not a signature change). Restate the profile as an odd-type function, e.g. $\lambda \simeq -c\,\mathrm{sgn}(x^0)\,|x^0|^n$.
+- **Degeneracy order vs. sign change** — *addressed* (#65). The note now states the profile as $\lambda \simeq -c\,\mathrm{sgn}(x^0)\,|x^0|^n$ (a genuine two-sided signature change for every $n>0$, with the parity defect of the earlier $-c(x^0)^n$ form recorded in §1) and carries the Euclidean-side parallel analysis through §§3–6.
 - **No-log strengthening.** Because $\nu=\tfrac12$ is non-integer for every $n$, there is no logarithmic solution even when the indicial roots $\{0,\,1+\tfrac n2\}$ differ by an integer (even $n$). Worth stating explicitly in §5.
 - **Rigor labels.** The note does not use the project's Rigorous/Sketch/Conjecture labels. §§3–6 are Rigorous given the fixed background; §7's worldline-saddle / propagator-tail matching is a Sketch.
 - **Citations.** The references in "Relation to existing work" (Ellis and collaborators; Hayward; Dray–Ellis–Hellaby–Manogue; Kossowski–Kriele) are real and on-topic but **exploratory until verified**, and must not enter a `thebibliography` without strict verification (author/title/journal/year + claim support).

@@ -19,13 +19,17 @@ Work on a four-manifold $\mathcal{M}$ with coordinates $x^\mu = (x^0, x^1, x^2, 
 
 $$ds^2 = \lambda(x^0)\,(dx^0)^2 + (dx^1)^2 + (dx^2)^2 + (dx^3)^2,$$
 
-with $\lambda$ a smooth real function that passes through zero. The three regions are:
+with $\lambda$ a real function that passes through zero, smooth away from its zero. The three regions are:
 
 - $\lambda < 0$: **Lorentzian** — $x^0$ is timelike, signature $(-,+,+,+)$.
 - $\lambda > 0$: **Euclidean** — all four directions spacelike, signature $(+,+,+,+)$.
 - $\lambda = 0$: the **degenerate surface** $\Sigma$, where $\det g = \lambda \to 0$ and $g^{-1}$ is undefined.
 
-Near $\Sigma$ take $\lambda(x^0) \simeq -c\,(x^0)^n$ with $c>0$ and $n>0$, so the Lorentzian region is $x^0>0$ and $\Sigma$ is at $x^0=0$. The exponent $n$ controls the rate at which the signature degenerates ($n=1$ linear, $n=2$ quadratic); the results below hold for all $n>0$.
+Near $\Sigma$ take
+
+$$\lambda(x^0) \simeq -c\,\mathrm{sgn}(x^0)\,|x^0|^n, \qquad c>0,\; n>0,$$
+
+so that $\lambda<0$ (Lorentzian) for $x^0>0$, $\lambda>0$ (Euclidean) for $x^0<0$, and $\Sigma$ is at $x^0=0$ — a genuine two-sided signature change for every $n>0$. (An earlier draft wrote $\lambda \simeq -c\,(x^0)^n$, which changes sign only for odd $n$; for even $n$ that form is negative on both sides of $\Sigma$, a degenerate tangency between two Lorentzian regions rather than a signature change. The $\mathrm{sgn}$ form fixes this parity defect; for $n=1$ the two forms coincide. For non-odd $n$ the $\mathrm{sgn}$ profile is only finitely differentiable at $\Sigma$ itself; every derivation below uses only the one-sided asymptotics on the open regions, so nothing is lost.) The exponent $n$ controls the rate at which the signature degenerates ($n=1$ linear, $n=2$ quadratic); the results below hold for all $n>0$ and are established from both sides of $\Sigma$.
 
 Two interpretive points fix the framing.
 
@@ -46,6 +50,16 @@ On the Lorentzian side ($\lambda<0$) define $u = \int_0^{x^0}\sqrt{-\lambda(s)}\
 $$ds^2 = -\,du^2 + (dx^1)^2 + (dx^2)^2 + (dx^3)^2,$$
 
 i.e. flat Minkowski space. The same substitution with $\sqrt{\lambda}$ on the Euclidean side gives flat $\mathbb{R}^4$. Direct computation agrees: the only nonzero Christoffel symbol is $\Gamma^0_{00} = \lambda'/2\lambda$, and the Riemann tensor it produces vanishes identically.
+
+**The Euclidean side, explicitly.** For $x^0<0$, $\lambda = c\,|x^0|^n > 0$. Define $v = \int_{x^0}^{0}\sqrt{\lambda(s)}\,ds$, the Euclidean distance from $\Sigma$. Then $dv^2 = \lambda\,(dx^0)^2$ and
+
+$$ds^2 = dv^2 + (dx^1)^2 + (dx^2)^2 + (dx^3)^2,$$
+
+flat $\mathbb{R}^4$; the map $v(x^0)$ is a diffeomorphism on the open Euclidean region and degenerates only at $\Sigma$. The Christoffel computation is uniform across the two sides: with $\lambda = -c\,\mathrm{sgn}(x^0)\,|x^0|^n$ one has $\lambda' = -c\,n\,|x^0|^{n-1}$ for all $x^0\neq 0$, so
+
+$$\Gamma^0_{00} \;=\; \frac{\lambda'}{2\lambda} \;=\; \frac{n}{2x^0}$$
+
+on *both* sides — the same simple pole at $\Sigma$, approached from either direction (in the distance-from-$\Sigma$ variable $x=|x^0|$ this reads $+n/2x$ on the Lorentzian side and $-n/2x$ on the Euclidean side) — and it remains the only nonzero symbol. A Riemann tensor built from a single $\Gamma^0_{00}(x^0)$ vanishes identically: every component with a spatial index contains a vanishing Christoffel, and $R^0{}_{000} = 0$ by antisymmetry. So the Euclidean bulk is flat by direct computation as well, its geodesics are straight lines in $(v,\vec x)$, and all curvature invariants are zero on both sides.
 
 **Consequence.** On the fixed background, the bulk on each side of $\Sigma$ is flat; all curvature invariants are zero. The surface $\Sigma$ is therefore *not* a curvature singularity. It is a coordinate-degenerate boundary — the edge of a flat region — at which the $x^0$ coordinate, but not the geometry, breaks down. The map $u(x^0)$ is a diffeomorphism on the open Lorentzian region and degenerates only at $\Sigma$ itself.
 
@@ -71,6 +85,8 @@ The honest, neutral statement is therefore: **a timelike geodesic is incomplete 
 
 **Spacelike geodesics cross with their character intact.** A spacelike curve has length element $\sqrt{\lambda + |\vec u|^2}\,dx^0$ with $|\vec u|^2 > -\lambda$; near $\Sigma$ the integrand tends to $|\vec u|>0$, so it too reaches $\Sigma$ at finite parameter. But for $\lambda>0$ *every* direction is spacelike, so the curve continues with no change of causal character. Spacelike is the type shared with the Euclidean directions.
 
+**From the Euclidean side.** For $x^0<0$ the metric is positive-definite, so every curve is spacelike — there is no timelike sector to discuss. A curve approaching $\Sigma$ from $x^0<0$ has length element $\sqrt{\lambda + |\vec u|^2}\;dx^0$ with $\lambda>0$: the radicand is positive for *every* $\vec u$ (no cone condition exists), and near $\Sigma$ the integrand tends to $|\vec u|$ — or to $0$ via $\sqrt{\lambda}\sim\sqrt{c}\,|x^0|^{n/2}$ if $\vec u \to 0$ — so over a finite coordinate interval the arc length is finite. Euclidean curves also reach $\Sigma$ at finite parameter; nothing on either side is held away from the surface. Crossing into $x^0>0$ with $|\vec u|>0$ at $\Sigma$, the curve satisfies the Lorentzian spacelike condition $|\vec u|^2 > -\lambda$ automatically near $\Sigma$ (the right-hand side tends to $0$), and continues as a spacelike curve: character intact, in either direction of traversal. The one exceptional direction is the $x^0$-axis itself, which is spacelike on the Euclidean side and timelike on the Lorentzian side: as a point set it passes through $\Sigma$, but its causal character flips there. Read from the Lorentzian side this is the rest worldline above (timelike, no timelike continuation); read from the Euclidean side it is the unique spacelike direction that fails to cross *as itself*. The two readings are the same asymmetry.
+
 **The asymmetry.** Both types reach $\Sigma$; they differ in whether they *continue as themselves*. Timelike curves cannot (no timelike continuation exists). Spacelike curves can. This asymmetry is forced by positive-definiteness of the Euclidean region alone; it requires nothing about the field equations.
 
 ## 5. A free scalar field across $\Sigma$
@@ -93,7 +109,19 @@ The equation is in fact **Bessel-reducible**. With $\alpha = \tfrac{n+2}{4}$, $\
 
 This last fact is the field-theoretic form of the geodesic asymmetry. **The operator changes type across $\Sigma$**: hyperbolic for $\lambda<0$, elliptic for $\lambda>0$. A mode that is *oscillatory* (a propagating wave) on the Lorentzian side continues to an *evanescent* (exponentially decaying) profile on the Euclidean side, while the spatial dependence, being spacelike on both sides, stays oscillatory throughout.
 
+**The Euclidean side, explicitly.** The reduction above used the Lorentzian-side form $\lambda = -c\,x^n$ with $x \equiv x^0 > 0$. For $x^0<0$ set $x \equiv -x^0 > 0$ (the coordinate distance from $\Sigma$), so $\lambda = c\,x^n > 0$. Carrying the same mode through the temporal operator — the two sign flips from $\partial_0 = -d/dx$ cancel in the second-order term, while $g^{00} = 1/\lambda$ has changed sign — gives
+
+$$\phi'' - \frac{n}{2x}\,\phi' - c\,(m^2+k^2)\,x^{n}\,\phi = 0.$$
+
+Written in the distance-from-$\Sigma$ variable, the friction term is identical to the Lorentzian side; the only change is the sign of the non-derivative term, which is the operator's type change (hyperbolic $\to$ elliptic) made explicit. The singular point at $x=0$ is still **Fuchsian** — the sign flip sits on the analytic, vanishing coefficient and does not enter the indicial equation — so the indicial roots are again $s=0$ and $s=1+\tfrac n2$, both $\ge 0$: all modes are bounded at $\Sigma$ from the Euclidean side too. The Bessel reduction goes through with the *same* $\alpha=\tfrac{n+2}{4}$, $\gamma=\tfrac{n+2}{2}$, $\beta=\tfrac{2\sqrt{c(m^2+k^2)}}{n+2}$, with ordinary Bessel functions replaced by modified ones, and again $\nu = \tfrac12$ exactly. Since $\alpha = \gamma/2$, the global solutions are elementary:
+
+$$\phi \propto \sinh(\beta x^\gamma) \quad (s=1+\tfrac n2), \qquad \phi \propto e^{-\beta x^{\gamma}} \quad (s=0),$$
+
+the $I_{1/2}$ and $K_{1/2}$ branches; the same rewriting on the Lorentzian side gives $\sin(\beta x^\gamma)$ and $\cos(\beta x^\gamma)$ — oscillation and evanescence *at the same rate constants* $\beta,\gamma$. Quantitatively, the Euclidean distance from $\Sigma$ is $\sigma_E(x) = \int_0^x\sqrt{\lambda}\,ds = \tfrac{2\sqrt c}{n+2}\,x^{(n+2)/2}$, so the decay exponent is $\beta x^\gamma = \sqrt{m^2+k^2}\;\sigma_E$ — for the $k=0$ mode, exactly $m\,\sigma_E$, the worldline/propagator-tail exponent of §7. Equivalently: in the flat coordinates of §3, $\beta x^\gamma = \sqrt{m^2+k^2}\,u$ on the Lorentzian side and $\sqrt{m^2+k^2}\,v$ on the Euclidean side, and the solution spaces on the two sides are exactly the flat-space mode spaces — spanned by $\cos/\sin(\sqrt{m^2+k^2}\,u)$ and by $e^{\mp\sqrt{m^2+k^2}\,v}$ respectively — pulled back through the degenerate coordinate change — §3's flatness and §5's Fuchsian structure are the same fact, as §8 asserts.
+
 Finally, the canonical momentum $\pi = \sqrt{|g|}\,g^{00}\,\partial_0\phi \sim x^{-n/2}\cdot x^{n/2}$ is **finite and approaches a constant** at $\Sigma$. This is the no-surface-layer matching condition used in the signature-change literature, here reproduced automatically by the Fuchsian regularity rather than imposed by hand.
+
+The momentum is finite from the Euclidean side as well: with $\partial_0 = -d/dx$, $\pi \sim x^{-n/2}\,\phi'(x)$ up to sign, and both Euclidean branches have $\phi' = O(x^{n/2})$ — $\phi' = \beta\gamma\,x^{n/2}\cosh(\beta x^\gamma)$ and $-\beta\gamma\,x^{n/2}\,e^{-\beta x^\gamma}$ respectively, using $\gamma - 1 = \tfrac n2$ — so $\pi$ approaches a finite constant at $\Sigma$ from either side. The no-surface-layer condition is two-sided.
 
 ## 6. Stress–energy is bounded
 
@@ -104,6 +132,8 @@ $$X = g^{00}(\phi')^2 + |\nabla\phi|^2 \sim x^{-n}\cdot x^{n} + O(1) = O(1).$$
 The curvature-sourcing invariant is a function of $X$ and $V$ alone:
 
 $$T_{\mu\nu}T^{\mu\nu} = X^2 + 2VX + 4V^2 = O(1).$$
+
+The same holds from the Euclidean side. The regular solutions there also have $\phi' = O(x^{n/2})$ in the distance variable $x = -x^0$ (§5), and $g^{00} = +\,x^{-n}/c$, so $X = g^{00}(\partial_0\phi)^2 + |\nabla\phi|^2 \sim x^{-n}\cdot x^{n} + O(1) = O(1)$ — now with the kinetic term non-negative, the metric being positive-definite — and the curvature-sourcing invariant is $O(1)$ on both sides of $\Sigma$. The raised-component caveat below applies verbatim on the Euclidean side ($T^{00}\sim x^{-n}$).
 
 Two points, stated honestly. First, individual *raised* components do diverge — e.g. $T^{00} = (g^{00})^2 T_{00}\sim x^{-n}$ — even though the *scalar invariants* stay finite; the protection is on contractions, not components. Second, this is a test field on a fixed background: it shows the benign geometry is *compatible* with finite stress-energy, not that the coupled system has a benign solution.
 
