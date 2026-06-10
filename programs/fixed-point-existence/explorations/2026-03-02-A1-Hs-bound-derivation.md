@@ -5,6 +5,18 @@
 **Type:** Research exploration (proof strategy + complete argument)
 **Outcome:** Complete rigorous argument for Lemma 3, replacing Källén-Lehmann route with Hadamard parametrix decomposition
 
+> **Status update (2026-06-09, demotion PR):** The "Rigorous" verdict below was
+> **withdrawn**. Review identified gaps that this argument does not close: the
+> Term (I) analysis writes the hyperbolic (Lorentzian) variation equation and then
+> bounds it with the *spatial elliptic* resolvent without constructing the reduction
+> (massive Lorentzian propagators decay exponentially only at spacelike separation —
+> gap M3); Step 3's coefficient bound $\|c^{\mathrm{red}}_\gamma\| \sim \hbar m^2/(4\pi)^2$
+> is asserted, not derived, and fails for the mass-independent anomaly counterterm
+> responses (gap M4). The dimensional self-check below covers the kernel bound but not
+> the downstream $\kappa$ chain, which contains a dimensional inconsistency (gap M1).
+> Lemma 1 (formerly Lemma 3) and Theorem 2 are relabeled **Sketch** in the paper. This
+> file is retained unmodified below as the record of the argument, per METHODOLOGY.md.
+
 ---
 
 ## Context

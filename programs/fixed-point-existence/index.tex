@@ -27,17 +27,25 @@ assistant; contributed to mathematical development and analysis.}}
 \begin{abstract}
 The semiclassical Einstein equation $G_{\mu\nu}[g] = 8\pi G\langle\hat{T}_{\mu\nu}\rangle_g$
 is a fixed-point condition: the geometry and quantum state must be mutually consistent.
-We address the question of whether such fixed points exist. We establish existence at three
-levels: (1)~exactly, in the cosmological case via the trace anomaly
-(Starobinsky, 1980); (2)~perturbatively near any classical solution, via a Banach
-contraction with constant $\kappa \sim (m/M_P)^2 \ll 1$ for massive fields (the massless case, relevant to photons and gluons, remains open; see Section~\ref{sec:open}), established
-established via a Hadamard decomposition of the order-reduced response kernel into a local
-differential operator and a non-local smooth kernel; and (3)~conditionally in the general
+We address the question of whether such fixed points exist. We present three analyses:
+(1)~exact existence in the cosmological case via the trace anomaly
+(Starobinsky, 1980) (\textbf{Rigorous}, by citation); (2)~a perturbative argument near
+classical solutions \emph{on globally hyperbolic spacetimes with compact Cauchy surfaces},
+via a Banach contraction whose target estimate is a contraction constant
+$\kappa \sim (m/M_P)^2 \ll 1$ for massive fields, developed via a Hadamard decomposition
+of the order-reduced response kernel into a local differential operator and a non-local
+smooth kernel --- this argument is presently a \textbf{Sketch}: an earlier Rigorous label
+was withdrawn after review identified gaps in the kernel bound and in the contraction
+estimate (Section~\ref{sec:banach}), and the massless case, relevant to photons and gluons,
+remains open (Section~\ref{sec:open}); and (3)~conditional existence in the general
 case via the Schauder fixed-point theorem on globally hyperbolic spacetimes with compact
-Cauchy surfaces, under six stated assumptions of which five are established and one remains
-an open conjecture. The Planck scale emerges as the natural validity boundary in all three
-analyses. An effective initial-value formulation, valid order-by-order in $\kappa$, is
-derived from the global fixed-point condition.
+Cauchy surfaces, under six stated assumptions of which one remains an open conjecture
+(the proof as written also has identified repairable gaps; Section~\ref{sec:schauder}).
+An earlier claim that the Planck scale emerges from these analyses as the natural validity
+boundary is withdrawn: the derivation chain behind the contraction constant contains a
+dimensional inconsistency, and neither of its two candidate readings places the breakdown
+at the Planck scale (Section~\ref{sec:planck}). An effective initial-value formulation,
+valid order-by-order in $\kappa$, is derived from the global fixed-point condition.
 
 \bigskip\noindent\textit{Note:} This is a companion paper to ``Gaussian temporal profile
 of gravitational decoherence from the Einstein-Langevin equation.'' The decoherence
@@ -62,12 +70,17 @@ approximation to quantized gravity) dates to M\o ller (1962) and Rosenfeld (1963
 been developed by Oppenheim~\cite{oppenheim}. Whether this position is internally
 consistent depends on whether fixed points exist.
 
-This paper establishes existence at three levels of generality, with explicit
-quantitative control in the perturbative regime. The Planck scale appears in all three
-analyses as the natural boundary of validity---not imposed by hand, but arising from the
-mathematics of fixed-point convergence.
+This paper presents existence arguments at three levels of generality. The cosmological
+result (Section~\ref{sec:starobinsky}) is exact. The perturbative Banach-contraction
+argument (Section~\ref{sec:banach}) is labeled \textbf{Sketch}: it was promoted to
+Rigorous in an earlier revision, and that label has been withdrawn after review identified
+specific gaps, catalogued where they occur. The Schauder argument
+(Section~\ref{sec:schauder}) remains conditional on an open conjecture~(A3), with
+additional repairable gaps noted in its proof. An earlier claim that the Planck scale
+emerges from the convergence analysis as the natural validity boundary is withdrawn
+pending a corrected contraction estimate (Section~\ref{sec:planck}).
 
-\medskip\noindent The perturbative contraction estimate requires a mass gap and therefore applies only to massive fields; extension to massless fields such as the photon and gluon is an open problem (Section~\ref{sec:open}).
+\medskip\noindent The perturbative contraction estimate requires a mass gap and therefore applies only to massive fields; extension to massless fields such as the photon and gluon is an open problem (Section~\ref{sec:open}). It also requires a compact Cauchy surface, so it does not cover Minkowski space or asymptotically flat backgrounds (Section~\ref{sec:open}).
 
 %======================================================================
 \section{The self-consistency map}
@@ -105,14 +118,21 @@ de~Sitter solution $a(t) = a_0 e^{H_0 t}$ with:
 \begin{equation}
 H_0^2 = \frac{180\pi}{G|a_2|}
 \end{equation}
-where $a_2$ is the coefficient of the Euler density in the trace anomaly. This solution is
-a stable attractor: perturbations $\delta H$ are exponentially damped.
+where $a_2$ is the coefficient of the Euler density in the trace anomaly. The de~Sitter
+solution is \emph{unstable}: the quasi-de~Sitter stage is long-lived but decays, and in
+the inflationary application this instability is the graceful-exit mechanism.
 \end{theorem}
 
 \noindent\emph{Proof sketch.} For constant $H$, the trace anomaly~\cite{capper_duff}
 reduces to $\langle\hat{T}^\mu{}_\mu\rangle = -a_2 H_0^4/120\pi^2$. The Friedmann
-equation yields $H_0$. Stability follows from the linearized equation for
-$\delta H$~\cite{starobinsky}. \hfill$\square$
+equation yields $H_0$. The instability of the de~Sitter stage follows from the linearized
+equation for $\delta H$~\cite{starobinsky}. \hfill$\square$
+
+\smallskip\noindent\emph{Remark (correction).} An earlier draft of this paper asserted
+that the de~Sitter solution is a stable attractor with exponentially damped perturbations.
+This misstates the cited source: in Starobinsky's model the de~Sitter stage is unstable
+(its decay is what ends inflation), and the existence claim --- not stability --- is what
+this section uses. Only existence of the exact fixed point is relied upon below.
 
 This constitutes an existence proof: the de~Sitter geometry, used to compute the quantum
 stress-energy of fields living on it, sources exactly itself.
@@ -121,6 +141,16 @@ stress-energy of fields living on it, sources exactly itself.
 \section{Perturbative fixed point: Banach contraction}
 \label{sec:banach}
 %======================================================================
+
+\noindent\textbf{Rigor status: Sketch (demoted from Rigorous).} The results of this
+section --- Lemma~\ref{lem:kernel_bound} and Theorem~\ref{thm:banach} --- were promoted
+to Rigorous in an earlier revision (via the Hadamard-decomposition argument recorded in
+\texttt{explorations/2026-03-02-A1-Hs-bound-derivation.md}). That label has been
+withdrawn: review identified four gaps, labeled (M1), (M3), (M4), (M5) below, that the
+arguments do not close. The proofs are retained as the record of the sketch; each gap is
+flagged where it occurs. Closing them is follow-up work (Section~\ref{sec:open}).
+
+\medskip
 
 Let $\bar{g}$ be a solution of the classical Einstein equations. Define the
 quantum-corrected map:
@@ -131,7 +161,7 @@ quantum-corrected map:
 \noindent We first establish a bound on the order-reduced response kernel, then use it
 to prove the contraction estimate.
 
-\begin{lemma}[Order-reduced response kernel bound]
+\begin{lemma}[Order-reduced response kernel bound --- \textbf{Sketch}]
 \label{lem:kernel_bound}
 Let $\phi$ be a massive scalar field with mass $m > 0$ on a globally hyperbolic spacetime
 $(\mathcal{M},\bar{g})$ with compact Cauchy surface~$\Sigma$. After Parker--Simon order
@@ -252,6 +282,29 @@ attains its supremum, so
 $\sup_{g \in K_\rho}\|\mathcal{K}^{\mathrm{red}}[g]\|_{\mathrm{op}} < \infty$.
 The constant $C_{\mathcal{K}}$ absorbs this supremum. \hfill$\square$
 
+\smallskip\noindent\textbf{Gap (M3): hyperbolic-to-elliptic substitution in Step~4.}
+The variation $\delta W/\delta g^{\alpha\beta}(y)$ is governed by the \emph{Lorentzian}
+(hyperbolic) Klein--Gordon equation on the spacetime: varying the field equation gives
+$(\Box_g + m^2 + \xi R)\,\delta W_2 = -\delta(\Box_g + \xi R)\,W_2$, whose solution
+operator has light-cone support. Step~4 instead bounds the variation using the
+\emph{spatial elliptic} resolvent $(-\Delta_\Sigma + m^2 + \xi R|_\Sigma)^{-1}$ and its
+exponential decay. For massive Lorentzian propagators, exponential decay holds only at
+\emph{spacelike} separation; a metric perturbation at $y$ in the causal past of $x$
+influences $W(x,x)$ with no exponential suppression. No reduction of the response kernel
+to a purely spatial operator on $\Sigma$ is constructed, so the exponential-decay bound
+on $\mathcal{K}_{\mathrm{nl}}$ is not established as stated. This is the principal gap.
+
+\smallskip\noindent\textbf{Gap (M4): asserted coefficient scaling in Step~3.}
+The bound $\|a_\gamma\|_{L^\infty} \leq C_{\mathrm{loc}}\cdot\hbar m^2/(4\pi)^2$ is
+asserted, not derived. It fails for the mass-independent anomaly counterterm responses:
+the variation of the $R^2$-, $C^2$-, and Euler-type counterterms in $C_{\mu\nu}[g]$
+carries coefficients $\sim \hbar/(4\pi)^2$ times curvature, contributing local terms
+scaling as $\hbar R$, not $\hbar m^2$. These can be absorbed into $C_{\mathcal{K}}$ only
+at the cost of a factor $R/m^2$, which makes the displayed $m^2$ scaling --- and hence
+the $(m/M_P)^2$ headline of Theorem~\ref{thm:banach} --- cosmetic whenever
+$R \gtrsim m^2$. A derivation of the coefficient bounds with explicit mass and curvature
+dependence is required.
+
 \smallskip\noindent\textit{Remark on the massless case.} The mass gap
 $m > 0$ is essential in two places: it ensures exponential decay of the
 non-local kernel~(Step~4), and it controls the infrared behavior of the
@@ -278,10 +331,11 @@ addresses the general (non-symmetric) case via the Hadamard decomposition.
 
 \medskip
 
-\begin{theorem}[Perturbative existence---massive fields]
+\begin{theorem}[Perturbative existence---massive fields --- \textbf{Sketch}]
 \label{thm:banach}
 Let $\bar{g}$ be a classical solution with sub-Planckian curvature
-$R \ll \ell_P^{-2}$, and let the matter content consist of massive fields with
+$R \ll \ell_P^{-2}$, \emph{admitting a compact Cauchy surface}, and let the matter
+content consist of massive fields with
 $m > 0$. Under the hypotheses of Lemma~\ref{lem:kernel_bound}, the self-consistency
 map $\mathcal{F}$ is a contraction in a neighborhood of $\bar{g}$ in $H^s$, with
 Lipschitz constant
@@ -322,6 +376,31 @@ fixed point in the closed ball around $\bar{g}$ of radius
 $\rho/(1-\kappa)$, with geometric convergence.
 
 \hfill$\square$
+
+\smallskip\noindent\textbf{Gap (M1): dimensional inconsistency in the $\kappa$ chain.}
+The proof asserts $C_{\mathrm{inv}} \sim 1/R$ (dimension $[\mathrm{length}]^2$,
+consistent with an $H^{s-2}\to H^s$ operator norm), and then writes
+$\kappa \sim (\hbar G m^2/2\pi)\cdot(1/R) = (1/2\pi)(m/M_P)^2\ell_P^2 R$. The two sides
+of this equality are different functions of $R$ with different dimensions: with
+$\hbar G = \ell_P^2$, the left side is $\ell_P^2 m^2/(2\pi R)$ (dimension
+$[\mathrm{length}]^2$) while the right side is dimensionless; they coincide only if
+$1/R = \ell_P^2 R$, i.e.\ the step silently sets $R = \ell_P^{-2}$. Followed literally,
+the chain gives $\kappa \propto 1/R$, which \emph{diverges} in the flat-space limit
+$R \to 0$ --- contraction would fail near Minkowski space, which is physically absurd
+and contradicts the displayed formula $\kappa \propto R$. Which $R$-scaling (if either)
+is correct is open; until the chain is repaired, the quantitative form of
+eq.~\eqref{eq:kappa}, and every claim downstream of it (notably
+Section~\ref{sec:planck}), is unsupported. The dimensional bookkeeping of the Sobolev
+operator norms (which hide a reference length scale) must be made explicit as part of
+the repair.
+
+\smallskip\noindent\textbf{Gap (M5): missing self-mapping step.}
+The invocation of the Banach theorem on ``the closed ball around $\bar{g}$ of radius
+$\rho/(1-\kappa)$'' requires, in addition to the contraction estimate, the displacement
+bound $\|\mathcal{F}(\bar{g}) - \bar{g}\|_{H^s} \leq (1-\kappa)\rho$ --- i.e.\ that the
+quantum correction evaluated \emph{at the background} is small in $H^s$. This is never
+established; it is essentially an (A3)-type bound at $\bar{g}$. Contraction alone does
+not yield existence without it.
 
 \medskip
 
@@ -386,9 +465,10 @@ anomaly can be perturbatively eliminated. \textbf{[Established:} Parker--Simon
 \item[\textbf{(A6)}] \textit{Uniform contraction bound.}
 (Included for completeness; used only in the Banach uniqueness argument of Section~\ref{sec:banach}, not in the Schauder existence argument below.)\newline
 $\kappa_{\sup} \equiv 8\pi G\,C_{\text{inv}}\cdot\sup_{g\in K_\rho}\|\delta\langle\hat{T}_{\mu\nu}\rangle_{\text{ren}}/\delta g\|_{\text{op}} < 1$.
-\textbf{[Established for massive fields.} Lemma~\ref{lem:kernel_bound} establishes the
-operator-norm bound with constant $\kappa \sim (m/M_P)^2\ell_P^2 R \ll 1$ for
-sub-Planckian curvature. Open for massless fields.\textbf{]}
+\textbf{[Sketch for massive fields.} Lemma~\ref{lem:kernel_bound} sketches the
+operator-norm bound, with target constant $\kappa \sim (m/M_P)^2\ell_P^2 R \ll 1$ for
+sub-Planckian curvature; see Gaps (M1), (M3), (M4) in Section~\ref{sec:banach}. Open for
+massless fields.\textbf{]}
 \end{itemize}
 
 \subsection{Theorem}
@@ -425,16 +505,40 @@ composing, $\mathcal{F}: K_\rho\to K_\rho$ is continuous in $H^{s'}$.
 \smallskip\noindent By the Schauder theorem~\cite{schauder}, $\mathcal{F}$ has a fixed
 point in $K_\rho$.\hfill$\square$
 
+\smallskip\noindent\textbf{Gap (M6): $K_\rho$ is not closed or convex as defined.}
+Step~1 describes $\mathcal{L}$ as a ``convex affine set,'' but $\mathcal{L}$ is defined
+in eq.~\eqref{eq:K_rho} as the \emph{open} set of Lorentzian-signature metrics, and the
+set of Lorentzian metrics is neither affine nor convex (a convex combination of two
+Lorentzian metrics need not be Lorentzian). As written, $K_\rho$ is therefore not closed,
+and the compactness and convexity claimed in Step~1 do not follow. The expected repair is
+cheap --- for $\rho$ small enough, Sobolev embedding keeps the entire closed $H^s$ ball
+inside $\mathcal{L}$, so the intersection with $\mathcal{L}$ is vacuous --- but the proof
+must be rewritten to say so; we flag rather than fix it here.
+
+\smallskip\noindent\textbf{Gap (M7): the $\rho$-selection argument in Step~2 is incorrect.}
+Step~2 claims the self-consistency condition $\rho = C_{\text{inv}}B(\rho)$ is satisfiable
+``since $C_{\text{inv}}B(\rho)\to 0$ as $\rho\to 0$.'' This is false: as $\rho \to 0$,
+$K_\rho \to \{\bar{g}\}$ and $B(\rho) \to \|\langle\hat{T}_{\mu\nu}\rangle_{\bar{g},
+\text{ren}}\|_{H^{s-2}}$, which is the renormalized vacuum stress-energy of the background
+and does not vanish. The correct route is different (e.g.\ $B$ is $O(\hbar)$-small and
+approximately $\rho$-independent, so a fixed point of $\rho \mapsto C_{\text{inv}}B(\rho)$
+exists for small $\hbar$), and the assertion that the harmonic-gauge and Lorentzian
+conditions are ``preserved by the linearized evolution'' also requires argument (gauge
+preservation needs source conservation, which holds with respect to $g$ but is applied in
+a solve linearized around $\bar{g}$). Flagged, not fixed.
+
 \noindent\emph{Remark.} Assumption~(A6) is not used in the Schauder argument (which
 requires only continuity, not contractivity). It would be needed for a Banach fixed-point
-argument guaranteeing uniqueness and constructive convergence.
+argument guaranteeing uniqueness and constructive convergence --- an argument that is
+itself presently a Sketch (Section~\ref{sec:banach}).
 
 %======================================================================
 \section{Effective initial-value formulation}
 \label{sec:ivp}
 %======================================================================
 
-Theorem~\ref{thm:schauder} establishes global existence. Practical physics requires a
+Theorem~\ref{thm:schauder} establishes global existence conditionally on~(A3).
+Practical physics requires a
 Cauchy formulation: given data on a spacelike hypersurface, what is the evolution? The
 global fixed-point condition does not directly reduce to a Cauchy problem because the
 Hadamard state is defined by a global microlocal condition. We derive an effective
@@ -450,7 +554,8 @@ state at each order.
 
 The order-reduced system at each order $\kappa^n$ is a second-order hyperbolic PDE,
 well-posed by Choquet-Bruhat~\cite{choquet_bruhat}. The perturbative expansion is valid
-while $\kappa \ll 1$, i.e., throughout the sub-Planck regime.
+while $\kappa \ll 1$; where that regime ends is unresolved pending the corrected
+contraction estimate (Section~\ref{sec:planck}).
 
 \noindent\textbf{Open problem.} Non-perturbative well-posedness of the order-reduced
 semiclassical Einstein equation on general globally hyperbolic spacetimes without symmetry
@@ -459,21 +564,40 @@ established for cosmological spacetimes~\cite{pinamonti_siemssen}. The general c
 remains open.
 
 %======================================================================
-\section{Planck-scale validity boundary}
+\section{Validity boundary: a withdrawn claim}
 \label{sec:planck}
 %======================================================================
 
-The contraction constant~\eqref{eq:kappa} satisfies $\kappa \to 1$ when
-$R \sim \ell_P^{-2}$, i.e., at Planck-scale curvatures. This identifies the natural
-validity boundary of the framework: not imposed by hand, but derived from the requirement
-$\kappa < 1$ for the fixed-point iteration to converge.
+An earlier revision of this paper claimed that the contraction
+constant~\eqref{eq:kappa} satisfies $\kappa \to 1$ when $R \sim \ell_P^{-2}$, so that
+the Planck scale emerges as the natural validity boundary of the framework --- derived
+from the convergence requirement $\kappa < 1$ rather than imposed by hand. \textbf{This
+claim is withdrawn.} It is contradicted by the paper's own formulas on either reading of
+the $\kappa$ chain (Gap~(M1), Section~\ref{sec:banach}):
+
+\begin{itemize}
+\item Taking the displayed formula $\kappa = (1/2\pi)(m/M_P)^2\ell_P^2 R$ at face value,
+at Planck curvature $R = \ell_P^{-2}$ one finds $\kappa = (m/M_P)^2/2\pi$, which by the
+table in Section~\ref{sec:banach} is at most $\sim 10^{-34}$ for known particles ---
+nowhere near $1$. On this reading, $\kappa \to 1$ only at curvatures
+$\sim (M_P/m)^2$ \emph{above} the Planck scale.
+\item Following the derivation chain literally ($C_{\mathrm{inv}} \sim 1/R$), one finds
+$\kappa \propto 1/R$, which reaches $1$ at curvature $R \sim m^2$ --- the Compton scale
+of the field, far \emph{below} the Planck scale --- and diverges in the flat-space limit.
+\end{itemize}
+
+\noindent Neither reading places the breakdown at the Planck scale, and the two disagree
+with each other. Until the contraction estimate is repaired (Section~\ref{sec:open}),
+the framework's validity boundary must be regarded as underived. The qualitative
+expectation that semiclassical gravity fails at Planckian curvature remains physically
+plausible, but it is not a result of this paper.
 
 The framework also fails for observables that require summing over spacetime topologies
 (e.g., the Page curve of black hole evaporation). Even when $\kappa \ll 1$---so the
 perturbative expansion is valid---certain correlators receive $\mathcal{O}(1)$
 contributions from topology-changing saddles absent from the fixed-topology
-description. This is a distinct limitation from the Planck-scale breakdown above, and is
-not self-diagnosable within the framework.
+description. This is a limitation distinct from the (unresolved) convergence-boundary
+question above, and is not self-diagnosable within the framework.
 
 %======================================================================
 \section{Open problems}
@@ -482,10 +606,38 @@ not self-diagnosable within the framework.
 
 \begin{enumerate}
 
+\item \textbf{Re-establishing the contraction estimate (Gaps M1, M3, M4, M5).}
+The Banach argument of Section~\ref{sec:banach} is presently a Sketch. Restoring a
+Rigorous label requires: (M1)~a dimensionally consistent derivation of $\kappa$ with the
+$R$-dependence resolved (the current chain gives $\kappa \propto 1/R$ while the displayed
+formula gives $\kappa \propto R$); (M3)~genuine Lorentzian control of the non-local
+kernel --- the spatial elliptic resolvent does not bound influence from the causal past,
+so either a reduction of the response kernel to a spatial operator must be constructed,
+or the bound restated for an equal-time/Euclidean object with the gap to the Lorentzian
+problem made explicit; (M4)~a derivation of the local coefficient bounds with explicit
+mass and curvature dependence, accounting for the mass-independent anomaly counterterms;
+and (M5)~the self-mapping (displacement) bound at the background.
+
+\item \textbf{Well-definedness of the map $\mathcal{F}$ (M8, M9).}
+Two structural gaps predate the demotion and remain open. \emph{(M8)}~Sections
+\ref{sec:banach}--\ref{sec:schauder} work with fields in $H^s(\Sigma)$ on a single Cauchy
+surface, while $\mathcal{F}$ is defined on spacetime geometries; the equivalence between
+a spacetime fixed point and a fixed point of data on a chosen $\Sigma$ is never
+constructed (the Hadamard condition is global), and the role of the chosen $\Sigma$ must
+be shown to be pure gauge. \emph{(M9)}~The single-valuedness of $\mathcal{F}$ rests on
+the assertion that the Hadamard state on the corrected geometry is ``the unique
+perturbation'' of the background state; Hadamard states are not unique, and the
+perturbation prescription that would make this precise is assumed, not constructed.
+Relatedly, the ``Established'' tags on (A1) and (A2) are generous: Hollands--Wald
+\cite{hollands_wald_wick} establishes local/analytic metric dependence of Wick
+polynomials in the algebraic sense, not an $H^s \to H^{s-2}$ continuity statement, and
+the deformation existence argument behind (A1) should be attributed and verified
+precisely.
+
 \item \textbf{Extension to massless fields.}
-Lemma~\ref{lem:kernel_bound} establishes the $H^s \to H^{s-2}$ bound for massive fields
-via the Hadamard decomposition: the mass gap $m > 0$ ensures exponential decay of the
-non-local kernel and controls the infrared behavior of the local coefficients. Extending
+Lemma~\ref{lem:kernel_bound} sketches the $H^s \to H^{s-2}$ bound for massive fields
+via the Hadamard decomposition: the mass gap $m > 0$ is invoked for exponential decay of
+the non-local kernel and for infrared control of the local coefficients. Extending
 the bound to massless or conformally coupled fields requires new IR control, since the
 non-local kernel decays only algebraically when $m = 0$ and the Hilbert--Schmidt bound
 may diverge.
@@ -496,10 +648,12 @@ globally hyperbolic spacetimes with compact Cauchy surfaces requires controlling
 state-dependent part of $\langle\hat{T}_{\mu\nu}\rangle_{\text{ren}}$ uniformly over
 $K_\rho$---an open problem.
 
-\item \textbf{Relaxing the compact Cauchy surface assumption.} The Schauder argument
-requires compactness of $K_\rho$, ensured by Rellich--Kondrachov on compact $\Sigma$.
-Extension to asymptotically flat spacetimes requires weighted Sobolev spaces and a
-different compactness argument.
+\item \textbf{Relaxing the compact Cauchy surface assumption.} Both the Banach argument
+(via Step~6 of Lemma~\ref{lem:kernel_bound} and the Hilbert--Schmidt bound) and the
+Schauder argument require compactness of $K_\rho$, ensured by Rellich--Kondrachov on
+compact $\Sigma$. Neither result therefore covers Minkowski space or asymptotically flat
+backgrounds. Extension requires weighted Sobolev spaces and a different compactness
+argument.
 
 \item \textbf{Non-perturbative IVP well-posedness.} See Section~\ref{sec:ivp}.
 
