@@ -34,7 +34,7 @@ runner as the `AUTONOMY_BOT_PAT` secret (see "Deployed instances" below).
 | Routine | Cadence (UTC) | Model | File |
 |---------|--------------|-------|------|
 | worker | daily 06:00 | fable | `worker.md` |
-| reviewer | 12h (05:00, 17:00) | opus | `reviewer.md` |
+| reviewer | 12h (05:00, 17:00; +1h redundant fires) | opus | `reviewer.md` |
 | responder | daily 04:00 | sonnet | `responder.md` |
 | red-team | every 3 days 08:00 | opus | `red-team.md` |
 | scout | weekly Mon 03:00 | sonnet | `scout.md` |
@@ -56,7 +56,7 @@ drifts from the workflow files, this file is wrong — fix it.
 | Routine | Workflow file | Cron (UTC) | Model |
 |---------|---------------|------------|-------|
 | worker | `autonomy-worker.yml` | `0 6 * * *` | claude-fable-5 |
-| reviewer | `autonomy-reviewer.yml` | `0 5,17 * * *` | claude-opus-4-8 |
+| reviewer | `autonomy-reviewer.yml` | `0 5,6,17,18 * * *` | claude-opus-4-8 |
 | responder | `autonomy-responder.yml` | `0 4 * * *` | claude-sonnet-4-6 |
 | red-team | `autonomy-red-team.yml` | `0 8 */3 * *` | claude-opus-4-8 |
 | scout | `autonomy-scout.yml` | `0 3 * * 1` | claude-sonnet-4-6 |

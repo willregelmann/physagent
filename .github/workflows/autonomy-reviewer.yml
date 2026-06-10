@@ -1,13 +1,16 @@
 name: autonomy-reviewer
 
 # Scheduled caller for the reviewer routine (automation/routines/reviewer.md).
-# Cadence: twice daily, 05:00 and 17:00 UTC (the adversarial quorum). The
-# reusable runner gates on AUTONOMY_ENABLED and guards the machine-account
-# identity. workflow_dispatch is provided for manual testing of a single role.
+# Cadence: twice daily, 05:00 and 17:00 UTC (the adversarial quorum), each with
+# a +1h redundant fire (06:00, 18:00) because GitHub drops scheduled events
+# under load (observed 2026-06-10: the 17:00 fire never triggered). Verdicts
+# are per-SHA, so a redundant fire whose queue is already reviewed is a cheap
+# no-op. The reusable runner gates on AUTONOMY_ENABLED and guards the
+# machine-account identity. workflow_dispatch is provided for manual testing.
 
 on:
   schedule:
-    - cron: "0 5,17 * * *"
+    - cron: "0 5,6,17,18 * * *"
   workflow_dispatch:
 
 jobs:

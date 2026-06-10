@@ -32,12 +32,15 @@ account with no branch commits in 7+ days (unassign, then treat as candidate).
 
 If no candidates: exit silently.
 
-Rank candidates by (a) OBJECTIVES priority order of the milestone they advance,
+Rank candidates: (0) issues labeled `experimenter-priority` always rank first
+(this is the experimenter's entry point into the loop; among several, oldest
+first), then (a) OBJECTIVES priority order of the milestone they advance,
 (b) dependency readiness (issue relations: skip anything `blocked`), (c)
 momentum with recent merges. Pick ONE.
 
 Claim it: `gh issue edit <N> --add-assignee <machine-account>` and remove the
-`agent-ready` label. Comment briefly with your planned approach (METHODOLOGY
+`agent-ready` label. Leave `experimenter-priority` in place — it persists
+across retries and is removed only by the experimenter. Comment briefly with your planned approach (METHODOLOGY
 contribution workflow step 1). If assignment fails (raced), pick the next
 candidate.
 

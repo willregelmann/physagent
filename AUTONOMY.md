@@ -18,7 +18,7 @@ gate as correct and escalate via `needs-human` — never edit the gate.
 |------|---------|---------|
 | **worker** | daily | Claims one `agent-ready` issue, works it to a PR with self-checks |
 | **reviewer** | every 12h | Adversarial quorum: two-pass review of agent PRs, posts machine-readable verdicts |
-| **responder** | daily | Addresses `revise` verdicts and CI failures on open agent PRs |
+| **responder** | daily | Addresses `revise` verdicts and CI failures; executes `reject` dispositions (incl. salvage issues); watchdogs the reviewer queue |
 | **red-team** | every 3 days | Stress-tests merged Rigorous results; its product is demotions |
 | **scout** | weekly | Opens well-specified issues that advance OBJECTIVES milestones |
 | **librarian** | weekly | arXiv watch; files `informs-issue` literature pointers |
@@ -67,7 +67,11 @@ mechanically.
    `pdflatex (<program>)` for each paper, `verify` (citation existence against
    Crossref/arXiv).
 2. **Semantic tier** — `claim-support`: an isolated LLM evaluator verifies that
-   load-bearing citations support the claims attributed to them. Blocking.
+   load-bearing citations support the claims attributed to them. Blocking,
+   **scoped to the diff**: a failing assertion blocks only PRs that modify a
+   `.tex` file citing the failing key; failures at cite-sites the PR does not
+   touch are pre-existing defects of `main` — they warn and route to a
+   main-targeting issue instead of blocking unrelated work.
 3. **Quorum tier** — `quorum-gate`: requires a reviewer verdict marker for the
    current head SHA on every PR labeled `agent-pr`:
    - `<!-- quorum:verdict accept sha=<head-sha> -->` → pass
@@ -106,6 +110,7 @@ maintenance, self-checks in every PR description.
 | Label | Meaning | Set by | Cleared by |
 |-------|---------|--------|------------|
 | `agent-ready` | issue is claimable by the worker | scout, experimenter | worker on claim |
+| `experimenter-priority` | issue jumps the worker's ranking; the human entry point into the loop | experimenter | experimenter |
 | `stuck` | 3 failed worker attempts; scheduler skips | worker | responder (on landed fix), experimenter |
 | `needs-human` | experiment-level escalation; thread halts | any routine | experimenter only |
 | `agent-pr` | agent-authored PR; quorum verdict required | worker, responder, red-team, governor | — |

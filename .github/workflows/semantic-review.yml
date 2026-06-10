@@ -53,6 +53,8 @@ jobs:
       - name: Check out this repo
         if: needs.changes.outputs.relevant == 'true'
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 0 # needed to diff against the base ref for failure scoping
 
       - name: Check out claude-tests (LLM-as-evaluator runner)
         if: needs.changes.outputs.relevant == 'true'
@@ -80,8 +82,41 @@ jobs:
             echo "::notice::CLAUDE_CODE_OAUTH_TOKEN not set — skipping semantic review (neutral pass)."
             exit 0
           fi
+          set +e
           python3 .claude-tests-runner/bin/run-tests.py citation-claim-support \
-            --junit semantic-results.xml --model sonnet
+            --junit semantic-results.xml --model sonnet 2>&1 | tee claim-support-output.txt
+          status=${PIPESTATUS[0]}
+          set -e
+          if [ "$status" -eq 0 ]; then exit 0; fi
+
+          # Regression scoping (2026-06-10 amendment): a failed assertion blocks
+          # this PR only if the PR's diff touches a .tex file that cites the
+          # failing bibitem key. A failure at cite-sites this PR does not modify
+          # is a defect of MAIN, not of this diff — it warns loudly and routes to
+          # a main-targeting issue instead of blocking unrelated work. (Observed
+          # 2026-06-10: a misattribution on main blocked three unrelated PRs.)
+          if [ "${{ github.event_name }}" != "pull_request" ]; then exit "$status"; fi
+          failed_keys=$(grep -oP '✗ \K[A-Za-z0-9_]+(?=:)' claim-support-output.txt | sort -u)
+          if [ -z "$failed_keys" ]; then
+            echo "::error::claim-support failed but no per-assertion failures could be parsed — failing closed."
+            exit "$status"
+          fi
+          git fetch -q origin "${{ github.base_ref }}"
+          changed_tex=$(git diff --name-only "origin/${{ github.base_ref }}...HEAD" | grep '\.tex$' || true)
+          blocking=0
+          for k in $failed_keys; do
+            scoped=""
+            for f in $changed_tex; do
+              [ -f "$f" ] && grep -q "$k" "$f" && scoped="$scoped $f"
+            done
+            if [ -n "$scoped" ]; then
+              blocking=1
+              echo "::error::claim-support assertion '$k' FAILED and this PR modifies citing file(s):$scoped — blocking."
+            else
+              echo "::warning::claim-support assertion '$k' fails at cite-sites this PR does not modify — pre-existing defect on the base branch. NOT blocking this PR. File or locate an issue against main for '$k' (METHODOLOGY citation-failure recovery applies if merged content misrepresents its source)."
+            fi
+          done
+          exit "$blocking"
 
       - name: Upload results
         if: always() && hashFiles('semantic-results.xml') != ''

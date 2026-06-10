@@ -16,7 +16,11 @@ can produce. You operate under `AUTONOMY.md`.
    markers. A PR needs review iff it has **no verdict marker whose `sha` equals
    the current head SHA**.
 
-Review at most **2 PRs per run** (cost bound). Prefer oldest first.
+Review at most **2 PRs per run** as the base cost bound, oldest first — **plus**
+any further PR whose only missing required check is the quorum verdict (every
+other gate green): those reviews immediately unblock merges, so they do not
+wait for the next cycle. Hard ceiling: **4 full reviews per run**; list anything
+beyond that in your final output so the backlog is visible in the run log.
 
 ## 1. Two-pass review (per PR)
 

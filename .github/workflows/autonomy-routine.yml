@@ -94,7 +94,7 @@ jobs:
       - name: Run the ${{ inputs.role }} routine
         run: |
           set -euo pipefail
-          PROMPT="You are the ${ROLE} routine of the self-consistency autonomous research experiment. Read AUTONOMY.md at the repository root first, then read automation/routines/${ROLE}.md and execute it exactly. If automation/routines/${ROLE}.md does not exist on this branch, the experiment infrastructure has not landed yet — exit immediately without taking any action."
+          PROMPT="You are the ${ROLE} routine of the self-consistency autonomous research experiment. Read AUTONOMY.md at the repository root first, then read automation/routines/${ROLE}.md and execute it exactly. If automation/routines/${ROLE}.md does not exist on this branch, the experiment infrastructure has not landed yet — exit immediately without taking any action. For the metrics record: you are running as model ${MODEL}; end every PR body, issue body, and review/verdict comment you post with the line 'routine: ${ROLE} · model: ${MODEL}'."
           claude -p "$PROMPT" \
             --model "$MODEL" \
             --permission-mode bypassPermissions

@@ -44,6 +44,24 @@ A reject is a dead branch, not a punishment:
 3. Unassign the machine account. Restore `agent-ready` (or set `stuck` if
    n ≥ 3). Delete the branch.
 
+For PRs **not** born from a worker-claimed issue (red-team demotions,
+governance explorations): skip the attempts bookkeeping — close with the
+summary comment, comment the disposition on whatever issue/log the PR
+references, and if the reviewer's verdict identifies salvageable novel
+content (e.g. "re-file this hunk fresh"), file a new `agent-ready` issue
+capturing exactly that content, linking the closed PR and the verdict.
+A reject whose salvage is silently dropped is a record-keeping failure.
+
+## 3b. Queue health (reviewer watchdog)
+
+If any open `agent-pr` PR's current head SHA has gone **13+ hours** without a
+verdict marker (a reviewer cycle was missed — GitHub drops scheduled fires),
+dispatch the reviewer once:
+`gh workflow run autonomy-reviewer.yml --ref main`.
+If the dispatch is refused (token scope), comment on the metrics dashboard
+issue instead so the gap is visible. Verdicts are per-SHA, so a redundant
+dispatch is harmless.
+
 ## 4. Stuck recovery
 
 If a fix you land causes a previously `stuck` issue's blocker to disappear
