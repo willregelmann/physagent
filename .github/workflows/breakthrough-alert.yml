@@ -1,0 +1,136 @@
+name: breakthrough-alert
+
+# Instrumentation, not a gate (EXPERIMENT.md log, 2026-06-10): emails the
+# experimenter immediately when the gate stack certifies a Tier-A event.
+# This workflow adds DELIVERY, not judgment — every trigger below is a label
+# the merge-gate stack (or the escalation protocol) has already adjudicated.
+# It is read-only over repo state: sets no labels, posts no comments agents
+# act on, and feeds nothing back into the merge path, so it cannot become an
+# optimization target for the routines.
+#
+# Tier-A events:
+#   - merged `promotion-rigorous` PR   (verification quorum + independent
+#                                       stress-test review both held)
+#   - merged `demotion` / `withdrawn`  (a labeled result was overturned —
+#                                       per METHODOLOGY, as important as a
+#                                       promotion)
+#   - merged `governance` PR touching an OBJECTIVES.md (a milestone moved)
+#   - `needs-human` applied to an issue or PR (a halt, not a breakthrough —
+#     but the one label that must never wait for the weekly digest)
+#
+# Constitution note: AUTONOMY.md NEVER rule 6 forbids *agents* from emailing.
+# This is mechanical infrastructure in the same category as metrics.yml,
+# experimenter-authored and admin-merged; no agent routine triggers or
+# composes the email. The weekly companion is digest.yml.
+
+on:
+  pull_request:
+    types: [closed, labeled]
+  issues:
+    types: [labeled]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  alert:
+    runs-on: ubuntu-latest
+    # Cheap pre-filter so runners don't spawn on every routine label event.
+    if: >-
+      (github.event.action == 'labeled' && github.event.label.name == 'needs-human') ||
+      (github.event_name == 'pull_request' && github.event.action == 'closed' &&
+       github.event.pull_request.merged == true &&
+       (contains(github.event.pull_request.labels.*.name, 'promotion-rigorous') ||
+        contains(github.event.pull_request.labels.*.name, 'demotion') ||
+        contains(github.event.pull_request.labels.*.name, 'withdrawn') ||
+        contains(github.event.pull_request.labels.*.name, 'governance')))
+    steps:
+      - uses: actions/checkout@v6 # for scripts/send_email.py
+
+      - name: Classify event and compose alert
+        id: classify
+        # Event-payload text (titles) is passed via env, never interpolated
+        # into the script body — agent-authored titles are untrusted input.
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          EVENT: ${{ github.event_name }}
+          ACTION: ${{ github.event.action }}
+          LABEL: ${{ github.event.label.name }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_MERGED_AT: ${{ github.event.pull_request.merged_at }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ', ') }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          set -euo pipefail
+          has() { printf '%s' "$PR_LABELS" | grep -qw "$1"; }
+
+          KIND="" HEADLINE="" SUBJECT=""
+          NUM="$PR_NUMBER" TITLE="$PR_TITLE" URL="$PR_URL"
+
+          if [ "$ACTION" = "labeled" ] && [ "$LABEL" = "needs-human" ]; then
+            KIND="needs-human"
+            if [ "$EVENT" = "issues" ]; then
+              NUM="$ISSUE_NUMBER"; TITLE="$ISSUE_TITLE"; URL="$ISSUE_URL"
+            fi
+            SUBJECT="[self-consistency] HALT needs-human: #$NUM $TITLE"
+            HEADLINE="A thread has been halted with needs-human. Per the AUTONOMY.md escalation protocol, only the experimenter can clear it."
+          elif [ "$EVENT" = "pull_request" ] && [ "$ACTION" = "closed" ]; then
+            if has promotion-rigorous; then
+              KIND="promotion"
+              SUBJECT="[self-consistency] BREAKTHROUGH Rigorous promotion merged: PR #$NUM $TITLE"
+              HEADLINE="A Sketch-to-Rigorous promotion has merged. By construction it passed verification quorum plus an independent stress-test review."
+            elif has demotion; then
+              KIND="demotion"
+              SUBJECT="[self-consistency] Result demoted: PR #$NUM $TITLE"
+              HEADLINE="A labeled result has been demoted. A gap was found that the existing work does not cover; downstream results that used it as a lemma may need review."
+            elif has withdrawn; then
+              KIND="withdrawal"
+              SUBJECT="[self-consistency] Conjecture withdrawn: PR #$NUM $TITLE"
+              HEADLINE="A conjecture has been withdrawn — a counterexample was found or it contradicts an established result. The record is kept under the Withdrawn label."
+            elif has governance; then
+              if gh pr view "$NUM" --repo "$REPO" --json files \
+                   --jq '.files[].path' | grep -q 'OBJECTIVES\.md$'; then
+                KIND="milestone"
+                SUBJECT="[self-consistency] OBJECTIVES changed: PR #$NUM $TITLE"
+                HEADLINE="A governance PR touching an OBJECTIVES.md has merged — a milestone or the objective function itself moved."
+              fi
+            fi
+          fi
+
+          if [ -z "$KIND" ]; then
+            echo "No Tier-A event in this trigger; nothing to send."
+            echo "kind=" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          {
+            echo "$HEADLINE"
+            echo
+            echo "Item:   #$NUM — $TITLE"
+            echo "URL:    $URL"
+            [ -n "$PR_LABELS" ] && echo "Labels: $PR_LABELS"
+            [ -n "$PR_MERGED_AT" ] && echo "Merged: $PR_MERGED_AT (author: $PR_AUTHOR)"
+            echo
+            echo "Mechanical alert from breakthrough-alert.yml — fires only on"
+            echo "gate-certified label events. Weekly context arrives via digest.yml."
+            echo "To steer the loop in response, use the experimenter-priority label."
+          } > /tmp/alert.txt
+
+          echo "kind=$KIND" >> "$GITHUB_OUTPUT"
+          echo "subject=$SUBJECT" >> "$GITHUB_OUTPUT"
+
+      - name: Email the experimenter
+        if: steps.classify.outputs.kind != ''
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ vars.ALERT_EMAIL }}
+          MAIL_SUBJECT: ${{ steps.classify.outputs.subject }}
+        run: python3 scripts/send_email.py < /tmp/alert.txt

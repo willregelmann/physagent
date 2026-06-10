@@ -1,0 +1,213 @@
+name: digest
+
+# Weekly research digest of the autonomous experiment — the companion to
+# metrics.yml and breakthrough-alert.yml (EXPERIMENT.md log, 2026-06-10).
+# Collects the trailing week's merged PRs and issue movement mechanically,
+# then runs one isolated LLM pass to write the plain-English summary and
+# rank merged work against METHODOLOGY.md's significance bar ("would change
+# a prediction or appear in the abstract"). Posted to the "Breakthrough
+# digest" dashboard issue and emailed to the experimenter.
+#
+# Division of labor, by design: Tier-A status is determined MECHANICALLY
+# from labels the gate stack already adjudicated — the LLM summarizes and
+# explains, it is not a novelty judge. The digest is informational only:
+# it sets no labels, posts no verdicts, and feeds nothing back into the
+# merge path. The LLM tier exists to catch what the alert tier structurally
+# misses — significant results that arrive below Rigorous (a Sketch with a
+# complete gap map, a negative result that closes a direction).
+#
+# Degrades gracefully: no CLAUDE_CODE_OAUTH_TOKEN -> mechanical digest only;
+# no SMTP secrets -> dashboard issue only. Never fails on missing config.
+
+on:
+  schedule:
+    - cron: "0 9 * * 1" # Mondays, after metrics.yml (07:00)
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Collect the week's record
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          WEEK=$(date -u +%G-W%V)
+          SINCE=$(date -u -d '7 days ago' +%FT%TZ)
+
+          gh pr list --repo "$REPO" --state merged --limit 200 \
+            --json number,title,url,labels,mergedAt,author,body \
+            | jq --arg s "$SINCE" \
+                '[ .[] | select(.mergedAt >= $s) | .body |= ((. // "")[0:1500]) ]' \
+            > /tmp/merged.json
+
+          gh issue list --repo "$REPO" --state all --limit 200 \
+            --json number,title,url,labels,state,createdAt,closedAt \
+            | jq --arg s "$SINCE" \
+                '[ .[] | select(.createdAt >= $s or ((.closedAt // "") >= $s and .closedAt != null)) ]' \
+            > /tmp/issues.json
+
+          gh issue list --repo "$REPO" --state open --label needs-human \
+            --json number,title,url > /tmp/needs_human.json
+          gh pr list --repo "$REPO" --state open --label agent-pr \
+            --json number,title,url > /tmp/awaiting.json
+          gh issue list --repo "$REPO" --state open --label stuck \
+            --json number,title,url > /tmp/stuck.json
+
+          # Governance merges touching an OBJECTIVES.md count as Tier A
+          # (a milestone moved); needs a per-PR file listing.
+          : > /tmp/milestones.txt
+          for n in $(jq -r '.[] | select([.labels[].name] | index("governance")) | .number' /tmp/merged.json); do
+            if gh pr view "$n" --repo "$REPO" --json files \
+                 --jq '.files[].path' | grep -q 'OBJECTIVES\.md$'; then
+              echo "$n" >> /tmp/milestones.txt
+            fi
+          done
+
+          TIER_A=$(jq '[ .[] | select([.labels[].name]
+            | map(. == "promotion-rigorous" or . == "demotion" or . == "withdrawn")
+            | any) ] | length' /tmp/merged.json)
+          TIER_A=$((TIER_A + $(wc -l < /tmp/milestones.txt)))
+
+          echo "WEEK=$WEEK" >> "$GITHUB_ENV"
+          echo "TIER_A=$TIER_A" >> "$GITHUB_ENV"
+
+      - name: Build mechanical digest (fallback and grounding)
+        run: |
+          set -euo pipefail
+          {
+            echo "_Mechanical digest — Tier A from gate-certified labels; no LLM pass applied._"
+            echo
+            echo "### Tier A — gate-certified events"
+            jq -r '.[] | select([.labels[].name]
+              | map(. == "promotion-rigorous" or . == "demotion" or . == "withdrawn") | any)
+              | "- PR #\(.number): \(.title) [\([.labels[].name] | join(", "))] — \(.url)"' /tmp/merged.json
+            while read -r n; do
+              [ -n "$n" ] && echo "- PR #$n: governance change touching an OBJECTIVES.md"
+            done < /tmp/milestones.txt
+            [ "$TIER_A" -eq 0 ] && echo "_None this week._"
+            echo
+            echo "### Merged this week ($(jq length /tmp/merged.json))"
+            jq -r '.[] | "- PR #\(.number): \(.title) [\([.labels[].name] | join(", "))] — \(.url)"' /tmp/merged.json
+            echo
+            echo "### Queue health"
+            echo "- needs-human (halted): $(jq length /tmp/needs_human.json)"
+            jq -r '.[] | "  - #\(.number): \(.title) — \(.url)"' /tmp/needs_human.json
+            echo "- stuck: $(jq length /tmp/stuck.json), awaiting quorum: $(jq length /tmp/awaiting.json)"
+          } > /tmp/digest.md
+
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: LLM pass — plain-English digest with tier ranking
+        env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$CLAUDE_CODE_OAUTH_TOKEN" ]; then
+            echo "::notice::CLAUDE_CODE_OAUTH_TOKEN not set — shipping the mechanical digest."
+            exit 0
+          fi
+          set -euo pipefail
+          cat > /tmp/prompt.md <<'PROMPT'
+          You are running inside digest.yml, the weekly digest workflow of this
+          repository's autonomous research experiment — an instrumentation
+          pass, NOT an agent routine. Your output goes to the human
+          experimenter by email. Write the digest for the trailing week from
+          the data below. You may read repository files (OBJECTIVES.md files,
+          programs/*/README.md, explorations/) to ground the summary, but
+          every claim must trace to the data below or a file you actually
+          read.
+
+          Produce GitHub-flavored markdown with exactly these sections:
+
+          1. **Headline** — one paragraph: what materially changed this week,
+             in plain English a non-physicist could follow.
+          2. **Tier A — gate-certified events**: every merged PR labeled
+             promotion-rigorous, demotion, or withdrawn, and every governance
+             merge listed as touching an OBJECTIVES.md. Membership is
+             mechanically determined — list ALL of them and nothing else
+             here, each with one sentence on what was promoted or overturned
+             and why it matters.
+          3. **Tier B — significant below the gate bar**: merged work meeting
+             METHODOLOGY.md's significance test — "would change a prediction
+             or appear in the abstract" — that is not Tier A: a new Sketch
+             with a complete gap map, a negative result closing a direction,
+             a notable exploration. Point at the specific labeled result or
+             prediction affected; "interesting" is not a criterion.
+          4. **Tier C** — everything else merged, one line each.
+          5. **Queue health** — open needs-human items verbatim (these halt
+             threads), stuck issues, PRs awaiting quorum.
+
+          Calibration rules (binding):
+          - Do not inflate. If nothing qualifies for a tier, write "None this
+            week." — for Tier A that is the expected steady state, not a
+            failure.
+          - Never state a result above its rigor label; call conjectures
+            conjectures.
+          - Demotions and withdrawals are progress, not setbacks — report
+            them that way.
+          - The digest is informational only: no recommendations about
+            labels, verdicts, or merges.
+
+          Output ONLY the digest markdown, no preamble. Data follows.
+          PROMPT
+          {
+            cat /tmp/prompt.md
+            echo; echo '## Merged PRs (trailing 7 days)'; cat /tmp/merged.json
+            echo; echo '## OBJECTIVES-touching governance merges (PR numbers)'; cat /tmp/milestones.txt
+            echo; echo '## Issue movement'; cat /tmp/issues.json
+            echo; echo '## Open needs-human'; cat /tmp/needs_human.json
+            echo; echo '## Open stuck'; cat /tmp/stuck.json
+            echo; echo '## Awaiting quorum'; cat /tmp/awaiting.json
+          } > /tmp/full-prompt.md
+          if claude -p "$(cat /tmp/full-prompt.md)" --model sonnet \
+               --allowedTools "Read,Glob,Grep" > /tmp/digest-llm.md \
+             && [ -s /tmp/digest-llm.md ]; then
+            mv /tmp/digest-llm.md /tmp/digest.md
+          else
+            echo "::warning::LLM digest pass failed — shipping the mechanical digest instead."
+          fi
+
+      - name: Append to the Breakthrough digest dashboard issue
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          NUM=$(gh issue list --repo "$REPO" --state open --search 'in:title "Breakthrough digest"' --json number,title \
+            | jq -r '[ .[] | select(.title == "Breakthrough digest") ][0].number // empty')
+          if [ -z "$NUM" ]; then
+            NUM=$(gh issue create --repo "$REPO" --title "Breakthrough digest" --label governance \
+              --body "Weekly plain-English digest of the autonomous experiment, posted by digest.yml. Tier A = gate-certified events (promotion-rigorous / demotion / withdrawn merges, OBJECTIVES-touching governance merges). Informational only — not a gate, and not input to any routine." \
+              | grep -oE '[0-9]+$')
+          fi
+          gh issue comment "$NUM" --repo "$REPO" --body "## Week $WEEK
+
+          $(cat /tmp/digest.md)"
+
+      - name: Email the experimenter
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ vars.ALERT_EMAIL }}
+        run: |
+          set -euo pipefail
+          SUBJECT="[self-consistency] Weekly digest $WEEK"
+          if [ "$TIER_A" -gt 0 ]; then
+            SUBJECT="[self-consistency] $TIER_A Tier-A event(s) — weekly digest $WEEK"
+          fi
+          MAIL_SUBJECT="$SUBJECT" python3 scripts/send_email.py < /tmp/digest.md
