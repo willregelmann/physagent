@@ -15,9 +15,19 @@ Each program has its own directory under `programs/` with a `README.md` describi
 ```
 programs/                          — Each program has its own directory
   <program-name>/
-    index.tex                      — The paper
+    index.tex                      — The paper (early-stage programs may have notes/ only)
+    README.md                      — Status, key results, "In plain English" abstract
+    OBJECTIVES.md                  — Ordered milestones with done-conditions
     explorations/                  — Research investigations for this program
+explorations/governance/           — Cross-program governance explorations
+automation/routines/               — Autonomous-mode role definitions (protected path)
+docs/                              — Workflow docs and historical experiment data
+metrics/                           — Autonomous-experiment metrics
+scripts/hooks/                     — Quality-gate hooks (protected path)
+tools/                             — CI tooling: citation verification (protected path)
 METHODOLOGY.md                     — Research-as-code workflow (read before contributing)
+AUTONOMY.md                        — Constitution of the autonomous experiment mode
+EXPERIMENT.md                      — Pre-registered autonomous experiment design
 ```
 
 ## Build
