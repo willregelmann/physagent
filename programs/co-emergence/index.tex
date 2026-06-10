@@ -100,7 +100,7 @@ where the Freedman--Donaldson machinery~\cite{freedman,donaldson} is
 strongest cannot carry a Lorentzian metric at all.
 
 The semiclassical Einstein equation (SCE) provides no help either. The
-companion paper~\cite{fixed_point} establishes that the perturbative
+companion paper~\cite{fixed_point} argues, at Sketch level, that the perturbative
 self-consistency map has contraction constant $\kappa \sim (m/M_P)^2$
 regardless of metric signature. The Banach contraction is
 signature-blind: self-consistent solutions exist for both Lorentzian and
@@ -874,9 +874,9 @@ gravity via the semiclassical Einstein equation
 G_{\mu\nu}[g] = 8\pi G\,\langle\hat{T}_{\mu\nu}\rangle_{g,\mathrm{ren}}.
 \label{eq:sce}
 \end{equation}
-The companion paper~\cite{fixed_point} establishes that eq.~\eqref{eq:sce}
-has a self-consistent solution (Rigorous for massive fields with
-$m \ll M_P$). Without mass, the only stress-energy source is the conformal
+The companion paper~\cite{fixed_point} argues that eq.~\eqref{eq:sce}
+has a self-consistent solution (Sketch for massive fields with
+$m \ll M_P$; demoted from Rigorous in June 2026). Without mass, the only stress-energy source is the conformal
 trace anomaly, which drives the Starobinsky de Sitter
 solution~\cite{starobinsky}. This solution is self-consistent at the
 metric level (Section~\ref{sec:level2}), but it supports no massive
@@ -932,16 +932,18 @@ mechanics.
 \cmidrule(lr){2-3} \cmidrule(lr){4-5}
 & Level~2 & Level~3 & Level~2 & Level~3 \\
 \midrule
-Lorentzian & $\checkmark$ (Rigorous) & $\checkmark$ (Sketch) & $\checkmark$ (Rigorous) & $\times$ \\
+Lorentzian & $\checkmark$ (Sketch) & $\checkmark$ (Sketch) & $\checkmark$ (Rigorous) & $\times$ \\
 Riemannian & $\checkmark$ (Sketch) & $\times$ & $\checkmark$ (Rigorous) & $\times$ \\
 \bottomrule
 \end{tabular}
 \caption{Signature selection operates at the cross-level constraint. Level~2
 (the SCE) is signature-blind for both massive and massless fields. Only
 Lorentzian signature with massive field content supports Level~3.
-The Lorentzian massive Level~2 entry is Rigorous (Banach contraction,
-$\kappa \sim (m/M_P)^2$, companion paper~\cite{fixed_point}); the
-Riemannian massive entry is Sketch (same contraction argument applies to
+The Lorentzian massive Level~2 entry is Sketch (Banach contraction,
+$\kappa \sim (m/M_P)^2$, companion paper~\cite{fixed_point}; demoted
+from Rigorous in June 2026 after review identified gaps in the kernel
+bound and contraction estimate); the
+Riemannian massive entry is likewise Sketch (same contraction argument applies to
 elliptic operators); the massless entries use the Starobinsky de Sitter /
 round $S^4$ solutions~\cite{starobinsky,bunch_davies}.}
 \label{tab:signature}
@@ -1248,27 +1250,30 @@ $H_0^2 = 180\pi/G|a_2|$ (Rigorous).
 
 \item \emph{Perturbatively}, near any classical solution, via a Banach
 contraction with constant $\kappa \sim (m/M_P)^2 \ll 1$ for massive
-fields (Rigorous). The extension to massless fields remains open: the
+fields (Sketch; demoted from Rigorous in June 2026 after review
+identified gaps in the kernel bound and contraction estimate). The
+extension to massless fields remains open: the
 spectral gap that controls the infrared behavior of the response kernel
 vanishes at $m = 0$.
 
 \item \emph{Conditionally non-perturbatively}, via the Schauder
 fixed-point theorem on globally hyperbolic spacetimes with compact Cauchy
-surfaces, under six stated assumptions of which four are established and
-two remain open (Sketch).
+surfaces, under six stated assumptions of which five are established and
+one (a uniform stress-energy bound) remains conjectural (Conditional).
 
 \end{enumerate}
 
-The Planck scale emerges as the natural validity boundary: when
-$R \sim \ell_P^{-2}$, the contraction constant $\kappa \to 1$, the
-perturbative expansion breaks down, and the full smooth-structure measure
-$\mu^*$ becomes relevant.
+An earlier claim that the Planck scale emerges as the natural validity
+boundary is withdrawn: the supporting estimate contradicted the companion
+paper's own $\kappa$ formula, and a corrected estimate is open work
+(companion paper~\cite{fixed_point}, Section~7).
 
 \begin{remark}[Level~2 is signature-blind]
 \label{rem:signature_blind}
 The contraction constant $\kappa \sim (m/M_P)^2$ is identical for
-Lorentzian and Riemannian metrics. The Banach contraction establishes
-existence of self-consistent solutions regardless of signature. For
+Lorentzian and Riemannian metrics. The Banach contraction argument
+supports existence of self-consistent solutions regardless of signature
+(at Sketch level, matching that argument's current status). For
 massless conformal matter, the Starobinsky de Sitter solution
 (Lorentzian) and the round $S^4$ (Riemannian) are both exact
 self-consistent fixed points~\cite{starobinsky,bunch_davies}. Level~2
@@ -1478,8 +1483,9 @@ The companion paper~\cite{fixed_point} studies eq.~\eqref{eq:sce} as a
 fixed-point condition in its own right. Within the present hierarchy,
 this is the Level~2 constraint evaluated on a single smooth structure.
 The Banach contraction result ($\kappa \ll 1$ for sub-Planckian
-curvatures) is the perturbative stability of the fixed point at this
-level. The Schauder existence result (conditional on two open conjectures)
+curvatures; Sketch) is the perturbative stability of the fixed point at this
+level. The Schauder existence result (conditional on one open assumption,
+a uniform stress-energy bound)
 is non-perturbative existence.
 
 The hierarchy extends this program: Level~2 existence (established with

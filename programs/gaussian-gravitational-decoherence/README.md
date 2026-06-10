@@ -32,7 +32,7 @@ experiment.
 
 ## Relationship to other programs
 
-This paper's predictions are understood within the self-consistency hierarchy as Level 2 (metric) phenomena: the Einstein-Langevin equation is the stochastic extension of the semiclassical Einstein equation whose fixed-point structure is established in `fixed-point-existence`.
+This paper's predictions are understood within the self-consistency hierarchy as Level 2 (metric) phenomena: the Einstein-Langevin equation is the stochastic extension of the semiclassical Einstein equation whose fixed-point structure is studied in `fixed-point-existence` (exact in the Starobinsky case, Rigorous; perturbative Banach argument at Sketch level since its 2026-06 demotion; Schauder existence conditional). The decoherence prediction here does not depend on those existence results.
 
 ## Build
 

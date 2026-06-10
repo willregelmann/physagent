@@ -30,7 +30,7 @@ The paper leads with proved results, then develops the interpretive framework:
 
 ## Relationship to other programs
 
-- **`fixed-point-existence`** — Companion paper. Provides the Level 2 anchor: Banach contraction for massive fields (Rigorous), Starobinsky exact solution for conformal matter (Rigorous), Schauder existence (conditional). Results are cited, not re-derived.
+- **`fixed-point-existence`** — Companion paper. Provides the Level 2 anchor: Banach contraction for massive fields (Sketch — demoted from Rigorous, 2026-06), Starobinsky exact solution for conformal matter (Rigorous), Schauder existence (conditional). Results are cited, not re-derived.
 
 - **`self-consistency-hierarchy`** (DEPRECATED) — Previous version of this paper. The hierarchy framework originated there; the co-emergence thesis emerged from its explorations (B1, C1, signature-mass debate, mass gap debate). The explorations in that program are the research record for this one.
 
@@ -44,7 +44,7 @@ The paper leads with proved results, then develops the interpretive framework:
 | ψ* imaginary content ~25–34% (rank-dependent), stable through N=256 | **Rigorous** (numerical) | Scaling/mixed-dims studies |
 | S_Lor/S_Riem ≈ 1.68, entirely from phases | **Rigorous** (numerical) | Scaling study |
 | vN entropy excess (general rank) | **Refuted** in general (3×3 counterexample, extreme entry ratios); survives as bounded-entry-ratio Conjecture | General-rank exploration (100k+ moderate-ratio tests, 0 violations) |
-| Level 2 is signature-blind (massive) | Rigorous | B1 exploration |
+| Level 2 is signature-blind (massive) | Sketch (underlying Banach contraction demoted 2026-06) | B1 exploration |
 | Level 2 is signature-blind (massless) | Rigorous | Massless fixed-point exploration |
 | Intersection form cannot force Lorentzian | Rigorous (obstruction) | C1 exploration |
 | Self-consistent mass generation (ξ ≠ 1/6) | Sketch | Mass gap exploration |
