@@ -45,6 +45,9 @@ jobs:
           STUCK=$(gh issue list --repo "$REPO" --state open --label stuck --limit 100 --json number | jq length)
           NEEDS_HUMAN=$(gh issue list --repo "$REPO" --state open --label needs-human --limit 100 --json number | jq length)
           AGENT_READY=$(gh issue list --repo "$REPO" --state open --label agent-ready --limit 100 --json number | jq length)
+          PROPOSALS_OPEN=$(gh issue list --repo "$REPO" --state open --label thread-proposal --limit 100 --json number | jq length)
+          PROPOSALS_FILED_WEEK=$(gh issue list --repo "$REPO" --state all --label thread-proposal --limit 200 --json number,createdAt | jq --arg s "$SINCE" '[ .[] | select(.createdAt >= $s) ] | length')
+          PROPOSALS_CLOSED_WEEK=$(gh issue list --repo "$REPO" --state closed --label thread-proposal --limit 200 --json number,closedAt | jq --arg s "$SINCE" '[ .[] | select(.closedAt >= $s) ] | length')
 
           RIGOROUS=$(grep -ho '(Rigorous)' programs/*/index.tex 2>/dev/null | wc -l)
           SKETCH=$(grep -ho '(Sketch)' programs/*/index.tex 2>/dev/null | wc -l)
@@ -67,12 +70,16 @@ jobs:
             --argjson open_awaiting_quorum "$OPEN_AWAITING" \
             --argjson stuck "$STUCK" --argjson needs_human "$NEEDS_HUMAN" \
             --argjson agent_ready "$AGENT_READY" \
+            --argjson proposals_open "$PROPOSALS_OPEN" \
+            --argjson proposals_filed_week "$PROPOSALS_FILED_WEEK" \
+            --argjson proposals_closed_week "$PROPOSALS_CLOSED_WEEK" \
             --argjson rigorous "$RIGOROUS" --argjson sketch "$SKETCH" \
             --argjson conjecture "$CONJECTURE" \
             '{week:$week, date:$date,
               throughput:{merged_agent_total:$merged_agent_total, merged_agent_week:$merged_agent_week, open_awaiting_quorum:$open_awaiting_quorum},
               corrections:{demotions_merged:$demotions_merged, withdrawals_merged:$withdrawals_merged, promotions_merged:$promotions_merged, demotion_rate:$demotion_rate},
               queue:{agent_ready:$agent_ready, stuck:$stuck, needs_human:$needs_human},
+              proposals:{open:$proposals_open, filed_week:$proposals_filed_week, closed_week:$proposals_closed_week},
               rigor_distribution:{rigorous:$rigorous, sketch:$sketch, conjecture:$conjecture}}' \
             > /tmp/metrics.json
           cat /tmp/metrics.json

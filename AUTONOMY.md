@@ -20,9 +20,9 @@ gate as correct and escalate via `needs-human` — never edit the gate.
 | **reviewer** | every 12h | Adversarial quorum: two-pass review of agent PRs, posts machine-readable verdicts |
 | **responder** | daily | Addresses `revise` verdicts and CI failures; executes `reject` dispositions (incl. salvage issues); watchdogs the reviewer queue |
 | **red-team** | every 3 days | Stress-tests merged Rigorous results; its product is demotions |
-| **scout** | weekly | Opens well-specified issues that advance OBJECTIVES milestones |
-| **librarian** | weekly | arXiv watch; files `informs-issue` literature pointers |
-| **governor** | monthly | Direction: debates, updates OBJECTIVES, kills/opens directions, tags versions |
+| **scout** | weekly | Opens well-specified issues that advance OBJECTIVES milestones; may file one `thread-proposal` per run |
+| **librarian** | weekly | arXiv watch; files `informs-issue` literature pointers, escalating new-direction hits to `thread-proposal` |
+| **governor** | weekly (full pass monthly) | Direction: adjudicates `thread-proposal` inbox weekly; debates, updates OBJECTIVES, kills/opens directions, tags versions |
 | **human (experimenter)** | — | Kill switch, budget, constitutional amendments, protected-path approvals. Not in the review/merge loop. |
 
 Routine behavior is defined in `automation/routines/<role>.md` (protected
@@ -118,6 +118,7 @@ maintenance, self-checks in every PR description.
 | `demotion` | PR demotes a Rigorous/Sketch result | red-team, worker | — |
 | `governance` | governor exploration / OBJECTIVES change | governor | — |
 | `informs-issue` | librarian-filed literature pointer | librarian | — |
+| `thread-proposal` | proposed novel direction awaiting governor adjudication; never worked before promotion | any routine (≤1 per run) | governor (promote/park/close), experimenter |
 | `withdrawn` | conjecture withdrawn; record kept | red-team, worker | — |
 
 The self-assign lock: a worker claims an issue by assigning the machine account
@@ -158,10 +159,23 @@ deleted.
 
 Each program has an `OBJECTIVES.md`: an ordered list of milestones, each with a
 "done =" condition. These files are the system's research objective. The scout
-opens issues only for OBJECTIVES milestones; the governor is the only routine
-that edits OBJECTIVES files, and only via a `governance`-labeled PR that
-@-mentions the experimenter (non-blocking notification). Merged work is
+opens `agent-ready` issues only for OBJECTIVES milestones; the governor is the
+only routine that edits OBJECTIVES files, and only via a `governance`-labeled
+PR that @-mentions the experimenter (non-blocking notification). Merged work is
 measured against OBJECTIVES by the topic-drift metric.
+
+**Thread proposals.** Novelty has a sanctioned channel: any routine that
+surfaces a question outside every OBJECTIVES milestone may file at most one
+`thread-proposal` issue per run. Required body: (1) what was observed, with
+file/PR/issue references; (2) why no existing milestone covers it; (3) a
+falsifiable first step a worker could take; (4) declared relations per
+METHODOLOGY (`informs`/`contradicts`/…). Proposals are never `agent-ready`,
+and no routine works one before adjudication. The governor adjudicates the
+inbox weekly: **promote** (≤2 per run, into OBJECTIVES via governance PR),
+**park** (with a stated revisit condition), or **close** (with rationale;
+closed proposals are records and are never deleted). The topic-drift tripwire
+(T4) is unchanged by this channel: promoted threads are milestones, so the
+drift metric continues to measure only unadjudicated work.
 
 ## What agents may NEVER do
 

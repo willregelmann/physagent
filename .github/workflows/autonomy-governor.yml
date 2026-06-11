@@ -1,13 +1,17 @@
 name: autonomy-governor
 
 # Scheduled caller for the governor routine (automation/routines/governor.md).
-# Cadence: monthly, 1st at 09:00 UTC. The reusable runner gates on
+# Cadence: weekly, Sundays 05:00 UTC — deliberately before the Monday scout
+# (queue stocking), metrics (07:00) and digest (09:00), so threads the
+# governor promotes enter the new week's queue and the Monday email. The
+# routine itself distinguishes the weekly light pass from the monthly full
+# pass (first run of the calendar month). The reusable runner gates on
 # AUTONOMY_ENABLED and guards the machine-account identity. workflow_dispatch
 # is provided for manual testing of a single role.
 
 on:
   schedule:
-    - cron: "0 9 1 * *"
+    - cron: "0 5 * * 0"
   workflow_dispatch:
 
 jobs:

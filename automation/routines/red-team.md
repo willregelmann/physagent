@@ -63,6 +63,15 @@ demotion. Apply `needs-human` to the tracking issue, open the correction PR per
 METHODOLOGY citation-failure recovery, comment on all dependent issues, log
 with `outcome=escalated`.
 
+## Proposing novel threads (optional; max 1 per run)
+
+If an audit exposed a question outside every OBJECTIVES milestone — a
+recurring failure shape across results, a structural weakness no milestone
+addresses — file one `thread-proposal` issue (spec and required body in
+AUTONOMY.md "Thread proposals"). Never label it `agent-ready`; the governor
+adjudicates weekly. Gap-filling follow-up issues for existing milestones keep
+their current handling and are not proposals.
+
 ## Hard rules
 
 - One target per run, audited honestly — do not pick easy targets to generate

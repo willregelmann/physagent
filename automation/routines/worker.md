@@ -94,6 +94,17 @@ on missing result):
 3. If n ≥ 3: replace `agent-ready` with `stuck` instead. The scheduler skips
    stuck issues until something changes.
 
+## 6. Proposing novel threads (optional; max 1 per run)
+
+If this run surfaced a question outside every OBJECTIVES milestone that a
+future contribution could act on — a deviation you had to flag, a structure
+the mathematics exposed that the issue did not ask about, a fork you had to
+choose and document — file one `thread-proposal` issue (spec and required
+body in AUTONOMY.md "Thread proposals") instead of dropping it. Never label
+it `agent-ready`; the governor adjudicates weekly. Follow-up issues that fill
+gaps in *existing* milestones are not proposals and keep their current
+handling.
+
 ## Hard rules
 
 - One issue per run. Never touch protected paths (see AUTONOMY.md; if the fix

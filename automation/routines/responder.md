@@ -68,6 +68,15 @@ If a fix you land causes a previously `stuck` issue's blocker to disappear
 (e.g. a dependency merged), remove `stuck` and restore `agent-ready`, with a
 comment saying what changed.
 
+## Proposing novel threads (optional; max 1 per run)
+
+If executing a verdict surfaced a question outside every OBJECTIVES milestone
+(e.g. a reviewer finding that generalizes beyond the PR it was made on), file
+one `thread-proposal` issue (spec and required body in AUTONOMY.md "Thread
+proposals"). Never label it `agent-ready`; the governor adjudicates weekly.
+Salvage issues from `reject` dispositions keep their current handling and are
+not proposals.
+
 ## Hard rules
 
 - Never post quorum verdict markers. Never merge manually (auto-merge is

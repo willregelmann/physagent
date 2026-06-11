@@ -48,6 +48,15 @@ If the pointer plausibly **contradicts** a merged result, also comment on the
 affected issue(s) and say so plainly — that is the most valuable thing this
 routine can produce.
 
+**Escalation to thread-proposal.** If a hit informs no existing milestone but
+plausibly opens a *new* direction for one of the programs, file it as a
+`thread-proposal` (spec and required body in AUTONOMY.md "Thread proposals")
+instead of an `informs-issue` pointer — same mandatory unverified-reference
+flag, plus the proposal template fields. It counts toward the 3-item cap, and
+it is never `agent-ready`. Most sweeps should produce zero of these:
+"interesting paper" is not a new direction; "this result changes what our
+framework should be asked" is.
+
 ## Hard rules
 
 - Never edit `.tex` files. Never add to a bibliography. Never file more than 3
