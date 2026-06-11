@@ -374,11 +374,12 @@ stipulated model's normalization of R. No preferred foliation enters beyond
 the one already present in the prescribed product structure (same status as
 h: prescribed, acknowledged).
 
-**No new postulates beyond the framework's axioms.** The construction
-re-derives the form of a weight the framework already stipulated, from
-structures (free scalar modes on prescribed backgrounds) already in use in
-the program's companion note. The polarization fork is flagged as a choice,
-not silently postulated.
+**No new axioms.** The construction re-derives the form of a weight the
+framework already stipulated, from structures (free scalar modes on prescribed
+backgrounds) already in use in the program's companion note. Three new
+prescribed parameters are introduced — c (gap (a)), ε, and the
+complex/real polarization choice (gap (c)) — all explicitly flagged as gaps;
+none is an axiom of the framework.
 
 **Self-checks.**
 - *Dimensional analysis:* ωτ = cR dimensionless (ℏ = 1; toy-model R
@@ -418,6 +419,13 @@ not silently postulated.
 4. **CE-1 interaction:** whether the interference metric should (or should
    not) flag the signed-real sector, and what that means for its
    interpretation as *the* quantum/classical separator.
+5. **Pre-existing sign slip in merged `index.tex` `rem:entropy_application`**
+   (~line 463): the remark labels the fixed-point structure as `m^{1+iθ}`,
+   but `m^{1+iθ}` carries phase `−θR`; the matching member of the
+   conjugation-symmetric pair is `m^{1-iθ}`. Conjugation symmetry means no
+   entropy result is affected (Lemma depends on magnitudes only), but the
+   label is cosmetically wrong. Reviewer-identified negative finding; filed
+   as a maintenance correction issue against `main` (not `needs-human`).
 
 ## Files
 
