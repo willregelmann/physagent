@@ -251,7 +251,7 @@ temporal extent in the Euclidean phase. θ = 1 (the paper's default)
 corresponds to equal Euclidean and Lorentzian extents.
 
 More generally, for any ε > 0 the derived weight has the form
-`m^(1+iθ_eff)` of the paper's Lemma (entropy excess) with
+`m^(1-iθ_eff)` of the paper's Lemma (entropy excess) with
 `m_σ = e^{−εcR_σ}` and `θ_eff = (1−ε)/ε`: the paper's phase-locking-to-
 magnitudes structure holds across the whole mixed family, with the lemma's
 hypotheses satisfied exactly as in the stipulated model.
@@ -391,7 +391,7 @@ not silently postulated.
   existing Riemannian model exactly; ε = 1/(1+θ) the existing Lorentzian
   model exactly. ✓
 - *Consistency:* No contradiction with Lemma (entropy excess) — the mixed
-  family satisfies its `m^(1+iθ_eff)` hypotheses verbatim (§4.1); the pure
+  family satisfies its `m^(1-iθ_eff)` hypotheses verbatim (§4.1); the pure
   Lorentzian case sits at the lemma's degenerate rank-one-magnitude boundary,
   where its comparison state has S = 0, consistent with §4.2. The SCB note is
   used strictly within its stated scope (fixed background, test field; its §9
