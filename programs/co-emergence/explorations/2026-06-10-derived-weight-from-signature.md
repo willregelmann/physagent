@@ -31,11 +31,13 @@ Four results, with rigor labels:
    half-period apart, for *every* polarization. Interference capacity ⟺
    hyperbolicity, with no choice involved (Lemmas 1–2).
 
-2. **(Rigorous given the junction conditions.) Complexness is NOT derived by a
-   real signature change.** Matching the Euclidean decaying branch across the
-   degenerate surface Σ with the no-surface-layer junction conditions (value
-   and canonical momentum continuity — the conditions the SCB note shows hold
-   automatically and two-sidedly) yields the **real** oscillatory mode
+2. **(Rigorous for the stated no-surface-layer junction conditions; robustness
+   over the junction-condition family is Sketch.) Complexness is NOT derived
+   by a real signature change.** Matching the Euclidean decaying branch across
+   the degenerate surface Σ with the no-surface-layer junction conditions
+   (value and canonical momentum continuity — the conditions the SCB note
+   shows hold automatically and two-sidedly) yields the **real** oscillatory
+   mode
    `cos ωu − sin ωu`, an equal-modulus superposition of `e^{±iωu}`. Junction
    transport is a real-linear map and cannot select a complex line (Lemma 3).
    The genuinely complex weight `e^{iωu}` requires a *complex polarization* of
@@ -195,18 +197,19 @@ Matching: `A = 1`, `B = −1`:
 ```
 
 **The two Hankel coefficients have equal modulus 1/√2: the real crossing
-selects no complex line.** The transported mode is real. (Rigorous, given the
-junction conditions; the sign of B is convention-dependent — orientation of u
-— but reality is not.)
+selects no complex line.** The transported mode is real. (Rigorous for the
+stated no-surface-layer junction conditions; the sign of B is
+convention-dependent — orientation of u — but reality is not.)
 
-This is not an accident of the decaying branch. The junction transport is a
-real-linear map between solution spaces of real ODEs with real matching
-conditions: real Euclidean data can only produce real Lorentzian modes. The
-conclusion is also robust to the junction-condition controversy in the
+The claim that reality is preserved for *any* real junction condition in the
+family is Sketch-grade. **(Sketch.)** For the stated conditions, the junction
+transport is a real-linear map between solution spaces of real ODEs with real
+matching conditions: real Euclidean data can only produce real Lorentzian
+modes. The same conclusion is plausible for the alternative conventions in the
 signature-change literature (the lineage the SCB note's "Relation to existing
-work" section records; the competing momentum conditions are real constraints
-and preserve reality just the same — under a `π(Σ) = 0` convention the
-transported mode is `∝ cos ωu`, still real).
+work" section records; under a `π(Σ) = 0` convention the transported mode is
+`∝ cos ωu`, still real) — but a proof covering every member of the
+junction-condition family is not supplied here.
 
 **Consequence.** The complex weight `e^{iωu}` — the `e^{iS}` structure — is
 *not* obtained by transporting the Euclidean selection through a real
@@ -272,8 +275,9 @@ Consequences (analytic, verified numerically):
   read off from the stipulated exponent.
 - **Quantum signatures present:** for generic h, imaginary coherences
   `|Im ρ₀₁| ≈ 0.09` and entanglement entropy `S ≈ 0.257 nats` (vs 0.278 nats
-  for the stipulated θ = 1 model — same order, consistent with the Euclidean
-  admixture only re-weighting magnitudes).
+  for the stipulated θ = 1 model at the paper's h = (1.0, 0.7, 0.5, 1.2) —
+  different h values, compared for order of magnitude only; consistent with
+  the Euclidean admixture only re-weighting magnitudes).
 - **The entanglement is entirely phase-generated:** the phase-stripped state
   has uniform magnitudes — the rank-one product state with S = 0. This is a
   *sharper* version of the paper's "the excess is entirely a phase effect":
@@ -397,10 +401,11 @@ none is an axiom of the framework.
   where its comparison state has S = 0, consistent with §4.2. The SCB note is
   used strictly within its stated scope (fixed background, test field; its §9
   contour caveat is load-bearing here, not contradicted). ✓
-- *Order-of-magnitude sanity:* derived pure-Lorentzian entropy 0.257 nats vs
-  stipulated 0.278 nats at matched parameters; coherences ~10⁻¹–10⁻²;
-  real-polarization entropies ~5–8×10⁻² nats. All O(1)-comparable, no
-  anomalous scales. ✓
+- *Order-of-magnitude sanity:* derived pure-Lorentzian entropy 0.257 nats
+  (generic h) vs stipulated 0.278 nats (paper h = (1.0, 0.7, 0.5, 1.2));
+  different configurations, compared for order of magnitude only.
+  Coherences ~10⁻¹–10⁻²; real-polarization entropies ~5–8×10⁻² nats.
+  All O(1)-comparable, no anomalous scales. ✓
 
 ## 7. Follow-ups this exploration motivates (not part of this PR)
 
