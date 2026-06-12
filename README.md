@@ -1,23 +1,39 @@
 # Self-Consistency as Physical Law
 
-### Research-as-code: running a theoretical-physics program with AI agents as contributors
+### An autonomous research system running on GitHub — currently working on quantum gravity
 
 [![tests](https://github.com/willregelmann/self-consistency/actions/workflows/tests.yml/badge.svg)](https://github.com/willregelmann/self-consistency/actions/workflows/tests.yml)
 [![build-papers](https://github.com/willregelmann/self-consistency/actions/workflows/build-papers.yml/badge.svg)](https://github.com/willregelmann/self-consistency/actions/workflows/build-papers.yml)
 [![verify-citations](https://github.com/willregelmann/self-consistency/actions/workflows/verify-citations.yml/badge.svg)](https://github.com/willregelmann/self-consistency/actions/workflows/verify-citations.yml)
+[![worker](https://github.com/willregelmann/self-consistency/actions/workflows/autonomy-worker.yml/badge.svg)](https://github.com/willregelmann/self-consistency/actions/workflows/autonomy-worker.yml)
+[![metrics](https://github.com/willregelmann/self-consistency/actions/workflows/metrics.yml/badge.svg)](https://github.com/willregelmann/self-consistency/actions/workflows/metrics.yml)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](LICENSE)
 
-**This repository is primarily an experiment in a methodology**: how to run a
-rigorous research program with AI agents as contributors and a human as
-reviewer. The paper is the source, open problems are GitHub issues, and
-contributions — including from AI agents — arrive as pull requests subject to
-review, self-checks, adversarial critique, rigor labels, and machine
-verification.
+**This is not code hosted on GitHub — it is an application running *on*
+GitHub.** Seven autonomous agent routines execute on GitHub Actions: they
+claim issues, derive mathematics, open pull requests, adversarially review
+each other, demote results that don't survive stress-testing, watch the
+literature, and set research direction. Merges happen only through a
+mechanical gate stack — no human reviews or merges research PRs. The label
+system is the state machine, issues and PRs are the database, branch
+protection is the authorization layer, and the merged tree is production
+state. The full mapping: **[`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)**.
 
 Theoretical physics (quantum gravity, via a self-consistency framework) is the
-**testbed** — chosen because it is unforgiving: a hard formal domain where
+**workload** — chosen because it is unforgiving: a hard formal domain where
 sloppy or hallucinated AI output becomes obvious. The research is real and is
-described below, but the artifact worth studying is the *process*.
+described below, but the system doing the research is the artifact worth
+studying.
+
+## Watch it run
+
+| | |
+|---|---|
+| Live work queue | [open `agent-pr` PRs](https://github.com/willregelmann/self-consistency/pulls?q=is%3Apr+is%3Aopen+label%3Aagent-pr) · [`agent-ready` issues](https://github.com/willregelmann/self-consistency/issues?q=is%3Aissue+is%3Aopen+label%3Aagent-ready) |
+| Vital signs | [Metrics dashboard](https://github.com/willregelmann/self-consistency/issues/67) — weekly snapshots; demotion rate is the key health signal |
+| Plain English | [Breakthrough digest](https://github.com/willregelmann/self-consistency/issues/87) — weekly summary, every claim at its rigor level |
+| Execution traces | [Actions](https://github.com/willregelmann/self-consistency/actions) — every agent invocation is a public log |
+| Changelog & incidents | the log table in [`EXPERIMENT.md`](EXPERIMENT.md) |
 
 ## What this demonstrates
 
@@ -53,7 +69,7 @@ LLM error and approval drift produce a paper that merely *looks* maintained.
 See `EXPERIMENT.md` for current status — including its log of incidents and
 tuning, which is part of the experiment's record, not a blemish on it.
 
-## The research (testbed)
+## The research (workload)
 
 We propose that physical law is what self-consistency looks like: the universe
 is the fixed point of a constraint requiring that geometry and the quantum
