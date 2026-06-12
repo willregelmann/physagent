@@ -1,0 +1,113 @@
+name: autonomy-event-dispatch
+
+# Event-driven fast path for the review loop (EXPERIMENT.md log, 2026-06-11).
+# The cron cadence remains the guaranteed backstop (including the reviewer
+# double-fire and the responder watchdog); this workflow only shortens the
+# verdict -> revision -> re-review latency from cron cadence to minutes:
+#
+#   - quorum verdict comment (revise/reject) on an agent PR -> dispatch responder
+#   - agent-pr opened / synchronized / labeled              -> dispatch reviewer
+#
+# Guards: runs only when AUTONOMY_ENABLED; honors only comments/PRs from the
+# machine account (or the experimenter, for verdicts — mirroring quorum-gate's
+# marker policy); skips when a run of the target routine is already queued or
+# in progress (routines are idempotent and crons still fire, so a skipped
+# dispatch is never lost work); and disables itself on PRs that have
+# accumulated >= 5 verdict markers — a revise loop that long should proceed
+# at cron pace under human attention, not burn review budget at machine pace
+# (the 2026-06-11 four-round revise on PR #89 motivates the cap).
+#
+# Authority note: this workflow holds none. It presses, via the default
+# GITHUB_TOKEN, the same workflow_dispatch button the cron schedule presses
+# (workflow_dispatch is a documented exception to GITHUB_TOKEN's
+# no-recursive-triggering rule). The dispatched routine still authenticates
+# as the machine-account PAT behind the identity guard, and every merge still
+# clears the full gate stack.
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request:
+    types: [opened, synchronize, labeled]
+
+permissions:
+  actions: write
+  pull-requests: read
+  issues: read
+
+jobs:
+  dispatch-responder:
+    name: verdict -> responder
+    if: >-
+      vars.AUTONOMY_ENABLED == 'true' &&
+      github.event_name == 'issue_comment' &&
+      github.event.issue.pull_request &&
+      (contains(github.event.comment.body, '<!-- quorum:verdict revise') ||
+       contains(github.event.comment.body, '<!-- quorum:verdict reject'))
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch responder (guarded)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          COMMENT_AUTHOR: ${{ github.event.comment.user.login }}
+          PR_NUMBER: ${{ github.event.issue.number }}
+          BOT: ${{ vars.AUTONOMY_BOT }}
+        run: |
+          set -euo pipefail
+          if [ "$COMMENT_AUTHOR" != "$BOT" ] && [ "$COMMENT_AUTHOR" != "willregelmann" ]; then
+            echo "Verdict-shaped comment from '$COMMENT_AUTHOR' is not from a verdict source; ignoring (quorum-gate ignores it too)."
+            exit 0
+          fi
+          VERDICTS=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json comments \
+            --jq '[.comments[].body | select(contains("<!-- quorum:verdict"))] | length')
+          if [ "$VERDICTS" -ge 5 ]; then
+            echo "::warning::PR #$PR_NUMBER has accumulated $VERDICTS verdicts — fast path disabled for this PR; it continues at cron pace."
+            exit 0
+          fi
+          BUSY=$(gh run list --repo "$REPO" --workflow=autonomy-responder.yml --limit 10 \
+            --json status --jq '[.[] | select(.status == "queued" or .status == "in_progress")] | length')
+          if [ "$BUSY" -gt 0 ]; then
+            echo "A responder run is already queued/in progress; it (or the next cron) picks this verdict up."
+            exit 0
+          fi
+          gh workflow run autonomy-responder.yml --repo "$REPO"
+          echo "Dispatched responder for the verdict on PR #$PR_NUMBER."
+
+  dispatch-reviewer:
+    name: agent-pr update -> reviewer
+    if: >-
+      vars.AUTONOMY_ENABLED == 'true' &&
+      github.event_name == 'pull_request' &&
+      (github.event.action != 'labeled' || github.event.label.name == 'agent-pr') &&
+      (contains(github.event.pull_request.labels.*.name, 'agent-pr') ||
+       github.event.label.name == 'agent-pr')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch reviewer (guarded)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          BOT: ${{ vars.AUTONOMY_BOT }}
+        run: |
+          set -euo pipefail
+          if [ "$PR_AUTHOR" != "$BOT" ]; then
+            echo "PR #$PR_NUMBER author '$PR_AUTHOR' is not the machine account; the cron cadence covers it."
+            exit 0
+          fi
+          VERDICTS=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json comments \
+            --jq '[.comments[].body | select(contains("<!-- quorum:verdict"))] | length')
+          if [ "$VERDICTS" -ge 5 ]; then
+            echo "::warning::PR #$PR_NUMBER has accumulated $VERDICTS verdicts — fast path disabled for this PR; it continues at cron pace."
+            exit 0
+          fi
+          BUSY=$(gh run list --repo "$REPO" --workflow=autonomy-reviewer.yml --limit 10 \
+            --json status --jq '[.[] | select(.status == "queued" or .status == "in_progress")] | length')
+          if [ "$BUSY" -gt 0 ]; then
+            echo "A reviewer run is already queued/in progress; per-SHA verdicts make a second dispatch redundant."
+            exit 0
+          fi
+          gh workflow run autonomy-reviewer.yml --repo "$REPO"
+          echo "Dispatched reviewer for PR #$PR_NUMBER."

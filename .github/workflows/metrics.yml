@@ -16,6 +16,7 @@ on:
 permissions:
   contents: read
   issues: write
+  pull-requests: read
 
 jobs:
   collect:
@@ -25,6 +26,10 @@ jobs:
       - uses: actions/checkout@v6
         with:
           fetch-depth: 0
+          # Without this, checkout's injected read-only credential shadows the
+          # PAT in the push step's URL (403 as github-actions[bot]; observed
+          # 2026-06-12). Same footgun autonomy-routine.yml documents.
+          persist-credentials: false
 
       - name: Compute weekly metrics
         env:
@@ -36,12 +41,20 @@ jobs:
           TODAY=$(date -u +%F)
           SINCE=$(date -u -d '7 days ago' +%F)
 
-          MERGED_AGENT_TOTAL=$(gh pr list --repo "$REPO" --state merged --label agent-pr --limit 1000 --json number | jq length)
-          MERGED_AGENT_WEEK=$(gh pr list --repo "$REPO" --state merged --label agent-pr --limit 1000 --json number,mergedAt | jq --arg s "$SINCE" '[ .[] | select(.mergedAt >= $s) ] | length')
-          MERGED_DEMOTIONS=$(gh pr list --repo "$REPO" --state merged --label demotion --limit 1000 --json number | jq length)
-          MERGED_WITHDRAWN=$(gh pr list --repo "$REPO" --state merged --label withdrawn --limit 1000 --json number | jq length)
-          MERGED_PROMOTIONS=$(gh pr list --repo "$REPO" --state merged --label promotion-rigorous --limit 1000 --json number | jq length)
-          OPEN_AWAITING=$(gh pr list --repo "$REPO" --state open --label agent-pr --limit 100 --json number | jq length)
+          # PR label counts go through one unfiltered fetch + jq, NOT
+          # `gh pr list --label X`: under the workflow GITHUB_TOKEN the
+          # label-filtered (search-backed) queries silently return empty —
+          # every snapshot before 2026-06-12 zeroed all PR-derived metrics
+          # (demotion rate, quorum inputs) this way. Issue label queries are
+          # unaffected. The digest workflow uses the same fetch+jq pattern.
+          gh pr list --repo "$REPO" --state merged --limit 1000 --json number,labels,mergedAt > /tmp/merged_prs.json
+          count_label() { jq --arg l "$1" '[ .[] | select([.labels[].name] | index($l)) ] | length' /tmp/merged_prs.json; }
+          MERGED_AGENT_TOTAL=$(count_label agent-pr)
+          MERGED_AGENT_WEEK=$(jq --arg s "$SINCE" '[ .[] | select([.labels[].name] | index("agent-pr")) | select(.mergedAt >= $s) ] | length' /tmp/merged_prs.json)
+          MERGED_DEMOTIONS=$(count_label demotion)
+          MERGED_WITHDRAWN=$(count_label withdrawn)
+          MERGED_PROMOTIONS=$(count_label promotion-rigorous)
+          OPEN_AWAITING=$(gh pr list --repo "$REPO" --state open --limit 100 --json labels | jq '[ .[] | select([.labels[].name] | index("agent-pr")) ] | length')
           STUCK=$(gh issue list --repo "$REPO" --state open --label stuck --limit 100 --json number | jq length)
           NEEDS_HUMAN=$(gh issue list --repo "$REPO" --state open --label needs-human --limit 100 --json number | jq length)
           AGENT_READY=$(gh issue list --repo "$REPO" --state open --label agent-ready --limit 100 --json number | jq length)
