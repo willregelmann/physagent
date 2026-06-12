@@ -29,6 +29,10 @@ governance synthesis).
 **Cross-program priority (governor, 2026-06-11; information for the worker's
 ranking criterion (a) and the scout's milestone selection):** this cycle's
 order across programs is GGD-2 > FPE-4 > SCB-2/3 > SCB-4 > GGD-1 > FPE-5 >
-CE-10 follow-ons > SCB-6 > FPE-1 > FPE-7 > FPE-6 > FPE-2. `experimenter-priority`
-issues outrank all of it, per the worker routine. Rationale:
+CE-10 follow-ons > SCB-6 > FPE-1 > FPE-7 > FPE-6 > FPE-2 > CE-4..CE-9.
+`experimenter-priority` issues outrank all of it, per the worker routine.
+CE-4 (#30) and CE-5 (#45) already have issues (worker-claimable); CE-6 through
+CE-9 are unissued (scout-fillable). SCB-5 (port to index.tex) requires a
+`.github/` edit (protected path) and is excluded from the autonomous ordering;
+it needs experimenter approval. Rationale:
 `explorations/governance/2026-06-11-cycle-1-direction-debate.md`.
