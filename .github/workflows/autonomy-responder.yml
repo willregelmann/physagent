@@ -16,5 +16,5 @@ jobs:
     uses: ./.github/workflows/autonomy-routine.yml
     with:
       role: responder
-      model: claude-sonnet-4-6
+      model: ${{ vars.MODEL_RESPONDER || 'claude-sonnet-4-6' }}
     secrets: inherit

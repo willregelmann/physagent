@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/autonomy-routine.yml
     with:
       role: worker
-      model: claude-fable-5
+      model: ${{ vars.MODEL_WORKER || 'claude-opus-4-8' }}
     secrets: inherit
