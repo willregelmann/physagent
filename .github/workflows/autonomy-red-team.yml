@@ -17,5 +17,5 @@ jobs:
     uses: ./.github/workflows/autonomy-routine.yml
     with:
       role: red-team
-      model: claude-opus-4-8
+      model: ${{ vars.MODEL_RED_TEAM || 'claude-opus-4-8' }}
     secrets: inherit

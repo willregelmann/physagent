@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/autonomy-routine.yml
     with:
       role: scout
-      model: claude-sonnet-4-6
+      model: ${{ vars.MODEL_SCOUT || 'claude-sonnet-4-6' }}
     secrets: inherit

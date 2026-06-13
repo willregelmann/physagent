@@ -15,5 +15,5 @@ jobs:
     uses: ./.github/workflows/autonomy-routine.yml
     with:
       role: librarian
-      model: claude-sonnet-4-6
+      model: ${{ vars.MODEL_LIBRARIAN || 'claude-sonnet-4-6' }}
     secrets: inherit
