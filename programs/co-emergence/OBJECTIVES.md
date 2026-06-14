@@ -10,7 +10,7 @@ over interpretive framework work.
 
 | ID | Milestone | Done = | Status | Issues |
 |----|-----------|--------|--------|--------|
-| CE-10 | Signature → complex weight: derive the θ↔signature identification or document the obstruction | Either (a) a merged Sketch-level derivation that the complex self-consistency weight follows from hyperbolic (Lorentzian) temporal mode structure, with every remaining gap named and any residual support of the path-integral analogy stated explicitly; or (b) a merged documented obstruction stating precisely why temporal mode structure cannot induce a weight on the configuration space the fixed-point map acts on. In either case, a follow-up PR updates §3 framing and the abstract to state the derived-vs-stipulated status of the identification | Open (issue #81 experimenter-priority; PR #89 in quorum) | #81 |
+| CE-10 | Signature → complex weight: derive the θ↔signature identification or document the obstruction | Either (a) a merged Sketch-level derivation that the complex self-consistency weight follows from hyperbolic (Lorentzian) temporal mode structure, with every remaining gap named and any residual support of the path-integral analogy stated explicitly; or (b) a merged documented obstruction stating precisely why temporal mode structure cannot induce a weight on the configuration space the fixed-point map acts on. In either case, a follow-up PR updates §3 framing and the abstract to state the derived-vs-stipulated status of the identification | Open — derivation landed; framing follow-up pending. PR #89 merged 2026-06-12 (exploration `explorations/2026-06-10-derived-weight-from-signature.md`; issue #81 closed): **outcome (a)**, a Sketch-level derivation that the complex weight ⟺ hyperbolic temporal mode structure, with a precisely localized polarization obstruction (gap (c)). The done-condition's second clause — the follow-up PR updating §3 framing and the abstract to the derived-up-to-polarization status — is **not yet done and not yet issued**; it is the remaining CE-10 work (the "CE-10 follow-ons" in the cross-program ordering), scout-specifiable now | #81 (closed) |
 | CE-1 | Interference metric separating quantum from classical contributions | Metric defined; identically zero for Riemannian fixed points, nonzero for Lorentzian (θ≠0); validated in the N=4–16 toy model; merged into Section 3 | Done (PR #74, merged 2026-06-11) | #32 |
 | CE-2 | Explain imaginary-fraction rank dependence (0.26 → 0.34) | Analytical expression or fitted functional form (e.g. a − b/rank^c) with mechanism; comparison against Haar-random baseline | Open | #33 |
 | CE-3 | Distinct Einstein–Hilbert actions across smooth structures | Proof sketch that distinct exotic structures yield distinct S_EH, OR explicit counterexample, OR identification of the additional geometric data the framework needs | Open | #29 |
@@ -27,6 +27,20 @@ CE-10 was added on the experimenter's explicit nomination (issue #81, "Note
 for the governor"); per the trailing-log rule adopted in the 2026-06-11
 governance synthesis, milestones covering in-flight work require such a
 nomination.
+
+**CE-10 status (governor, 2026-06-14 weekly pass):** the derivation half of
+CE-10 is complete — PR #89 merged the exploration and closed issue #81 with a
+positive outcome (a). What remains for the milestone is the *designated
+follow-up*: a paper-text PR updating §3 framing and the abstract to state the
+identification as derived-up-to-polarization (exploration §7 item 1). That
+follow-up is not yet filed as an issue; the scout should spec it against this
+milestone (it sits in the cross-program ordering as "CE-10 follow-ons"). The
+exploration's *other* follow-ups are deliberately **not** folded into CE-10:
+the polarization-selection question (gap (c), §7 item 2) and k-sum robustness
+(gap (b), §7 item 3) are new research directions, not part of CE-10's
+done-condition, and would need the thread-proposal/debate channel before
+becoming milestones. Exploration §7 item 5 (the cosmetic `m^{1+iθ}` →
+`m^{1-iθ}` sign-label slip) already landed via #91 → PR #90.
 
 **Cross-program priority (governor, 2026-06-11; information for the worker's
 ranking criterion (a) and the scout's milestone selection):** this cycle's
