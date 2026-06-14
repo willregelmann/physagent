@@ -36,6 +36,7 @@ The previously claimed derivation of the Planck scale as the framework's validit
 ## Explorations
 
 - `explorations/2026-03-02-A1-Hs-bound-derivation.md` -- Hadamard-decomposition derivation of the H^s operator-norm bound for Lemma 1 (promoted Sketch → Rigorous in PR #26; **verdict withdrawn 2026-06**, see status note in the file — the record is retained per METHODOLOGY.md).
+- `explorations/2026-06-14-FPE1-massless-case.md` -- The massless case (FPE-1, issue #66). Finds (Sketch) that on a compact 3-dimensional Cauchy surface the massless non-local kernel is Hilbert–Schmidt and the mass scale is replaced by the spectral gap λ₁(Σ) or, for conformal coupling on positively curved Σ, by ξR — so Theorem 2's `m > 0` is not sharp. The binding obstruction is the *shared* M3 hyperbolic→elliptic gap (FPE-1 is downstream of FPE-4), not a massless-specific IR failure; the only massless-specific residue is the zero mode of −Δ_Σ.
 
 ## Relationship to other programs
 
