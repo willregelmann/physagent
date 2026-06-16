@@ -294,6 +294,31 @@ influences $W(x,x)$ with no exponential suppression. No reduction of the respons
 to a purely spatial operator on $\Sigma$ is constructed, so the exponential-decay bound
 on $\mathcal{K}_{\mathrm{nl}}$ is not established as stated. This is the principal gap.
 
+\emph{This gap is structural, not presentational} (investigated in
+\texttt{explorations/2026-06-16-FPE4-M3-structural-obstruction.md}). The non-local
+kernel is the image of a source under a Green operator of the \emph{normally hyperbolic}
+operator $(\Box_g + m^2 + \xi R)$, whose support is the causal past $J^-(x)$; this is an
+operator-support property, independent of the field mass (the compact-$\Sigma$ spectral
+gap $\lambda_1(\Sigma)$ and the conformal shift $\xi R$ control the \emph{spatial}
+elliptic operator, which is the wrong operator, so the gap is not cured in the massless
+limit either). Reducing this object to an $H^s(\Sigma)\to H^{s-2}(\Sigma)$ operator
+presupposes a canonical decomposition of the Lorentzian Green operator into time
+evolution off a chosen $\Sigma$ --- i.e.\ a global time function or homogeneous slicing.
+Assumptions (A1)--(A6) supply neither (this is the same unjustified background structure
+flagged as Gap (M8): a genuine spatial reduction of the kernel would also exhibit the
+chosen $\Sigma$ as pure gauge, and conversely). The only known route to a contraction for
+the Lorentzian object --- Meda--Pinamonti--Siemssen on FLRW
+\cite{meda_pinamonti_siemssen,pinamonti_siemssen} --- contracts in a norm over an interval
+of cosmological \emph{time} on the Hubble function, exploiting homogeneous slicing, and is
+not a single-Cauchy-surface $H^s$ bound. \textbf{Consequently the perturbative contraction
+of this section is permanently Sketch at the stated generality:} a repair requires
+geometric input beyond (A1)--(A6) --- a controlled global foliation --- and is then
+foliation-restricted, yielding existence ``Rigorous on a [homogeneous / controlled]
+slicing,'' local in time, rather than the general statement of Theorem~\ref{thm:banach}.
+This does not refute existence of the fixed point, which holds exactly on de~Sitter
+(Section~\ref{sec:starobinsky}) and on FLRW \cite{meda_pinamonti_siemssen}; it obstructs only
+the single-slice spatial-resolvent \emph{proof strategy} written here.
+
 \smallskip\noindent\textbf{Gap (M4): asserted coefficient scaling in Step~3.}
 The bound $\|a_\gamma\|_{L^\infty} \leq C_{\mathrm{loc}}\cdot\hbar m^2/(4\pi)^2$ is
 asserted, not derived. It fails for the mass-independent anomaly counterterm responses:
@@ -303,7 +328,10 @@ scaling as $\hbar R$, not $\hbar m^2$. These can be absorbed into $C_{\mathcal{K
 at the cost of a factor $R/m^2$, which makes the displayed $m^2$ scaling --- and hence
 the $(m/M_P)^2$ headline of Theorem~\ref{thm:banach} --- cosmetic whenever
 $R \gtrsim m^2$. A derivation of the coefficient bounds with explicit mass and curvature
-dependence is required.
+dependence is required. This is the same fork the (M1) resolution reaches from the
+operator-norm side: fixing the single Sobolev reference scale $\mu^2\sim R$ that makes the
+$\kappa$ chain consistent forces the local-part scale to $\hbar R/(4\pi)^2$. (M1) and (M4)
+must therefore be repaired jointly.
 
 \smallskip\noindent\textit{Remark on the massless case.} The mass gap
 $m > 0$ is essential in two places: it ensures exponential decay of the
@@ -390,9 +418,35 @@ $R \to 0$ --- contraction would fail near Minkowski space, which is physically a
 and contradicts the displayed formula $\kappa \propto R$. Which $R$-scaling (if either)
 is correct is open; until the chain is repaired, the quantitative form of
 eq.~\eqref{eq:kappa}, and every claim downstream of it (notably
-Section~\ref{sec:planck}), is unsupported. The dimensional bookkeeping of the Sobolev
-operator norms (which hide a reference length scale) must be made explicit as part of
-the repair.
+Section~\ref{sec:planck}), is unsupported.
+
+\emph{Resolution (Sketch).} The inconsistency is a hidden-reference-scale artifact. A
+dimensionally homogeneous Sobolev norm carries a reference mass~$\mu$, $\|u\|_{H^t}^2 =
+\langle u,(\mu^2-\Delta)^t u\rangle$, so an operator norm $\|A\|_{H^a\to H^b}$ carries an
+explicit factor $\mu^{a-b}$ times the intrinsic dimension of~$A$. Then $C_{\mathrm{inv}} =
+\|(G_{\mathrm{lin}})^{-1}\|_{H^{s-2}\to H^s}$ carries $\mu^{-2}$ (its ``$1/R$'' is really
+$1/(\text{spectral gap of }G_{\mathrm{lin}})$, equal to $1/R$ only when $\mu^2\sim R$),
+while $\|\mathcal{K}^{\mathrm{red}}\|_{H^s\to H^{s-2}}$ carries $\mu^{+2}$ (the asserted
+$\hbar m^2/(4\pi)^2$ is licensed only when $\mu^2\sim m^2$). The displayed chain uses
+\emph{two different} implicit scales --- $\mu^2=R$ in $C_{\mathrm{inv}}$ and $\mu^2=m^2$
+in the kernel --- which is exactly why the unbalanced factor $\ell_P^2 R$ appears. A
+\emph{single} explicit $\mu$ in both factors removes the inconsistency, at the cost of a
+physical choice that collides with Gap~(M4):
+\begin{itemize}
+\item $\mu^2\sim m^2$ (the field's Compton scale): $\kappa\sim(m/M_P)^2$, \emph{independent
+of $R$}, with a graceful flat-space limit ($\kappa$ unaffected as $R\to0$; no lower bound
+on~$R$ is needed). This reproduces the mass table below and is the defensible headline.
+\item $\mu^2\sim R$: $\kappa\sim\ell_P^2 R$ (also $\to0$ as $R\to0$), but consistency then
+forces the kernel scale to $\hbar R/(4\pi)^2$, not $\hbar m^2/(4\pi)^2$ --- precisely
+Gap~(M4). The $(m/M_P)^2$ headline does not survive this reading.
+\end{itemize}
+The corrected Sketch-level statement is $\kappa \le C\,(m/M_P)^2\, f(\mu^2/m^2,\ell_P^2 R)$
+with $f\to\mathrm{const}$ for $\mu^2\sim m^2$ and $f\sim\ell_P^2 R$ for $\mu^2\sim R$. The
+theorem requires an explicit single~$\mu$, fixed jointly with~(M4) --- not a lower bound
+on~$R$. The displayed $\kappa = (1/2\pi)(m/M_P)^2\ell_P^2 R$ is an artifact of mixing the
+two scales and then setting $R=\ell_P^{-2}$; it is not a derivation. (This confirms the
+Section~\ref{sec:planck} withdrawal from a second direction: on the defensible $\mu^2\sim
+m^2$ reading $\kappa$ is $R$-independent, so no breakdown curvature is derived at all.)
 
 \smallskip\noindent\textbf{Gap (M5): missing self-mapping step.}
 The invocation of the Banach theorem on ``the closed ball around $\bar{g}$ of radius
@@ -400,7 +454,9 @@ $\rho/(1-\kappa)$'' requires, in addition to the contraction estimate, the displ
 bound $\|\mathcal{F}(\bar{g}) - \bar{g}\|_{H^s} \leq (1-\kappa)\rho$ --- i.e.\ that the
 quantum correction evaluated \emph{at the background} is small in $H^s$. This is never
 established; it is essentially an (A3)-type bound at $\bar{g}$. Contraction alone does
-not yield existence without it.
+not yield existence without it. This is a genuine technical gap, subordinate to (M3): it
+would still have to be discharged for any foliation-restricted repair (Section~\ref{sec:open}),
+in the time-weighted norm that repair uses rather than in $H^s(\Sigma)$.
 
 \medskip
 
@@ -465,10 +521,15 @@ anomaly can be perturbatively eliminated. \textbf{[Established:} Parker--Simon
 \item[\textbf{(A6)}] \textit{Uniform contraction bound.}
 (Included for completeness; used only in the Banach uniqueness argument of Section~\ref{sec:banach}, not in the Schauder existence argument below.)\newline
 $\kappa_{\sup} \equiv 8\pi G\,C_{\text{inv}}\cdot\sup_{g\in K_\rho}\|\delta\langle\hat{T}_{\mu\nu}\rangle_{\text{ren}}/\delta g\|_{\text{op}} < 1$.
-\textbf{[Sketch for massive fields.} Lemma~\ref{lem:kernel_bound} sketches the
-operator-norm bound, with target constant $\kappa \sim (m/M_P)^2\ell_P^2 R \ll 1$ for
-sub-Planckian curvature; see Gaps (M1), (M3), (M4) in Section~\ref{sec:banach}. Open for
-massless fields.\textbf{]}
+\textbf{[Sketch for massive fields, with a structural obstruction.}
+Lemma~\ref{lem:kernel_bound} sketches the operator-norm bound. The displayed target
+$\kappa \sim (m/M_P)^2\ell_P^2 R$ is not derived as written (Gap (M1): mixing two Sobolev
+reference scales; the consistent single-scale form is $\kappa\sim(m/M_P)^2$, $R$-independent).
+The governing gap (M3) is \emph{structural}: the response kernel is a Lorentzian hyperbolic
+Green operator with causal-past support, and its reduction to a spatial operator on
+$\Sigma$ requires a controlled global foliation beyond (A1)--(A6). The bound holds only on
+such a (foliation-restricted) slicing; see Gaps (M1), (M3), (M4), (M5) in
+Section~\ref{sec:banach}. Open for massless fields (the same (M3) gap binds).\textbf{]}
 \end{itemize}
 
 \subsection{Theorem}
@@ -606,17 +667,28 @@ question above, and is not self-diagnosable within the framework.
 
 \begin{enumerate}
 
-\item \textbf{Re-establishing the contraction estimate (Gaps M1, M3, M4, M5).}
-The Banach argument of Section~\ref{sec:banach} is presently a Sketch. Restoring a
-Rigorous label requires: (M1)~a dimensionally consistent derivation of $\kappa$ with the
-$R$-dependence resolved (the current chain gives $\kappa \propto 1/R$ while the displayed
-formula gives $\kappa \propto R$); (M3)~genuine Lorentzian control of the non-local
-kernel --- the spatial elliptic resolvent does not bound influence from the causal past,
-so either a reduction of the response kernel to a spatial operator must be constructed,
-or the bound restated for an equal-time/Euclidean object with the gap to the Lorentzian
-problem made explicit; (M4)~a derivation of the local coefficient bounds with explicit
-mass and curvature dependence, accounting for the mass-independent anomaly counterterms;
-and (M5)~the self-mapping (displacement) bound at the background.
+\item \textbf{The contraction estimate (Gaps M1, M3, M4, M5): a foliation-restricted
+repair is the honest path.} The Banach argument of Section~\ref{sec:banach} is
+permanently a Sketch at the stated generality. The gaps are not on equal footing
+(analysis: \texttt{explorations/2026-06-16-FPE4-M3-structural-obstruction.md}).
+\emph{(M3) is structural:} the non-local response kernel is a Green operator of the
+Lorentzian hyperbolic operator, with causal-past support, and no reduction to a spatial
+operator on a single Cauchy surface $\Sigma$ exists within (A1)--(A6) (the same gap as
+(M8); the obstruction is mass-independent, so it is not cured in the massless limit). The
+only known repair replaces the single-slice $H^s(\Sigma)$ bound by a time-weighted energy
+(Volterra) estimate on a finite causal slab, following Meda--Pinamonti--Siemssen
+\cite{meda_pinamonti_siemssen,pinamonti_siemssen}; this requires a controlled global
+foliation --- geometric input beyond (A1)--(A6) --- and yields existence ``Rigorous on a
+[homogeneous / controlled] slicing,'' local in time, not the general statement of
+Theorem~\ref{thm:banach}. \emph{(M1) is a hidden-reference-scale artifact} (resolved at
+Sketch level in Section~\ref{sec:banach}): with a single explicit Sobolev scale $\mu$ the
+$\kappa$ chain is consistent and gives $\kappa\sim(m/M_P)^2$ ($R$-independent) for
+$\mu^2\sim m^2$, or $\kappa\sim\ell_P^2 R$ for $\mu^2\sim R$ --- the latter forcing the
+local scale $\hbar R/(4\pi)^2$, i.e.\ \emph{(M4)}, so (M1) and (M4) are one joint
+repair. \emph{(M5)} (the self-mapping/displacement bound) remains a genuine technical gap
+that any repair must still discharge, in the norm that repair uses. Restoring a Rigorous
+label at the general stated scope is therefore not available; a foliation-restricted
+re-promotion is.
 
 \item \textbf{Well-definedness of the map $\mathcal{F}$ (M8, M9).}
 Two structural gaps predate the demotion and remain open. \emph{(M8)}~Sections

@@ -1355,11 +1355,18 @@ $H_0^2 = 180\pi/G|a_2|$ (Rigorous).
 
 \item \emph{Perturbatively}, near any classical solution, via a Banach
 contraction with constant $\kappa \sim (m/M_P)^2 \ll 1$ for massive
-fields (Sketch; demoted from Rigorous in June 2026 after review
-identified gaps in the kernel bound and contraction estimate). The
-extension to massless fields remains open: the
-spectral gap that controls the infrared behavior of the response kernel
-vanishes at $m = 0$.
+fields (Sketch; demoted from Rigorous in June 2026, and \emph{permanently}
+Sketch at this generality after the governing gap was found to be a
+structural obstruction: the non-local response kernel is a Green operator of
+the Lorentzian hyperbolic operator, with causal-past support, so the
+single-Cauchy-surface bound used in the companion paper cannot be closed
+without a controlled global foliation beyond its assumptions; any repair is
+then foliation-restricted (companion paper~\cite{fixed_point}, Section~3 and
+\texttt{explorations/2026-06-16-FPE4-M3-structural-obstruction.md}). The
+extension to massless fields is blocked by the \emph{same} structural gap, not
+by an independent infrared failure: on a compact Cauchy surface the spectral
+gap stays positive, but it controls the spatial elliptic operator, which is
+not the Lorentzian object at issue.
 
 \item \emph{Conditionally non-perturbatively}, via the Schauder
 fixed-point theorem on globally hyperbolic spacetimes with compact Cauchy
@@ -1386,6 +1393,18 @@ does not distinguish signatures for any field content. This is not a
 deficiency---it is informative: it demonstrates that signature selection
 must operate at the cross-level constraint
 (Conjecture~\ref{conj:coemergence}), not at any single level.
+
+\emph{Caveat (proof strategy, not existence).} The signature-blindness of
+\emph{existence} rests on the two exact fixed points just cited and is not in
+question. The signature-blindness of the \emph{Banach-contraction argument},
+however, is exactly where that argument's structural gap (M3) lives: the kernel
+bound is governed by $\Box_g$, which is \emph{hyperbolic} on a Lorentzian metric
+(causal-past support --- the obstruction) but \emph{elliptic} on a Riemannian
+metric (where a spatial-resolvent bound is legitimate). The ``identical $\kappa$
+for both signatures'' is therefore, at the level of the proof, the very
+Lorentzian-vs-Riemannian conflation the companion paper flags; whether this
+sharpens or weakens the signature-blindness reading is an open question recorded
+for adjudication, not resolved here.
 \end{remark}
 
 %----------------------------------------------------------------------
