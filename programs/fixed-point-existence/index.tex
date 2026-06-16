@@ -435,7 +435,11 @@ physical choice that collides with Gap~(M4):
 \begin{itemize}
 \item $\mu^2\sim m^2$ (the field's Compton scale): $\kappa\sim(m/M_P)^2$, \emph{independent
 of $R$}, with a graceful flat-space limit ($\kappa$ unaffected as $R\to0$; no lower bound
-on~$R$ is needed). This reproduces the mass table below and is the defensible headline.
+on~$R$ is needed). \emph{This is schematic:} the Sobolev-index factors $\mu^{-2}$ (from
+$C_{\mathrm{inv}}$) and $\mu^{+2}$ (from $\|\mathcal{K}^{\mathrm{red}}\|$) cancel, but
+the surviving net physical scale depends on the intrinsic dimensions of the operator
+product, which requires the joint (M1)$+$(M4) treatment to make precise. The corrected
+Sketch-level bound below is the precise statement.
 \item $\mu^2\sim R$: $\kappa\sim\ell_P^2 R$ (also $\to0$ as $R\to0$), but consistency then
 forces the kernel scale to $\hbar R/(4\pi)^2$, not $\hbar m^2/(4\pi)^2$ --- precisely
 Gap~(M4). The $(m/M_P)^2$ headline does not survive this reading.
@@ -673,19 +677,21 @@ permanently a Sketch at the stated generality. The gaps are not on equal footing
 (analysis: \texttt{explorations/2026-06-16-FPE4-M3-structural-obstruction.md}).
 \emph{(M3) is structural:} the non-local response kernel is a Green operator of the
 Lorentzian hyperbolic operator, with causal-past support, and no reduction to a spatial
-operator on a single Cauchy surface $\Sigma$ exists within (A1)--(A6) (the same gap as
-(M8); the obstruction is mass-independent, so it is not cured in the massless limit). The
+operator on a single Cauchy surface $\Sigma$ exists within (A1)--(A6) (sharing its root
+with (M8) --- two faces of one obstruction: a genuine spatial reduction would simultaneously
+close M8's well-definedness gap; the obstruction is mass-independent, so it is not cured
+in the massless limit). The
 only known repair replaces the single-slice $H^s(\Sigma)$ bound by a time-weighted energy
 (Volterra) estimate on a finite causal slab, following Meda--Pinamonti--Siemssen
 \cite{meda_pinamonti_siemssen,pinamonti_siemssen}; this requires a controlled global
 foliation --- geometric input beyond (A1)--(A6) --- and yields existence ``Rigorous on a
 [homogeneous / controlled] slicing,'' local in time, not the general statement of
-Theorem~\ref{thm:banach}. \emph{(M1) is a hidden-reference-scale artifact} (resolved at
-Sketch level in Section~\ref{sec:banach}): with a single explicit Sobolev scale $\mu$ the
-$\kappa$ chain is consistent and gives $\kappa\sim(m/M_P)^2$ ($R$-independent) for
-$\mu^2\sim m^2$, or $\kappa\sim\ell_P^2 R$ for $\mu^2\sim R$ --- the latter forcing the
-local scale $\hbar R/(4\pi)^2$, i.e.\ \emph{(M4)}, so (M1) and (M4) are one joint
-repair. \emph{(M5)} (the self-mapping/displacement bound) remains a genuine technical gap
+Theorem~\ref{thm:banach}. \emph{(M1) is a hidden-reference-scale artifact} (diagnosed in Section~\ref{sec:banach};
+corrected form schematic, net scale tied to the joint (M4) repair): with a single explicit
+Sobolev scale $\mu$ the Sobolev-index mismatch is removed, giving $\kappa\sim(m/M_P)^2$
+($R$-independent, schematic) for $\mu^2\sim m^2$, or $\kappa\sim\ell_P^2 R$ for
+$\mu^2\sim R$ --- the latter forcing the local scale $\hbar R/(4\pi)^2$, i.e.\
+\emph{(M4)}, so (M1) and (M4) are one joint repair. \emph{(M5)} (the self-mapping/displacement bound) remains a genuine technical gap
 that any repair must still discharge, in the norm that repair uses. Restoring a Rigorous
 label at the general stated scope is therefore not available; a foliation-restricted
 re-promotion is.
