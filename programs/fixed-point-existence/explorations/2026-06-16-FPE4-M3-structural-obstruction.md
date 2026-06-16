@@ -307,7 +307,7 @@ global μ, the `μ²~R` reading immediately forces the kernel estimate to
 `‖K^red‖ ~ ħR/(4π)²` (not `ħm²/(4π)²`), so the two gaps are inseparable in any
 honest single-μ treatment. Recommend a joint M1+M4 treatment; the corrected
 Sketch-level statement is `κ ≤ C·(m/M_P)²·f(μ²/m², ℓ_P²R)` with `f → const` for
-`μ²~m²` and `f ~ ℓ_P²R` for `μ²~R`. The theorem needs an explicit single μ, not
+`μ²~m²` and `f ~ R/m²` for `μ²~R`. The theorem needs an explicit single μ, not
 a lower bound on R. The §7 Planck-boundary withdrawal is *confirmed*: with the
 defensible `μ²~m²` reading κ is R-independent, so there is no derived breakdown
 curvature at all.
