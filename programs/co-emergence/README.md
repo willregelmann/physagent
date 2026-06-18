@@ -61,7 +61,7 @@ The paper leads with proved results, then develops the interpretive framework:
 
 4. **Level 1 measure.** Natural measure on Sm(M) without metric input.
 
-5. **Analytical open questions.** Why S_Lor/S_Riem ≈ 1.68? General rank proof of entropy excess lemma. (The imaginary fraction → 0.25 question is resolved: it is the opt-align analytic limit of eq:im_frac_reduction as N → ∞ with h ~ U[0.5,1.5].)
+5. **Analytical open questions.** Why S_Lor/S_Riem ≈ 1.68? General rank proof of entropy excess lemma. (The imaginary fraction → 0.25 question is resolved: it numerically converges to ≈0.25 (opt-align) as N → ∞ with h ~ U[0.5,1.5]; the max-align large-N limit ≈0.40 is analytic via eq:im_frac_reduction.)
 
 ## Build
 
