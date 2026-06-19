@@ -168,6 +168,15 @@ in `theta` for small `theta` (from `sin^2 ≈ (theta/2)^2 (·)^2`):
 
 ## Comparison with the Haar baseline
 
+> **Correction (2026-06-19, red-team audit).** An earlier version of this
+> section (and of `index.tex`) stated the max-alignment Haar `im_frac → 1/√2 ≈
+> 0.707` as `N → ∞`. **That limit is wrong** — the Haar value does not converge
+> to `1/√2`; it keeps rising past it (see the corrected table and the
+> mechanism below). The reduction (*) itself and its `(Rigorous)` label are
+> unaffected, and the qualitative conclusion — the fixed point carries far less
+> imaginary content than a Haar-random state at every accessible `N` — also
+> stands.
+
 Issue #33 asked whether the fixed point approaches the Haar value (maximal phase
 complexity). It does not. For a Haar-random pure state the Born weights are
 `p ~ Dirichlet(1, ..., 1)`; applying (*) (max alignment, `theta = 1`):
@@ -178,15 +187,35 @@ complexity). It does not. For a Haar-random pure state the Born weights are
 | 16 | 0.461 | 0.334 |
 | 64 | 0.563 | 0.382 |
 | 256 | 0.637 | ~0.39 |
-| → ∞ | 0.707 (`1/√2`) | 0.399 |
+| 4096 | 0.738 | ~0.40 |
+| 65536 | 0.800 | ~0.40 |
+| 262144 | 0.824 | ~0.40 |
 
-The Haar value diverges in log-spread and averages `sin^2 → 1/2`, giving
-`im_frac → 1/√2`. The fixed point saturates near `0.40` instead: the
-self-consistency map produces the *minimal* phase structure consistent with the
-moderate magnitude heterogeneity set by `h`, far below a generic random state.
-This is consistent with the entropy-excess exploration's finding that the
-fixed-point phases are narrowly distributed (std `~0.29` rad) and locked to the
-magnitudes, rather than random.
+Unlike the fixed point, the Haar value has **no clean large-`N` limit**. The
+naive argument "`sin^2 → 1/2`, so `im_frac → 1/√2`" fails because the
+max-magnitude reference `p_r = p_max` correlates the alignment phase with the
+Born weight, so the Born-weighted `⟨sin^2⟩` does *not* average to `1/2`. Writing
+the Haar weights as `p_σ ∝ E_σ` with `E_σ ~ Exp(1)`, the leading large-`N`
+behavior is
+
+```
+im_frac^2  ->  1/2  -  (1/2) * Re[ e^{i theta log E_max} * Gamma(2 - i theta) ],
+```
+
+an oscillation in `log E_max ~ log log N` whose amplitude
+`(1/2)|Gamma(2 ± i theta)| ≈ 0.369` at `theta = 1` does **not** vanish. This
+leading form matches the Monte-Carlo `im_frac` to `< 0.003` across `N = 256` to
+`2.6×10^5`; over that whole accessible range the value rises monotonically
+(`0.64 → 0.82`), always **above** the fixed point's `≈ 0.40` and well past
+`1/√2 ≈ 0.707`. (The clean `1/√2` would require a *centered* reference for which
+`⟨sin^2⟩ → 1/2`; the max-magnitude convention used here is not centered.)
+
+The fixed point, by contrast, saturates near `0.40` because the magnitude
+heterogeneity set by `h ~ U[0.5,1.5]` has bounded log-spread: the
+self-consistency map produces the *minimal* phase structure consistent with that
+heterogeneity, far below a generic random state. This is consistent with the
+entropy-excess exploration's finding that the fixed-point phases are narrowly
+distributed (std `~0.29` rad) and locked to the magnitudes, rather than random.
 
 ## What this changes
 
