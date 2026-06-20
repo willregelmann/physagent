@@ -33,9 +33,14 @@ Consequences, all checked below:
   - im_frac rises with N toward an analytic large-N limit set by theta and the
     spread of h; for max alignment, theta = 1, h ~ U[0.5, 1.5] the limit is
     ~0.40 (and ~0.25 for the optimal alignment).
-  - The fixed point sits far BELOW the Haar-random baseline (im_frac -> 1/sqrt2
-    ~ 0.707 as N -> infinity): the self-consistency map produces minimal, not
-    maximal, phase complexity.
+  - The fixed point sits far BELOW the Haar-random baseline at every accessible
+    N: the self-consistency map produces minimal, not maximal, phase complexity.
+    NOTE: the Haar baseline does NOT converge to 1/sqrt2 -- under the
+    max-magnitude reference the Born-weighted <sin^2> is modulated by
+    Gamma(2 +- i*theta) and the value keeps rising with N (0.64 at N=256 to
+    0.82 at N~2.6e5), staying above the fixed point's ~0.40 throughout. (An
+    earlier version of this script and of index.tex wrongly claimed a 1/sqrt2
+    limit; corrected by the 2026-06-19 red-team audit.)
 
 Reference: programs/co-emergence/index.tex, Section 3.1 (sec:toy_model).
 """
@@ -191,11 +196,14 @@ def main():
     print("4. HAAR BASELINE  (max alignment, theta=1)")
     print("=" * 74)
     print(f"   fixed-point asymptote (analytic) : {limit_max_align():.4f}")
-    print(f"   Haar asymptote (1/sqrt2)         : {1 / np.sqrt(2):.4f}")
-    for N in [4, 16, 64, 256, 1024]:
-        print(f"   N={N:5d}:  im_frac_Haar = {haar_im_frac(N):.4f}")
-    print("   --> the fixed point carries far LESS imaginary content than a")
-    print("       Haar-random state: minimal, not maximal, phase complexity.")
+    print("   Haar baseline (max-align) does NOT converge to 1/sqrt2; it keeps")
+    print("   rising with N (Gamma(2 +- i*theta) modulation -- see exploration):")
+    for N in [4, 16, 64, 256, 1024, 16384, 262144]:
+        tr = 4000 if N <= 16384 else 800
+        print(f"   N={N:7d}:  im_frac_Haar = {haar_im_frac(N, trials=tr):.4f}")
+    print("   --> the fixed point (~0.40) carries far LESS imaginary content")
+    print("       than a Haar-random state at every N: minimal, not maximal,")
+    print("       phase complexity.")
 
     print("\n" + "=" * 74)
     print("5. THETA DEPENDENCE  (dims=(4,4); small-theta linear in theta)")

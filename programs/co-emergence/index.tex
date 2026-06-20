@@ -676,9 +676,16 @@ the max-magnitude alignment, $\mathrm{im\_frac}$ rises with $N$ as
 $a - b\,N^{-c}$ ($a \approx 0.43$, $c \approx 0.55$) toward the analytic
 large-$N$ limit $\big(\mathbb{E}_p[\sin^2\theta(h-h_{\min})]\big)^{1/2}
 \approx 0.40$, where $p \propto e^{-2h}$; the optimal alignment converges
-to $\approx 0.25$. This is far \emph{below} the Haar-random baseline
-($\mathrm{im\_frac} \to 1/\sqrt{2} \approx 0.707$ as $N \to \infty$): the
-self-consistency map produces minimal, not maximal, phase complexity.
+to $\approx 0.25$. This is far \emph{below} the Haar-random baseline at every
+size tested. For Haar-random Born weights the max-magnitude $\mathrm{im\_frac}$
+has \emph{no} clean $N \to \infty$ limit, and in particular does \emph{not}
+approach $1/\sqrt{2}$: because the max-magnitude reference component correlates
+the alignment phase with the Born weight, the weighted $\langle\sin^2\rangle$
+does not tend to $\tfrac12$, and the value instead rises monotonically across
+all accessible sizes (from $\approx 0.64$ at $N = 256$ to $\approx 0.82$ at
+$N \approx 2.6\times10^{5}$), staying well above the fixed point's
+$\approx 0.40$. The self-consistency map therefore produces minimal, not
+maximal, phase complexity.
 The Riemannian $\psi^*$ is exactly real. Since the curvature map depends
 on $\psi$ only through $|\psi_\sigma|^2$, both fixed points satisfy the
 same magnitude equation: stripping phases from the Lorentzian $\psi^*$
