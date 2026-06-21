@@ -96,13 +96,24 @@ jobs:
           set -euo pipefail
           PROMPT="You are the ${ROLE} routine of the self-consistency autonomous research experiment. Read AUTONOMY.md at the repository root first, then read automation/routines/${ROLE}.md and execute it exactly. If automation/routines/${ROLE}.md does not exist on this branch, the experiment infrastructure has not landed yet — exit immediately without taking any action. For the metrics record: you are running as model ${MODEL}; end every PR body, issue body, and review/verdict comment you post with the line 'routine: ${ROLE} · model: ${MODEL}'."
 
-          # Session-limit retry (EXPERIMENT.md log, 2026-06-11): the CLI exits
-          # nonzero with "You've hit your session limit · resets H:MMam/pm (UTC)"
-          # when the account's rolling session budget is exhausted. Previously
-          # an opaque exit-1 (two such failures on 2026-06-11). If the reset is
-          # <= 90 minutes away, sleep through it and retry once; otherwise fail
-          # with an explicit error and defer to the next scheduled fire.
-          attempt=1
+          # Retry wrapper for two distinct, non-bug failure modes (EXPERIMENT.md
+          # log, 2026-06-11 and 2026-06-20):
+          #
+          #   (A) Session limit: the CLI exits nonzero with "You've hit your
+          #       session limit · resets H:MMam/pm (UTC)" when the account's
+          #       rolling budget is exhausted. If the reset is <= 90 min away,
+          #       sleep through it and retry once; otherwise fail and defer to
+          #       the next scheduled fire.
+          #   (B) Transient API error: "API Error: 529 Overloaded" (or 5xx/429/
+          #       rate-limit) — a server-side hiccup. Seen 4× on the reviewer
+          #       (2026-06-17/20); each self-healed on the next cron, but the run
+          #       failed and polluted the failure signal. Retry in place with
+          #       short exponential backoff (30s/60s/120s) before deferring.
+          #
+          # Any other nonzero exit is a real error and is surfaced immediately.
+          session_retry_used=0
+          transient_attempt=0
+          MAX_TRANSIENT=3
           while :; do
             set +e
             claude -p "$PROMPT" \
@@ -111,28 +122,46 @@ jobs:
             status=${PIPESTATUS[0]}
             set -e
             [ "$status" -eq 0 ] && exit 0
-            if ! grep -q "hit your session limit" /tmp/routine-output.txt; then
-              exit "$status"
-            fi
-            if [ "$attempt" -ge 2 ]; then
-              echo "::error::${ROLE} hit the Claude session limit on the retry as well — giving up; the next scheduled fire covers this."
-              exit "$status"
-            fi
-            reset_str=$(grep -o "resets [0-9:]*[ap]m" /tmp/routine-output.txt | head -1 | sed 's/^resets //')
-            wait_s=""
-            if [ -n "$reset_str" ]; then
-              reset_epoch=$(date -u -d "today ${reset_str}" +%s 2>/dev/null || echo "")
-              if [ -n "$reset_epoch" ]; then
-                now_epoch=$(date -u +%s)
-                [ "$reset_epoch" -le "$now_epoch" ] && reset_epoch=$((reset_epoch + 86400))
-                wait_s=$((reset_epoch - now_epoch + 120))
+
+            # (A) Session-limit branch
+            if grep -q "hit your session limit" /tmp/routine-output.txt; then
+              if [ "$session_retry_used" -ge 1 ]; then
+                echo "::error::${ROLE} hit the Claude session limit on the retry as well — giving up; the next scheduled fire covers this."
+                exit "$status"
               fi
+              reset_str=$(grep -o "resets [0-9:]*[ap]m" /tmp/routine-output.txt | head -1 | sed 's/^resets //')
+              wait_s=""
+              if [ -n "$reset_str" ]; then
+                reset_epoch=$(date -u -d "today ${reset_str}" +%s 2>/dev/null || echo "")
+                if [ -n "$reset_epoch" ]; then
+                  now_epoch=$(date -u +%s)
+                  [ "$reset_epoch" -le "$now_epoch" ] && reset_epoch=$((reset_epoch + 86400))
+                  wait_s=$((reset_epoch - now_epoch + 120))
+                fi
+              fi
+              if [ -z "$wait_s" ] || [ "$wait_s" -gt 5400 ]; then
+                echo "::error::${ROLE} hit the Claude session limit; reset ('${reset_str:-unparseable}') is over 90 minutes away or unparseable — failing now rather than holding a runner. The next scheduled fire covers this."
+                exit "$status"
+              fi
+              echo "::warning::${ROLE} hit the Claude session limit; sleeping $((wait_s / 60)) minutes until the reset (${reset_str} UTC), then retrying once."
+              sleep "$wait_s"
+              session_retry_used=1
+              continue
             fi
-            if [ -z "$wait_s" ] || [ "$wait_s" -gt 5400 ]; then
-              echo "::error::${ROLE} hit the Claude session limit; reset ('${reset_str:-unparseable}') is over 90 minutes away or unparseable — failing now rather than holding a runner. The next scheduled fire covers this."
-              exit "$status"
+
+            # (B) Transient API-error branch (529 Overloaded / 5xx / 429 / rate limit)
+            if grep -qiE "API Error: (5[0-9][0-9]|429)|Overloaded|rate.?limit" /tmp/routine-output.txt; then
+              if [ "$transient_attempt" -ge "$MAX_TRANSIENT" ]; then
+                echo "::error::${ROLE} hit a transient API error ${MAX_TRANSIENT}× in a row (last exit $status); giving up — the next scheduled fire covers this."
+                exit "$status"
+              fi
+              transient_attempt=$((transient_attempt + 1))
+              backoff=$((30 * 2 ** (transient_attempt - 1)))
+              echo "::warning::${ROLE} hit a transient API error (attempt ${transient_attempt}/${MAX_TRANSIENT}); backing off ${backoff}s then retrying."
+              sleep "$backoff"
+              continue
             fi
-            echo "::warning::${ROLE} hit the Claude session limit; sleeping $((wait_s / 60)) minutes until the reset (${reset_str} UTC), then retrying once."
-            sleep "$wait_s"
-            attempt=$((attempt + 1))
+
+            # Any other nonzero exit is a real error.
+            exit "$status"
           done
