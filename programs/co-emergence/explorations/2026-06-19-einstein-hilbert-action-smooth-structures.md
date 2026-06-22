@@ -11,6 +11,22 @@ homeomorphic, non-diffeomorphic compact 4-manifolds. Transferring this to the
 framework's actual setting — *non-compact* (exotic $\mathbb{R}^4$) and
 *Lorentzian* metrics — is open and is the residual gap.
 
+> **Demotion note (red-team, 2026-06-22).** The summary inference in
+> "What this means" item 1 was demoted **Rigorous → Sketch**. Its
+> Rigorous-labeled core (Claims 1–3, Parts I–II) is unaffected and survives
+> stress-testing. The defect was in the *translation* of Parts I–II into a
+> claim about the toy model's actual external field $h_{rc}$: (i) the
+> universal "the action varies *whenever* Seiberg–Witten invariants do" is the
+> wrong direction — the scale-invariant distillates $\mathcal{Y},
+> \mathcal{I}_s$ are *lossy* functions of the SW basic-class set, so distinct
+> SW data need not yield distinct distillates; the true implication runs only
+> "differing distillates ⇒ distinct smooth structures"; and (ii) $h_{rc}$ is
+> the **raw** action $S_{\mathrm{EH}}[g^*_\sigma]$, which is scale-dependent
+> (Claim 1a) and is not $\mathcal{Y}$/$\mathcal{I}_s$ — the bridge needs the
+> self-consistent metric to track a scale-invariant extremizer, which is not
+> established. All three LeBrun citations were re-verified clean (existence and
+> content). Gap-filling follow-up: issue #124.
+
 ---
 
 ## The question (from the toy model)
@@ -96,9 +112,11 @@ $\mathrm{Sm}(\mathcal{M})$. The framework clears its lowest bar rigorously.
 ## Part II — Branch (1), rigorously, in the compact Riemannian case
 
 Because $S_{\mathrm{EH}}$ is scale-dependent (Claim 1a), the sharp question is
-not about the *raw* action — which the self-consistent dynamics will scale-fix
-anyway — but about a **scale-invariant** distillate of it, where one can ask
-cleanly whether smooth structure changes the value. There are two canonical
+not about the *raw* action — which the self-consistent dynamics is
+*conjectured* to scale-fix (see the demotion note below; that the
+self-consistent metric $g^*_\sigma$ tracks a scale-invariant extremizer is
+**not** established here) — but about a **scale-invariant** distillate of it,
+where one can ask cleanly whether smooth structure changes the value. There are two canonical
 scale-invariant functionals built from $s$, and Seiberg–Witten theory shows
 **both distinguish smooth structures**.
 
@@ -228,11 +246,37 @@ anything stronger would violate the rigor discipline.
 ## What this means for the toy model and the paper
 
 1. **The toy model's non-uniform $h_{rc}$ is structurally justified, not
-   merely a parameter choice — in the compact Riemannian category (Rigorous).**
-   The exploration's own caveat #2 ("the external field $h$ is not derived")
-   is partially discharged: a scale-fixed action *does* vary across smooth
-   structures whenever Seiberg–Witten invariants do. What remains undischarged
-   is the transfer to Lorentzian signature and to the non-compact candidate.
+   merely a parameter choice — in the compact Riemannian category (Sketch;
+   demoted from Rigorous 2026-06-22, see note).** What is *Rigorous* (Claims
+   2–3) is narrower than this sentence originally stated: scale-invariant
+   scalar-curvature distillates ($\mathcal{Y}$, $\mathcal{I}_s$) take
+   **different** values on some homeomorphic, non-diffeomorphic compact
+   Riemannian 4-manifolds. The exploration's caveat #2 ("the external field
+   $h$ is not derived") is therefore *partially* discharged, but two omitted
+   steps keep the discharge at Sketch:
+   - **Direction.** The supported implication is one-directional: *differing
+     $\mathcal{Y}$ or $\mathcal{I}_s$ certifies distinct smooth structures.*
+     The converse — that the distillates differ *whenever* the
+     Seiberg–Witten invariants differ — is **false in general**:
+     $\mathcal{I}_s = 32\pi^2\beta^2$ and (negative-case)
+     $\mathcal{Y} = -4\pi\sqrt{2c_1^2(X_{\min})}$ depend only on the
+     convex-hull extremum of the monopole classes / the minimal model's
+     $c_1^2$, which are *lossy* functions of the full basic-class set. Two
+     smooth structures with different SW data can share the same
+     $\mathcal{Y}$, $\mathcal{I}_s$.
+   - **Raw action vs. distillate.** The toy model's $h_{rc}$ is the **raw**
+     action $S_{\mathrm{EH}}[g^*_\sigma]$ at the *specific* self-consistent
+     metric, which is scale-dependent (Claim 1a) and is **not**
+     $\mathcal{Y}$ or $\mathcal{I}_s$. Nothing rigorous here connects the
+     self-consistent metric to a scale-invariant extremizer (it solves the
+     SCE, not a Yamabe/SW variational problem). Bridging "distillates differ"
+     to "$h_{rc}$ is non-uniform" needs that connection — the
+     scale-fixing clause flagged at the start of Part~II — which is itself
+     unestablished.
+
+   What remains undischarged is therefore not only the transfer to Lorentzian
+   signature and to the non-compact candidate, but also — already inside the
+   compact Riemannian category — the two steps above. Follow-up: issue #124.
 
 2. **No paper text should be promoted on this yet.** The honest, citable
    statement is the *negative* one (Part I, Rigorous): the EH action is not a
