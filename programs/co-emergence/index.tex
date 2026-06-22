@@ -53,6 +53,10 @@ entirely a phase effect.
 We propose that this mechanism extends to a co-emergence of mass,
 Lorentzian signature, local time, and local Hilbert space: four aspects
 of a single self-consistent structure, none existing without the others.
+The complex weight that drives the mechanism is itself derived from
+hyperbolic temporal mode structure---not stipulated by analogy with the
+path integral---at Sketch level, up to a residual polarization choice
+(complex versus signed-real amplitudes) that signature alone does not fix.
 Physical mass requires hyperbolicity (Wigner 1939); hyperbolicity
 provides local proper time along timelike geodesics; local proper time
 enables a local Hilbert space via the Page--Wootters mechanism; and the
@@ -266,27 +270,76 @@ of marginalization or coarse-graining can generate complex amplitudes
 from real-valued weights. If $\mu^*$ is real, the framework produces
 statistical mechanics, not quantum mechanics.
 
-Quantum statistics require complex weights that can cancel. In the path
-integral, this structure comes from the Lorentzian action: the weight
-$e^{iS/\hbar}$ is a complex phase whose oscillations produce the
-interference that distinguishes quantum from classical. On a Riemannian
-manifold, the corresponding weight $e^{-S_E/\hbar}$ is real and positive.
-
-This observation connects the phase structure of $\mu^*$ directly to
-signature selection. If the smooth-structure measure inherits its weight
-from the action functional on each smooth structure, then:
+Quantum statistics require weights that can cancel; classical statistics
+arise from real, positive weights that cannot. Within the framework this
+distinction is \emph{derived} from signature rather than imported from the
+path integral. Treating each configuration's self-consistency weight as
+the amplitude of a free scalar's temporal mode accumulated over that
+configuration's temporal extent---using the operator dichotomy across the
+degenerate surface established in the companion signature-change note
+(oscillatory on the Lorentzian side, exponentially decaying on the
+Euclidean side, at the same rate constants)---yields the following chain,
+recorded in
+\texttt{explorations/2026-06-10-derived-weight-from-signature.md}:
 \begin{itemize}
-\item On a Lorentzian manifold, $\mu^*$ carries complex phases $\to$
-marginalization can produce quantum statistics $\to$ Level~3 is
-nontrivial.
-\item On a Riemannian manifold, $\mu^*$ is real-valued $\to$
-marginalization produces only classical correlations $\to$ Level~3
-collapses to classical statistics.
+\item \textbf{(Rigorous.)} \emph{Cancellation capacity
+$\Leftrightarrow$ hyperbolicity.} The elliptic (Euclidean) temporal
+operator has a unique bounded branch, which is real and strictly
+positive, so a weight built from it can never cancel. Every solution of
+the hyperbolic (Lorentzian) operator satisfies
+$\varphi(u + \pi/\omega) = -\varphi(u)$: weights at temporal extents a
+half-period apart cancel exactly, for \emph{every} polarization. The
+structural difference between $e^{iS}$ and $e^{-S_E}$ that this argument
+uses---oscillation versus positivity---is thus a theorem about operator
+type (hyperbolic versus elliptic), with no polarization choice involved.
+\item \textbf{(Sketch.)} \emph{The complex weight is fixed up to a
+polarization fork.} Under the complex (positive-frequency / Wick)
+polarization of the two-dimensional hyperbolic solution space, the
+accumulated-phase weight reproduces the toy model's $e^{(-1+i\theta)R}$
+exactly, the damping part $(-1)$ identified as a Euclidean admixture over
+a fraction $\varepsilon = 1/(1+\theta)$ of the extent, and phase locking
+$\varphi_\sigma = c\,R_\sigma$ is then derived rather than read off the
+stipulated exponent.
 \end{itemize}
-This is a sharper mechanism for Level~3 signature selectivity than the
-absence of timelike geodesics alone. The Riemannian fixed point fails
-not only because there are no local clocks, but because the measure
-itself lacks the phase structure required for quantum interference.
+The $\theta\leftrightarrow$signature identification is therefore
+\textbf{derived from hyperbolic temporal mode structure (Sketch)}, not
+stipulated. The path-integral comparison---$e^{iS/\hbar}$ a complex,
+oscillating Lorentzian weight versus the real, positive Riemannian
+$e^{-S_E/\hbar}$---now serves as a consistency check on this derivation
+rather than as its support.
+
+\medskip\noindent\textbf{Open: the polarization choice (gap (c)).} What
+signature alone does \emph{not} fix is the \emph{complex} form of the
+cancellation, as opposed to a signed-real one. Transporting the Euclidean
+boundedness selection across the degenerate surface by the
+no-surface-layer junction conditions yields a \emph{real} oscillatory
+mode ($\cos\omega u - \sin\omega u$, with equal-modulus coefficients on
+$e^{\pm i\omega u}$); the complex line $e^{i\omega u}$ requires a separate
+contour / positive-frequency choice not fixed by local data at the
+degenerate surface. The signed-real sector is a genuine self-consistent
+alternative that cancels---interference in the sense this argument
+requires---but has \emph{real} subsystem density matrices
+(real-amplitude quantum theory). Whether any cross-level requirement of
+the framework excludes it, thereby deriving \emph{complex} quantum
+structure from self-consistency, is open; it is pursued as
+thread-proposal~\#104. The identification above is thus derived \emph{up
+to} this polarization fork.
+
+\medskip
+With this derivation in hand, the connection to signature selection
+sharpens. On a Riemannian manifold the weight is real and positive
+(the Rigorous cancellation result above), so $\mu^*$ admits no
+cancellation,
+marginalization produces only classical correlations, and Level~3
+collapses to classical statistics. On a Lorentzian manifold the weight
+oscillates and $\mu^*$ can cancel, so marginalization can produce
+quantum statistics and Level~3 is nontrivial---with the complex (as
+opposed to signed-real) character of those statistics resting on the
+open polarization choice above. This is a sharper mechanism for Level~3
+signature selectivity than the absence of timelike geodesics alone: the
+Riemannian fixed point fails not only because there are no local clocks,
+but because the measure itself lacks the structure required for
+interference.
 
 %----------------------------------------------------------------------
 \subsection{Phase structure of the fixed point}
