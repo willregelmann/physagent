@@ -157,7 +157,7 @@ Every benign fact above is the same fact. The metric determinant supplies $\sqrt
 - in proper time, the line element carries $\sqrt{-\lambda}\to 0$, making the integral converge;
 - in the stress–energy, the field equation forces $\phi'\sim x^{n/2}$, exactly compensating $g^{00}\sim x^{-n}$.
 
-Geodesic completeness-to-the-boundary, Fuchsian regularity of the field, finite stress–energy, and the continuing worldline saddle are four faces of this single escorting. On a prescribed $\lambda$ the escort is always present, and the degenerate surface is therefore far better behaved than the bare $g^{-1}\to\infty$ suggests.
+Geodesic completeness-to-the-boundary, Fuchsian regularity of the field, finite stress–energy, and (at §7's Sketch level) the continuing worldline saddle are four faces of this single escorting. On a prescribed $\lambda$ the escort is always present, and the degenerate surface is therefore far better behaved than the bare $g^{-1}\to\infty$ suggests.
 
 ## 9. What this does not claim
 

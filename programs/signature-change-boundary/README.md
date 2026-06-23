@@ -51,8 +51,8 @@ This is deliberately a **fixed-background, test-field** investigation.
 ## Open points (from review)
 
 - **Degeneracy order vs. sign change** — *addressed* (#65). The note now states the profile as $\lambda \simeq -c\,\mathrm{sgn}(x^0)\,|x^0|^n$ (a genuine two-sided signature change for every $n>0$, with the parity defect of the earlier $-c(x^0)^n$ form recorded in §1) and carries the Euclidean-side parallel analysis through §§3–6.
-- **No-log strengthening.** Because $\nu=\tfrac12$ is non-integer for every $n$, there is no logarithmic solution even when the indicial roots $\{0,\,1+\tfrac n2\}$ differ by an integer (even $n$). Worth stating explicitly in §5.
-- **Rigor labels.** The note does not use the project's Rigorous/Sketch/Conjecture labels. §§3–6 are Rigorous given the fixed background; §7's worldline-saddle / propagator-tail matching is a Sketch.
+- **No-log strengthening** — *addressed* (#120 / #128). Because $\nu=\tfrac12$ is non-integer for every $n$, there is no logarithmic solution even when the indicial roots $\{0,\,1+\tfrac n2\}$ differ by an integer (even $n$); this is now stated explicitly in §5.
+- **Rigor labels** — *addressed* (#120 / #128). Rigorous/Sketch labels are now applied to all section headings: §§3–6 Rigorous given the fixed background; §7 Sketch; §8 Rigorous given §§3–6 (with the §7-level worldline-saddle face noted at Sketch); §9 none (limitations, not results).
 - **Citations.** The references in "Relation to existing work" (Ellis and collaborators; Hayward; Dray–Ellis–Hellaby–Manogue; Kossowski–Kriele) are real and on-topic but **exploratory until verified**, and must not enter a `thebibliography` without strict verification (author/title/journal/year + claim support).
 
 ## Relationship to other programs
