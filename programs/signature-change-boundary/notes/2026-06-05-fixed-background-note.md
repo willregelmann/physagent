@@ -43,7 +43,7 @@ At $\Sigma$, $\det g \to 0$, so $g^{-1}$ diverges. Every object built from the i
 
 The content of this note is that, on the fixed background, this divergence is systematically controlled. The reason (§8) is a single structural fact: every factor of $g^{00} = 1/\lambda$ that appears in a covariant object is escorted by a volume factor $\sqrt{|g|} = \sqrt{|\lambda|}$ from the measure, and the pairing softens the divergence to something integrable or regular-singular rather than catastrophic.
 
-## 3. The geometry is flat on each side
+## 3. The geometry is flat on each side **(Rigorous, given fixed background)**
 
 On the Lorentzian side ($\lambda<0$) define $u = \int_0^{x^0}\sqrt{-\lambda(s)}\,ds$. Then $du^2 = -\lambda\,(dx^0)^2$, and the line element becomes
 
@@ -65,7 +65,7 @@ on *both* sides — the same simple pole at $\Sigma$, approached from either dir
 
 This already settles, *for this background*, a question that geodesics alone cannot: a geodesic ending at $\Sigma$ at finite parameter is here ending at a boundary of a flat region, not running into diverging curvature.
 
-## 4. Geodesics and the crossing asymmetry
+## 4. Geodesics and the crossing asymmetry **(Rigorous, given fixed background)**
 
 Parametrize a curve by $x^0$ and write $\vec u = d\vec x/dx^0$ for its coordinate spatial velocity.
 
@@ -89,7 +89,7 @@ The honest, neutral statement is therefore: **a timelike geodesic is incomplete 
 
 **The asymmetry.** Both types reach $\Sigma$; they differ in whether they *continue as themselves*. Timelike curves cannot (no timelike continuation exists). Spacelike curves can. This asymmetry is forced by positive-definiteness of the Euclidean region alone; it requires nothing about the field equations.
 
-## 5. A free scalar field across $\Sigma$
+## 5. A free scalar field across $\Sigma$ **(Rigorous, given fixed background)**
 
 Put a free scalar $\phi$ of mass $m$ on the background. The Laplace–Beltrami operator carries the measure factor $\sqrt{|g|}=\sqrt{|\lambda|}$:
 
@@ -107,6 +107,8 @@ Both are $\ge 0$ for $n>0$, so both local solutions are **bounded** at $\Sigma$,
 
 The equation is in fact **Bessel-reducible**. With $\alpha = \tfrac{n+2}{4}$, $\gamma = \tfrac{n+2}{2}$, $\beta = \tfrac{2\sqrt{c(m^2+k^2)}}{n+2}$, the solution is $\phi = x^{\alpha} Z_\nu(\beta x^\gamma)$ with $\nu^2 = \alpha^2/\gamma^2 = \tfrac14$, i.e. $\nu = \tfrac12$ exactly. Half-integer Bessel functions are elementary: trigonometric on the Lorentzian side; the decaying branch on the Euclidean side.
 
+**No logarithmic solutions, for every $n>0$.** The two branches are log-free for *all* $n>0$, including the cases where the indicial gap of the pre-reduction equation is an integer. Logarithms enter the second solution of the Bessel equation only when the order $\nu$ is an integer — the case in which $J_\nu$ and $J_{-\nu}$ become linearly dependent and the independent second solution must be $Y_\nu$, which carries a $\log$. Here $\nu=\tfrac12$ is *not* an integer, so $J_{1/2}(z)\propto z^{-1/2}\sin z$ and $J_{-1/2}(z)\propto z^{-1/2}\cos z$ are linearly independent elementary functions and neither contains a logarithm. This matters for the even-$n$ profiles ($n=2,4,6,\dots$): there the indicial roots of the original ODE, $s=0$ and $s=1+\tfrac n2$, differ by the integer $1+\tfrac n2$, and a naive reading of the Fuchsian (Frobenius) theory might worry that an integer indicial gap *forces* a $\log$ in the smaller-root solution. The Bessel reduction shows it does not. The criterion that controls the appearance of a logarithm is the integrality of the Bessel order $\nu$, not the integrality of the indicial gap of the pre-reduction equation; and $\nu=\alpha/\gamma=\tfrac12$ is fixed independently of $n$. Concretely, the two elementary branches realize the two indicial roots with no log term for any $n$: $x^{\alpha}J_{-1/2}(\beta x^\gamma)\sim x^{\alpha-\nu\gamma}=x^{0}$ recovers the $s=0$ root and $x^{\alpha}J_{1/2}(\beta x^\gamma)\sim x^{\alpha+\nu\gamma}=x^{1+n/2}$ recovers the $s=1+\tfrac n2$ root (using $\nu\gamma=\alpha$). The potential integer-gap obstruction is thus absorbed by the change of variables, which supplies two linearly independent log-free branches for every $n>0$. (For odd $n$ — e.g. $n=1$, gap $\tfrac32$ — the gap is already non-integer and no concern arises; the Bessel argument covers both parities uniformly.)
+
 This last fact is the field-theoretic form of the geodesic asymmetry. **The operator changes type across $\Sigma$**: hyperbolic for $\lambda<0$, elliptic for $\lambda>0$. A mode that is *oscillatory* (a propagating wave) on the Lorentzian side continues to an *evanescent* (exponentially decaying) profile on the Euclidean side, while the spatial dependence, being spacelike on both sides, stays oscillatory throughout.
 
 **The Euclidean side, explicitly.** The reduction above used the Lorentzian-side form $\lambda = -c\,x^n$ with $x \equiv x^0 > 0$. For $x^0<0$ set $x \equiv -x^0 > 0$ (the coordinate distance from $\Sigma$), so $\lambda = c\,x^n > 0$. Carrying the same mode through the temporal operator — the two sign flips from $\partial_0 = -d/dx$ cancel in the second-order term, while $g^{00} = 1/\lambda$ has changed sign — gives
@@ -123,7 +125,7 @@ Finally, the canonical momentum $\pi = \sqrt{|g|}\,g^{00}\,\partial_0\phi \sim x
 
 The momentum is finite from the Euclidean side as well: with $\partial_0 = -d/dx$, $\pi \sim x^{-n/2}\,\phi'(x)$ up to sign, and both Euclidean branches have $\phi' = O(x^{n/2})$ — $\phi' = \beta\gamma\,x^{n/2}\cosh(\beta x^\gamma)$ and $-\beta\gamma\,x^{n/2}\,e^{-\beta x^\gamma}$ respectively, using $\gamma - 1 = \tfrac n2$ — so $\pi$ approaches a finite constant at $\Sigma$ from either side. The no-surface-layer condition is two-sided.
 
-## 6. Stress–energy is bounded
+## 6. Stress–energy is bounded **(Rigorous, given fixed background)**
 
 For the scalar, $T_{\mu\nu} = \partial_\mu\phi\,\partial_\nu\phi - g_{\mu\nu}\mathcal{L}$ with $\mathcal{L} = \tfrac12 X + V$ and $X \equiv g^{\alpha\beta}\partial_\alpha\phi\,\partial_\beta\phi$. The regular solutions give $\phi'\sim x^{n/2}$, hence
 
@@ -137,7 +139,7 @@ The same holds from the Euclidean side. The regular solutions there also have $\
 
 Two points, stated honestly. First, individual *raised* components do diverge — e.g. $T^{00} = (g^{00})^2 T_{00}\sim x^{-n}$ — even though the *scalar invariants* stay finite; the protection is on contractions, not components. Second, this is a test field on a fixed background: it shows the benign geometry is *compatible* with finite stress-energy, not that the coupled system has a benign solution.
 
-## 7. The crossing structure
+## 7. The crossing structure **(Sketch)**
 
 Collecting §§3–6, the surface is traversed with a definite, sector-dependent character.
 
@@ -147,7 +149,7 @@ Collecting §§3–6, the surface is traversed with a definite, sector-dependent
 
 So "worldlines crossing $\Sigma$" is true in two distinct senses. Spacelike (virtual, off-shell) lines cross as real, propagating objects. Massive (on-shell) lines "cross" only in the sense that the off-shell propagator's decaying tail penetrates the Euclidean region; the massive particle itself is confined to the Lorentzian phase. This is internally consistent, and it is the picture.
 
-## 8. The one mechanism
+## 8. The one mechanism **(Rigorous, given §§3–6)**
 
 Every benign fact above is the same fact. The metric determinant supplies $\sqrt{|g|}=\sqrt{|\lambda|}$, and every appearance of $g^{00}=1/\lambda$ in a covariant object is escorted by it:
 
@@ -155,7 +157,7 @@ Every benign fact above is the same fact. The metric determinant supplies $\sqrt
 - in proper time, the line element carries $\sqrt{-\lambda}\to 0$, making the integral converge;
 - in the stress–energy, the field equation forces $\phi'\sim x^{n/2}$, exactly compensating $g^{00}\sim x^{-n}$.
 
-Geodesic completeness-to-the-boundary, Fuchsian regularity of the field, finite stress–energy, and the continuing worldline saddle are four faces of this single escorting. On a prescribed $\lambda$ the escort is always present, and the degenerate surface is therefore far better behaved than the bare $g^{-1}\to\infty$ suggests.
+Geodesic completeness-to-the-boundary, Fuchsian regularity of the field, finite stress–energy, and (at §7's Sketch level) the continuing worldline saddle are four faces of this single escorting. On a prescribed $\lambda$ the escort is always present, and the degenerate surface is therefore far better behaved than the bare $g^{-1}\to\infty$ suggests.
 
 ## 9. What this does not claim
 
