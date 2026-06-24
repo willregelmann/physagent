@@ -29,7 +29,7 @@ jobs:
     outputs:
       relevant: ${{ steps.filter.outputs.relevant }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -52,13 +52,13 @@ jobs:
     steps:
       - name: Check out this repo
         if: needs.changes.outputs.relevant == 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0 # needed to diff against the base ref for failure scoping
 
       - name: Check out claude-tests (LLM-as-evaluator runner)
         if: needs.changes.outputs.relevant == 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           repository: willregelmann/claude-tests
           ref: main # needs the arbitrary-headless-tools change (claude-tests#4)

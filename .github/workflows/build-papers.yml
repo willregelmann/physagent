@@ -20,7 +20,7 @@ jobs:
     outputs:
       tex: ${{ steps.filter.outputs.tex }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
@@ -52,7 +52,7 @@ jobs:
           - gaussian-gravitational-decoherence
     steps:
       - if: needs.changes.outputs.tex == 'true'
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Compile ${{ matrix.program }}
         if: needs.changes.outputs.tex == 'true'

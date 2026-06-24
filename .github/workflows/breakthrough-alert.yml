@@ -46,7 +46,7 @@ jobs:
         contains(github.event.pull_request.labels.*.name, 'withdrawn') ||
         contains(github.event.pull_request.labels.*.name, 'governance')))
     steps:
-      - uses: actions/checkout@v6 # for scripts/send_email.py
+      - uses: actions/checkout@v7 # for scripts/send_email.py
 
       - name: Classify event and compose alert
         id: classify
