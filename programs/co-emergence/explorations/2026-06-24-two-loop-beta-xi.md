@@ -58,11 +58,13 @@ mutually consistent statements:
    point at the zero of the one-loop term),
    $$\beta_\xi = \left(\tfrac16 + \xi\right)\ell - \left(\tfrac{7}{36} + \tfrac{5}{6}\xi\right)\ell^2.$$
    The one-loop term vanishes at the conformal value; **the two-loop term does
-   not**. (Convention caveat: this paper writes the curvature coupling with the
-   opposite sign of `index.tex`, so its conformal zero is at $\xi = -1/6$; the
-   load-bearing, convention-independent fact is that the $O(\ell^2)$ piece is
-   nonzero at the conformal point. The authors state agreement with
-   Brown & Collins.)
+   not**. Evaluating explicitly at their conformal point $\xi = -1/6$:
+   $$\beta_\xi\big|_{\xi=-1/6} = 0 - \left(\tfrac{7}{36} - \tfrac{5}{36}\right)\ell^2 = -\tfrac{1}{18}\,\ell^2,$$
+   a nonzero residual with coefficient $1/18 \approx 0.056$. (Convention caveat:
+   this paper writes the curvature coupling with the opposite sign of `index.tex`,
+   so its conformal zero is at $\xi = -1/6$; the load-bearing,
+   convention-independent fact is that the $O(\ell^2)$ piece is nonzero at the
+   conformal point. The authors state agreement with Brown & Collins.)
 
 2. **Structural form (Odintsov 1993; Brown & Collins 1980):** the curved-space
    β_ξ has the general structure
@@ -199,10 +201,11 @@ paper-grade.
 
 **Did not verify / corrected:** a "Jack & Parker" two-loop β_ξ paper (as named
 in the issue's approach list) could not be located; the relevant curved-space
-scalar background-field paper is **Jack & Osborn**, *Nucl. Phys. B* **234**
-(1984) 331 (PARTIAL). The scheme-freedom reference Martini–Zanusso credit to
-"Jack 1983" was not bibliographically pinned and should be resolved before any
-paper-grade use.
+scalar background-field paper is **I. Jack, H. Osborn**, *Nucl. Phys. B*
+**234** (1984) 331 (PARTIAL — full authors confirmed; paper title not directly
+read and should be confirmed before any paper-grade use). The scheme-freedom
+reference Martini–Zanusso credit to "Jack 1983" was not bibliographically
+pinned and should also be resolved before any paper-grade use.
 
 ## 7. Self-checks
 
@@ -219,11 +222,13 @@ paper-grade use.
   anomaly are the same object) — no contradiction with any merged result. The
   scheme caveat (§2) prevents over-claiming, consistent with the demotion
   discipline applied to CE-3. ✓
-- **Order-of-magnitude.** Two-loop coefficient $7/36 \approx 0.19$; with
-  $\ell \sim \lambda/16\pi^2 \sim 10^{-2}$ for SM-scale $\lambda$, the
-  conformal-point β_ξ is $\sim 10^{-4}$ — perturbatively small but nonzero, so
-  the shift is real but not large; the "inaccessible" conclusion would depend on
-  RG running over many decades, not a large local slope. ✓
+- **Order-of-magnitude.** The two-loop coefficient *at the conformal point* is
+  $1/18 \approx 0.056$ (from the explicit evaluation $-(7/36 - 5/36) = -1/18$;
+  see §2 item 1). With $\ell \sim \lambda/16\pi^2 \sim 10^{-2}$ for SM-scale
+  $\lambda$, the conformal-point β_ξ is $\sim (1/18)\,\ell^2 \sim 6 \times
+  10^{-6}$ — perturbatively small but nonzero, so the shift is real but not
+  large; the "inaccessible" conclusion would depend on RG running over many
+  decades, not a large local slope. ✓
 
 ## 8. Bottom line
 
