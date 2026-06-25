@@ -29,7 +29,9 @@ The semiclassical Einstein equation $G_{\mu\nu}[g] = 8\pi G\langle\hat{T}_{\mu\n
 is a fixed-point condition: the geometry and quantum state must be mutually consistent.
 We address the question of whether such fixed points exist. We present three analyses:
 (1)~exact existence in the cosmological case via the trace anomaly
-(Starobinsky, 1980) (\textbf{Rigorous}, by citation); (2)~a perturbative argument near
+(Starobinsky, 1980) (existence \textbf{Rigorous}, by citation; the explicit fixed-point
+curvature scale $H_0^2 = 180\pi/(G|a_2|)$ is \textbf{Sketch} --- a convention-dependent
+reduction not verbatim in the cited sources, Section~\ref{sec:starobinsky}); (2)~a perturbative argument near
 classical solutions \emph{on globally hyperbolic spacetimes with compact Cauchy surfaces},
 via a Banach contraction whose target estimate is a contraction constant
 $\kappa \sim (m/M_P)^2 \ll 1$ for massive fields, developed via a Hadamard decomposition
@@ -127,6 +129,29 @@ the inflationary application this instability is the graceful-exit mechanism.
 reduces to $\langle\hat{T}^\mu{}_\mu\rangle = -a_2 H_0^4/120\pi^2$. The Friedmann
 equation yields $H_0$. The instability of the de~Sitter stage follows from the linearized
 equation for $\delta H$~\cite{starobinsky}. \hfill$\square$
+
+\smallskip\noindent\textbf{Rigor status (red-team demotion, June 2026).} The
+\emph{existence and instability} of the anomaly-driven de~Sitter fixed point are
+\textbf{Rigorous, by citation} to Starobinsky~\cite{starobinsky}. The \emph{explicit
+coefficient} $H_0^2 = 180\pi/(G|a_2|)$ is \textbf{Sketch}: the algebra is internally
+consistent (combining $\langle\hat{T}^\mu{}_\mu\rangle = -a_2 H_0^4/120\pi^2$ with the
+trace of the semiclassical equation, $-R = 8\pi G\langle\hat{T}^\mu{}_\mu\rangle$ and
+$R = 12H_0^2$ on de~Sitter, gives $H_0^2 = 180\pi/(Ga_2)$), but two steps are not closed
+by the cited sources. (i)~Starobinsky parametrizes the consistency condition through the
+effective action of $N$ conformal fields (a curvature-scale bound set by the field content),
+not as the closed form $180\pi/(G|a_2|)$ with ``$a_2 = $ Euler-density coefficient'';
+the $180\pi$ is a later reparametrization. (ii)~Capper--Duff~\cite{capper_duff} establishes
+the \emph{existence} of the conformal trace anomaly, but the de~Sitter-evaluated,
+field-content-summed normalization $\langle\hat{T}^\mu{}_\mu\rangle = -a_2 H_0^4/120\pi^2$
+requires fixing a field content and an anomaly-coefficient convention, neither of which that
+source supplies. Relative to the standard split $\langle\hat{T}^\mu{}_\mu\rangle =
+c\,C^2 - a\,E$ with $C^2 = 0$ and $E = 24H_0^4$ on de~Sitter, the factor $120\pi^2$ amounts
+to $a_2 = 2880\pi^2\,a$ --- a convention internal to this paper. Finally, the absolute value
+in $|a_2|$ silently encodes a positivity condition: $H_0^2 > 0$ requires $a_2 > 0$ (which
+holds for standard conformal matter, where the type-A coefficient $a > 0$, but is not free).
+Issue~\#133 tracks restoring this to Rigorous (fix the convention, cite a modern
+anomaly-induced-inflation reference for the explicit coefficient, state the $a_2 > 0$
+condition).
 
 \smallskip\noindent\emph{Remark (correction).} An earlier draft of this paper asserted
 that the de~Sitter solution is a stable attractor with exponentially damped perturbations.
