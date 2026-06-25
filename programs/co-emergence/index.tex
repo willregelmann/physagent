@@ -591,15 +591,22 @@ CE-5, issue \#45). Part~(a)---purity decrease for all ranks, via Fact~3
 and the entrywise modulus bound---is proved in full as
 \texttt{purity\_decrease}, with \texttt{trace\_rho\_sq} certifying that
 the formalized quantity $\sum_{jk}|\rho_{jk}|^2$ is indeed
-$\mathrm{Tr}(\rho^2)$ (using the Hermiticity of $\rho$). Part~(b), the
-rank-2 von Neumann excess, is proved as \texttt{rank2\_entropy\_excess}
-by reducing it to the monotonicity of the binary entropy on
-$[\tfrac12,1]$; there Fact~2 (the Perron--Frobenius decrease
-$\sigma_1(\theta)\le\sigma_1$, proved analytically above) enters as an
-\emph{explicit hypothesis} rather than being re-derived in Lean---the
-single dependency the formalization imports rather than checks. An
+$\mathrm{Tr}(\rho^2)$ (using the Hermiticity of $\rho$); the bridge from
+the Lean statement to the paper's matrix claim is fully formalized.
+Part~(b) is machine-checked at the level of the paper's key scalar step:
+\texttt{rank2\_entropy\_excess} proves that $p_\theta \le p_0$ on
+$[\tfrac{1}{2},1]$ implies $\mathrm{Srank2}(p_\theta) \ge
+\mathrm{Srank2}(p_0)$ (binary-entropy monotonicity, ``more uniform
+$\Rightarrow$ higher entropy''). Three structural links between this
+scalar lemma and the paper's matrix claim are supplied as hypotheses
+and not re-derived in Lean: (i)~the eigenvalue identification (the
+rank-2 $\rho(\theta)$'s singular values satisfy $\sigma_1^2+\sigma_2^2=1$,
+so the spectrum is $\{p,1-p\}$ with $p=\sigma_1^2$); (ii)~the entropy
+connection $S(\rho)=\mathrm{Srank2}(\sigma_1^2)$; and (iii)~Fact~2
+($\sigma_1(\theta)\le\sigma_1$, proved analytically above). A
 \texttt{\#print axioms} audit shows the theorems rest only on Mathlib's
-standard axioms, with no \texttt{sorry}. Consistent with
+standard axioms (\texttt{propext}, \texttt{Classical.choice},
+\texttt{Quot.sound}), with no \texttt{sorry}. Consistent with
 Remark~\ref{rem:vn_general_rank}, the general-rank entropy excess is
 \emph{not} formalized: it is false. Only the corrected inequalities
 (cf.\ the separability equality condition above) are encoded, never the

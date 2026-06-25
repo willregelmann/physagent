@@ -38,7 +38,7 @@ The paper leads with proved results, then develops the interpretive framework:
 
 | Result | Status | Source |
 |--------|--------|--------|
-| Phase-induced entropy excess (rank 2) | **Rigorous** | Lemma in paper; Lean-verified (`lean/`, CE-5; Fact 2 imported as hypothesis) |
+| Phase-induced entropy excess (rank 2) | **Rigorous** | Lemma in paper; Lean scalar step verified (`lean/`, CE-5): binary-entropy monotonicity machine-checked; three structural links (spectral identification, S=Srank2(σ₁²), Fact 2) are explicit hypotheses, not re-derived |
 | Phase-induced purity decrease (all ranks) | **Rigorous** | Lemma in paper / general-rank exploration; Lean-verified (`lean/`, CE-5) |
 | Interference metric I_S = S(Re ρ) − S(ρ): zero iff ρ is real (in the smooth-structure basis) | **Rigorous** | Prop. in paper §3 |
 | Toy model: composition, Born rule, interference (N=4–16) | **Rigorous** (numerical) | Toy model exploration |
