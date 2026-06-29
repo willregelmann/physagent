@@ -191,12 +191,12 @@ The following entries were verified (author, title, journal, volume, page, year,
 
 [2] G. F. R. Ellis, "Covariant change of signature in classical relativity," *General Relativity and Gravitation* **24**, 1047 (1992). DOI: 10.1007/BF00756946.
 
-[3] S. A. Hayward, "Signature change in general relativity," *Classical and Quantum Gravity* **9**, 1851 (1992); Erratum, *ibid.* **9**, 2543 (1992). DOI: 10.1088/0264-9381/9/8/011.
+[3] S. A. Hayward, "Signature change in general relativity," *Classical and Quantum Gravity* **9**, 1851 (1992); Erratum, *ibid.* **9**, 2543 (1992). DOI: 10.1088/0264-9381/9/8/007.
 
 [4] T. Dray, C. A. Manogue, and R. W. Tucker, "The scalar field equation in the presence of signature change," *Physical Review D* **48**, 2587 (1993). DOI: 10.1103/PhysRevD.48.2587; arXiv:gr-qc/9303002.
 
 [5] C. Hellaby and T. Dray, "Failure of standard conservation laws at a classical change of signature," *Physical Review D* **49**, 5096 (1994). DOI: 10.1103/PhysRevD.49.5096; arXiv:gr-qc/9404001.
 
-[6] M. Kossowski and M. Kriele, "Smooth and discontinuous signature type change in general relativity," *Classical and Quantum Gravity* **10**, 2363 (1993).
+[6] M. Kossowski and M. Kriele, "Smooth and discontinuous signature type change in general relativity," *Classical and Quantum Gravity* **10**, 2363 (1993). DOI: 10.1088/0264-9381/10/11/019.
 
 [7] M. Kossowski and M. Kriele, "Transverse, type-changing, pseudo-Riemannian metrics and the extendability of geodesics," *Proceedings of the Royal Society of London A* **444**, 297 (1994). DOI: 10.1098/rspa.1994.0019.
