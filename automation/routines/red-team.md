@@ -59,9 +59,14 @@ for filling the gap if one doesn't exist (do NOT label it `agent-ready` — the
 scout/governor prioritizes it). Log on the tracking issue.
 
 **Fabricated or misrepresenting citation in merged content:** this outranks a
-demotion. Apply `needs-human` to the tracking issue, open the correction PR per
-METHODOLOGY citation-failure recovery, comment on all dependent issues, log
-with `outcome=escalated`.
+demotion. Apply `needs-human` to every open issue whose thread depends on the
+misrepresented citation — that is what actually halts the affected work, since
+the worker skips `needs-human`-labeled issues at claim time and a label on the
+tracking issue alone leaves the contaminated research thread claimable. Open
+the correction PR per METHODOLOGY citation-failure recovery, comment on all
+dependent issues, and log the escalation on the tracking issue with
+`outcome=escalated` (the tracking issue itself only needs `needs-human` if
+work is claimed directly against it).
 
 ## Proposing novel threads (optional; max 1 per run)
 
@@ -78,3 +83,6 @@ their current handling and are not proposals.
   activity, and do not manufacture demotions to satisfy T1; report clean as
   clean.
 - Never demote by editing the paper outside a PR. Never touch protected paths.
+- Never post quorum verdict markers (reviewer only) — including on your own
+  demotion or correction PRs, however tempting it is to unblock your own
+  queue.

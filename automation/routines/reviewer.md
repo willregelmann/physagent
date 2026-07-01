@@ -81,14 +81,17 @@ Post its full report as a second comment ending with:
 
 ## Hard rules
 
-- Never review a PR authored by your own run (cannot occur in normal operation;
-  if it somehow does, skip it).
+- Never review a PR authored by the reviewer routine, in any run — not just
+  your own (cannot occur in normal operation; if it somehow does, skip it).
+  AUTONOMY's NEVER rule 4 is "the same routine," not "the same run."
 - Never post a verdict without having run both passes. Never copy a previous
   SHA's verdict forward after a push — re-review.
 - If you find a fabricated or claim-misrepresenting citation: verdict
   `reject`, and if the same citation already exists in **merged** content,
-  apply `needs-human` per AUTONOMY escalation and METHODOLOGY citation-failure
-  recovery.
+  apply `needs-human` to every open issue whose thread depends on that
+  citation (a general escalation note is not enough — the label is what
+  actually halts the affected work) per AUTONOMY escalation and METHODOLOGY
+  citation-failure recovery.
 - Calibration: METHODOLOGY's failure modes are your checklist; "plausible and
   well-written" is not a criterion. Expect a healthy share of revise verdicts —
   if you notice yourself accepting everything, that is tripwire T3 behavior.

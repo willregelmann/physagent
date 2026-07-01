@@ -31,19 +31,24 @@ runner as the `AUTONOMY_BOT_PAT` secret (see "Deployed instances" below).
 
 ## Registry
 
-| Routine | Cadence (UTC) | Model | File |
+| Routine | Cadence (UTC) | Model (current default) | File |
 |---------|--------------|-------|------|
-| worker | daily 06:00 | fable | `worker.md` |
+| worker | daily 06:00 | opus | `worker.md` |
 | reviewer | 12h (05:00, 17:00; +1h redundant fires) | opus | `reviewer.md` |
 | responder | daily 04:00 | sonnet | `responder.md` |
 | red-team | every 3 days 08:00 | opus | `red-team.md` |
 | scout | weekly Mon 03:00 | sonnet | `scout.md` |
 | librarian | weekly Tue 03:00 | sonnet | `librarian.md` |
-| governor | monthly 1st 09:00 | fable | `governor.md` |
+| governor | weekly Sun 05:00 (light pass); full pass 1st of month | opus | `governor.md` |
+
+Model is repo-var-driven, not pinned in these files — see "Shared deployment
+configuration" below; the column above shows the current default only.
 
 Cadence rationale: responder (04:00) runs before reviewer (05:00) runs before
 worker (06:00) — fixes land, get re-reviewed, then new work starts against an
-up-to-date queue.
+up-to-date queue. Governor runs Sunday 05:00, deliberately before the Monday
+scout/metrics/digest, so any thread it promotes that run enters the new
+week's queue immediately (EXPERIMENT.md 2026-06-10 amendment).
 
 ## Deployed instances (GitHub Actions, 2026-06-09)
 
@@ -53,15 +58,15 @@ that invokes the reusable runner (`.github/workflows/autonomy-routine.yml`) with
 its role and model. This table is the record of the live deployment; if it
 drifts from the workflow files, this file is wrong — fix it.
 
-| Routine | Workflow file | Cron (UTC) | Model |
+| Routine | Workflow file | Cron (UTC) | Model (current default) |
 |---------|---------------|------------|-------|
-| worker | `autonomy-worker.yml` | `0 6 * * *` | claude-fable-5 |
+| worker | `autonomy-worker.yml` | `0 6 * * *` | claude-opus-4-8 |
 | reviewer | `autonomy-reviewer.yml` | `0 5,6,17,18 * * *` | claude-opus-4-8 |
 | responder | `autonomy-responder.yml` | `0 4 * * *` | claude-sonnet-4-6 |
 | red-team | `autonomy-red-team.yml` | `0 8 */3 * *` | claude-opus-4-8 |
 | scout | `autonomy-scout.yml` | `0 3 * * 1` | claude-sonnet-4-6 |
 | librarian | `autonomy-librarian.yml` | `0 3 * * 2` | claude-sonnet-4-6 |
-| governor | `autonomy-governor.yml` | `0 9 1 * *` | claude-fable-5 |
+| governor | `autonomy-governor.yml` | `0 5 * * 0` | claude-opus-4-8 |
 
 Shared deployment configuration (all seven, in the reusable runner):
 
@@ -72,7 +77,12 @@ Shared deployment configuration (all seven, in the reusable runner):
 - **Prompt:** the pointer template above, built verbatim by the runner —
   behavior lives in the version-controlled `<role>.md` files, never in the
   workflow.
-- **Model:** pinned full IDs (above), passed as `claude --model <id>`.
+- **Model:** each role's `autonomy-<role>.yml` reads
+  `${{ vars.MODEL_<ROLE> || '<default>' }}` and passes the result as
+  `claude --model <id>` — the table above shows the current default for each
+  role (no `MODEL_*` repo variable is set as of this writing, so every role is
+  running its default). Changing a role's model is `gh variable set
+  MODEL_<ROLE> <id>`, no PR required (EXPERIMENT.md 2026-06-13 amendment).
 - **Permissions:** `--permission-mode bypassPermissions` (no human is present
   to approve tool calls in CI). The full Claude Code toolset is available; the
   reusable runner does not pass an `--allowedTools` allow-list.

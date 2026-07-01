@@ -44,7 +44,9 @@ not agent-ready — leave it for the governor and say why in your run's notes
 ## 3. File
 
 `gh issue create` with the body above, label `agent-ready`. If the issue stems
-from a literature pointer, link the `informs-issue` item.
+from a literature pointer, link the `informs-issue` item and close it — its
+purpose (surfacing the pointer for action) is fulfilled once a milestone
+issue exists for it, and `informs-issue` has no other lifecycle exit.
 
 ## 4. Propose (optional; max 1 per run)
 

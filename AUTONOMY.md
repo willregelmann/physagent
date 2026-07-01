@@ -109,9 +109,9 @@ maintenance, self-checks in every PR description.
 
 | Label | Meaning | Set by | Cleared by |
 |-------|---------|--------|------------|
-| `agent-ready` | issue is claimable by the worker | scout, experimenter | worker on claim |
+| `agent-ready` | issue is claimable by the worker | scout, experimenter, governor (promote), worker/responder (restore after a failed attempt or a `reject`, or on 7-day stale reclaim) | worker on claim |
 | `experimenter-priority` | issue jumps the worker's ranking; the human entry point into the loop | experimenter | experimenter |
-| `stuck` | 3 failed worker attempts; scheduler skips | worker | responder (on landed fix), experimenter |
+| `stuck` | 3 failed worker attempts; scheduler skips | worker | responder (on landed fix), governor (on debate resolution), experimenter |
 | `needs-human` | experiment-level escalation; thread halts | any routine | experimenter only |
 | `agent-pr` | agent-authored PR; quorum verdict required | worker, responder, red-team, governor | — |
 | `promotion-rigorous` | PR promotes Sketch→Rigorous; stress-test marker also required | worker | — |
