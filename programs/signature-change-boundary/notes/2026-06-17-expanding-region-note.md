@@ -346,8 +346,9 @@ The two Frobenius branches give, near $\Sigma$:
   $x^n$). Hence $\chi'=O(x^{n+1})$ and $\pi\sim x^{-n/2}\,a^3\,x^{n+1}=O(x^{n/2+1})\to0$.
 
 In both cases $\pi$ approaches a **finite constant** (times $a(0)^3$) at $\Sigma$:
-the no-surface-layer condition holds automatically, **for every smooth $a>0$,
-with no condition on $a'(0)$** — in pointed contrast to the curvature condition
+the boundary data $\phi|_\Sigma$ and $\pi|_\Sigma$ are finite on both sides **for every smooth $a>0$,
+with no condition on $a'(0)$** — making the Dray–Manogue–Tucker no-surface-layer matching condition
+imposable and uniquely solvable (not "automatic"; see seed note §5) — in pointed contrast to the curvature condition
 of §2. The reason is that the Hubble friction $3H$ is *regular*, so it perturbs
 the Fuchsian momentum balance only at subleading order; the leading
 $x^{-n/2}\!\cdot x^{n/2}$ escort of the seed note's §5 is untouched. The Euclidean
@@ -401,7 +402,7 @@ the result is a clean split:
 | Description | Flat slices ($a\equiv$ const) | Prescribed expanding $a(x^0)>0$ |
 |---|---|---|
 | **Bulk geometry** (§2) | flat; $\Sigma$ a coordinate-degenerate boundary, **unconditionally** | FLRW-curved; $\Sigma$ a **curvature singularity unless** $\mathcal H=a'/(a\sqrt{|\lambda|})$ stays bounded, i.e. $a'=O(|x^0|^{n/2})$ + $C^2$-in-$u$ |
-| **Geodesic asymmetry** (§3) | timelike reach $\Sigma$/no continuation; spacelike curves cross intact (spacelike geodesic continuation: Sketch) | **survives** for $a(0)>0$; adds Hubble redshift of peculiar momentum |
+| **Geodesic asymmetry** (§3) | timelike reach $\Sigma$/no continuation; spacelike curves cross intact (spacelike geodesic continuation: Sketch) | **survives** for $a(0)>0$; spacelike geodesic continuation: Sketch; adds Hubble redshift of peculiar momentum |
 | **Scalar field** (§4) | Fuchsian, roots $\{0,1+\tfrac n2\}$; exact $\nu=\tfrac12$ Bessel **globally** | Fuchsian, **same roots**, $k^2\to k^2/a(0)^2$; exact $\nu=\tfrac12$ form **local-only** (global elementary closed form lost) |
 | **Momentum / stress–energy** (§5) | $\pi\to$ const (no surface layer); $T_{\mu\nu}T^{\mu\nu}=O(1)$ | **survives** for all smooth $a>0$; $\pi\to a(0)^3\times$ const; invariants $O(1)$ |
 
