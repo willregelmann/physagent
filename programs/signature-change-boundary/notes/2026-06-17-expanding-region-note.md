@@ -184,12 +184,12 @@ actually obeys it is the backreaction question and is out of scope here.
 
 ---
 
-## 3. Geodesics and the crossing asymmetry — survives for $a(0)>0$
+## 3. Geodesics and the crossing asymmetry — survives for $a(0)>0$ **(Rigorous, given fixed background — except continuation *as a geodesic* through $\Sigma$, which is Sketch; see below)**
 
-**Claim (Rigorous, given the fixed background).** The crossing asymmetry of §4 of
+**Claim (Rigorous, given the fixed background — except continuation *as a geodesic*, which is Sketch).** The crossing asymmetry of §4 of
 the seed note survives intact whenever $a(0)>0$. Timelike geodesics reach $\Sigma$
 at finite proper time; they have no timelike continuation into the Euclidean
-region; spacelike geodesics cross with character intact. The scale factor adds
+region; spacelike curves cross with character intact (spacelike geodesic continuation is Sketch — see below). The scale factor adds
 Hubble redshift of the peculiar momentum but changes none of these conclusions.
 
 **Timelike geodesics reach $\Sigma$ at finite proper time.** In the proper-time
@@ -207,8 +207,12 @@ $\tau=\int\sqrt{-\lambda-a^2|\vec u|^2}\,dx^0$ with the (now $a$-weighted) cone
 condition $|\vec u|^2<-\lambda/a^2$, $\vec u=d\vec x/dx^0$; the integrand is
 bounded by $\sqrt{-\lambda}\to0$ over a finite interval, so $\tau<\infty$ — the
 same convergence as the seed note, with $a(0)>0$ merely rescaling the cone. As
-before, the *only* way to make $\tau$ diverge is $\lambda\to-\infty$ (curvature
-blow-up), not signature change.
+before, the *only* way to make $\tau$ diverge is $\lambda\to-\infty$ sufficiently
+fast — a divergence of the prescribed profile, not anything forced by signature
+change. (The "(curvature blow-up)" parenthetical in an earlier draft is false:
+if $a\equiv$ const the geometry is flat for every $\lambda(x^0)$,
+as the seed note's §4 correction records — $\tau$ can diverge without any
+curvature blow-up.)
 
 The new physical content is **Hubble redshift**: the peculiar velocity
 $v_{\rm phys}^2=a^2|\dot{\vec x}|^2/\dot u^2=(|\vec p|^2/a^2)/(1+|\vec p|^2/a^2)$
@@ -223,9 +227,9 @@ timelike direction at all. The normalization $\lambda(\dot x^0)^2+a^2|\dot{\vec 
 has no solution. This conclusion is **independent of $a$** — it follows from
 positive-definiteness alone, exactly as in the seed note.
 
-**Spacelike geodesics cross intact.** For $\lambda>0$ every direction is
+**Spacelike curves cross intact.** For $\lambda>0$ every direction is
 spacelike; the spatial metric $a^2\delta_{ij}$ is non-degenerate at $\Sigma$
-because $a(0)>0$, so a spacelike geodesic crossing $\Sigma$ continues with its
+because $a(0)>0$, so a spacelike curve crossing $\Sigma$ continues with its
 causal character unchanged. The lone exceptional direction is the $x^0$-axis,
 spacelike on the Euclidean side and timelike on the Lorentzian side: it passes
 through $\Sigma$ as a point set but flips character there. The asymmetry —
@@ -233,9 +237,9 @@ through $\Sigma$ as a point set but flips character there. The asymmetry —
 positive-definiteness of the Euclidean region, and is untouched by the
 expansion.
 
-**Status.** Rigorous (given the fixed background); identical conclusion to the
-seed note's §4, requiring only $a(0)>0$. Setting $a\equiv$ const removes the
-redshift and reproduces §4 verbatim.
+**Continuation *as a geodesic* through $\Sigma$ (Sketch).** The crossing statement above is about spacelike *curves*, and its $|\vec u|>0$-at-$\Sigma$ hypothesis fails for every geodesic in the expanding background. The conserved comoving momenta give $a^2\dot x^i=p^i={}$const, and the affine normalization then yields $\dot x^0=C/\sqrt{|\lambda|}$, so the coordinate spatial velocity obeys $\vec u=(\vec p/a^2)\sqrt{|\lambda|}/C\to 0$ at $\Sigma$ (since $a(0)>0$ is finite): every crossing geodesic arrives coordinate-tangent to the exceptional $x^0$-direction, exactly as in the seed note's §4. The $|\vec u|>0$ hypothesis fails, and the argument for geodesic crossing does not close. What is Rigorous: finite arc length to $\Sigma$, constant spacelike character on each open side, and the existence of spacelike-*curve* continuations through $\Sigma$. What is Sketch: that the continuation can be made *as a geodesic* through $\Sigma$, uniquely — the geodesic equation is singular at $\Sigma$ and this question is deferred to #146.
+
+**Status.** Rigorous (given the fixed background) for: timelike geodesics reach $\Sigma$ at finite proper time; no timelike continuation exists; spacelike curves cross with character intact. Sketch: spacelike geodesic continuation through $\Sigma$. Setting $a\equiv$ const removes the redshift and reproduces the demoted §4 of the seed note verbatim.
 
 ---
 
@@ -342,8 +346,9 @@ The two Frobenius branches give, near $\Sigma$:
   $x^n$). Hence $\chi'=O(x^{n+1})$ and $\pi\sim x^{-n/2}\,a^3\,x^{n+1}=O(x^{n/2+1})\to0$.
 
 In both cases $\pi$ approaches a **finite constant** (times $a(0)^3$) at $\Sigma$:
-the no-surface-layer condition holds automatically, **for every smooth $a>0$,
-with no condition on $a'(0)$** — in pointed contrast to the curvature condition
+the boundary data $\phi|_\Sigma$ and $\pi|_\Sigma$ are finite on both sides **for every smooth $a>0$,
+with no condition on $a'(0)$** — making the Dray–Manogue–Tucker no-surface-layer matching condition
+imposable and uniquely solvable (not "automatic"; see seed note §5) — in pointed contrast to the curvature condition
 of §2. The reason is that the Hubble friction $3H$ is *regular*, so it perturbs
 the Fuchsian momentum balance only at subleading order; the leading
 $x^{-n/2}\!\cdot x^{n/2}$ escort of the seed note's §5 is untouched. The Euclidean
@@ -397,7 +402,7 @@ the result is a clean split:
 | Description | Flat slices ($a\equiv$ const) | Prescribed expanding $a(x^0)>0$ |
 |---|---|---|
 | **Bulk geometry** (§2) | flat; $\Sigma$ a coordinate-degenerate boundary, **unconditionally** | FLRW-curved; $\Sigma$ a **curvature singularity unless** $\mathcal H=a'/(a\sqrt{|\lambda|})$ stays bounded, i.e. $a'=O(|x^0|^{n/2})$ + $C^2$-in-$u$ |
-| **Geodesic asymmetry** (§3) | timelike reach $\Sigma$/no continuation; spacelike cross intact | **survives** for $a(0)>0$; adds Hubble redshift of peculiar momentum |
+| **Geodesic asymmetry** (§3) | timelike reach $\Sigma$/no continuation; spacelike curves cross intact (spacelike geodesic continuation: Sketch) | **survives** for $a(0)>0$; spacelike geodesic continuation: Sketch; adds Hubble redshift of peculiar momentum |
 | **Scalar field** (§4) | Fuchsian, roots $\{0,1+\tfrac n2\}$; exact $\nu=\tfrac12$ Bessel **globally** | Fuchsian, **same roots**, $k^2\to k^2/a(0)^2$; exact $\nu=\tfrac12$ form **local-only** (global elementary closed form lost) |
 | **Momentum / stress–energy** (§5) | $\pi\to$ const (no surface layer); $T_{\mu\nu}T^{\mu\nu}=O(1)$ | **survives** for all smooth $a>0$; $\pi\to a(0)^3\times$ const; invariants $O(1)$ |
 
@@ -442,11 +447,14 @@ this note:
 
 ## Relation to existing work
 
-The flat-slice lineage of the seed note (Ellis and collaborators; Hayward;
-Dray–Manogue–Tucker junction conditions; Kossowski–Kriele degenerate
-geodesics) applies here as well; these references were **paper-grade verified**
-under SCB-4 (#135) and are recorded as formal entries in the seed note's
-References section. The
+The flat-slice lineage of the seed note (Ellis and collaborators; the
+*competing* junction conditions of Dray–Manogue–Tucker — momentum continuity —
+and Hayward — momentum vanishing, the two sides of a published dispute; see
+the seed note's corrected Relation-to-existing-work section; Kossowski–Kriele
+degenerate geodesics) applies here as well; these references were
+**paper-grade verified** under SCB-4 (#135), with the Hayward attribution
+corrected in the July 2026 red-team audit, and are recorded as formal entries
+in the seed note's References section. The
 expanding case additionally touches **signature-change cosmology** and the
 **no-boundary** literature (Halliwell–Hartle-type integration-contour analyses
 for an expanding no-boundary region are the natural comparison for the §2
