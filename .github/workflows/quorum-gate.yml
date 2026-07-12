@@ -79,16 +79,25 @@ jobs:
               exit 0 ;;
           esac
 
-          # Markers count only from the machine account or the experimenter.
+          # Markers count only from the machine account or the experimenter,
+          # must be the sole content of a line, and fenced code blocks are
+          # stripped first -- so quoting the marker format in prose or in a
+          # ```example``` (e.g. a responder comment explaining what the
+          # reviewer should post) can't be mistaken for a live verdict. All
+          # routines share the machine-account identity, so this isn't a
+          # spoofing defense against outsiders (logins are already gated
+          # above) -- it closes the narrower gap where a routine's own
+          # comment accidentally contains the marker string.
           COMMENTS=$(gh api "repos/$REPO/issues/$PR/comments" --paginate \
             | jq -r --arg bot "${BOT:-__unset__}" --arg exp "$EXPERIMENTER" \
-              '.[] | select(.user.login == $bot or .user.login == $exp) | .body')
+              '.[] | select(.user.login == $bot or .user.login == $exp) | .body
+               | gsub("```[\\s\\S]*?```"; "")')
 
           VERDICT=$(echo "$COMMENTS" \
-            | grep -oE "<!-- quorum:verdict (accept|revise|reject) sha=$SHA -->" \
+            | grep -oE "^[[:space:]]*<!-- quorum:verdict (accept|revise|reject) sha=$SHA -->[[:space:]]*$" \
             | tail -1 | grep -oE 'accept|revise|reject' || true)
           STRESS=$(echo "$COMMENTS" \
-            | grep -oE "<!-- quorum:stress-test (pass|fail) sha=$SHA -->" \
+            | grep -oE "^[[:space:]]*<!-- quorum:stress-test (pass|fail) sha=$SHA -->[[:space:]]*$" \
             | tail -1 | grep -oE 'pass|fail' || true)
 
           if [ -z "$VERDICT" ]; then
