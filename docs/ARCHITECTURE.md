@@ -27,7 +27,7 @@ those win.
 | Schema | METHODOLOGY's rigor system: every result typed **Rigorous / Sketch / Conjecture**; demotions are migrations; withdrawn records are tombstones (never deleted) |
 | Authorization | Branch protection (required checks, no direct pushes) + machine-account PAT scopes (write, not admin; no `workflow` scope) + the four-tier merge-gate stack |
 | Service account | The machine account (repo variable `AUTONOMY_BOT`), asserted at runtime by an identity guard that refuses to act under any other login |
-| Policy engine | The gate stack: deterministic tier (tests, paper builds, citation existence) → semantic tier (LLM claim-support evaluator) → quorum tier (adversarial verdict markers, per-SHA) → constitutional tier (protected paths require experimenter approval) |
+| Policy engine | The gate stack: deterministic tier (tests, paper builds, citation existence) → semantic tier (LLM claim-support evaluator) → quorum tier (adversarial verdict markers, per-SHA) → constitutional tier (retired 2026-07-12 to a no-op; gate-workflow files remain structurally protected by PAT scope, other protected paths no longer require approval) |
 | Feature flag / kill switch | Repo variable `AUTONOMY_ENABLED`; one flip stops the fleet. Full kill-switch runbook in `EXPERIMENT.md` |
 | Configuration | Repo variables (identity, switches) and secrets (PAT, model credentials, SMTP) |
 | Observability | [Metrics dashboard issue](https://github.com/willregelmann/self-consistency/issues/67) (weekly snapshots → `metrics/`), [Breakthrough digest issue](https://github.com/willregelmann/self-consistency/issues/87) (weekly plain-English digest), Tier-A alert emails, Actions logs as traces |
@@ -83,9 +83,11 @@ write access but not admin and deliberately lacks the `workflow` scope —
 agents structurally cannot author changes to the gates that judge them. The
 runner asserts the effective login at startup and refuses to act on mismatch
 (the check whose absence caused the 2026-06-05 identity incident). The
-experimenter holds the complementary powers: kill switch, budget,
-constitutional approvals, and the admin override that is the only deploy path
-for gate workflows. The event-dispatch fast path holds no authority at all —
+experimenter holds the complementary powers: kill switch, budget, PAT
+revocation, `needs-human` clearance, and the admin override that is the only
+deploy path for gate workflows (protected-path approval more broadly was
+retired 2026-07-12 — see `AUTONOMY.md` Amendment procedure). The event-dispatch
+fast path holds no authority at all —
 it presses, via the default workflow token, the same dispatch button the
 scheduler presses.
 

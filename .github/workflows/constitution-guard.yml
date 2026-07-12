@@ -1,75 +1,44 @@
 name: constitution-guard
 
-# Constitutional tier of the merge-gate stack (AUTONOMY.md): passes trivially
-# unless the PR touches a protected path, in which case it requires an
-# approving review from the experimenter (@willregelmann) on the CURRENT head
-# SHA.
+# RETIRED 2026-07-12 (experimenter-directed, full-autonomy amendment; see
+# EXPERIMENT.md log). This tier formerly required an approving review from
+# the experimenter (@willregelmann) before a PR touching a protected path
+# could merge. That approval requirement has been removed: no identity is
+# privileged in the merge path anymore. This workflow is kept as a no-op that
+# always posts `success` for the required-status-check context
+# `constitution-guard`, so branch protection's required-check list does not
+# need editing and PRs do not livelock on a context that never posts (the
+# exact failure mode this file's design already had to work around once, on
+# PR #58, 2026-06-05 — a check that never posts blocks merge permanently).
 #
-# Like quorum-gate, the required context `constitution-guard` is a COMMIT
-# STATUS posted by this workflow — the job is deliberately named differently.
-# The original job-as-check design had a livelock: the fail-at-open run and
-# the pass-on-approval run live in different check suites, and the merge box
-# honored the stale failure (observed on PR #58, 2026-06-05). Statuses are
-# latest-wins per context, so a late approval cleanly supersedes.
-#
-# States: success (no protected paths, or approved at head SHA) / pending
-# (protected paths touched, awaiting experimenter approval). There is no
-# failure state — an unapproved constitutional change is "waiting", not
-# "broken".
-#
-# NOTE: changes to THIS file (or any gate workflow) cannot be authored by the
-# machine account (its PAT deliberately lacks the workflow scope) and cannot
-# be self-approved by the experimenter — gate amendments are experimenter-
-# authored and admin-merged (see AUTONOMY.md, Amendment procedure).
+# NOTE: gate-workflow files (.github/workflows/) remain structurally
+# unreachable by the machine account regardless of this change — its PAT
+# deliberately lacks the `workflow` scope, a GitHub-level restriction this
+# file's removal does not touch. Every OTHER protected path (this file,
+# AUTONOMY.md, METHODOLOGY.md, EXPERIMENT.md, CLAUDE.md, AGENTS.md, tools/,
+# .claude/, scripts/, automation/) merges now via the same deterministic /
+# semantic / quorum path as any other content, with no required human review.
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
-  pull_request_review:
-    types: [submitted, dismissed]
 
 permissions:
   statuses: write
-  contents: read
-  pull-requests: read
 
 jobs:
   evaluate:
     name: constitution-guard-eval
     runs-on: ubuntu-latest
     steps:
-      - name: Evaluate protected paths and experimenter approval
+      - name: Post constitution-guard success unconditionally
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
-          PR: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
-          EXPERIMENTER: willregelmann
         run: |
           set -euo pipefail
-
-          post() {
-            gh api "repos/$REPO/statuses/$HEAD_SHA" \
-              -f context=constitution-guard -f state="$1" -f description="$2" >/dev/null
-            echo "constitution-guard on $HEAD_SHA -> $1 ($2)"
-          }
-
-          FILES=$(gh api "repos/$REPO/pulls/$PR/files" --paginate | jq -r '.[].filename')
-          echo "Changed files:"
-          echo "$FILES"
-          PROTECTED='^(METHODOLOGY\.md|AUTONOMY\.md|EXPERIMENT\.md|CLAUDE\.md|AGENTS\.md|\.github/|tools/|\.claude/|scripts/|automation/)'
-          if ! echo "$FILES" | grep -qE "$PROTECTED"; then
-            post success "No protected paths touched."
-            exit 0
-          fi
-
-          # The approval must be bound to the current head SHA: an approval
-          # followed by additional commits is stale and does not count.
-          APPROVED=$(gh api "repos/$REPO/pulls/$PR/reviews" --paginate \
-            | jq -r --arg u "$EXPERIMENTER" --arg sha "$HEAD_SHA" \
-              '[ .[] | select(.user.login == $u and .state == "APPROVED" and .commit_id == $sha) ] | length')
-          if [ "$APPROVED" -ge 1 ]; then
-            post success "Protected paths approved by @$EXPERIMENTER at $HEAD_SHA."
-          else
-            post pending "Protected paths touched; awaiting approving review from @$EXPERIMENTER on the current head commit."
-          fi
+          gh api "repos/$REPO/statuses/$HEAD_SHA" \
+            -f context=constitution-guard -f state=success \
+            -f description="Retired 2026-07-12 — no human-approval gate on protected paths." >/dev/null
+          echo "constitution-guard on $HEAD_SHA -> success (retired, always passes)"

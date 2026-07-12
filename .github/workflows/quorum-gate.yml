@@ -9,8 +9,10 @@ name: quorum-gate
 #   - issue_comment events re-evaluate when the reviewer posts a verdict
 #     marker, flipping the status without requiring a push.
 # Verdict markers are honored only from the machine account (repo variable
-# AUTONOMY_BOT) or the experimenter. Statuses are per-SHA, so a push
-# automatically invalidates stale verdicts.
+# AUTONOMY_BOT) -- the experimenter's trusted-verdict-source status was
+# removed 2026-07-12 (full-autonomy amendment; see EXPERIMENT.md log). No
+# identity outside the machine account can post a live verdict any more.
+# Statuses are per-SHA, so a push automatically invalidates stale verdicts.
 # RESEARCH-CONTENT GUARD: the quorum requirement is keyed on the `agent-pr`
 # label, which the worker applies to its own PR. To stop a machine-account PR
 # from silently skipping quorum by omitting that label, an unlabeled PR
@@ -44,7 +46,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           BOT: ${{ vars.AUTONOMY_BOT }}
-          EXPERIMENTER: willregelmann
           PR: ${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.event.issue.number }}
         run: |
           set -euo pipefail
@@ -79,18 +80,18 @@ jobs:
               exit 0 ;;
           esac
 
-          # Markers count only from the machine account or the experimenter,
-          # must be the sole content of a line, and fenced code blocks are
-          # stripped first -- so quoting the marker format in prose or in a
-          # ```example``` (e.g. a responder comment explaining what the
-          # reviewer should post) can't be mistaken for a live verdict. All
-          # routines share the machine-account identity, so this isn't a
-          # spoofing defense against outsiders (logins are already gated
-          # above) -- it closes the narrower gap where a routine's own
-          # comment accidentally contains the marker string.
+          # Markers count only from the machine account, must be the sole
+          # content of a line, and fenced code blocks are stripped first --
+          # so quoting the marker format in prose or in a ```example``` (e.g.
+          # a responder comment explaining what the reviewer should post)
+          # can't be mistaken for a live verdict. All routines share the
+          # machine-account identity, so this isn't a spoofing defense
+          # against outsiders (the login check already handles that) -- it
+          # closes the narrower gap where a routine's own comment
+          # accidentally contains the marker string.
           COMMENTS=$(gh api "repos/$REPO/issues/$PR/comments" --paginate \
-            | jq -r --arg bot "${BOT:-__unset__}" --arg exp "$EXPERIMENTER" \
-              '.[] | select(.user.login == $bot or .user.login == $exp) | .body
+            | jq -r --arg bot "${BOT:-__unset__}" \
+              '.[] | select(.user.login == $bot) | .body
                | gsub("```[\\s\\S]*?```"; "")')
 
           VERDICT=$(echo "$COMMENTS" \

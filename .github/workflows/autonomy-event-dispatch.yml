@@ -9,8 +9,9 @@ name: autonomy-event-dispatch
 #   - agent-pr opened / synchronized / labeled              -> dispatch reviewer
 #
 # Guards: runs only when AUTONOMY_ENABLED; honors only comments/PRs from the
-# machine account (or the experimenter, for verdicts — mirroring quorum-gate's
-# marker policy); skips when a run of the target routine is already queued or
+# machine account (the experimenter's trusted-verdict-source status was
+# removed 2026-07-12, mirroring quorum-gate's own marker-policy change; see
+# EXPERIMENT.md log); skips when a run of the target routine is already queued or
 # in progress (routines are idempotent and crons still fire, so a skipped
 # dispatch is never lost work); and disables itself on PRs that have
 # accumulated >= 5 verdict markers — a revise loop that long should proceed
@@ -55,8 +56,8 @@ jobs:
           BOT: ${{ vars.AUTONOMY_BOT }}
         run: |
           set -euo pipefail
-          if [ "$COMMENT_AUTHOR" != "$BOT" ] && [ "$COMMENT_AUTHOR" != "willregelmann" ]; then
-            echo "Verdict-shaped comment from '$COMMENT_AUTHOR' is not from a verdict source; ignoring (quorum-gate ignores it too)."
+          if [ "$COMMENT_AUTHOR" != "$BOT" ]; then
+            echo "Verdict-shaped comment from '$COMMENT_AUTHOR' is not from the machine account; ignoring (quorum-gate ignores it too)."
             exit 0
           fi
           VERDICTS=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json comments \
