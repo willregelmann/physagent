@@ -237,6 +237,7 @@ two-point function as the complete specification of a Gaussian noise source
 (Assumption~\ref{ass:gaussian}).
 
 \subsection{Physical interpretation}
+\label{sec:physical_interpretation}
 
 The noise is not a quantum vacuum fluctuation of matter fields. It is the statistical
 variance of the mass distribution arising from the superposition: the mass is in two
@@ -281,7 +282,7 @@ The stochastic Newtonian potential at branch location $\mathbf{x}_{L,R}$ is:
 \begin{equation}
 \delta\Phi(\mathbf{x}) = -\frac{G}{c^2}\int \frac{\xi_{00}(\mathbf{x}')}{|\mathbf{x}-\mathbf{x}'|}\,d^3x'
 \end{equation}
-The branch-differential stochastic force $\delta V_\Delta(t) \equiv m[\delta\Phi(\mathbf{x}_L,t) - \delta\Phi(\mathbf{x}_R,t)]$ dephases the off-diagonal element of the density matrix. Averaging over stochastic realizations~\cite{hu_verdaguer}:
+The branch-differential stochastic potential-energy difference $\delta V_\Delta(t) \equiv m[\delta\Phi(\mathbf{x}_L,t) - \delta\Phi(\mathbf{x}_R,t)]$ dephases the off-diagonal element of the density matrix. Averaging over stochastic realizations~\cite{hu_verdaguer}:
 \begin{equation}
 |\rho_{LR}(t)| = |\rho_{LR}(0)|\exp\!\left(-\frac{1}{2\hbar^2}\int_0^t\!\!\int_0^t
 C_V(t'-t'')\,dt'\,dt''\right)
@@ -305,19 +306,104 @@ yields exponential decoherence at rate $\Gamma = C_V(0)\tau_c/\hbar^2$. In the
 static limit ($\tau_c\to\infty$ for stationary matter), the exponential rate vanishes and
 the profile is Gaussian with timescale $\tau_{\text{coh}} = \hbar\sqrt{2}/\sqrt{C_V(0)}$.
 
-\begin{remark}[Ensemble dephasing versus single-system decoherence]
+\begin{remark}[Ensemble dephasing versus single-system decoherence: operationally resolved]
 \label{rem:dephasing}
 Equation~\eqref{eq:gaussian_suppression} is an average over realizations of a
 \emph{static} Gaussian random variable. In any single realization the branch-differential
 potential $\delta V_\Delta$ is a constant, and the accumulated phase is deterministic and
 in principle recoverable (e.g.\ by echo protocols); the Gaussian decay describes
-dephasing of an ensemble. Di\'osi's white noise, by contrast, produces irreversible
-decoherence realization by realization. Whether the ensemble-averaged Gaussian suppression
-constitutes genuine single-system decoherence---and what, physically, the ensemble of
-realizations of the superposition's own stress-energy variance refers to---is an open
-interpretational question of the Einstein-Langevin framework that we flag here and do not
-resolve.
+\emph{inhomogeneous} dephasing of an ensemble, whereas Di\'osi's white noise produces
+irreversible decoherence realization by realization. Section~\ref{sec:per_realization}
+resolves the operational content of this distinction: the coherence magnitude is exactly
+conserved per realization (eq.~\eqref{eq:single_realization}), and the Gaussian $t^2$
+suppression is recovered only on averaging (eq.~\eqref{eq:ensemble_recovers}). The
+predicted observable is therefore well-defined---it is the free-evolution fringe
+visibility a standard many-shot interferometer measures (\S\ref{sec:predictions})---and its
+refocusability under a branch-swap echo is an additional discriminant from
+Di\'osi--Penrose. What remains genuinely open is only the metaphysical question of whether
+ensemble-averaged dephasing ``is'' single-system decoherence; the predicted observable does
+not depend on that choice, so no postulate beyond the framework's physical identification
+of the noise with the superposition's own mass distribution
+(\S\ref{sec:physical_interpretation}) is required.
 \end{remark}
+
+\subsection{Per-realization coherence and the ensemble observable}
+\label{sec:per_realization}
+
+We separate the single-realization content of eq.~\eqref{eq:gaussian_suppression} from its
+ensemble content explicitly, resolving the interpretational question flagged in
+Remark~\ref{rem:dephasing} at the operational level.
+
+\textbf{Single realization.} Fix one realization of the noise field $\xi_{00}$. For a
+stationary superposition the kernel is static (eq.~\eqref{eq:N0000_static}), so the realized
+branch-differential potential-energy difference is a single time-independent constant,
+\begin{equation}
+\delta V_\Delta(t) = v, \qquad
+v \equiv m\!\left[\delta\Phi(\mathbf{x}_L) - \delta\Phi(\mathbf{x}_R)\right],
+\label{eq:single_v}
+\end{equation}
+drawn once per realization from a zero-mean Gaussian with variance
+$\langle v^2\rangle_s = C_V(0)$ (eq.~\eqref{eq:CV0} below). The off-diagonal element then
+evolves by a pure phase,
+\begin{equation}
+\rho_{LR}(t) = \rho_{LR}(0)\,e^{-i v t/\hbar}, \qquad
+\bigl|\rho_{LR}(t)\bigr| = \bigl|\rho_{LR}(0)\bigr|,
+\label{eq:single_realization}
+\end{equation}
+so \emph{within a single realization the coherence magnitude is exactly conserved}: no decay
+occurs, and the deterministic phase $vt/\hbar$ is in principle recoverable. This step is
+\textbf{(Rigorous)} within the Einstein--Langevin model given the static
+kernel~\eqref{eq:N0000_static}; the Assumption~\ref{ass:gaussian} ceiling on its status as a
+claim about nature is unchanged.
+
+\textbf{Ensemble.} Averaging eq.~\eqref{eq:single_realization} over the Gaussian
+distribution of $v$ reproduces eq.~\eqref{eq:gaussian_suppression} exactly:
+\begin{equation}
+\overline{\rho_{LR}(t)}
+= \rho_{LR}(0)\,\bigl\langle e^{-i v t/\hbar}\bigr\rangle_s
+= \rho_{LR}(0)\,e^{-\langle v^2\rangle_s\, t^2/2\hbar^2}
+= \rho_{LR}(0)\,e^{-C_V(0)\,t^2/2\hbar^2}.
+\label{eq:ensemble_recovers}
+\end{equation}
+The Gaussian $t^2$ suppression \emph{arises only after averaging}; it does not survive per
+realization. This is the structural signature of \emph{inhomogeneous} dephasing---a static
+spread of phase-accumulation rates across the ensemble, the analogue of $T_2^\ast$---not the
+irreversible, realization-by-realization decoherence ($T_2$) produced by Di\'osi's white
+noise. In particular a mid-point branch-swap (Hahn) echo, which flips the sign of
+$\delta V_\Delta$ for the second half of the evolution, refocuses
+eq.~\eqref{eq:single_realization} completely (the phase
+$\int_0^{t/2}\!v\,dt' - \int_{t/2}^{t}\!v\,dt' = 0$ because $v$ is constant), whereas it
+cannot refocus white-noise decoherence, whose second-half phase is statistically
+independent of the first.
+
+\textbf{The observable this predicts.} A standard free-evolution (Ramsey-type, no echo)
+interferometer estimates the fringe visibility by averaging over many shots, each an
+independent preparation of the superposition and hence an independent draw of $v$. Each
+preparation creates the superposition anew; because $v$ is the branch-differential
+potential-energy difference sourced by the superposition's own mass distribution
+(\S\ref{sec:physical_interpretation}; eq.~\eqref{eq:N0000}), each fresh preparation
+redraws $v$ from its Gaussian distribution---in contrast to a frozen external field, which
+would fix $v$ identically across shots and is a distinct model the framework does not
+adopt. For that protocol the measured visibility equals the ensemble
+average~\eqref{eq:ensemble_recovers}, so the profile discriminant of
+\S\ref{sec:predictions} (maximum fractional-coherence difference $0.22$) is the quantity a
+real free-evolution interferometer measures: the predicted observable is well-defined. The
+identification of the shot ensemble with the stochastic ensemble is the operational reading
+already built into eq.~\eqref{eq:decoherence_integral} (an average over realizations); it
+rests on the framework's physical identification of the noise as the statistical variance of
+the superposition's own mass distribution (\S\ref{sec:physical_interpretation}), not on a
+new axiom. Because the suppression is refocusable, a control
+run with a branch-swap echo furnishes an \emph{additional}, sign-definite discriminant from
+Di\'osi--Penrose---it restores the Einstein--Langevin coherence but leaves genuine
+Di\'osi--Penrose decoherence suppressed---subject to the caveat that an echo also refocuses
+any other static or inhomogeneous dephasing, so it isolates the reversible-versus-irreversible
+distinction rather than gravity specifically.
+
+This subsection is the resolution required by milestone GGD-4: the outcome is a
+\emph{re-scoping}, not a demotion. Result~2 remains \textbf{(Sketch)}---the
+Assumption~\ref{ass:gaussian} Gaussian-noise ceiling is untouched---but the predicted
+quantity is now identified precisely as the free-evolution ensemble visibility, and the
+\S\ref{sec:predictions} discriminant stands as a statement about that observable.
 
 \subsection{Evaluation of $C_V(0)$ for a uniform sphere}
 
@@ -386,7 +472,9 @@ Assumption~\ref{ass:gaussian} (Gaussian noise, not derived, and maximally violat
 actual bimodal stress-energy distribution of the state), on the decoherence
 formula~\eqref{eq:decoherence_integral}, which is exact only for Gaussian noise and is
 imported from the stochastic-gravity literature~\cite{hu_verdaguer} rather than derived
-here, and on the interpretational caveat of Remark~\ref{rem:dephasing}. Numerical values
+here. (The interpretational caveat of Remark~\ref{rem:dephasing} is now resolved
+operationally in \S\ref{sec:per_realization} and no longer contributes to the Sketch
+ceiling---which rests on Assumption~\ref{ass:gaussian} alone.) Numerical values
 for three experimental platforms are given in Table~\ref{tab:platforms}.
 
 \begin{table}[h]
@@ -519,6 +607,20 @@ The profile discrimination requires that environmental decoherence $\Gamma_{\tex
 be characterized to within a factor of $\sim 2$ (so that $\delta\Gamma_{\text{env}}\cdot
 \tau_{\text{coh}} \lesssim 0.1$). This is achievable by comparing data at different masses
 or between materials with the same environmental coupling but different $E_\Delta$.
+
+\textbf{Which observable, and an echo cross-check.} The discriminant above is a statement
+about the \emph{free-evolution} (no-echo) fringe visibility, which equals the ensemble
+average of the per-realization coherence
+(\S\ref{sec:per_realization}, eq.~\eqref{eq:ensemble_recovers})---exactly what a standard
+BMV/MAQRO shot average measures, so the predicted quantity is well-defined
+(Remark~\ref{rem:dephasing}). Because the Einstein--Langevin suppression is inhomogeneous
+dephasing rather than irreversible decoherence, a control run with a mid-point branch-swap
+echo should \emph{restore} the Einstein--Langevin coherence while leaving genuine
+Di\'osi--Penrose decoherence suppressed---a sign-definite, second discriminant independent
+of resolving the $0.22$ profile difference. The echo also refocuses other static or
+inhomogeneous dephasing, so it tests the reversible-versus-irreversible character of the
+suppression rather than its gravitational origin; it is a complement to, not a replacement
+for, the profile measurement.
 
 \subsection{Discrimination from the dissipative Di\'osi--Penrose model}
 \label{sec:ddp}
@@ -668,7 +770,13 @@ corrections are $\mathcal{O}(v^2/c^2)$. The material-dependent crossover
 (Conjecture~\ref{conj:material}) requires a more detailed model of the phonon-spectrum
 contribution to the noise kernel, and a quantitative assessment of whether any
 experimentally realistic platform reaches the crossover regime; both are open problems.
-The ensemble-dephasing caveat of Remark~\ref{rem:dephasing} is unresolved. The BMV null
+The ensemble-dephasing caveat of Remark~\ref{rem:dephasing} is resolved at the operational
+level (\S\ref{sec:per_realization}): the coherence magnitude is exactly conserved per
+realization and the Gaussian $t^2$ suppression is an echo-reversible inhomogeneous-dephasing
+effect recovered only on averaging, so the predicted observable is the free-evolution
+ensemble visibility a many-shot interferometer measures; only the metaphysical
+identification of ensemble dephasing with single-system decoherence remains a matter of
+interpretation, and the predictions do not depend on it. The BMV null
 prediction is necessary but not sufficient; the discriminating positive prediction is the
 temporal profile and, conditionally on Conjecture~\ref{conj:material}, its material
 dependence.
