@@ -47,9 +47,12 @@ explicit, since the underlying stress-energy distribution of a two-branch superp
 bimodal. (3)~We conjecture that the profile is material-dependent: rigid crystalline
 bodies give Gaussian decoherence, while bodies whose acoustic modes approach the
 gravitational coherence frequency $\omega_g = E_\Delta/\hbar$ would transition toward
-exponential. If the crossover regime is experimentally accessible, comparing profiles
-across materials of identical mass and geometry would provide a discriminant absent from
-existing models. The precise additional postulate that Di\'osi's model makes beyond the
+exponential. We make the crossover condition quantitative and find it occurs at a single
+material-dependent critical mass $m_\ast=\sqrt{5\hbar c_s/(12G)}\gtrsim10^{-11}$~kg
+(independent of body size); the conjecture is correspondingly restricted, since this
+threshold lies three to four orders of magnitude above the most massive proposed
+superposition platform, so no realistic experiment reaches the crossover. The precise
+additional postulate that Di\'osi's model makes beyond the
 Einstein-Langevin equation is identified: a white-noise temporal correlator for the
 gravitational potential fluctuations.
 \end{abstract}
@@ -704,19 +707,83 @@ toward an exponential profile.
 \noindent
 This is a \textbf{(Conjecture)}: the identification $\tau_c \sim
 \omega_{\text{phonon}}^{-1}$ is asserted, not derived---a phonon-spectrum model of the
-noise kernel is an open problem (Section~\ref{sec:discussion}). Moreover, whether the
-crossover regime is experimentally accessible at all is open. For a mesoscopic body of
-size $L$, $\omega_{\text{phonon}} \sim c_s/L$; even soft materials ($c_s \sim
-10^2$--$10^3$~m/s for aerogels and polymers) give $\omega_{\text{phonon}} \sim
-10^8$--$10^{10}$~rad/s at $L \sim 1\,\mu$m, still many orders of magnitude above
-$\omega_g \lesssim 10^2$~rad/s for the masses of Table~\ref{tab:platforms}. Reaching
-$\omega_{\text{phonon}} \sim \omega_g$ requires much larger bodies or much larger
-$E_\Delta$; quantifying whether any realistic platform reaches it is the open problem
-noted above. If the regime is accessible, the discriminant is sharp: the Di\'osi model and
-the Penrose collapse model predict exponential decoherence regardless of material, so
-observing profile differences across materials at fixed mass and geometry would directly
-probe whether the noise originates in quantum stress-energy (this work) or is a
-fundamental background process.
+noise kernel is an open problem (Section~\ref{sec:discussion}). The mechanism is not
+established here; what \emph{can} be settled, taking the identification as given, is
+whether the crossover it predicts is ever experimentally accessible.
+
+\paragraph{Crossover threshold (Sketch).} Make the condition
+$\omega_{\text{phonon}}\sim\omega_g$ quantitative for a uniform sphere of mass $m$,
+radius $R$, sound speed $c_s$. In the well-separated regime $d\gg R$ the cross term in
+$E_\Delta$ (eq.~\eqref{eq:tau_dp}) is negligible and the gravitational coherence energy
+reduces to twice the Newtonian self-energy of a uniform sphere,
+\begin{equation}
+E_\Delta \;\xrightarrow{\,d\gg R\,}\; \frac{6}{5}\,\frac{Gm^2}{R},
+\label{eq:Edelta_selfenergy}
+\end{equation}
+which reproduces Table~\ref{tab:platforms} (e.g.\ $\tau_{DP}=\hbar/E_\Delta=11.6$~ms for
+the BMV microdiamond). The lowest acoustic mode scales as $\omega_{\text{phonon}}\sim
+c_s/L$ with the body's linear size $L\simeq 2R$. Both frequencies scale as $R^{-1}$
+($\omega_{\text{phonon}}\propto c_s/R$, $\omega_g=E_\Delta/\hbar\propto Gm^2/(\hbar R)$),
+so the radius cancels and the ratio is fixed by the material sound speed and total mass
+alone:
+\begin{equation}
+\frac{\omega_{\text{phonon}}}{\omega_g}
+= \frac{c_s\hbar}{L\,E_\Delta}
+= \frac{5\,\hbar c_s}{12\,G m^2}.
+\label{eq:crossover_ratio}
+\end{equation}
+The crossover $\omega_{\text{phonon}}=\omega_g$ therefore occurs at a single critical
+mass, independent of body size,
+\begin{equation}
+m_\ast = \sqrt{\frac{5\,\hbar c_s}{12\,G}},
+\label{eq:mstar}
+\end{equation}
+or, at fixed density $\rho$, a critical radius $R_\ast=(3m_\ast/4\pi\rho)^{1/3}$. This
+threshold is \textbf{(Sketch)}: the arithmetic and the $R$-cancellation are exact, but the
+physical input $\tau_c\sim\omega_{\text{phonon}}^{-1}$ is the underived identification of
+Conjecture~\ref{conj:material}.
+
+\paragraph{Two-material evaluation --- accessibility verdict: negative.} Evaluating
+eq.~\eqref{eq:mstar} across materials spanning more than two orders of magnitude in
+rigidity (standard handbook values; $\rho = 3500,\,2200,\,100$~kg/m$^3$):
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+Material & $c_s$ (m/s) & $m_\ast$ (kg) & $R_\ast$ ($\mu$m) \\
+\midrule
+Diamond (rigid) & $1.8\times10^{4}$ & $1.1\times10^{-10}$ & $20$ \\
+Fused silica    & $5.9\times10^{3}$ & $6\times10^{-11}$   & $19$ \\
+Aerogel (soft)  & $1\times10^{2}$   & $8\times10^{-12}$   & $27$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Even the softest realistic solid places the crossover at $m_\ast\gtrsim10^{-11}$~kg and
+$R_\ast\sim20$--$27\,\mu$m---three to four orders of magnitude heavier, and an order of
+magnitude larger, than the most massive \emph{proposed} superposition platform (BMV,
+$m\sim10^{-14}$~kg, $R\sim1\,\mu$m; Table~\ref{tab:platforms}). Maintaining a spatial
+superposition of a $\sim\!20\,\mu$m body over the separation $d\gtrsim R$ that the
+gravitational coherence energy~\eqref{eq:Edelta_selfenergy} requires lies far outside the
+coherence window of any current or near-future experiment, where environmental
+decoherence rises steeply with size. For \emph{every} platform of
+Table~\ref{tab:platforms} the ratio~\eqref{eq:crossover_ratio} exceeds $10^{7}$.
+
+\paragraph{Restriction of Conjecture~\ref{conj:material}.} We accordingly restrict the
+conjecture. Its mechanism remains conjectural (the noise-kernel correlation time is not
+derived), but its experimental \emph{discriminant} is now quantitatively settled: the
+material-dependent Gaussian$\to$exponential transition, if it operates, requires
+$m\gtrsim m_\ast\sim10^{-11}$--$10^{-10}$~kg, outside the accessibility window of all
+current and near-future decoherence platforms, and so makes no discriminating prediction
+in the accessible regime. This is consistent with---and quantifies---the static-noise
+result of Result~2 (eq.~\eqref{eq:N0000_static}), whose assumption
+$\omega_{\text{phonon}}\gg\omega_g$ now holds with margin $\gtrsim10^{7}$ for every
+realistic body. The crossover regime is moreover \emph{distinct} from the
+dissipative-DP non-Gaussian regime of Ref.~\cite{melo_dissipative}: the latter resides in
+the phase-space (momentum/energy) sector over the thermal-relaxation timescale, whereas
+the acoustic crossover concerns the position-coherence noise kernel over $t\lesssim
+3\tau_{DP}$; the two regimes do not overlap. Were the crossover accessible the discriminant
+would be sharp---the Di\'osi and Penrose collapse models predict exponential decoherence
+regardless of material---but eq.~\eqref{eq:mstar} shows it is not, at any realistic
+platform.
 
 \subsection{BMV entanglement}
 
@@ -768,8 +835,10 @@ not constrained by those experiments.
 \textbf{Limitations.} The Gaussian profile is a leading-order prediction; retardation
 corrections are $\mathcal{O}(v^2/c^2)$. The material-dependent crossover
 (Conjecture~\ref{conj:material}) requires a more detailed model of the phonon-spectrum
-contribution to the noise kernel, and a quantitative assessment of whether any
-experimentally realistic platform reaches the crossover regime; both are open problems.
+contribution to the noise kernel -- an open problem -- but the accessibility question is
+now settled: the crossover threshold $m_\ast\sim10^{-11}$--$10^{-10}$~kg
+(eq.~\eqref{eq:mstar}) lies three to four orders of magnitude above the most massive
+proposed superposition platform, so no realistic experiment reaches the crossover regime.
 The ensemble-dephasing caveat of Remark~\ref{rem:dephasing} is resolved at the operational
 level (\S\ref{sec:per_realization}): the coherence magnitude is exactly conserved per
 realization and the Gaussian $t^2$ suppression is an echo-reversible inhomogeneous-dephasing
