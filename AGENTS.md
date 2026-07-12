@@ -93,6 +93,12 @@ Read `METHODOLOGY.md` before contributing. It defines:
   English too. Updated in the same PR as any headline rigor change; the
   governor freshness-sweeps monthly.
 
+## Documentation
+
+Markdown files in this repo (READMEs, explorations, this file) can include
+Mermaid diagrams — GitHub renders them natively in-browser, no separate image
+export needed.
+
 ## Before starting work
 
 1. Read `METHODOLOGY.md` — understand the contribution workflow and rigor requirements.
