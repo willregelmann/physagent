@@ -17,3 +17,4 @@ smale: "Smale, On the structure of manifolds, Amer. J. Math. 84, 387 (1962). Ver
 radzikowski: "Radzikowski, Micro-local approach to the Hadamard condition, Commun. Math. Phys. 179, 529 (1996). Verified real; bib title is abbreviated relative to Crossref record."
 choquet_bruhat: "Choquet-Bruhat, Acta Math. 88, 141 (1952). Verified real; French title, accents stripped during parsing reduce match score."
 schauder: "Schauder, Der Fixpunktsatz in Funktionalraeumen, Studia Math. 2, 171 (1930). Verified real; German title not indexed by Crossref title search."
+markus: "Markus, Line element fields and Lorentz structures on differentiable manifolds, Ann. Math. (2) 62, 411 (1955). Verified real; pre-DOI paper, below Crossref fuzzy-match threshold."
