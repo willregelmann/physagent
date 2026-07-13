@@ -2,26 +2,52 @@ name: autonomy-routine
 
 # Reusable runner for the seven autonomous routines (AUTONOMY.md). Each role's
 # scheduled caller (autonomy-<role>.yml) invokes this with its role + model.
-# Behavior lives in automation/routines/<role>.md; this file only establishes
-# the machine-account identity and runs a headless Claude Code session on the
-# role's pointer prompt.
+# Behavior lives in automation/routines/<role>.md; this file only starts a
+# Copilot cloud agent task on the role's pointer prompt via the Agent Tasks
+# REST API and waits for it to finish.
 #
-# WHY THIS EXISTS: the original deployment ran the routines as claude.ai
-# scheduled remote agents, which authenticate GitHub with the *account's*
-# global connector — i.e. the experimenter's admin login. That voided every
-# authority boundary in AUTONOMY.md (write-not-admin, no self-verdict, no
-# protected-path self-approval). A GitHub Actions runner authenticates with a
-# credential we control (AUTONOMY_BOT_PAT), restoring the machine-account
-# identity by construction. See EXPERIMENT.md log (2026-06-09).
+# WHY THE MACHINE-ACCOUNT DESIGN EXISTS: the original deployment ran the
+# routines as claude.ai scheduled remote agents, which authenticate GitHub
+# with the *account's* global connector — i.e. the experimenter's admin
+# login. That voided every authority boundary in AUTONOMY.md (write-not-
+# admin, no self-verdict, no protected-path self-approval). Moving to GitHub
+# Actions with a credential we control (AUTONOMY_BOT_PAT, machine account
+# will-physagent) restored that identity by construction. See EXPERIMENT.md
+# log (2026-06-09).
 #
-# IDENTITY: every git/gh operation authenticates as the machine account via
-# AUTONOMY_BOT_PAT, NOT the default GITHUB_TOKEN (whose actor is
-# github-actions[bot] — neither the machine account nor the experimenter, and
-# whose PRs would not trigger the required-check workflows). checkout runs with
-# persist-credentials:false so the default token's git credential cannot shadow
-# the PAT. A hard identity guard refuses to run the routine if the effective
-# login is not the AUTONOMY_BOT variable value — the exact check whose absence
-# caused the 2026-06-05 incident.
+# COMPUTE MIGRATION (2026-07-12): the actual reasoning step moved from a
+# headless Claude Code CLI session to a GitHub Copilot cloud agent task.
+# THIS CHANGED WHICH IDENTITY AUTHORS ROUTINE CONTENT, DELIBERATELY AND
+# LOGGED — not an accident of the kind the 2026-06-05 incident was. Copilot
+# licenses are per-user; the machine account (will-physagent) does not have
+# one, confirmed by testing (the Agent Tasks API 403s: "This API requires a
+# valid Copilot license"). Buying a seat for the machine account was
+# considered and deferred (cost); the accepted tradeoff is that Copilot
+# tasks are created and their content authored under the experimenter's own
+# account instead, via COPILOT_TASK_API_PAT — see
+# EXPERIMENT.md log, 2026-07-12, and AUTONOMY.md's quorum-gate /
+# constitution-guard amendments the same day, which already removed the
+# gates that depended on a machine-account-only identity for authority
+# purposes. This workflow no longer checks out the repo or configures git
+# locally: the Copilot task clones and operates on the repo itself,
+# remotely, under COPILOT_TASK_API_PAT's identity. There
+# is no local git/gh operation left for AUTONOMY_BOT_PAT to authenticate, so
+# it is no longer used by this file.
+#
+# CREDENTIAL NOTE: the MCP-config page's "Agents secret"
+# (COPILOT_MCP_GITHUB_PERSONAL_ACCESS_TOKEN, used to grant Copilot cloud
+# agent sessions write-tool access via MCP) turned out NOT to be a real
+# GitHub Actions secret -- it lives in a separate Copilot-internal store that
+# `secrets.*` in a workflow cannot read (confirmed empty even after trying
+# `environment: copilot`, which also turned out to hold zero actual secrets).
+# COPILOT_TASK_API_PAT is a second, genuine repo-level Actions secret
+# (same willregelmann identity, same license) created specifically so this
+# workflow can call the Agent Tasks API.
+#
+# Model IDs for the Agent Tasks API do not match the Claude Code CLI's IDs
+# (e.g. `claude-opus-4-8` 400s; the available ceiling is `claude-opus-4.6`).
+# Model defaults in each autonomy-<role>.yml caller are being updated to
+# Agent-Tasks-API-compatible IDs role by role as each is migrated.
 #
 # KILL SWITCH: the job is gated on the repo variable AUTONOMY_ENABLED == 'true'.
 # Unset or any other value => every routine run skips. Flip that one variable to
@@ -36,7 +62,7 @@ on:
         required: true
         type: string
       model:
-        description: Full Claude model ID to run this routine on
+        description: Agent Tasks API model ID to run this routine on (e.g. claude-opus-4.6, claude-sonnet-5 -- NOT the Claude Code CLI's dashed IDs)
         required: true
         type: string
 
@@ -45,123 +71,73 @@ jobs:
     name: ${{ inputs.role }}
     if: ${{ vars.AUTONOMY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     env:
-      GH_TOKEN: ${{ secrets.AUTONOMY_BOT_PAT }}
-      CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+      GH_TOKEN: ${{ secrets.COPILOT_TASK_API_PAT }}
       ROLE: ${{ inputs.role }}
       MODEL: ${{ inputs.model }}
-      AUTONOMY_BOT: ${{ vars.AUTONOMY_BOT }}
+      REPO: ${{ github.repository }}
     steps:
-      - name: Preflight — required secrets and variables present
+      - name: Preflight — required secret present; log the effective identity
         run: |
           set -euo pipefail
-          missing=
-          [ -z "${GH_TOKEN:-}" ] && missing="$missing AUTONOMY_BOT_PAT(secret)"
-          [ -z "${CLAUDE_CODE_OAUTH_TOKEN:-}" ] && missing="$missing CLAUDE_CODE_OAUTH_TOKEN(secret)"
-          [ -z "${AUTONOMY_BOT:-}" ] && missing="$missing AUTONOMY_BOT(var)"
-          if [ -n "$missing" ]; then
-            echo "::error::Missing required configuration:$missing — cannot run the ${ROLE} routine."
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::Missing COPILOT_TASK_API_PAT(secret) — cannot run the ${ROLE} routine."
             exit 1
           fi
-
-      - name: Check out repo (do not persist the default-token credential)
-        uses: actions/checkout@v7
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Configure git/gh as the machine account, and GUARD the identity
-        run: |
-          set -euo pipefail
-          gh auth setup-git
-          git config --global user.name "${AUTONOMY_BOT}"
-          git config --global user.email "${AUTONOMY_BOT}@users.noreply.github.com"
           ACTUAL=$(gh api user --jq .login)
-          echo "Effective GitHub identity: ${ACTUAL} (expected: ${AUTONOMY_BOT})"
-          if [ "${ACTUAL}" != "${AUTONOMY_BOT}" ]; then
-            echo "::error::Routine would run as '${ACTUAL}', not the machine account '${AUTONOMY_BOT}'."
-            echo "::error::Refusing to act. This is the identity guard the claude.ai deployment lacked (2026-06-05 incident)."
-            exit 1
-          fi
+          echo "${ROLE}: this run's Copilot task will be created and its content authored as GitHub identity '${ACTUAL}'. This is the deliberate, logged 2026-07-12 tradeoff (see AUTONOMY.md and EXPERIMENT.md) — not an unguarded accident. It is expected to be the experimenter's own account, not a dedicated machine account, until the machine account has its own Copilot seat."
 
-      - uses: actions/setup-node@v6
-        with:
-          node-version: "22"
-
-      - name: Install Claude Code CLI
-        run: npm install -g @anthropic-ai/claude-code
-
-      - name: Run the ${{ inputs.role }} routine
+      - name: Start Copilot cloud agent task and wait for completion
         run: |
           set -euo pipefail
           PROMPT="You are the ${ROLE} routine of the self-consistency autonomous research experiment. Read AUTONOMY.md at the repository root first, then read automation/routines/${ROLE}.md and execute it exactly. If automation/routines/${ROLE}.md does not exist on this branch, the experiment infrastructure has not landed yet — exit immediately without taking any action. For the metrics record: you are running as model ${MODEL}; end every PR body, issue body, and review/verdict comment you post with the line 'routine: ${ROLE} · model: ${MODEL}'."
 
-          # Retry wrapper for two distinct, non-bug failure modes (EXPERIMENT.md
-          # log, 2026-06-11 and 2026-06-20):
-          #
-          #   (A) Session limit: the CLI exits nonzero with "You've hit your
-          #       session limit · resets H:MMam/pm (UTC)" when the account's
-          #       rolling budget is exhausted. If the reset is <= 90 min away,
-          #       sleep through it and retry once; otherwise fail and defer to
-          #       the next scheduled fire.
-          #   (B) Transient API error: "API Error: 529 Overloaded" (or 5xx/429/
-          #       rate-limit) — a server-side hiccup. Seen 4× on the reviewer
-          #       (2026-06-17/20); each self-healed on the next cron, but the run
-          #       failed and polluted the failure signal. Retry in place with
-          #       short exponential backoff (30s/60s/120s) before deferring.
-          #
-          # Any other nonzero exit is a real error and is surfaced immediately.
-          session_retry_used=0
-          transient_attempt=0
-          MAX_TRANSIENT=3
+          RESPONSE=$(gh api "agents/repos/${REPO}/tasks" --method POST \
+            -f prompt="$PROMPT" \
+            -f base_ref="main" \
+            -f model="$MODEL")
+          TASK_ID=$(echo "$RESPONSE" | jq -r .id)
+          if [ -z "$TASK_ID" ] || [ "$TASK_ID" = "null" ]; then
+            echo "::error::${ROLE}: task creation did not return an id. Response: $RESPONSE"
+            exit 1
+          fi
+          echo "${ROLE}: started task $TASK_ID (model $MODEL). https://github.com/${REPO}/tasks/${TASK_ID}"
+
+          # Poll to a terminal state. Docs list: queued, in_progress, completed,
+          # failed, idle, waiting_for_user, timed_out, cancelled. Every terminal
+          # state except "completed" is treated as a failure here -- in
+          # particular waiting_for_user (the task paused for a plan-approval
+          # click, observed firsthand in interactive testing before this
+          # migration) has no one present to click it in an unattended run, so
+          # it must fail rather than hang. This retry/failure-mode classification
+          # is a first cut, not battle-tested: the CLI-based runner's own
+          # session-limit and transient-API-error handling (see git history)
+          # was itself built up incrementally from real incidents in
+          # EXPERIMENT.md's log (2026-06-11, 2026-06-20). Expect this block to
+          # need the same kind of amendment once real Copilot-specific failure
+          # modes are observed in production.
+          MAX_POLLS=120   # 120 * 20s = 40 minutes, under the job's 45-minute timeout
+          poll=0
           while :; do
-            set +e
-            claude -p "$PROMPT" \
-              --model "$MODEL" \
-              --permission-mode bypassPermissions 2>&1 | tee /tmp/routine-output.txt
-            status=${PIPESTATUS[0]}
-            set -e
-            [ "$status" -eq 0 ] && exit 0
-
-            # (A) Session-limit branch
-            if grep -q "hit your session limit" /tmp/routine-output.txt; then
-              if [ "$session_retry_used" -ge 1 ]; then
-                echo "::error::${ROLE} hit the Claude session limit on the retry as well — giving up; the next scheduled fire covers this."
-                exit "$status"
-              fi
-              reset_str=$(grep -o "resets [0-9:]*[ap]m" /tmp/routine-output.txt | head -1 | sed 's/^resets //')
-              wait_s=""
-              if [ -n "$reset_str" ]; then
-                reset_epoch=$(date -u -d "today ${reset_str}" +%s 2>/dev/null || echo "")
-                if [ -n "$reset_epoch" ]; then
-                  now_epoch=$(date -u +%s)
-                  [ "$reset_epoch" -le "$now_epoch" ] && reset_epoch=$((reset_epoch + 86400))
-                  wait_s=$((reset_epoch - now_epoch + 120))
-                fi
-              fi
-              if [ -z "$wait_s" ] || [ "$wait_s" -gt 5400 ]; then
-                echo "::error::${ROLE} hit the Claude session limit; reset ('${reset_str:-unparseable}') is over 90 minutes away or unparseable — failing now rather than holding a runner. The next scheduled fire covers this."
-                exit "$status"
-              fi
-              echo "::warning::${ROLE} hit the Claude session limit; sleeping $((wait_s / 60)) minutes until the reset (${reset_str} UTC), then retrying once."
-              sleep "$wait_s"
-              session_retry_used=1
-              continue
+            poll=$((poll + 1))
+            if [ "$poll" -gt "$MAX_POLLS" ]; then
+              echo "::error::${ROLE}: task $TASK_ID did not reach a terminal state within the poll budget; failing so the next scheduled fire covers this."
+              exit 1
             fi
-
-            # (B) Transient API-error branch (529 Overloaded / 5xx / 429 / rate limit)
-            if grep -qiE "API Error: (5[0-9][0-9]|429)|Overloaded|rate.?limit" /tmp/routine-output.txt; then
-              if [ "$transient_attempt" -ge "$MAX_TRANSIENT" ]; then
-                echo "::error::${ROLE} hit a transient API error ${MAX_TRANSIENT}× in a row (last exit $status); giving up — the next scheduled fire covers this."
-                exit "$status"
-              fi
-              transient_attempt=$((transient_attempt + 1))
-              backoff=$((30 * 2 ** (transient_attempt - 1)))
-              echo "::warning::${ROLE} hit a transient API error (attempt ${transient_attempt}/${MAX_TRANSIENT}); backing off ${backoff}s then retrying."
-              sleep "$backoff"
-              continue
-            fi
-
-            # Any other nonzero exit is a real error.
-            exit "$status"
+            sleep 20
+            STATE=$(gh api "agents/repos/${REPO}/tasks/${TASK_ID}" --jq .state)
+            case "$STATE" in
+              completed)
+                echo "${ROLE}: task $TASK_ID completed."
+                exit 0 ;;
+              queued|in_progress|idle)
+                continue ;;
+              failed|timed_out|cancelled|waiting_for_user)
+                echo "::error::${ROLE}: task $TASK_ID ended in state '$STATE' -- the next scheduled fire covers this."
+                exit 1 ;;
+              *)
+                echo "::warning::${ROLE}: task $TASK_ID returned unrecognized state '$STATE'; continuing to poll."
+                continue ;;
+            esac
           done

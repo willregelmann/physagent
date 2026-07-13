@@ -19,5 +19,5 @@ jobs:
     uses: ./.github/workflows/autonomy-routine.yml
     with:
       role: governor
-      model: ${{ vars.MODEL_GOVERNOR || 'claude-opus-4-8' }}
+      model: ${{ vars.MODEL_GOVERNOR || 'claude-opus-4.6' }}
     secrets: inherit
