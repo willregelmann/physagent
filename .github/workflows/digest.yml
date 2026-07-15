@@ -106,7 +106,7 @@ jobs:
             echo "- stuck: $(jq length /tmp/stuck.json), awaiting quorum: $(jq length /tmp/awaiting.json)"
           } > /tmp/digest.md
 
-      - uses: actions/setup-node@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: "22"
 
