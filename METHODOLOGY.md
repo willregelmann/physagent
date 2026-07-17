@@ -25,6 +25,43 @@ unchanged and is enforced by the gate stack rather than by human review.
 `AUTONOMY.md` is the controlling document wherever the two conflict; outside
 the experiment window, this section is inert.
 
+## What This Program Produces
+
+This is a program for deriving new physics, not a literature-verification
+machine. The default output of a contribution is original mathematics
+developed within the framework's own axioms — not a report of what already
+exists elsewhere. Literature has three legitimate roles here, and none of
+them is a gate on originality:
+
+1. **Citation grounding.** When a claim leans on an external result, that
+   citation must exist and must actually support the claim (Citation
+   Discipline, below). This governs how *external* claims are represented —
+   never whether new claims may be attempted.
+2. **Technique borrowing.** Established methods from elsewhere — a
+   contraction technique proved on a different manifold class, a formalism
+   from an adjacent subfield — are fair game as tools to apply to this
+   framework's open problems, even where no one has combined them with this
+   framework before. Borrowing a technique is not borrowing a conclusion.
+3. **Literature synthesis as its own deliverable.** Occasionally the object
+   of study *is* the literature: an Exploration can legitimately conclude "no
+   one has connected X and Y, and here is why that connection might matter."
+   That is a valid Exploration output. It is not, by itself, a result —
+   identifying an unexplored connection is the start of a derivation, not the
+   end of one.
+
+**The actual gate on a result is the rigor lifecycle** (Conjecture → Sketch →
+Rigorous, below) plus self-checks plus adversarial review — never prior
+publication. "No existing paper does this" is scoping information, not a
+verdict. Read it as *here is open territory*, not *here is a reason to
+stop*. The Researcher role (Agent Teams → Standard roles, below) reports what
+the literature says and stops there by design, precisely so a different
+agent can take the next step and attempt the derivation itself. If a debate,
+triage pass, or literature search concludes "unresolved, not disproven,
+nobody has constructed this yet," the correct next move is usually to
+attempt the construction — at whatever rigor level is honestly achievable,
+with every gap named — not to treat the absence of precedent as a finding in
+itself.
+
 ## Rigor Standards
 
 Every derivation in a PR must include self-checks documented in the PR description:
