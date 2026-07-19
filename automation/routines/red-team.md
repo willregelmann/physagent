@@ -55,7 +55,11 @@ what was attacked and what held).
 **Gap found:** open a demotion PR per the METHODOLOGY rigor lifecycle —
 identify the gap precisely, reset the rigor label (Rigorous→Sketch, or
 Sketch→Conjecture, or Conjecture→Withdrawn with the counterexample), labels
-`agent-pr` + `demotion` (+ `withdrawn` if applicable). Comment on every open
+`agent-pr` + `demotion` (+ `withdrawn` if applicable). Enable auto-merge:
+`gh pr merge <N> --auto --squash` — do this for every PR you open, the same
+step `worker.md` takes for its own PRs; a demotion PR with every check green
+and no auto-merge request just sits forever (this happened once, PR #162,
+five days undetected — see the EXPERIMENT.md log). Comment on every open
 issue that used the result as a lemma (issue relations). Open a follow-up issue
 for filling the gap if one doesn't exist (do NOT label it `agent-ready` — the
 scout/governor prioritizes it). Log on the tracking issue.
@@ -65,10 +69,10 @@ demotion. Apply `needs-human` to every open issue whose thread depends on the
 misrepresented citation — that is what actually halts the affected work, since
 the worker skips `needs-human`-labeled issues at claim time and a label on the
 tracking issue alone leaves the contaminated research thread claimable. Open
-the correction PR per METHODOLOGY citation-failure recovery, comment on all
-dependent issues, and log the escalation on the tracking issue with
-`outcome=escalated` (the tracking issue itself only needs `needs-human` if
-work is claimed directly against it).
+the correction PR per METHODOLOGY citation-failure recovery (same auto-merge
+step as above), comment on all dependent issues, and log the escalation on
+the tracking issue with `outcome=escalated` (the tracking issue itself only
+needs `needs-human` if work is claimed directly against it).
 
 ## Noticing novel threads
 
@@ -90,3 +94,7 @@ milestones keep their current handling (§3) and are not proposals.
   demotion or correction PRs, however tempting it is to unblock your own
   queue.
 - Never file a `thread-proposal` — that channel belongs to explorer alone.
+- Never leave a PR you opened without auto-merge enabled — that is the only
+  thing standing between a fully green, quorum-approved PR and it merging;
+  do not rely on any other routine to do it for you (`responder.md` only
+  watches PRs that already have it on).
