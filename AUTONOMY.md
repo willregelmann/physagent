@@ -25,8 +25,9 @@ never edit the gate.
 | **reviewer** | every 12h | Adversarial quorum: two-pass review of agent PRs, posts machine-readable verdicts |
 | **responder** | daily | Addresses `revise` verdicts and CI failures; executes `reject` dispositions (incl. salvage issues); watchdogs the reviewer queue |
 | **red-team** | every 3 days | Stress-tests merged Rigorous results; its product is demotions |
-| **scout** | weekly | Opens well-specified issues that advance OBJECTIVES milestones; may file one `thread-proposal` per run |
-| **librarian** | weekly | arXiv watch; files `informs-issue` literature pointers, escalating new-direction hits to `thread-proposal` |
+| **scout** | weekly | Opens well-specified issues that advance OBJECTIVES milestones; surfaces (does not file) candidate novel threads for the explorer |
+| **librarian** | weekly | arXiv watch; files `informs-issue` literature pointers, flagging new-direction hits for the explorer to pick up |
+| **explorer** | biweekly | Fan-out/debate/eliminate/synthesize on one open question at a time (width 3); sole filer of `thread-proposal` issues |
 | **governor** | weekly (full pass monthly) | Direction: adjudicates `thread-proposal` inbox weekly; debates, updates OBJECTIVES, kills/opens directions, tags versions |
 | **human (experimenter)** | — | Kill switch, PAT revocation, budget, `needs-human` clearance, gate-workflow amendments. Not in the review/merge loop; no longer approves changes to other protected paths (retired 2026-07-12). |
 
@@ -135,7 +136,7 @@ maintenance, self-checks in every PR description.
 | `demotion` | PR demotes a Rigorous/Sketch result | red-team, worker | — |
 | `governance` | governor exploration / OBJECTIVES change | governor | — |
 | `informs-issue` | librarian-filed literature pointer | librarian | — |
-| `thread-proposal` | proposed novel direction awaiting governor adjudication; never worked before promotion | any routine (≤1 per run) | governor (promote/park/close), experimenter |
+| `thread-proposal` | proposed novel direction awaiting governor adjudication; never worked before promotion | explorer only (synthesis output of a fan-out/debate cycle; see "Explorer fan-out cycle") | governor (promote/park/close), experimenter |
 | `withdrawn` | conjecture withdrawn; record kept | red-team, worker | — |
 
 The self-assign lock: a worker claims an issue by assigning the machine account
@@ -172,6 +173,21 @@ Position files from team debates are committed alongside the synthesis, as
 METHODOLOGY.md requires. Losing positions and withdrawn conjectures are never
 deleted.
 
+**Exception: the explorer's scratch tier.** METHODOLOGY.md's "position files
+are committed alongside the synthesis" rule assumes a small debate (2-3
+positions) where every position is worth permanent, first-class status. The
+`explorer` routine runs a wider tournament (width 3, biweekly) where most
+attempts are expected to die, and treats them differently by design: fan-out
+attempts live on an ungated `scratch/explorer/...` branch, never merged and
+never deleted, and a killed attempt gets one append-only ledger entry
+(`programs/<name>/explorations/eliminated.md`) rather than a permanently
+committed file. This still satisfies "never delete a losing position" — the
+branch and the ledger entry are the record — at a cost proportional to a
+speculative attempt rather than a finished position paper. Only the
+synthesis (and, rarely, an individual attempt the synthesis calls
+load-bearing) is committed as a full Exploration PR through the normal gate
+stack. See `automation/routines/explorer.md` for the full mechanism.
+
 ## Objective functions
 
 Each program has an `OBJECTIVES.md`: an ordered list of milestones, each with a
@@ -181,18 +197,39 @@ only routine that edits OBJECTIVES files, and only via a `governance`-labeled
 PR that @-mentions the experimenter (non-blocking notification). Merged work is
 measured against OBJECTIVES by the topic-drift metric.
 
-**Thread proposals.** Novelty has a sanctioned channel: any routine that
-surfaces a question outside every OBJECTIVES milestone may file at most one
-`thread-proposal` issue per run. Required body: (1) what was observed, with
-file/PR/issue references; (2) why no existing milestone covers it; (3) a
-falsifiable first step a worker could take; (4) declared relations per
-METHODOLOGY (`informs`/`contradicts`/…). Proposals are never `agent-ready`,
-and no routine works one before adjudication. The governor adjudicates the
-inbox weekly: **promote** (≤2 per run, into OBJECTIVES via governance PR),
-**park** (with a stated revisit condition), or **close** (with rationale;
-closed proposals are records and are never deleted). The topic-drift tripwire
-(T4) is unchanged by this channel: promoted threads are milestones, so the
-drift metric continues to measure only unadjudicated work.
+**Thread proposals.** Novelty has a sanctioned channel, and as of the
+explorer amendment it has exactly one entrance: the `explorer` routine's
+fan-out/debate/eliminate/synthesize cycle (`automation/routines/explorer.md`)
+is the sole filer of `thread-proposal` issues, at most one per run (its
+cadence is biweekly, not per-run-of-every-routine as originally designed —
+see "Explorer fan-out cycle" below for why the wider tournament replaced the
+original ≤1-per-routine trickle). Other routines (scout, librarian, red-team)
+surface candidate questions to the explorer instead of filing directly.
+Required proposal body, unchanged: (1) what was observed, with file/PR/issue
+references; (2) why no existing milestone covers it; (3) a falsifiable first
+step a worker could take; (4) declared relations per METHODOLOGY
+(`informs`/`contradicts`/…) — for an explorer proposal, (1) and (3) are
+populated from whatever survived the debate, not a single routine's first
+instinct. Proposals are never `agent-ready`, and no routine works one before
+adjudication. The governor adjudicates the inbox weekly: **promote** (≤2 per
+run, into OBJECTIVES via governance PR), **park** (with a stated revisit
+condition), or **close** (with rationale; closed proposals are records and
+are never deleted). The topic-drift tripwire (T4) is unchanged by this
+channel: promoted threads are milestones, so the drift metric continues to
+measure only unadjudicated work.
+
+**Explorer fan-out cycle.** Originally (2026-06-10 amendment) any routine
+could file one raw thread-proposal per run, adjudicated cold by the governor
+with no debate step first. In practice this under-invested in ideation: a
+single routine's first instinct reached the governor untested, capped at a
+trickle (≤1/routine/run) with no mechanism to test competing framings of the
+same question against each other before committing to one. The 2026-07-18
+amendment replaced this with the `explorer` routine: width-3 fan-out on one
+question at a time, an adversarial elimination pass before anything reaches
+the governor, and a scratch tier (above) so the wider tournament doesn't
+bloat the permanent record with attempts that were expected to die. Scout and
+librarian keep their existing jobs (milestone-servicing; literature watch)
+minus the direct-filing allowance, now redirected as an explorer input.
 
 ## What agents may NEVER do
 
