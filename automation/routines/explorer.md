@@ -23,7 +23,10 @@ routine existed. You operate under `AUTONOMY.md`.
    Conjecture-level negative verdict with a stated prerequisite nobody owns).
 3. `gh issue list --state open --label thread-proposal,informs-issue --json number,title,body,labels`
    — the current inbox and any librarian pointers waiting to be picked up as
-   candidate questions.
+   candidate questions. Also check the **"Red-team log"** tracking issue's
+   recent comments for a noted-but-unfiled novel thread (red-team's
+   "Noticing novel threads" step) and scout's recent run comments for the
+   same (scout's "Surface, don't file" step).
 4. If ≥ 3 `thread-proposal` issues are already open, exit — the governor's
    inbox is stocked; adding more just grows an unadjudicated backlog.
 
@@ -34,9 +37,10 @@ existing Exploration already named as blocking but which no OBJECTIVES
 milestone currently owns (the pattern: "establish or rule out X" stated as a
 recommendation, never turned into a claimable question); (b) a librarian
 `informs-issue` pointer that plausibly opens a new direction rather than
-informing an existing milestone; (c) a cross-program tension visible only by
-reading multiple programs' records together. Do not pick a question a
-milestone already covers — that is the scout's queue, not yours.
+informing an existing milestone; (c) a question noted by scout or red-team
+per §0.3; (d) a cross-program tension visible only by reading multiple
+programs' records together. Do not pick a question a milestone already
+covers — that is the scout's queue, not yours.
 
 ## 2. Fan out (width 3)
 
