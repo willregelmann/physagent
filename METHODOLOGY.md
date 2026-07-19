@@ -62,6 +62,31 @@ attempt the construction — at whatever rigor level is honestly achievable,
 with every gap named — not to treat the absence of precedent as a finding in
 itself.
 
+## No Idea Is Eliminated Without a Defense
+
+A candidate direction, position, or fan-out attempt is never killed on the
+strength of a single critical pass. Before any debate, review, or elimination
+step records something as dead, its strongest possible version must actually
+be constructed and tested — not merely imagined and waved off. "This looks
+wrong on its face" is not a verdict; a verdict requires an honest defense
+attempt that still fails.
+
+This is not politeness — it is a defense against the single largest failure
+mode of an adversarial-review system: that adversarial pressure alone,
+without an equally serious defense pass, systematically favors whatever
+already looks conventional and kills whatever looks strange before it gets a
+fair hearing. There are no dumb ideas at the point of judgment — only ideas
+that have or haven't yet been steelmanned.
+
+The Synthesis agent role (Agent Teams, below) already runs this as two
+passes for every position debate — adversarial critique, then a defense
+assessment distinguishing fatal flaws from solvable gaps. That two-pass
+discipline is required everywhere an idea can die under this methodology,
+not only there: an attempt eliminated in a fan-out cycle, a demotion the red
+team proposes, a park/close disposition on a proposed direction. "No dumb
+ideas" does not mean every idea survives — it means every idea gets an
+honest trial before it doesn't.
+
 ## Rigor Standards
 
 Every derivation in a PR must include self-checks documented in the PR description:

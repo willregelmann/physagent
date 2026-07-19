@@ -56,21 +56,42 @@ Commit each as its own file on the scratch branch (`attempt-1-<slug>.md`,
 etc.). This branch is not gated and not permanent — treat it as working
 memory, not a record required to survive on its own.
 
-## 3. Debate and eliminate
+## 3. Attack, steelman, then eliminate
 
-Run one adversarial pass per attempt, fresh-context: does the argument's
-structure actually hold; does it violate any of the three axioms (smuggled
-background, preferred foliation/observer, time evolution sneaking back in);
-does it depend on something already known false or already ruled out
-elsewhere in the repo. An attempt with a fatal flaw is **eliminated**: append
-one entry to `programs/<name>/explorations/eliminated.md` (create if absent,
-append-only) —
+Two passes per attempt, per METHODOLOGY's "No Idea Is Eliminated Without a
+Defense" — no attempt dies on the strength of the first pass alone.
+
+**Pass 1 — attack (fresh-context subagent).** Does the argument's structure
+actually hold; does it violate any of the three axioms (smuggled background,
+preferred foliation/observer, time evolution sneaking back in); does it
+depend on something already known false or already ruled out elsewhere in
+the repo. Record every specific flaw found — this pass's job is to find
+problems, not to render a verdict.
+
+**Pass 2 — steelman (a second, independent fresh-context subagent, given the
+attempt and Pass 1's flaws, not Pass 1's conclusion).** Genuinely try to
+rescue it: is each flaw actually fatal, or is it a solvable gap, a
+narrower-but-still-interesting restriction of the original claim, or a
+framing problem rather than a substantive one? This pass's job is to
+construct the strongest honest version of the attempt against exactly what
+Pass 1 found — not to restate the attempt, and not to rubber-stamp Pass 1.
+
+Only if Pass 2 concludes the flaw is genuinely fatal — not repairable, not a
+narrower-but-viable version, not a framing fix — is the attempt
+**eliminated**: append one entry to `programs/<name>/explorations/eliminated.md`
+(create if absent, append-only) —
 
 ```
 <!-- explorer:attempt outcome=eliminated date=YYYY-MM-DD topic="<question>" -->
-Attempt: <one-line description>. Eliminated: <the specific fatal flaw, one to
-three sentences>. Scratch record: <branch>@<commit-sha>.
+Attempt: <one-line description>. Attacked: <the specific flaw Pass 1 found>.
+Steelmanned: <what Pass 2 tried, and why it still failed>. Scratch record:
+<branch>@<commit-sha>.
 ```
+
+If Pass 2 rescues the attempt — even in a narrowed or restated form — it
+survives to §4 as a surviving attempt, carrying the narrowed/restated version
+and an honest note on what the attack pass found, not the original
+unqualified claim.
 
 This ledger entry is the entire "maintain documentation" obligation for a
 killed attempt — do not commit the full attempt file anywhere permanent. The
