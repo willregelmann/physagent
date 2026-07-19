@@ -1,0 +1,41 @@
+name: autonomy-explorer
+
+# Scheduled caller for the explorer routine (automation/routines/explorer.md).
+# Cadence: biweekly (every two weeks). Cron has no native "every N weeks"
+# primitive, so this fires weekly (Mondays 04:00 UTC) and gates on ISO week
+# parity in a pre-step -- odd weeks are a no-op, even weeks call the reusable
+# runner exactly like every other role. workflow_dispatch always runs,
+# bypassing the parity gate, for manual testing of a single fire.
+#
+# The reusable runner gates on AUTONOMY_ENABLED and handles the Copilot Agent
+# Tasks API dispatch identically to every other role (see autonomy-routine.yml
+# and automation/routines/README.md's "Compute migration" note).
+
+on:
+  schedule:
+    - cron: "0 4 * * 1"
+  workflow_dispatch:
+
+jobs:
+  week-check:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.parity.outputs.run }}
+    steps:
+      - id: parity
+        run: |
+          WEEK=$(date -u +%V)
+          if [ $(( 10#$WEEK % 2 )) -eq 0 ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
+
+  explorer:
+    needs: week-check
+    if: needs.week-check.outputs.run == 'true'
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: explorer
+      model: ${{ vars.MODEL_EXPLORER || 'claude-opus-4.6' }}
+    secrets: inherit
