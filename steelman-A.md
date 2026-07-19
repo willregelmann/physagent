@@ -1,0 +1,17 @@
+# Steelman pass on Attempt A
+
+**Finding 1 (corpus inconsistency):** real but orthogonal to the M3 question; sharpened further — `co-emergence` L1964-1967 attributes GGD's decoherence timescale to `\cite{fixed_point}` (FPE), but FPE's text mentions "decoherence" only in its own companion-paper disclaimer and derives no decoherence timescale anywhere. A citation-hygiene bug in co-emergence, worth its own fix, orthogonal to this attempt's verdict.
+
+**Finding 2 (Källén-Lehmann), treated most carefully:** The KL remark IS about the same object M3 discusses (the Step-4/5 kernel bound). But reading further: Step 6 of the same Lemma separately invokes Rellich-Kondrachov compactness on Σ; Theorem 3.1 is stated only for compact-Cauchy-surface backgrounds; the Open Problems section lists "relaxing the compact Cauchy surface assumption" as its OWN, independently-numbered item, distinct from the M3/massless item, and attributes the Minkowski exclusion explicitly to that separate compactness gap. Decisive: FPE treats "M3's kernel-bound gap" and "non-compact-Σ gap" as two logically independent open problems. Corrected claim: the kernel-bound difficulty M3 discusses IS resolved on Minkowski by a different technique; the full existence theorem still doesn't reach Minkowski, but for the separate reason of failed Rellich-Kondrachov compactness — a gap the KL remark does nothing to close. This *strengthens* the genus-mismatch thesis rather than refuting it.
+
+**Finding 3a (retardation technique mismatch):** Fatal to the specific technique. GGD's actual text is elliptic throughout; the frequency-domain/retardation technique was checked against a reconstructed relativistic completion, not the text as written. Should be withdrawn.
+
+**Finding 3b (inequality error):** Confirmed, real error. Must be corrected or dropped.
+
+**Finding 5:** Correct diagnosis, but doesn't propagate to the core claim — checked directly, GGD's Sections 2-4 contain no map F: g→g', no K_ρ, no contraction estimate, no iteration. The genus-mismatch argument can be made on purely structural grounds, without any retardation/frequency-domain reasoning at all.
+
+**Finding 4 (axiom precedent):** Solvable process gap. A7-style precedent applies to repairing FPE's Theorem 3.1, which claims full background-generality — smuggling a foliation there genuinely narrows an advertised-general theorem. GGD makes no such generality claim; it's explicitly scoped to a disclosed physical regime, where using the rest frame's time parameter is a flagged simplification, not an illegitimate generalization-breaking move. The attempt needed to argue this, not assert it.
+
+**Overall verdict:** The specific proposed TECHNIQUE does not survive. The CORE CLAIM survives, on grounds simpler than the original technique offered: GGD's calculation, as actually written, contains no self-consistency fixed-point loop for Gap M3 (a gap in bounding such a loop's Lipschitz constant) to obstruct. Reinforced, not contradicted, by FPE's own text: the compact-Σ requirement excludes Minkowski for a reason explicitly separate from M3, and the one piece of M3 that IS about Minkowski (the KL remark) has a known rigorous resolution there — consistent with the thesis that M3's specific difficulty is tied to structure Minkowski's own symmetry avoids.
+
+Two flagged follow-ups: (1) co-emergence L1964-1967's citation-hygiene bug; (2) the axiom-check needs explicit argument (GGD's disclosed, scope-limited regime vs. FPE Theorem 3.1's claimed full generality), not bare assertion.
