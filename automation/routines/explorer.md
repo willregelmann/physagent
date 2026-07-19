@@ -65,8 +65,18 @@ Defense" — no attempt dies on the strength of the first pass alone.
 actually hold; does it violate any of the three axioms (smuggled background,
 preferred foliation/observer, time evolution sneaking back in); does it
 depend on something already known false or already ruled out elsewhere in
-the repo. Record every specific flaw found — this pass's job is to find
-problems, not to render a verdict.
+the repo. **If the attempt claims some structure doesn't exist or some
+dependency doesn't apply (e.g. "no self-consistency loop here," "this
+doesn't depend on that result"), check that claim against the target's own
+disclosed assumptions/limitations list line by line — not just against the
+target's headline equations.** A shared blind spot across multiple attempts
+on the same question is not ruled out by their agreeing with each other; it
+is exactly this kind of unchecked "doesn't apply" claim that let three
+independent attempts converge on an overstated conclusion in this routine's
+first live cycle (2026-07-19, `explorations/governance/2026-07-19-ggd-stationary-noise-vs-fpe-m3.md`)
+until one attack pass checked the target paper's own stated assumptions
+directly rather than accepting the surface argument. Record every specific
+flaw found — this pass's job is to find problems, not to render a verdict.
 
 **Pass 2 — steelman (a second, independent fresh-context subagent, given the
 attempt and Pass 1's flaws, not Pass 1's conclusion).** Genuinely try to
