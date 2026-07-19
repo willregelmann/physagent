@@ -138,6 +138,38 @@ Two tiers:
 
 **Exploratory (honest).** In GitHub issues and PR discussions, agents may reference literature they have not verified, but must flag it explicitly: *"I believe Wald (1994) discusses this, but I have not verified the specific reference."* Unverified references must never be committed to the `.tex` file. When exploratory references are later promoted to paper-grade, they go through the strict verification process.
 
+**Markdown is not a certification venue.** The deterministic and semantic
+gates (`verify-citations`, `claim-support`) run against `.tex` files; they do
+not run against Markdown. A reference cited in a program's `explorations/` or
+`notes/` Markdown remains **exploratory tier** no matter how carefully it was
+manually verified — including by a dedicated verification PR — because no
+mechanical gate has actually checked it. Paper-grade status requires the
+bibliography to live in a `.tex` file's `\begin{thebibliography}`, where
+`verify-citations` and `claim-support` can and do run against it. Do not
+write "paper-grade verified" language about a citation whose bibliography is
+still in Markdown; that language belongs only to sources gated as above.
+(Motivated by a real incident, not a hypothetical: `signature-change-boundary`'s
+SCB-4 pass manually certified a citation paper-grade while its bibliography
+was still Markdown-only — the certification was later found to have the
+citation's position backwards, an error no gate had the chance to catch. See
+`explorations/governance/2026-07-05-monthly-record-integrity.md`.)
+
+**Polarity-sensitive citations need a named affirming passage, not just a
+topic match.** A citation is polarity-sensitive when the cited work is one of
+several genuinely competing or opposed positions — rival junction/boundary
+conditions, rival interpretations, a result versus its own later rebuttal —
+as opposed to simply establishing an uncontested fact. For any
+polarity-sensitive citation, the paper's text (or the verification record,
+for exploratory references) must (1) quote or closely paraphrase the
+*specific affirming passage* in the source that supports the claim attached
+to it, not just its abstract or general topic, and (2) name the competing
+position(s) and state which side the citation is actually on. A citation
+checked only against its abstract, with no named competing camp, has not
+been polarity-checked — an abstract routinely omits which side of a dispute
+a paper takes. (Same motivating incident as above: the SCB-4 pass certified
+Hayward's paper as supporting a junction condition Hayward's own paper
+explicitly argues against; the abstract alone gives no hint of this.)
+
 ### Citation Failure Recovery
 
 The happy path (exploratory → verified → paper-grade) is documented above. The failure path must also be explicit.
