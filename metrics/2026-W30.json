@@ -1,0 +1,30 @@
+{
+  "week": "2026-W30",
+  "date": "2026-07-20",
+  "throughput": {
+    "merged_agent_total": 28,
+    "merged_agent_week": 1,
+    "open_awaiting_quorum": 0
+  },
+  "corrections": {
+    "demotions_merged": 6,
+    "withdrawals_merged": 0,
+    "promotions_merged": 1,
+    "demotion_rate": 0.21428571428571427
+  },
+  "queue": {
+    "agent_ready": 2,
+    "stuck": 0,
+    "needs_human": 0
+  },
+  "proposals": {
+    "open": 4,
+    "filed_week": 1,
+    "closed_week": 0
+  },
+  "rigor_distribution": {
+    "rigorous": 6,
+    "sketch": 16,
+    "conjecture": 2
+  }
+}
