@@ -101,6 +101,44 @@ proof_attempts_failed:
       d_H(G(q1), G(q2)) = range(M(q1 - q2)), verified to 2e-15. But adversarial
       near-boundary search breaks the self-contraction badly and increasingly
       with beta: 1.20 at beta = 0.4, 2.80 at 2, 81 at 40, 321 at 160.
+corrections:
+  - date: 2026-07-25
+    finding: >
+      beta_flip is 0.648020, not the ~0.698 previously recorded - the earlier
+      figure was coarse-grid resolution of the same event. Independently
+      reconfirmed by a second method (direct bisection on converges-to-fixed-point
+      versus cycle) at 0.647293, consistent to 0.1%.
+  - date: 2026-07-25
+    finding: >
+      The flip is SUPERCRITICAL, with cycle amplitude ~ 0.797 sqrt(beta -
+      beta_flip). This revises the earlier speculation that the cycle was
+      undetectable until beta ~ 5-10: it exists at small amplitude immediately
+      above onset and is merely easy to miss at loose tolerance. Methodological
+      trap worth recording - a naive fit spanning large deviations gives a biased
+      exponent because higher-order terms dominate, and trials very close to onset
+      return exactly zero amplitude after 80,000 steps due to critical slowing
+      down, which is NOT evidence against the cycle.
+  - date: 2026-07-25
+    finding: >
+      The spectrum {0, -41.9, -40.1, -39.6} at beta = 40 belongs to the REPELLING
+      fixed point, not the attracting cycle, whose second-iterate spectral radius
+      there is 0.361. Earlier reasoning that cited it as evidence about cascade
+      structure conflated the two objects.
+  - date: 2026-07-25
+    finding: >
+      The period-2 "zoo" has ZERO bearing on this claim. Zoo members are period-2
+      points with a != b, never fixed points of G itself; up to 7 coexist with
+      exactly one G-fixed point at every beta tested, by 40-restart Newton census.
+      A category distinction, not an open question.
+routes_failed_do_not_retry:
+  - route: Rayleigh-quotient bound on the second-iterate Jacobian
+    result: >
+      Attempted via the symmetric conjugation that the real-spectrum construction
+      hands you for free. The bound diverges - the exact-to-bound ratio falls to
+      1e-310 at large beta - because the smallest eigenvalue of S(e) tends to zero
+      as the cycle concentrates near a simplex vertex. Same failure mode as the
+      recorded global-operator-norm and Hilbert-metric attempts. Recorded so
+      nobody retries the identical dead end.
 routes_unexplored:
   - Dobrushin-type coefficient of ergodicity exploiting A's actual sparsity rather than spectral norms
   - certified interval-arithmetic enumeration of roots, plausible at N = 4
