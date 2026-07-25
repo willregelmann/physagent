@@ -29,7 +29,20 @@ consequence: >
   substantive statement in favour of the fixed-point program's central thesis:
   the constraint pins the geometry rather than leaving a family of equally
   admissible universes.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    The substance is published. Hawking, Hertog & Reall, Phys. Rev. D 63,
+    083504 (2001), hep-th/0010232 (full text, equation numbers extracted)
+    give the instanton radius R^2 = N^2 G/(4 pi), fixed entirely by the
+    number of conformal fields -- for fixed matter content exactly one
+    radius, no continuous modulus. Same core content. This claim's addition
+    is formal packaging: the polynomial-in-H framing, the {0, +H0, -H0} zero
+    set, the double root at H = 0, and the transversality argument. New
+    presentation of an old fact, not a new physical fact -- and the claim
+    should cite HHR.
 provenance: {born: 2026-07-24, born_by: adversary}
 derivation: >
   Reducing the trace-anomaly relation on exact constant-H FRW gives a polynomial

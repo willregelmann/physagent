@@ -14,7 +14,22 @@ depends_on:
     transfers: same-object
 falsifier: a consistent field content giving a different coefficient
 consequence: fixes the de Sitter scale in terms of the anomaly coefficient
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: [starobinsky]
+  note: >
+    Adjacent, and it SHARPENS the recorded defect rather than resolving it.
+    Linde 2025 (arXiv:2509.01675, full text) reproduces what reads as
+    Starobinsky's own relation, H0^-2 = k2/(2880 pi^2), with k2 the
+    conformal-anomaly coefficient in Starobinsky's notation. Converting
+    through this paper's own stated a2 = 2880 pi^2 a does not obviously
+    reduce to the printed 180 pi/(G a2): the prefactors differ by a factor
+    of 16 pi. Combined with the separately recorded
+    dimensional-inconsistency defect, this is now two independent lines of
+    evidence that the printed coefficient formula is wrong rather than
+    merely under-specified. Adjudicating the convention needs the primary
+    text, which remains unreachable.
 tex: {file: programs/fixed-point-existence/index.tex, label: sec:starobinsky}
 provenance: {born: 2026-06-26, born_by: worker}
 audit:

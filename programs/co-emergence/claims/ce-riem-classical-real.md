@@ -16,7 +16,19 @@ hypotheses:
   - h in R^N
 falsifier: a complex-valued fixed point of F under the stated hypotheses
 consequence: Riemannian conditioning is classical; no interference survives
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    The map is structurally the affine logit self-consistency map x =
+    softmax(beta(Wx+b)) studied in quantal response equilibrium,
+    entropy-regularized RL and mean-field variational inference -- but every
+    instance found poses it on R^N or the simplex by construction, since
+    probabilities are real by assumption. None extends the domain to C^N and
+    derives reality as a consequence. Novel as a stated proposition, though
+    of low mathematical depth: its interest is the complex-domain framing,
+    not new algebra.
 tex: {file: programs/co-emergence/index.tex, label: prop:riem_classical}
 provenance: {born: 2026-07-18, born_by: worker}
 audit:

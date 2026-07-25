@@ -16,7 +16,17 @@ falsifier: a state and partition where the two sides differ
 consequence: >
   Conditioning on a clock reproduces the reduced state; the Page-Wootters
   construction is consistent with the partial trace.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    Not attributable to any specific paper: this is the direct algebraic
+    content of the partial trace as an expectation over projective outcomes,
+    one line by matrix elements, which is exactly what the paper's proof
+    does. Used routinely and silently throughout the Page-Wootters
+    literature as a known fact, never presented as a result needing
+    attribution. No citation given and none needed.
 tex: {file: programs/co-emergence/index.tex, label: eq:cond_dm}
 provenance: {born: 2026-03-05, born_by: human}
 audit:

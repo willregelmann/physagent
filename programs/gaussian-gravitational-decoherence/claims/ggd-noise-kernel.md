@@ -13,7 +13,21 @@ hypotheses:
   - each branch has definite centre-of-mass position
 falsifier: a superposition satisfying the hypotheses whose kernel does not factorize
 consequence: supplies the noise kernel entering the Einstein-Langevin analysis
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    The functional FORM is old: the paper's own text already notes the
+    bilinear Delta-rho structure matches the well-known Diosi-Penrose kernel
+    and calls that 'not coincidental'. What was not found published is the
+    derivation ROUTE -- obtaining it from Einstein-Langevin with orthogonal
+    branches rather than positing it. Anastopoulos & Hu (CQG 30, 165007
+    (2013)) use the same toolkit but via TT-gauge graviton coupling giving
+    energy-basis decoherence, a different mechanism and result. CAVEAT,
+    recorded honestly: both arXiv PDFs failed to extract, so this rests on
+    abstracts; confidence low-medium, and a full-text pass on
+    Anastopoulos-Hu and on Hu & Verdaguer's Living Reviews would settle it.
 tex: {file: programs/gaussian-gravitational-decoherence/index.tex, label: eq:N0000}
 provenance: {born: 2026-06-10, born_by: worker}
 audit:

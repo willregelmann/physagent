@@ -26,7 +26,28 @@ consequence: >
   family. Non-convergence of the fixed-point iteration can only ever be a fold
   or a period-doubling cascade - never quasi-periodic wandering - so
   iteration-failure diagnostics can be read unambiguously.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    SPLIT VERDICT. Part A -- SPD times symmetric is similar to a symmetric
+    matrix, hence real spectrum -- is the classical symmetric-definite
+    generalized eigenvalue problem, textbook material (Golub & Van Loan,
+    Matrix Computations, sec. 8.7; also via congruence in Horn & Johnson).
+    No new content; one citation closes it. Part B -- Neimark-Sacker
+    structurally excluded for this map class -- was not found stated
+    anywhere. Wang (arXiv:2605.15651) analyses this exact Jacobian but never
+    discusses bifurcation taxonomy, and explicitly works in a general-W
+    setting where the symmetry this claim relies on does not hold. Harris,
+    McCallum & Harre, Games and Economic Behavior 157, 535 (2026) do
+    bifurcation analysis of logit QRE, but via catastrophe theory on the
+    equilibrium correspondence -- a static concept, a different object from
+    dynamic stability bifurcations of the iteration map. Caveat recorded
+    honestly by the checker: once Part A is granted, 'real spectrum implies
+    no NS' is near-immediate by the definition of NS, so Part B's novelty is
+    the explicit packaging, not new dynamical-systems mathematics. Also
+    caveat: the closest paper was paywalled and only its abstract was read.
 provenance: {born: 2026-07-24, born_by: adversary}
 derivation: >
   J_softmax is symmetric and positive definite on the tangent hyperplane (its

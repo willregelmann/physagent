@@ -46,7 +46,24 @@ consequence: >
   "How quantum" a configuration is is not a scalar beyond the small-theta
   regime. Any argument treating the two witnesses as interchangeable is invalid
   in the regime the toy model actually operates in.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    SPLIT VERDICT. The general principle is established prior art and MUST
+    be cited: distinct resource monotones routinely order states differently
+    (Baumgratz, Cramer & Plenio, PRL 113, 140401 (2014)), and more sharply,
+    arXiv:2212.02473 proves no finite complete set of monotones exists for
+    any resource theory with free pure states, naming imaginarity
+    explicitly. That subsumes the qualitative form of this claim. The
+    specific technical content -- the O(N) reference-relative first moment
+    versus the O(N^2) pairwise-coherence Gram structure, the explicit
+    witness, the theta-versus-theta^2 scaling, and the restricted result
+    below theta* -- was not found anywhere and is a genuine contribution
+    layered on an expected phenomenon. Caveat: one candidate paper
+    (arXiv:2506.09799) would not extract and is unverified rather than
+    checked-clean.
 provenance: {born: 2026-07-24, born_by: adversary}
 derivation: >
   Explicit witness at fixed magnitude spectrum: two theta values where im_frac

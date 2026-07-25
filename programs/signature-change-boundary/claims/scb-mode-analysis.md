@@ -19,7 +19,19 @@ falsifier: a mode admitting a logarithmic solution at nu = 1/2
 consequence: >
   Fields cross the signature-change boundary in a finite, controlled way, with a
   causal-type asymmetry - timelike paths terminate, spacelike paths cross intact.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    Same conclusion as Dray, Manogue & Tucker, Phys. Rev. D 48, 2587 (1993),
+    arXiv:gr-qc/9303002, reached by a different method -- elementary
+    Bessel/Frobenius series here versus their distributional and
+    junction-condition approach. Notably the repository's OWN source note
+    already disclaims novelty for exactly this ('no novelty is claimed for
+    them'), so the record was already honest and this check confirms it. One
+    modest scope difference the disclaimer does not capture: DMT is
+    2-dimensional, this note is 4-dimensional.
 provenance: {born: 2026-06-23, born_by: worker}
 notes: >
   This program is at notes stage - there is no index.tex, so the L13 tex-sync

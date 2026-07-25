@@ -23,7 +23,19 @@ bridge:
 discharges: [ce-entropy-excess]
 falsifier: a counterexample to the formal statement, or a failing build
 consequence: part (a) of the entropy excess is mechanically discharged
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    Novel as a formalized artifact. The checker read the Lean proof term
+    line by line: it is built from general Mathlib API (Finset.sum_nonneg,
+    norm_sum_le, Complex.norm_exp_ofReal_mul_I) plus a per-term triangle
+    inequality, and invokes NO purity- or dephasing-specific Mathlib lemma
+    -- so this is not re-proving something already available. Mathematically
+    the underlying principle, that phase-randomizing and unital channels do
+    not increase purity, is textbook; the rank-general entrywise-phase
+    Gram-matrix formulation was not found stated this way.
 provenance: {born: 2026-07-05, born_by: worker}
 ---
 

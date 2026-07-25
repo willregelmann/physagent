@@ -18,7 +18,21 @@ falsifier: a matrix with strictly positive entries violating either inequality
 consequence: >
   Lorentzian (theta != 0) configurations carry strictly more entropy than their
   Riemannian counterparts; the entropy excess is the order parameter.
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    No paper studies M(theta)_ij = m_ij^(1+i theta) or proves purity/entropy
+    monotonicity in theta for it. Adjacent standard fact: dephasing/pinching
+    cannot decrease von Neumann entropy (Schur concavity under majorization;
+    Bhatia, Matrix Analysis). Mechanism differs -- that is a unital channel,
+    this is deterministic magnitude-dependent phase modulation on a
+    rectangular matrix. Deliberately re-checked against this program's known
+    past miss: the imaginarity resource theory (Xue et al. 2021, and
+    arXiv:2103.01805 fetched in full) quantifies a single fixed state and
+    does NOT parametrize a family in theta. Different object; not a second
+    CE-1.
 tex: {file: programs/co-emergence/index.tex, label: sec:entropy_excess}
 provenance: {born: 2026-03-05, born_by: human}
 audit:

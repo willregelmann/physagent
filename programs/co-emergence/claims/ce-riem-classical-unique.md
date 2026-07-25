@@ -27,7 +27,25 @@ falsifier: two distinct fixed points of F for the same parameters
 consequence: >
   Uniqueness is not needed for the classicality result; only for statements
   about "the" fixed point.
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: []
+  note: >
+    ACTIONABLE, not merely a novelty verdict. Nobody states this specific
+    uniqueness fact, but a targeted toolkit exists and has not been tried.
+    Wang, 'Sharp Spectral Thresholds for Logit Fixed Points',
+    arXiv:2605.15651 (full text retrieved), studies exactly x =
+    sigma(beta(Wx+b)): its Lemma 1 gives the same J_softmax = diag(p) -
+    pp^T; Theorem 2 uses a TANGENT-PROJECTED operator norm, which explains
+    why this repo's global-operator-norm attempt returned 1.34 where the
+    empirical ratio is 0.21; and Theorem 3 handles the SYMMETRIC-W case --
+    exactly this claim's setting, since M = 2 gamma (beta I + A) with A
+    symmetric -- via strict concavity of an entropy-regularized potential.
+    That variational route appears in neither this claim's failed-attempts
+    list nor its unexplored-routes list. Also Melo, Economic Theory 74, 681
+    (2022). Recommended next step: check Wang's Theorem 3 numerically
+    against the beta=0.4, gamma=-1 branch.
 tex: {file: programs/co-emergence/index.tex, label: prop:riem_classical}
 provenance: {born: 2026-07-18, born_by: worker}
 audit:

@@ -23,7 +23,21 @@ consequence: >
   The predicted observable is a shot-averaged visibility, and the discriminant
   against Diosi-Penrose is a many-shot quantity - which is what a real
   interferometer measures.
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    The T2*/T2 distinction is textbook NMR and quantum control. Its
+    APPLICATION to gravitational decoherence -- static Einstein-Langevin
+    kernel implies the per-realization coherence magnitude is exactly
+    constant, so the ensemble Gaussian t^2 decay is inhomogeneous dephasing
+    rather than Diosi-type irreversible decoherence, making a branch-swap
+    echo a discriminant against Diosi-Penrose -- was not found published.
+    Nearest hit is Kannan et al., arXiv:2607.19984, posted two days before
+    this check, which shares the vocabulary but is general matter-wave
+    interferometry with no gravitational specificity, no static-kernel
+    argument, and no echo discriminant. Caveat: abstract-level only.
 tex: {file: programs/gaussian-gravitational-decoherence/index.tex, label: eq:single_realization}
 provenance: {born: 2026-07-12, born_by: worker}
 audit:

@@ -116,33 +116,44 @@ Extracted 2026-07-24 from the audited results plus their dependencies:
 The tier distribution is the diagnosis restated: this corpus has no generative
 tier at all.
 
-### The novelty boundary is temporary and is meant to be deleted
+### The novelty gate is unconditional (the migration boundary is gone)
 
-`NOVELTY_ENFORCED_FROM = 2026-07-24`. No claim predating the graph had ever
-been prior-art checked, so enforcing L5 retroactively would fail 19 of 20 nodes
-at once and teach everyone to ignore the linter. Claims born on or after that
-date must carry a novelty check; older ones warn.
+The graph was extracted with no claim in the repository ever having been
+prior-art checked, so L5 briefly carried a `NOVELTY_ENFORCED_FROM` boundary
+that warned on pre-existing nodes rather than failing all of them at once.
 
-**Standing instruction from the experimenter (2026-07-24): remove this constant
-and run the novelty check over the grandfathered claims.** The end state is no
-boundary — L5 errors on every claim at conjecture or above, unconditionally.
+**That boundary has been removed.** On 2026-07-24 the sweep ran over all 23
+live claims and the backlog reached zero, so the constant and its
+grandfathering branch were deleted. **L5 now errors on any claim at conjecture
+or above with novelty unchecked, with no exceptions.**
 
-The path there is enumerated, not aspirational:
+Outcome of the sweep:
 
-```bash
-python tools/claim_graph.py stats | jq -r '.novelty_backlog[]'
-```
+| Status | Count |
+|---|---|
+| `novel` | 8 |
+| `prior-art` | 9 |
+| `independent-rederivation` | 7 |
 
-Each entry needs a prior-art search at source, and its `novelty:` block filled
-in with `status`, `searched`, and `found`. When `novelty_backlog_remaining`
-reaches 0, delete `NOVELTY_ENFORCED_FROM` and the grandfathering branch in
-`lint_L5_novelty`, and the gate becomes unconditional.
+Three of those statuses matter and are worth keeping distinct:
 
-This is not housekeeping. CE-1's interference metric was the relative entropy of
-imaginarity (Xue et al. 2021), carried as an original contribution and caught
-only because an independent audit happened to look. Every unswept node is
-another chance at exactly that. The backlog exists to be burned down, not to
-make the boundary comfortable.
+- **`prior-art`** covers two very different situations. CE-1's interference
+  metric is the relative entropy of imaginarity (Xue et al. 2021) carried as an
+  original contribution — a real defect. `ce-theta-conjugation` is a corollary
+  of textbook SVD invariance — not a defect, just low-content, wanting a
+  citation rather than a correction. The `note` field carries the distinction;
+  the status alone does not.
+- **`independent-rederivation`** is the honourable middle: published, but
+  derived here independently and adding something. `fpe-constant-h-rigidity`
+  restates a Hawking–Hertog–Reall result in a new frame;
+  `scb-mode-analysis` reaches Dray–Manogue–Tucker's conclusion by a different
+  method, which the repository's own note already disclaimed.
+- **`novel`** means nothing published was found, and the `note` records what
+  was searched so the negative result is auditable rather than assumed.
+
+A claim can also be split — `ce-self-consistency-real-spectrum` is textbook
+linear algebra in one part and an unpublished packaging in another. Where that
+happens, the status reflects the claim as a whole and the note gives both.
 
 **Not yet extracted:** 43 labelled sites exist across the papers; 20 are
 represented. The remainder are largely Sketch-tier sub-results not touched by

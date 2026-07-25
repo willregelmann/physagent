@@ -18,7 +18,19 @@ depends_on:
     transfers: same-object
 falsifier: a configuration whose spectrum differs between theta and -theta
 consequence: orientation of the phase carries no physical content
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: []
+  note: >
+    Standard linear algebra, not a paper-gradable target: a complex matrix
+    and its entrywise conjugate have identical singular values (Horn &
+    Johnson, Matrix Analysis, 2nd ed., CUP 2013, SVD chapter). The checker
+    re-derived it independently. The claim is already honest about being 'a
+    harmless orientation convention'. NOTE this is prior-art in the WEAK
+    sense -- textbook mathematics, not a research result rediscovered. That
+    is a different situation from CE-1 and warrants a citation, not a
+    correction.
 tex: {file: programs/co-emergence/index.tex, label: rem:entropy_application}
 provenance: {born: 2026-06-11, born_by: worker}
 audit:

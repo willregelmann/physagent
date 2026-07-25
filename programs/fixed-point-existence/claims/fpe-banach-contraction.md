@@ -17,7 +17,20 @@ hypotheses:
   - a Green-operator kernel bound in the stated norm
 falsifier: an explicit non-contractive configuration in the stated norm
 consequence: self-consistent solutions exist perturbatively and are unique
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    The general claim is still open field-wide, not just here. Prior art
+    exists only for the FLRW-restricted route -- Meda, Pinamonti & Siemssen,
+    Ann. Henri Poincare 22, 3965 (2021); Pinamonti & Siemssen, Commun. Math.
+    Phys. 331, 297 (2014) -- and the paper ALREADY cites and correctly
+    scopes both as cosmology-specific, and models its Gap-M3 repair route on
+    their causal/retarded-operator approach. A 2025 review
+    (arXiv:2509.02051, full text) confirms general globally hyperbolic
+    existence and uniqueness 'remains unfilled'. So the permanently-Sketch
+    self-demotion is not a local failure: nobody has closed this.
 tex: {file: programs/fixed-point-existence/index.tex, label: sec:banach}
 provenance: {born: 2026-03-04, born_by: human}
 rigor_ceiling:

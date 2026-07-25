@@ -19,7 +19,17 @@ falsifier: a diffeomorphism between two of the constructed structures
 consequence: >
   Dimension 4 is singled out by smooth-structure multiplicity, which the
   framework reads as the origin of 4d spacetime.
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: [freedman, donaldson, taubes, stallings]
+  note: >
+    Independently reproduced both recorded defects and supplied the exact
+    missing citation: Stallings, 'The piecewise-linear structure of
+    Euclidean space', Proc. Cambridge Philos. Soc. 58, 481-488 (1962).
+    CORRECTED 2026-07-24. One refinement beyond the audit: the paper's
+    existing \cite{smale} at the compact-manifold statement is CORRECT and
+    distinct, so this was a missing citation rather than a confused one.
 tex: {file: programs/co-emergence/index.tex, label: sec:level1}
 provenance: {born: 2026-03-03, born_by: human}
 audit:

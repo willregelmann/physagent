@@ -8,9 +8,9 @@
 #
 # REPORTING MODE. This job runs with `--soft`, which reports every finding but
 # always exits 0. That is deliberate: the graph was extracted 2026-07-24 with a
-# known-open backlog (quantifier escapes, unverified citations, Lean nodes with
-# no build record, and 19 claims grandfathered past the novelty gate), and a
-# gate that fails every PR on day one teaches everyone to ignore it.
+# known-open backlog (quantifier escapes, unverified citations, and Lean nodes
+# with no build record), and a gate that fails every PR on day one teaches
+# everyone to ignore it.
 #
 # TO MAKE IT BITE: delete `--soft` from the lint step below. Do that once
 # `python tools/claim_graph.py lint` is clean locally — the findings are the
@@ -68,14 +68,9 @@ jobs:
             grep -E '^(ERROR|WARN)' /tmp/claim-lint.txt 2>/dev/null | head -n 100 || echo "(none)"
             echo '```'
             echo
-            echo "### Novelty backlog"
-            echo
-            echo "Claims grandfathered past the novelty gate by"
-            echo '`NOVELTY_ENFORCED_FROM`, which is temporary and intended for deletion.'
-            echo "When this reaches zero, remove the constant and the branch in"
-            echo '`lint_L5_novelty`.'
+            echo "### Graph"
             echo
             echo '```'
-            python -c "import json;d=json.load(open('/tmp/claim-stats.json'));print('remaining:',d['novelty_backlog_remaining']);[print(' ',x) for x in d['novelty_backlog']]" 2>/dev/null || echo "(unavailable)"
+            cat /tmp/claim-stats.json 2>/dev/null || echo "(unavailable)"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
