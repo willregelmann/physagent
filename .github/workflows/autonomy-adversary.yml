@@ -1,0 +1,31 @@
+name: autonomy-adversary
+
+# Scheduled caller for the adversary routine (automation/routines/adversary.md).
+#
+# Two jobs: adjudicate speculations against the conjecture gate (killing most),
+# and attack live claims by constructing counterexamples. Its product is deaths
+# and demotions. A run that kills nothing is a run that failed, not a corpus
+# that is perfect.
+#
+# CADENCE. Daily, one hour after the generator, so a day's speculations are
+# adjudicated the same day rather than aging a cycle. See
+# autonomy-generator.yml for why both are daily.
+#
+# NOTE ON SCOPE OVERLAP, recorded so it is not forgotten: this routine's
+# mandate overlaps `reviewer` (verification of agent PRs) and `red-team`
+# (stress-testing merged Rigorous results). The consolidation plan folds both
+# into this one -- see docs/CONSOLIDATION.md step 3. Until that happens all
+# three run, which is duplicated adversarial effort and known.
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  adversary:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: adversary
+      model: ${{ vars.MODEL_ADVERSARY || 'claude-opus-4.6' }}
+    secrets: inherit
