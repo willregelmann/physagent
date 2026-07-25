@@ -27,7 +27,22 @@ falsifier: a counterexample to binary-entropy monotonicity, or a failing build
 consequence: >
   Part (b) is machine-checked at the level of its key scalar step - which is not
   the same as part (b) being machine-checked.
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: []
+  note: >
+    CONFIRMED HIT, and the one predicted as cheapest. The proof directly
+    calls Real.binEntropy_strictAntiOn : StrictAntiOn binEntropy (Set.Icc 2
+    inverse 1), which already exists in Mathlib's
+    Mathlib.Analysis.SpecialFunctions.BinaryEntropy -- the exact lemma,
+    signature matched against Mathlib's own docs. Mathlib also carries
+    binEntropy_strictMonoOn and strictConcave_binEntropy, so its coverage of
+    this use case is essentially complete. The mathematically load-bearing
+    content is therefore imported, not independently proved; this theorem is
+    a thin wrapper adding interval side conditions, the equality case, and
+    the paper's variable names. That is worth stating plainly on the node,
+    since 'formalized in Lean' reads as stronger than it is here.
 provenance: {born: 2026-07-05, born_by: worker}
 ---
 

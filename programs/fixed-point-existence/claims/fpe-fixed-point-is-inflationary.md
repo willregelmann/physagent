@@ -26,7 +26,22 @@ consequence: >
   The claim graph must record that this H0 and the observed cosmological H0 are
   different objects. Any downstream claim reading the fixed point as the
   present-day accelerating universe inherits a ~60-order-of-magnitude error.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-24
+  found: []
+  note: >
+    The qualitative claim is canonical prior art, dating to
+    Fischetti-Hartle-Hu (1979) and Starobinsky (1980) themselves: HHR (2001)
+    state H0 is 'much smaller than the Planck mass because N is large' and
+    need N ~ 1e5 for CMB normalization; Linde (2025) independently gives
+    'more than 1e10 different particle species'. This is essentially why the
+    model has always been called inflationary rather than a dark-energy
+    candidate. The specific figure -- a2 ~ 4e124 to force a match with the
+    observed H0 -- was not found published, and would not be expected to be,
+    since nobody proposes this transient unstable phase as dark energy. The
+    number is a repo-internal sanity check correcting a notational trap;
+    treat it as novel, and cite HHR and Linde for the qualitative point.
 provenance: {born: 2026-07-24, born_by: adversary}
 derivation: >
   Restoring hbar and c gives H0 ~ sqrt(180 pi / a2) * (M_Pl c^2 / hbar), i.e.

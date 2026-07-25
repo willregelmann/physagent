@@ -21,7 +21,16 @@ cites:
     verified: {at: 2026-07-24, by: full-text, expires: 2027-07-24}
 falsifier: a globally hyperbolic spacetime admitting no such splitting
 consequence: local worldline time suffices; no preferred slicing is introduced
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: [geroch, hawking_ellis]
+  note: >
+    Independently reproduced the recorded defect exactly, including volume,
+    pages and year, and supplied the replacement: Geroch, 'Domain of
+    Dependence', J. Math. Phys. 11, 437-449 (1970). CORRECTED 2026-07-24 --
+    the bibitem now points at the right paper. Hawking-Ellis verified
+    correct and genuinely supports the physical content.
 tex: {file: programs/co-emergence/index.tex, label: sec:signature_time}
 provenance: {born: 2026-03-03, born_by: human}
 audit:

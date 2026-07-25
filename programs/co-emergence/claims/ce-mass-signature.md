@@ -26,7 +26,22 @@ falsifier: >
   A local particle-content argument on a curved symmetry-free manifold that does
   not require the Lorentzian split.
 consequence: mass and Lorentzian signature co-emerge rather than being independent
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: [wigner]
+  note: >
+    Sub-claim (ii) appeals directly to Wigner, Ann. Math. 40, 149 (1939),
+    verified exact. IMPORTANT distinction: the citation is CORRECTLY
+    attributed -- the defect is inferential, applying a flat-space
+    exact-global-symmetry result to a curved, generically symmetry-free
+    manifold. That is a scope gap, NOT the T2 citation-content-mismatch
+    class, and should be kept analytically distinct from geroch/thm:exotic.
+    No published curved or symmetry-free analogue of Wigner's theorem was
+    found. Separately confirmed: the paper's 'ISO(4) has no analogous
+    classification' is overstated -- Mackey induction handles it and SO(4)
+    is compact; what is actually absent in Euclidean signature is the causal
+    positive-energy interpretation.
 tex: {file: programs/co-emergence/index.tex, label: sec:mass_signature}
 provenance: {born: 2026-03-03, born_by: human}
 audit:

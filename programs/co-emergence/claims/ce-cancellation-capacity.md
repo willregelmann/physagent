@@ -28,7 +28,18 @@ falsifier: >
   with no antiperiodic point.
 consequence: >
   The signature dichotomy governs whether the self-consistency weight can cancel.
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    No paper states the composed lemma (elliptic bounded-positive branch
+    cannot cancel; hyperbolic satisfies phi(u+pi/omega) = -phi(u) for every
+    polarization). The motivating physics -- a real positive Euclidean
+    weight cannot interfere, an oscillatory Lorentzian one can -- is
+    standard QFT folklore adjacent to Osterwalder-Schrader reflection
+    positivity, and needs no citation as a general statement. Technique
+    borrowing from standard ODE theory, not a rediscovery.
 tex: {file: programs/co-emergence/index.tex, label: sec:phase}
 provenance: {born: 2026-06-22, born_by: worker}
 audit:

@@ -65,25 +65,6 @@ STANDARD_AXIOMS = {"propext", "Classical.choice", "Quot.sound"}
 
 CITATION_TTL_DAYS = 365
 
-# Migration boundary for the novelty gate (L5). No claim in this repository had
-# ever been prior-art checked when the graph was extracted, so enforcing L5
-# retroactively would fail every node at once and teach everyone to ignore the
-# linter. Claims born on or after this date must carry a novelty check; older
-# ones warn until swept.
-#
-# TEMPORARY, AND INTENDED TO BE DELETED — experimenter's standing instruction,
-# 2026-07-24. This constant is a migration accommodation, not policy. The end
-# state is no boundary at all: L5 errors on every claim at conjecture or above,
-# full stop. Removing it requires first running the prior-art sweep over the
-# grandfathered nodes, which `stats` enumerates as `novelty_backlog` — when that
-# list is empty, delete this constant and the branch in lint_L5_novelty.
-#
-# Not a bookkeeping nicety: CE-1's interference metric turned out to be the
-# relative entropy of imaginarity (Xue et al. 2021), carried as an original
-# contribution and caught only by an independent audit. Every unswept node is
-# another chance at that. The backlog is the point of the boundary, not an
-# excuse for it.
-NOVELTY_ENFORCED_FROM = _dt.date(2026, 7, 24)
 
 
 # ── Section 1: YAML-subset frontmatter parser ──────────────────────
@@ -594,15 +575,10 @@ def lint_L5_novelty(g: Graph) -> list[Finding]:
         status = nov.get("status") if isinstance(nov, dict) else None
         if status not in (None, "unchecked"):
             continue
-        prov = c.data.get("provenance") or {}
-        born = _as_date(prov.get("born") if isinstance(prov, dict) else None)
-        pre_existing = born is not None and born < NOVELTY_ENFORCED_FROM
         out.append(Finding(
-            "L5", "warn" if pre_existing else "error", c.rel,
+            "L5", "error", c.rel,
             f"tier {c.tier!r} with novelty {status or 'absent'!r}: "
-            "prior art must be searched before a claim is labelled"
-            + (f" (born {born}, pre-dates the novelty gate — sweep backlog)"
-               if pre_existing else "")))
+            "prior art must be searched before a claim is labelled"))
     return out
 
 
@@ -871,30 +847,9 @@ def mechanical_coverage(g: Graph, claim_id: str) -> dict:
     }
 
 
-def novelty_backlog(g: Graph) -> list[str]:
-    """Claims grandfathered past the L5 novelty gate by NOVELTY_ENFORCED_FROM.
-
-    This is the worklist that has to reach empty before that constant can be
-    deleted and L5 enforced unconditionally, which is the intended end state."""
-    out = []
-    for c in g.claims:
-        if c.status != "live" or c.tier_index < TIER_INDEX["conjecture"]:
-            continue
-        nov = c.data.get("novelty")
-        status = nov.get("status") if isinstance(nov, dict) else None
-        if status not in (None, "unchecked"):
-            continue
-        prov = c.data.get("provenance") or {}
-        born = _as_date(prov.get("born") if isinstance(prov, dict) else None)
-        if born is not None and born < NOVELTY_ENFORCED_FROM:
-            out.append(c.id)
-    return sorted(out)
-
-
 def stats(g: Graph) -> dict:
     live = [c for c in g.claims if c.status == "live"]
     dist = {t: sum(1 for c in live if c.tier == t) for t in TIERS}
-    backlog = novelty_backlog(g)
     return {
         "claims_total": len(g.claims),
         "live": len(live),
@@ -907,9 +862,6 @@ def stats(g: Graph) -> dict:
             if c.tier_index >= TIER_INDEX["conjecture"]
             and (not isinstance(c.data.get("novelty"), dict)
                  or c.data["novelty"].get("status") in (None, "unchecked"))),
-        # Delete NOVELTY_ENFORCED_FROM when this reaches empty. See the constant.
-        "novelty_backlog": backlog,
-        "novelty_backlog_remaining": len(backlog),
     }
 
 

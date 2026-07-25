@@ -25,7 +25,20 @@ falsifier: an FRW conformal-matter model with a2 > 0 and no constant-H solution
 consequence: >
   Self-consistent solutions of the semiclassical Einstein equation exist exactly,
   not only perturbatively.
-novelty: {status: unchecked}
+novelty:
+  status: prior-art
+  searched: 2026-07-24
+  found: [starobinsky]
+  note: >
+    The claim IS the cited 1980 result, correctly attributed. Confirmed via
+    two independent secondary sources with direct lineage
+    (Hawking-Hertog-Reall 2001; Linde's 2025 memorial article,
+    arXiv:2509.01675) that this is the anomaly-induced-inflation model with
+    an exact unstable de Sitter fixed point, categorically distinct from the
+    later f(R) = R + R^2/6M^2 model where the conflation risk lives.
+    STANDING OPEN ITEM, unchanged: the 1980 primary text was NOT reached --
+    ScienceDirect paywalled, ResearchGate 403, ADS/INSPIRE abstract-only.
+    Two independent passes have now failed to reach it.
 tex: {file: programs/fixed-point-existence/index.tex, label: sec:starobinsky}
 provenance: {born: 2026-06-26, born_by: worker}
 audit:

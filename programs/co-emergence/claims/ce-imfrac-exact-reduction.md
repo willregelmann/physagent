@@ -21,7 +21,17 @@ consequence: >
   The imaginary fraction is set by N, the spread of h, and the alignment
   convention - not by subsystem rank, retiring the earlier rank-dependence
   reading.
-novelty: {status: unchecked}
+novelty:
+  status: novel
+  searched: 2026-07-24
+  found: []
+  note: >
+    Nothing found. The construction depends on this framework's own
+    fixed-point form, so an outside paper would have to already be working
+    with the same self-consistency map. Adjacent fields checked and ruled
+    out: circular statistics / Kuramoto order parameter, whose superficially
+    similar sin^2 identities do not carry the reference-alignment convention
+    or the fixed-point tie.
 tex: {file: programs/co-emergence/index.tex, label: sec:toy_model}
 provenance: {born: 2026-06-18, born_by: worker}
 audit:
