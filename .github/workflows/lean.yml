@@ -61,7 +61,7 @@ jobs:
       # Keyed on the toolchain and the resolved dependency manifest, so a
       # Mathlib bump invalidates it and nothing else does.
       - name: Cache .lake
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: programs/co-emergence/lean/.lake
           key: lake-${{ runner.os }}-${{ hashFiles('programs/co-emergence/lean/lean-toolchain', 'programs/co-emergence/lean/lake-manifest.json') }}
