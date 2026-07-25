@@ -12,8 +12,8 @@ eight to ten against a design that called for five.
 
 | | |
 |---|---|
-| Routine definitions | **10** |
-| With a scheduled caller | 8 → **10** once this PR merges |
+| Routine definitions | **11** (steward added) |
+| With a scheduled caller | **11** |
 | Actually running | **0** — fleet dark on Copilot quota since 2026-07-14 |
 | Claims in graph | 37 (27 live, 10 dead) |
 | Tier distribution | 17 rigorous, 9 sketch, **0 conjecture**, 1 speculation |
@@ -93,7 +93,7 @@ checked, first step named."
 *Blocked because:* cutting `scout` and `governor` removes the only thing
 feeding the `worker` until step 2 lands.
 
-### Step 5 — build `steward` · DONE (partially)
+### Step 5 — build `steward` · DONE
 
 Liveness, quota headroom, failing-run triage, doc drift; dispatches blind audits
 without performing them (a routine with full repo context cannot audit blind).
@@ -116,11 +116,18 @@ number nobody had: **T3 accept rate is 55%** over the trailing 20 verdicts —
 direct evidence the quorum was not rubber-stamping, which the day-45 audit could
 not compute.
 
-**Still outstanding:** the steward's caller shares the Copilot credential path
-with every other routine, so it goes down with them. A watchdog inside the
-system it watches cannot report its own death. `tools/tripwires.py` is written
-to run from anywhere with a GitHub token; wiring it to a workflow that does *not*
-depend on that path is the remaining piece.
+**Closed 2026-07-25.** `.github/workflows/tripwires.yml` runs the same evaluation
+every six hours on the default `GITHUB_TOKEN` — no PAT, no Copilot licence, no
+quota — so it cannot be taken down by anything that takes the fleet down. It
+alerts by email on a fired tripwire and *also* fails the run, so GitHub's own
+workflow-failure notification is a second alert path that works even with SMTP
+unconfigured.
+
+The steward routine still runs the same check and still goes down with the fleet;
+that is now correct division of labour rather than a gap. The workflow is the
+liveness signal, the routine is what acts on it.
+
+Step 5 is complete.
 
 ## What to watch
 

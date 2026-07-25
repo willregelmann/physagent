@@ -32,11 +32,14 @@ from __future__ import annotations
 import argparse
 import datetime as dt
 import json
+import os
 import re
 import subprocess
 import sys
 
-REPO = "willregelmann/physagent"
+# Read from the environment so this runs correctly in CI and from a clone
+# without editing. The fallback is the repository this tool was written for.
+REPO = os.environ.get("GITHUB_REPOSITORY") or "willregelmann/physagent"
 
 # EXPERIMENT.md §Tripwires. T6 is not pre-registered; it was added after the
 # 2026-07-14 outage, and is labelled as such wherever it is reported.

@@ -29,6 +29,12 @@ no claims.
 `tools/tripwires.py` evaluates T1, T3, T5 and T6 mechanically and reports T2 and
 T4 as requiring judgment. Run it every time.
 
+**It also runs without you**, every six hours, in `.github/workflows/tripwires.yml`
+on the default `GITHUB_TOKEN` — no PAT, no Copilot licence, no quota. That job is
+the one that survives when you do not: you execute on the same credential path as
+every other routine, so you go down with the fleet. Treat that workflow as the
+authoritative liveness signal and yourself as the thing that acts on it.
+
 **Why it is a tool and not your own reasoning:** the pre-registration calls the
 tripwires "the only in-run safety net," and until 2026-07-25 they were prose
 evaluated by the governor — a routine that runs weekly and dies in exactly the
