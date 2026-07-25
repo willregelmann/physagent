@@ -142,7 +142,69 @@ Findings produced, none from a speculation being right:
 - `ce-riem-classical-unique` — uniqueness evidence, a Lefschetz index argument,
   and closure of the audit's open β=160 item
 
-### Cycle 2 — 2026-07-25 (driven by hand, in progress)
+### Cycle 2 — 2026-07-25 (driven by hand)
 
-Same mandate as cycle 1, deliberately, so it is a clean second sample rather
-than a confounded one. Result pending.
+Same mandate as cycle 1, deliberately, so it is a clean second sample. Both
+generator and adversary ran on Opus 5.
+
+**5 speculations, 5 killed. Zero survived as stated.** Same headline as cycle 1.
+But the speculations were markedly more *computable* — four of five were settled
+by calculation rather than argument — and the byproducts are correspondingly
+sharper.
+
+New claims produced:
+
+- `ce-second-iterate-real-spectrum` — the second-iterate Jacobian has real
+  spectrum everywhere by the same congruence mechanism as the first, and the
+  mechanism provably **does not extend to k ≥ 3** (the S-factors would have to
+  commute). This *explains* the observed period-2 cap rather than observing it:
+  there was never a structural reason to expect Feigenbaum universality, because
+  the algebraic protection that keeps the first doubling clean does not recur at
+  the second.
+- `ce-witness-obstruction` — no single-kernel pairwise witness can track I_S,
+  because I_S depends on two independent degrees of freedom per entry while any
+  such witness collapses to one. Supersedes the open question left by
+  `ce-quantumness-not-one-dimensional` and explains two failed witnesses by one
+  mechanism.
+- `ce-euclidean-vacuum-at-fixed-point` — **the first live entry in the
+  speculation tier.** S1's thesis with the vehicle replaced; gated on an
+  independently fatal caveat.
+
+Corrections to existing content, which is the recurring pattern:
+
+- `ce-quantumness-not-one-dimensional`'s restricted result was **retracted as
+  evidence** — it is a tautology of how θ\* is defined, and was recorded as a
+  positive finding.
+- `ce-riem-classical-unique` gained four corrections (β_flip = 0.648020 not
+  ~0.698; the flip is supercritical; the β=40 spectrum belongs to the repelling
+  fixed point; the period-2 zoo has zero bearing on uniqueness) and one
+  failed-route record.
+- A possible **direction inversion in the material-dependent-crossover
+  conjecture**, surfaced but explicitly *not* certified — recorded on
+  `ggd-cpmg-degeneracy` and wanting its own adversarial pass.
+
+What the adversary did that matters more than the verdicts: **three of five
+defense passes corrected their own prosecutors** before still convicting, and one
+refuted the dispatching brief's central hypothesis. The S2 attack found that a
+spectrum the brief cited as decisive belonged to the wrong object entirely.
+
+### What two cycles say about the value model
+
+| | Cycle 1 | Cycle 2 |
+|---|---|---|
+| Speculations | 5 | 5 |
+| Survived as stated | 0 | 0 |
+| Findings *not* from a surviving speculation | 6 | ~7 |
+| Defects found in existing merged content | 1 | 3 |
+
+**n = 2 on the pattern.** The value comes from the *investigation* each
+speculation provokes, not from any being right. That is close to the opposite of
+what `generator.md` currently optimises for (survival rate, not provocation), and
+two cycles is enough to act on — a rewrite is now justified where it was not
+after one.
+
+The conjecture tier is still **empty**, which is what blocks consolidation step 2.
+The speculation tier has its first live entry. Whether a generative cycle can
+ever populate the conjecture tier — rather than only producing sketch-tier
+byproducts and tombstones — remains the open question the redesign was built to
+answer.
