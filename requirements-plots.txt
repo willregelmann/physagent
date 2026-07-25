@@ -21,4 +21,4 @@
 # The split is a better fix than adding it to the ignore list: bumps here are
 # free to land because nothing in CI installs them, so the package stays current
 # instead of being frozen to protect a matrix it was never needed by.
-matplotlib>=3.10.9
+matplotlib>=3.11.1
