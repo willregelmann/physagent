@@ -15,9 +15,10 @@ eight to ten against a design that called for five.
 | Routine definitions | **10** |
 | With a scheduled caller | 8 → **10** once this PR merges |
 | Actually running | **0** — fleet dark on Copilot quota since 2026-07-14 |
-| Claims in graph | 29 (24 live, 5 dead) |
-| Tier distribution | 17 rigorous, 7 sketch, **0 conjecture, 0 speculation** |
-| Lint errors | 9 |
+| Claims in graph | 37 (27 live, 10 dead) |
+| Tier distribution | 17 rigorous, 9 sketch, **0 conjecture**, 1 speculation |
+| Lint errors | 11 |
+| Cycles run | 2, both by hand |
 
 ### The structural problem: two disjoint systems
 
@@ -106,18 +107,27 @@ are the numbers that say whether it will:
 
 | Metric | Now | Healthy |
 |---|---|---|
-| Conjectures live | 0 | growing |
-| Kill rate (speculations killed / generated) | 5/5 | high, but **not** 100% indefinitely |
-| Novel rate (fraction of new claims passing prior-art) | — | high; a low rate means rediscovery |
-| Findings per cycle *not* from a surviving speculation | 6 | — |
+| Conjectures live | **0** | growing — this is what blocks step 2 |
+| Kill rate (speculations killed / generated) | 10/10 | high, but **not** 100% indefinitely |
+| Novel rate (fraction of new claims passing prior-art) | 8/23 novel, 7 independent-rederivation | high; a low rate means rediscovery |
+| Findings *not* from a surviving speculation | 6, then ~7 | — |
+| Defects found in existing merged content, per cycle | 1, then 3 | — |
 
-That last row is the open question. Cycle 1 produced zero surviving
-speculations and six real findings, all from the *investigation* each
-provoked rather than from any speculation being right. If that holds, the
-value model is "speculations are provocations that direct adversarial
-attention," not "speculations are candidate truths" — which is close to the
-opposite of what `generator.md` currently optimises for. **Not rewriting it on
-one data point.**
+**The pattern is now at n = 2 and is the main finding of both cycles.** Zero
+speculations have survived, and thirteen substantive findings have come out
+anyway — every one from the *investigation* a speculation provoked rather than
+from any being right. Four of those were defects in already-merged content.
+
+That means the value model is "speculations are provocations that direct
+adversarial attention at load-bearing claims," not "speculations are candidate
+truths." `generator.md` currently optimises for the second — it scores on
+survival rate. **Two cycles is enough to justify rewriting it; one was not.** The
+rewrite should target provocativeness: heavily-depended-on nodes, cross-program
+edges, and claims already rated CONFIRMED.
+
+The open question the redesign was built to answer is still open: **can a
+generative cycle ever populate the conjecture tier**, or does it only ever yield
+sketch-tier byproducts and tombstones? Two cycles say tombstones and byproducts.
 
 ## Cycle log
 
