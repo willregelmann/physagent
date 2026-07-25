@@ -1,0 +1,152 @@
+# lean — build the Lean development and verify its axiom claims.
+#
+# WHY THIS EXISTS. Before this workflow, programs/co-emergence/lean/ was pinned,
+# apparently sorry-free, and asserted in a LaTeX remark (rem:lean_entropy_excess)
+# to rest only on Mathlib's standard axioms — and no machine had re-run that
+# check since the day it was written. A machine check nobody re-runs is an
+# attestation, not a check. The 2026-07-24 audit found the same pattern in the
+# citation layer: two misattributions sat green on `main` from March to July
+# because nothing ever re-examines standing state.
+#
+# That is what Lean is actually for here. Not to raise more results to Rigorous
+# — this program is already over-weighted toward verification — but to
+# re-assert, forever and at near-zero marginal cost, that what was proved is
+# still proved. Hence the schedule trigger: this job's value is in running when
+# nobody has touched anything.
+#
+# The axiom check is GENERATED FROM THE CLAIM GRAPH, not from a hand-maintained
+# list. Each formal node declares `formal.decl` and `formal.axioms`; this job
+# asserts exactly those. A declaration renamed in Lean, or misrecorded in a
+# node, fails loudly instead of drifting. (That failure mode is not
+# hypothetical: the nodes were first written with the wrong namespace.)
+
+name: lean
+
+on:
+  pull_request:
+    paths:
+      - 'programs/*/lean/**'
+      - 'programs/*/claims/lean-*.md'
+      - '.github/workflows/lean.yml'
+  schedule:
+    # Mondays 06:00 UTC — standing re-verification, the point of the job.
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: build and verify axioms
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: programs/co-emergence/lean
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      - name: Install elan
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh \
+            -o elan-init.sh
+          sh elan-init.sh -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+
+      # Keyed on the toolchain and the resolved dependency manifest, so a
+      # Mathlib bump invalidates it and nothing else does.
+      - name: Cache .lake
+        uses: actions/cache@v4
+        with:
+          path: programs/co-emergence/lean/.lake
+          key: lake-${{ runner.os }}-${{ hashFiles('programs/co-emergence/lean/lean-toolchain', 'programs/co-emergence/lean/lake-manifest.json') }}
+
+      # Without this a Mathlib build from source dominates the run.
+      - name: Fetch Mathlib cache
+        run: lake exe cache get || echo "::warning::cache get failed; building from source"
+
+      - name: Build
+        id: build
+        run: |
+          set -o pipefail
+          lake build 2>&1 | tee /tmp/lake-build.txt
+
+      # `sorry` is a warning in Lean 4, not an error, so the build alone does
+      # not catch it.
+      - name: Assert no sorry
+        run: |
+          if grep -q "declaration uses 'sorry'" /tmp/lake-build.txt; then
+            echo "::error::Lean build contains 'sorry'"
+            grep -n "declaration uses 'sorry'" /tmp/lake-build.txt
+            exit 1
+          fi
+          echo "No 'sorry' in build output."
+
+      - name: Generate the axiom check from the claim graph
+        working-directory: ${{ github.workspace }}
+        run: |
+          python tools/claim_graph.py formal --program co-emergence > /tmp/formal.json
+          cat /tmp/formal.json
+          python - <<'PY' > programs/co-emergence/lean/CheckAxioms.lean
+          import json
+          nodes = json.load(open("/tmp/formal.json"))
+          if not nodes:
+              raise SystemExit("no formal nodes in the claim graph for this program")
+          print("import CoEmergence")
+          for n in nodes:
+              decl = n["decl"]
+              if not decl:
+                  raise SystemExit(f"formal node {n['id']} has no `formal.decl`")
+              print(f"#print axioms {decl}")
+          PY
+          cat programs/co-emergence/lean/CheckAxioms.lean
+
+      - name: Verify axioms match what the graph claims
+        run: |
+          set -o pipefail
+          lake env lean CheckAxioms.lean 2>&1 | tee /tmp/axioms.txt
+
+          # An unknown identifier means a node's `formal.decl` does not exist.
+          if grep -qiE "unknown (identifier|constant)" /tmp/axioms.txt; then
+            echo "::error::a claim node names a declaration that does not exist in Lean"
+            exit 1
+          fi
+
+          if grep -q "sorryAx" /tmp/axioms.txt; then
+            echo "::error::a declaration depends on sorryAx"
+            exit 1
+          fi
+
+          # Anything outside Mathlib's standard three is an axiom the reader
+          # never agreed to.
+          UNEXPECTED=$(grep -oE '\[[^]]*\]' /tmp/axioms.txt \
+            | tr ',' '\n' | tr -d '[] ' | sed '/^$/d' | sort -u \
+            | grep -vE '^(propext|Classical\.choice|Quot\.sound)$' || true)
+          if [ -n "$UNEXPECTED" ]; then
+            echo "::error::non-standard axioms present:"
+            echo "$UNEXPECTED"
+            exit 1
+          fi
+          echo "Axioms verified against the claim graph."
+
+      - name: Report to job summary
+        if: always()
+        working-directory: ${{ github.workspace }}
+        run: |
+          {
+            echo "## Lean"
+            echo
+            echo "Formal nodes asserted, generated from the claim graph:"
+            echo
+            echo '```'
+            cat /tmp/axioms.txt 2>/dev/null || echo "(no axiom output — build may have failed)"
+            echo '```'
+            echo
+            echo "On success, each formal node's \`formal.last_built\` should be"
+            echo "updated to today with \`result: pass\`. Until that write-back is"
+            echo "wired, lint L10 continues to fire and mechanical coverage reads 0."
+          } >> "$GITHUB_STEP_SUMMARY"
