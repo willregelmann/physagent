@@ -1,0 +1,107 @@
+# tripwires — mechanical evaluation of the EXPERIMENT.md tripwires, on a
+# credential path independent of the routine fleet.
+#
+# WHY THIS IS SEPARATE FROM autonomy-steward.yml.
+#
+# The steward routine also runs this evaluation, but it executes through
+# autonomy-routine.yml on COPILOT_TASK_API_PAT — the same credential every
+# routine uses. So the steward goes down with the fleet: a watchdog inside the
+# system it watches cannot report its own death. That is exactly the failure
+# that went unnoticed for eleven days in July 2026, when 51 consecutive routine
+# runs failed on quota exhaustion while metrics.yml and digest.yml stayed green
+# because neither touches that path.
+#
+# This job uses only the default GITHUB_TOKEN. It needs no PAT, no Copilot
+# licence, and no quota. It cannot be taken down by anything that takes the
+# fleet down, which is the entire point.
+#
+# It also fails loudly on a fired tripwire rather than reporting quietly, so
+# GitHub's own workflow-failure notification is a second, independent alert path
+# that does not depend on SMTP being configured.
+
+name: tripwires
+
+on:
+  schedule:
+    # Every six hours. T6's window is 48h, so this catches a dead fleet well
+    # inside it without polling hard enough to matter.
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read          # T6 and T5 read workflow-run history
+  pull-requests: read    # T1 and T4 read merged PR labels
+  issues: read           # T3 reads quorum verdict markers in PR comments
+
+jobs:
+  evaluate:
+    name: evaluate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # tripwires.py is stdlib-only by design, matching verify_citations.py and
+      # claim_graph.py, so there is nothing to install.
+      - name: Evaluate tripwires
+        id: eval
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set +e
+          python tools/tripwires.py | tee /tmp/tripwires.txt
+          python tools/tripwires.py --json > /tmp/tripwires.json
+          FIRED=$(python -c "import json;print(','.join(json.load(open('/tmp/tripwires.json'))['fired']))")
+          echo "fired=$FIRED" >> "$GITHUB_OUTPUT"
+          echo "Fired: ${FIRED:-none}"
+
+      - name: Report to job summary
+        if: always()
+        run: |
+          {
+            echo "## Tripwires"
+            echo
+            echo '```'
+            cat /tmp/tripwires.txt 2>/dev/null || echo "(evaluation produced no output)"
+            echo '```'
+            echo
+            echo "Evaluated on the default \`GITHUB_TOKEN\`, deliberately independent of"
+            echo "the routine fleet's credential path — see this workflow's header."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      # Degrades gracefully: send_email.py exits quietly when SMTP is unset.
+      - name: Alert on a fired tripwire
+        if: steps.eval.outputs.fired != ''
+        env:
+          SMTP_USERNAME: ${{ secrets.SMTP_USERNAME }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          MAIL_TO: ${{ vars.ALERT_EMAIL }}
+          MAIL_SUBJECT: "[self-consistency] tripwire fired: ${{ steps.eval.outputs.fired }}"
+        run: |
+          {
+            echo "One or more EXPERIMENT.md tripwires fired."
+            echo
+            cat /tmp/tripwires.txt
+            echo
+            echo "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            echo "A fired tripwire applies needs-human and halts the affected thread."
+            echo "needs-human is a halt, not a suggestion, and only the experimenter"
+            echo "removes it. This job does not apply labels -- surfacing is mechanical,"
+            echo "halting is a decision."
+          } > /tmp/alert.txt
+          python3 scripts/send_email.py < /tmp/alert.txt
+
+      # Deliberately last: the summary and the alert must both run first. Failing
+      # here makes the run red in the Actions tab, which is a notification path
+      # that works even with SMTP unconfigured.
+      - name: Fail if any tripwire fired
+        if: steps.eval.outputs.fired != ''
+        run: |
+          echo "::error::Tripwire(s) fired: ${{ steps.eval.outputs.fired }}"
+          exit 1
