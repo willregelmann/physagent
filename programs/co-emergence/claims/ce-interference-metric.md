@@ -15,8 +15,16 @@ hypotheses:
   - rho is positive semidefinite
   - x in C^d
 internal_steps:
-  - step: "x^dag (rho + rho^T) x = 2 Re(x^dag rho x)"
-    hypotheses: [x in R^d]
+  - step: "x^dag (rho + rho^T) x = x^dag rho x + x^dag rho^T x, both summands nonnegative"
+    hypotheses: [rho is positive semidefinite, x in C^d]
+    note: >
+      Repaired 2026-07-24. This step previously read
+      x^dag (rho + rho^T) x = 2 Re(x^dag rho x), which is false for Hermitian
+      non-real rho and held only for real x — a narrower hypothesis than the
+      claim's, which is why lint L4 fired on it. The repair carries no narrowed
+      hypothesis: rho^T is positive semidefinite because it is isospectral to
+      rho, as already used in part (a), so both summands are nonnegative for
+      every x in C^d and a vanishing sum forces each to vanish.
 cites:
   - key: xue_imaginarity
     role: load-bearing

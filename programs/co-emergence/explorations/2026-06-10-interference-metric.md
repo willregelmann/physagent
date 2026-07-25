@@ -105,9 +105,22 @@ Conversely if `Im rho = 0` then `Re rho = rho` and `I_S = 0`. ∎
 `I_S(rho) = S(rho || Re rho)`, where `S(a||b) = Tr a(log a - log b)` is the
 von Neumann relative entropy. The support condition `supp(rho) ⊆ supp(Re rho)`
 holds for **every** density matrix: if `(rho + rho^T)x = 0` then
-`x*(rho + rho^T)x = 2 Re(x*rho x) = 0` with `x*rho x ≥ 0`, forcing `rho x = 0`;
-so `null(Re rho) ⊆ null(rho)` universally, and the relative entropy is finite for
-all density matrices.
+`x*(rho + rho^T)x = x*rho x + x*rho^T x = 0`, and both summands are nonnegative
+(`rho` by hypothesis, `rho^T` because it is isospectral to `rho` and hence also
+positive semidefinite), so each vanishes separately; in particular
+`x*rho x = 0`, forcing `rho x = 0`. So `null(Re rho) ⊆ null(rho)` universally,
+and the relative entropy is finite for all density matrices.
+
+> **Correction, 2026-07-24.** This step previously read
+> `x*(rho + rho^T)x = 2 Re(x*rho x)`, which is **false** for Hermitian non-real
+> `rho`: with `rho = [[1, i], [-i, 1]]` (Hermitian, PSD, eigenvalues 0 and 2)
+> and `x = (1, i)`, the left side is 4 and the right side is 0. The identity
+> holds for *real* `x`, which is almost certainly the argument intended before
+> the quantifier was generalised to complex `x` without rechecking. The
+> conclusion is unaffected — the repair above uses only the positive
+> semidefiniteness of `rho^T` already established alongside it. Found by the
+> 2026-07-24 independent audit; the same step had propagated from here into
+> `index.tex`, and both are now fixed.
 *Proof.* Write `rho = Re rho + i Im rho`. The real matrix `Im rho` is
 antisymmetric (`Im(rho_{jk}) = Im(conj(rho_{kj})) = -Im(rho_{kj})`), while
 `B := log(Re rho)` is real symmetric. For any real antisymmetric `A` and real
