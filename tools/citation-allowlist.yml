@@ -15,6 +15,7 @@ hawking_ellis: "Hawking & Ellis, The Large Scale Structure of Space-Time (CUP, 1
 # Verified-real journal articles whose Crossref match falls below threshold
 # (older papers, abbreviated titles, or non-English titles with stripped accents).
 smale: "Smale, On the structure of manifolds, Amer. J. Math. 84, 387 (1962). Verified real; Crossref fuzzy match below threshold."
+geroch: "Geroch, Domain of Dependence, J. Math. Phys. 11, 437-449 (1970), DOI 10.1063/1.1665157. Verified real by direct Crossref query on 2026-07-24, exact record returned; the three-word title scores 0.735 on the fuzzy matcher, below threshold. Note this key previously pointed at Geroch's 1968 spinor-structure paper, which resolved cleanly and did not support the claim -- resolvability is uncorrelated with correctness."
 radzikowski: "Radzikowski, Micro-local approach to the Hadamard condition, Commun. Math. Phys. 179, 529 (1996). Verified real; bib title is abbreviated relative to Crossref record."
 choquet_bruhat: "Choquet-Bruhat, Acta Math. 88, 141 (1952). Verified real; French title, accents stripped during parsing reduce match score."
 schauder: "Schauder, Der Fixpunktsatz in Funktionalraeumen, Studia Math. 2, 171 (1930). Verified real; German title not indexed by Crossref title search."
