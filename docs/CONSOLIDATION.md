@@ -93,12 +93,34 @@ checked, first step named."
 *Blocked because:* cutting `scout` and `governor` removes the only thing
 feeding the `worker` until step 2 lands.
 
-### Step 5 — build `steward` · INDEPENDENT, can start any time
+### Step 5 — build `steward` · DONE (partially)
 
-Liveness, quota headroom, failing-run triage, doc drift; dispatches blind
-audits without performing them (a routine with full repo context cannot audit
-blind). **This is also the T6 fix**, and it is the only step blocked by
-nothing.
+Liveness, quota headroom, failing-run triage, doc drift; dispatches blind audits
+without performing them (a routine with full repo context cannot audit blind).
+
+**Landed:** `automation/routines/steward.md`, `autonomy-steward.yml` (daily
+05:00 UTC, before generator and adversary), and `tools/tripwires.py` — which
+fixes a deeper gap than T6 alone. The pre-registration calls T1–T5 "the only
+in-run safety net", and they had never been mechanically evaluated: `metrics.yml`
+delegated them to the governor, a routine that runs weekly and dies in exactly
+the failure modes they exist to catch. Flagged as deferred on 2026-06-09 and
+still the load-bearing gap when the fleet went dark for eleven days.
+
+T1, T3, T5 and T6 are now computed directly from the GitHub API — deliberately
+not from the `metrics/` snapshots, so the evaluator does not inherit the blind
+spot it exists to catch. T2 and T4 report as requiring judgment rather than
+silently passing.
+
+First run against live state fired **T6** on the real outage, and produced a
+number nobody had: **T3 accept rate is 55%** over the trailing 20 verdicts —
+direct evidence the quorum was not rubber-stamping, which the day-45 audit could
+not compute.
+
+**Still outstanding:** the steward's caller shares the Copilot credential path
+with every other routine, so it goes down with them. A watchdog inside the
+system it watches cannot report its own death. `tools/tripwires.py` is written
+to run from anywhere with a GitHub token; wiring it to a workflow that does *not*
+depend on that path is the remaining piece.
 
 ## What to watch
 

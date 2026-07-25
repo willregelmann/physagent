@@ -1,0 +1,38 @@
+name: autonomy-steward
+
+# Scheduled caller for the steward routine (automation/routines/steward.md).
+#
+# The routine whose subject is the machine rather than the physics. Every other
+# routine works on research content; none watches whether the system is alive.
+# On 2026-07-14 the fleet began failing every scheduled run on a single cause
+# and nothing noticed for eleven days -- metrics ran green, the digest ran
+# green, no tripwire fired.
+#
+# CADENCE. Daily, at 05:00 UTC -- before the generator (07:00) and adversary
+# (08:00), so a dead or quota-exhausted fleet is surfaced before the day's work
+# is attempted rather than after it fails.
+#
+# NOTE, and it is the whole reason this job exists: this caller shares the
+# Copilot credential path with every other routine, so it goes down with them.
+# That is a real limitation and not an oversight -- a watchdog inside the system
+# it watches cannot report its own death.
+#
+# The independent backstop is `tools/tripwires.py` run from anywhere with a
+# GitHub token: it queries the API directly rather than reading metrics/
+# snapshots, precisely so it does not inherit the blind spot it exists to catch.
+# Wiring it into a workflow that does NOT depend on the Copilot path -- the
+# metrics.yml credential, or a plain scheduled job -- is the remaining step, and
+# is tracked in docs/CONSOLIDATION.md step 5.
+
+on:
+  schedule:
+    - cron: "0 5 * * *"
+  workflow_dispatch:
+
+jobs:
+  steward:
+    uses: ./.github/workflows/autonomy-routine.yml
+    with:
+      role: steward
+      model: ${{ vars.MODEL_STEWARD || 'claude-sonnet-5' }}
+    secrets: inherit
