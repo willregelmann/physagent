@@ -433,8 +433,13 @@ its diagonal equals that of $\rho$ (real), preserving the trace; and it is
 the average of the two isospectral positive semidefinite matrices $\rho$
 and $\rho^{\mathsf T}$, hence positive semidefinite. (c) For any positive
 semidefinite $\rho$, if $(\rho+\rho^{\mathsf T})x=0$ then
-$0 = x^{\dagger}(\rho+\rho^{\mathsf T})x = 2\,\mathrm{Re}(x^{\dagger}\rho x)$
-with $x^{\dagger}\rho x\geq 0$, so $\rho x = 0$; thus
+$0 = x^{\dagger}(\rho+\rho^{\mathsf T})x
+   = x^{\dagger}\rho\,x + x^{\dagger}\rho^{\mathsf T}x$,
+and both summands are nonnegative --- $\rho$ by hypothesis, and
+$\rho^{\mathsf T}$ because it is isospectral to $\rho$ and hence positive
+semidefinite, as used in part~(a). A sum of two nonnegative reals vanishes
+only if each does, so in particular $x^{\dagger}\rho\,x = 0$ and therefore
+$\rho x = 0$; thus
 $\mathrm{null}(\mathrm{Re}\,\rho)\subseteq\mathrm{null}(\rho)$, i.e.\
 $\mathrm{supp}(\rho)\subseteq\mathrm{supp}(\mathrm{Re}\,\rho)$ for every
 density matrix. Now decompose $\rho = \mathrm{Re}\,\rho + i\,\mathrm{Im}\,\rho$ with
