@@ -220,6 +220,12 @@ class _Parser:
                 raise ParseError(f"unexpected indent at line {self.i + 1}: {line!r}")
             rest = line[2:].strip()
             self.i += 1
+            if rest in (">", ">-", "|", "|-"):
+                # A bare block scalar as a list item: `- >` with the folded text
+                # indented beneath it. Continuation sits at indent+2, aligned
+                # under the "- ", same as a map value's block.
+                out.append(self._block_scalar(indent, fold=rest.startswith(">")))
+                continue
             m = re.match(r"^([A-Za-z0-9_-]+)\s*:\s*(.*)$", rest)
             if m and not rest.startswith(("[", "{")):
                 item: dict = {}
@@ -973,6 +979,34 @@ def _cmd_coverage(args) -> int:
     return 0
 
 
+def _cmd_formal(args) -> int:
+    """Emit the formal nodes as JSON, for CI to verify against.
+
+    The graph is the single source of truth for what the Lean development is
+    claimed to prove and on which axioms. CI builds its `#print axioms` check
+    from this rather than from a hand-maintained list, so a declaration renamed
+    in Lean — or misrecorded in a claim node — fails loudly instead of drifting.
+    """
+    g, _ = Graph.load()
+    out = []
+    for c in g.claims:
+        if c.kind != "formal" or c.status != "live":
+            continue
+        if args.program and c.data.get("program") != args.program:
+            continue
+        f = c.data.get("formal") or {}
+        out.append({
+            "id": c.id,
+            "program": c.data.get("program"),
+            "decl": f.get("decl"),
+            "axioms": f.get("axioms") or [],
+            "sorry_free": f.get("sorry_free"),
+            "discharges": c.data.get("discharges") or [],
+        })
+    print(json.dumps(out, indent=2))
+    return 0
+
+
 def _cmd_stats(args) -> int:
     g, _ = Graph.load()
     print(json.dumps(stats(g), indent=2))
@@ -1007,6 +1041,10 @@ def main(argv=None) -> int:
     p = sub.add_parser("coverage", help="mechanical coverage of a claim's closure")
     p.add_argument("id")
     p.set_defaults(fn=_cmd_coverage)
+
+    p = sub.add_parser("formal", help="emit formal (Lean) nodes as JSON for CI")
+    p.add_argument("--program", help="restrict to one program")
+    p.set_defaults(fn=_cmd_formal)
 
     p = sub.add_parser("stats", help="graph-level counts")
     p.set_defaults(fn=_cmd_stats)

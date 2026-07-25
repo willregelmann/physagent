@@ -88,6 +88,29 @@ Body text.
     assert body == "Body text."
 
 
+def test_parser_handles_block_scalars_as_list_items():
+    """Regression: `- >` as a list item, not just `key: >` as a map value.
+    Found by real content — the first generative cycle's claim nodes use it for
+    `gaps:` lists, and the whole file failed to parse."""
+    data, _ = parse_frontmatter(
+        """---
+gaps:
+  - >
+    A folded item that runs
+    across two lines.
+  - >
+    A second one.
+plain:
+  - a
+  - b
+---
+"""
+    )
+    assert data["gaps"] == ["A folded item that runs across two lines.",
+                            "A second one."]
+    assert data["plain"] == ["a", "b"]
+
+
 def test_parser_rejects_rather_than_silently_misreads():
     with pytest.raises(ParseError):
         parse_frontmatter("no fence here\n")

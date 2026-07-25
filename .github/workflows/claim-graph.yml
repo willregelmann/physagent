@@ -1,0 +1,81 @@
+# claim-graph — validate the typed claim graph and run its lint suite.
+#
+# The graph (programs/*/claims/**) is authoritative about rigor tier,
+# dependency structure, and citation-verification state. Its lints target the
+# defect class that actually reached `main` in this project — relational
+# defects, not arithmetic ones. See tools/claim_graph.md for the mapping from
+# each lint to the historical defect it comes from.
+#
+# REPORTING MODE. This job runs with `--soft`, which reports every finding but
+# always exits 0. That is deliberate: the graph was extracted 2026-07-24 with a
+# known-open backlog (quantifier escapes, unverified citations, Lean nodes with
+# no build record, and 19 claims grandfathered past the novelty gate), and a
+# gate that fails every PR on day one teaches everyone to ignore it.
+#
+# TO MAKE IT BITE: delete `--soft` from the lint step below. Do that once
+# `python tools/claim_graph.py lint` is clean locally — the findings are the
+# work queue, not a permanent condition. Nothing else needs to change.
+
+name: claim-graph
+
+on:
+  pull_request:
+    paths:
+      - 'programs/*/claims/**'
+      - 'programs/*/index.tex'
+      - 'tools/claim_graph.py'
+      - '.github/workflows/claim-graph.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+
+      # No dependency install: claim_graph.py is stdlib-only by design,
+      # matching tools/verify_citations.py.
+      - name: Lint the claim graph
+        id: lint
+        run: |
+          set -o pipefail
+          python tools/claim_graph.py lint --warn --soft 2>&1 | tee /tmp/claim-lint.txt
+
+      - name: Graph statistics
+        run: python tools/claim_graph.py stats | tee /tmp/claim-stats.json
+
+      - name: Report to job summary
+        if: always()
+        run: |
+          {
+            echo "## Claim graph"
+            echo
+            echo '```'
+            tail -n 3 /tmp/claim-lint.txt 2>/dev/null || echo "(no lint output)"
+            echo '```'
+            echo
+            echo "### Findings"
+            echo
+            echo '```'
+            grep -E '^(ERROR|WARN)' /tmp/claim-lint.txt 2>/dev/null | head -n 100 || echo "(none)"
+            echo '```'
+            echo
+            echo "### Novelty backlog"
+            echo
+            echo "Claims grandfathered past the novelty gate by"
+            echo '`NOVELTY_ENFORCED_FROM`, which is temporary and intended for deletion.'
+            echo "When this reaches zero, remove the constant and the branch in"
+            echo '`lint_L5_novelty`.'
+            echo
+            echo '```'
+            python -c "import json;d=json.load(open('/tmp/claim-stats.json'));print('remaining:',d['novelty_backlog_remaining']);[print(' ',x) for x in d['novelty_backlog']]" 2>/dev/null || echo "(unavailable)"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
