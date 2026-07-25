@@ -1,0 +1,24 @@
+# Dependencies for the standalone exploration and plotting scripts in
+# programs/*/tests/ -- e.g. 2026-03-04-toy-model.py. These are NOT collected by
+# pytest (pytest.ini restricts collection to test_*.py) and are NOT installed by
+# tests.yml.
+#
+# WHY THIS FILE EXISTS. matplotlib was in requirements.txt, which tests.yml
+# installs, despite no collected test ever importing it. It broke the CI matrix
+# twice in two weeks:
+#
+#   2026-07-12  a bump to >=3.11.0, a version that did not exist, blocked every
+#               PR until it was reverted.
+#   2026-07-25  a bump to >=3.11.1, which does exist but requires Python >= 3.11,
+#               so it could not be installed on the matrix's 3.10 leg and broke
+#               main within minutes of merging.
+#
+# dependabot.yml already ignores numpy and scipy for exactly this reason,
+# recorded there as "bumping the floors past the last Python-3.10-compatible
+# releases breaks the CI matrix without adding capability". matplotlib was
+# simply not on that list.
+#
+# The split is a better fix than adding it to the ignore list: bumps here are
+# free to land because nothing in CI installs them, so the package stays current
+# instead of being frozen to protect a matrix it was never needed by.
+matplotlib>=3.10.9

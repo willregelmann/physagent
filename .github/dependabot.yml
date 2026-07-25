@@ -11,6 +11,10 @@ updates:
       # matrix without adding capability (see PRs #40, #41).
       - dependency-name: numpy
       - dependency-name: scipy
+      # matplotlib is deliberately NOT ignored. It moved to
+      # requirements-plots.txt, which CI does not install, so its bumps can no
+      # longer break the matrix and do not need suppressing. See that file for
+      # the two incidents that prompted the split.
 
   - package-ecosystem: github-actions
     directory: "/"
