@@ -74,13 +74,24 @@ derivation: >
   angles, and im_frac is blind to those by construction. Consistent with the
   repository's own small-theta facts: I_S goes as theta^2 while im_frac goes as
   theta.
-restricted_positive_result: >
-  Below theta* = min(first turning point of im_frac, first turning point of I_S),
-  Spearman rank correlation is 1.000000 in all 120 of 120 configurations tested.
-  This is true but of limited practical use: I_S can turn first, so im_frac's
-  closed form is not a sufficient certificate of being inside the safe zone, and
-  determining theta* requires the expensive computation the proxy existed to
-  avoid.
+restricted_positive_result:
+  status: RETRACTED as evidence, 2026-07-25
+  claim_as_recorded: >
+    Below theta* = min(first turning point of im_frac, first turning point of
+    I_S), Spearman rank correlation is 1.000000 in all 120 of 120 configurations
+    tested.
+  correction: >
+    This was recorded as "true but of limited practical use". It is worse than
+    impractical - it is CONTENT-FREE AS EVIDENCE, and was presented here as a
+    positive result. theta* is DEFINED as the minimum of the two turning points,
+    so both series are individually monotone on [0, theta*] by construction, and
+    any two individually monotone functions of a shared variable have Spearman
+    exactly +/-1 whether or not they are related at all. It would hold equally for
+    two entirely unrelated monotone curves. Nobody should treat theta*-restriction
+    as validating a witness choice.
+  found_by: >
+    The adversarial defense pass on ce-allpairs-witness, scoping beyond its own
+    assignment.
 gaps:
   - >
     The O(N) versus O(N^2) characterization rests on one explicit witness plus a
