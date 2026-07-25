@@ -44,14 +44,13 @@ for stationary matter being time-independent in the Newtonian limit. Both result
 derived at sketch rigor: they treat the stress-energy fluctuations of the superposition as
 Gaussian noise, an assumption built into the Einstein-Langevin framework that we make
 explicit, since the underlying stress-energy distribution of a two-branch superposition is
-bimodal. (3)~We conjecture that the profile is material-dependent: rigid crystalline
-bodies give Gaussian decoherence, while bodies whose acoustic modes approach the
-gravitational coherence frequency $\omega_g = E_\Delta/\hbar$ would transition toward
-exponential. We make the crossover condition quantitative and find it occurs at a single
-material-dependent critical mass $m_\ast=\sqrt{5\hbar c_s/(12G)}\gtrsim10^{-11}$~kg
-(independent of body size); the conjecture is correspondingly restricted, since this
-threshold lies three to four orders of magnitude above the most massive proposed
-superposition platform, so no realistic experiment reaches the crossover. The precise
+bimodal. (3)~We conjecture that the profile is material-dependent, internal acoustic dynamics
+introducing a finite correlation time into the noise kernel, and we locate the mass at
+which the internal and gravitational frequencies coincide: a single material-dependent
+critical mass $m_\ast=\sqrt{5\hbar c_s/(12G)}\gtrsim10^{-11}$~kg, independent of body
+size. \emph{Which side of that threshold corresponds to Gaussian and which to
+exponential is not determined here}: it depends on a phonon noise-kernel model this paper
+does not build, and no experimental-accessibility verdict follows without it. The precise
 additional postulate that Di\'osi's model makes beyond the
 Einstein-Langevin equation is identified: a white-noise temporal correlator for the
 gravitational potential fluctuations.
@@ -500,7 +499,8 @@ which gives $U(\mathbf{x}_L)-U(\mathbf{x}_R) = md^2/R^3$ for $d \le R$ and hence
 $\tau_{\text{coh}} = 2\sqrt{2}\,\hbar R^3/(Gm^2d^2)$. In this regime the prefactor
 $4\sqrt{2}/5$ in eq.~\eqref{eq:tau_coh} does not apply ($\tau_{\text{coh}} \approx
 0.99\,\tau_{DP}$ here). All three platforms satisfy
-$\omega_{\text{phonon}}/\omega_g \gg 1$ and are in the rigid-body Gaussian regime.}
+$\omega_{\text{phonon}}/\omega_g \gg 1$; which decoherence profile that ratio implies is
+not settled here (\S\ref{sec:material}).}
 \label{tab:platforms}
 \end{table}
 
@@ -681,13 +681,18 @@ coherence profile for the superposed-body geometry.
 \subsection{Material-dependent profile transition (conjectural)}
 \label{sec:material}
 
-The static-noise result~\eqref{eq:N0000_static} holds when the body's lowest acoustic
-phonon frequency $\omega_{\text{phonon}}$ far exceeds the gravitational coherence frequency
-$\omega_g = E_\Delta/\hbar$. For the micron-scale diamond of Table~\ref{tab:platforms},
-$\omega_{\text{phonon}} \sim c_s/L \sim 10^{10}$~rad/s while
-$\omega_g \approx 90$~rad/s: the ratio
-$\omega_{\text{phonon}}/\omega_g \sim 10^8$ confirms that the rigid-body Gaussian result
-applies to all current experimental targets.
+Internal acoustic dynamics set a second frequency scale --- the body's lowest acoustic
+phonon frequency $\omega_{\text{phonon}}$ --- alongside the gravitational coherence
+frequency $\omega_g = E_\Delta/\hbar$. For the micron-scale diamond of
+Table~\ref{tab:platforms}, $\omega_{\text{phonon}} \sim c_s/L \sim 10^{10}$~rad/s while
+$\omega_g \approx 90$~rad/s, a ratio of $\sim10^8$. \emph{No conclusion about the
+decoherence profile is drawn from that ratio here}; see the withdrawal note below.
+
+We emphasise that the validity of the static-noise result~\eqref{eq:N0000_static} does
+\emph{not} rest on this frequency comparison. It rests on the wavepacket-spreading margin
+established with the noise kernel, which is a statement about the spatial spreading of the
+superposition over the coherence time and is independent of $\omega_{\text{phonon}}$
+entirely.
 
 \begin{conjecture}[Material-dependent crossover]
 \label{conj:material}
@@ -702,16 +707,41 @@ C_V(0)\,t^2 & t \ll \tau_c \\
 \end{cases}
 \label{eq:crossover}
 \end{equation}
-so that bodies of identical mass and geometry but lower rigidity drift from a Gaussian
-toward an exponential profile.
+The direction of the resulting material dependence --- which of Gaussian or exponential
+corresponds to greater rigidity --- is \emph{not} asserted here; see the withdrawal note
+immediately below.
 \end{conjecture}
 
 \noindent
 This is a \textbf{(Conjecture)}: the identification $\tau_c \sim
 \omega_{\text{phonon}}^{-1}$ is asserted, not derived---a phonon-spectrum model of the
 noise kernel is an open problem (Section~\ref{sec:discussion}). The mechanism is not
-established here; what \emph{can} be settled, taking the identification as given, is
-whether the crossover it predicts is ever experimentally accessible.
+established here.
+
+\paragraph{Withdrawal of the directional claim (2026-07).} Earlier versions of this
+section asserted that high $\omega_{\text{phonon}}$ --- rigid bodies --- gives the
+Gaussian profile, and drew an experimental-accessibility verdict from that. \textbf{That
+direction is withdrawn.} Read literally, eq.~\eqref{eq:crossover} with $\tau_c \sim
+\omega_{\text{phonon}}^{-1}$ gives the opposite: high $\omega_{\text{phonon}}$ means
+\emph{short} $\tau_c$, hence $t \gg \tau_c$, hence the linear branch --- the same
+direction as the static-noise discussion earlier in this paper, where short $\tau_c$ gives
+exponential decay and $\tau_c\to\infty$ gives Gaussian. The conflict traces to reading
+``rigid'' as a synonym for ``static'', whereas the identification $\tau_c \sim
+\omega_{\text{phonon}}^{-1}$ makes rigid bodies short-$\tau_c$, which is the mathematical
+opposite.
+
+We do not flip the direction, because the identification $\tau_c \sim
+\omega_{\text{phonon}}^{-1}$ is itself a placeholder for the unbuilt phonon-spectrum
+model, and a different physical mechanism --- amplitude suppression, since a stiffer body's
+internal modes have smaller zero-point fluctuation $\langle x^2\rangle \to
+\hbar/2m\omega_{\text{phonon}}$ rather than merely faster ones --- would give the opposite
+directional consequence and is not derived here either. Nor is it settled whether $\tau_c$
+for the phonon channel is the oscillation period $\sim\omega_{\text{phonon}}^{-1}$ as
+written, or damping-limited $\sim Q/\omega_{\text{phonon}}$, which for good crystal
+resonators would differ by six to ten orders of magnitude.
+
+What survives is the frequency-crossing threshold below, which is symmetric in direction.
+What does not survive is any verdict about which platforms are safe.
 
 \paragraph{Crossover threshold (Sketch).} Make the condition
 $\omega_{\text{phonon}}\sim\omega_g$ quantitative for a uniform sphere of mass $m$,
@@ -745,7 +775,7 @@ threshold is \textbf{(Sketch)}: the arithmetic and the $R$-cancellation are exac
 physical input $\tau_c\sim\omega_{\text{phonon}}^{-1}$ is the underived identification of
 Conjecture~\ref{conj:material}.
 
-\paragraph{Two-material evaluation --- accessibility verdict: negative.} Evaluating
+\paragraph{Two-material evaluation.} Evaluating
 eq.~\eqref{eq:mstar} across materials spanning more than two orders of magnitude in
 rigidity (standard handbook values; $\rho = 3500,\,2200,\,100$~kg/m$^3$):
 \begin{center}
@@ -769,23 +799,28 @@ coherence window of any current or near-future experiment, where environmental
 decoherence rises steeply with size. For \emph{every} platform of
 Table~\ref{tab:platforms} the ratio~\eqref{eq:crossover_ratio} exceeds $10^{7}$.
 
-\paragraph{Restriction of Conjecture~\ref{conj:material}.} We accordingly restrict the
-conjecture. Its mechanism remains conjectural (the noise-kernel correlation time is not
-derived), but its experimental \emph{discriminant} is now quantitatively settled: the
-material-dependent Gaussian$\to$exponential transition, if it operates, requires
-$m\gtrsim m_\ast\sim10^{-11}$--$10^{-10}$~kg, outside the accessibility window of all
-current and near-future decoherence platforms, and so makes no discriminating prediction
-in the accessible regime. This is consistent with---and quantifies---the static-noise
-result of Result~2 (eq.~\eqref{eq:N0000_static}), whose assumption
-$\omega_{\text{phonon}}\gg\omega_g$ now holds with margin $\gtrsim10^{7}$ for every
-realistic body. The crossover regime is moreover \emph{distinct} from the
+\paragraph{Status of Conjecture~\ref{conj:material}.} The frequency-crossing threshold
+is quantitative and stands: $m_\ast\sim10^{-11}$--$10^{-10}$~kg lies three to four orders
+of magnitude above the most massive proposed superposition platform, and every platform of
+Table~\ref{tab:platforms} has $\omega_{\text{phonon}}/\omega_g$ exceeding $10^{7}$. Those
+are facts about where the two frequencies coincide, and they are unaffected by the
+withdrawal above.
+
+What we cannot say is what they imply. Previous versions of this paragraph concluded that
+the conjecture ``makes no discriminating prediction in the accessible regime'' and that
+this was ``consistent with---and quantifies---the static-noise result of Result~2''. Both
+statements presupposed the withdrawn direction, and neither follows without it. Since the
+mechanism fixing the direction is exactly the phonon-spectrum model this paper does not
+build, \textbf{no accessibility verdict is claimed}: the crossover may be irrelevant to
+current platforms, or --- read literally through eq.~\eqref{eq:crossover} --- it may place
+them on the exponential side, in tension with Result~2 for the same body. Settling this
+requires the phonon noise-kernel model, not further discussion of $m_\ast$.
+
+The crossover regime is, independently of direction, \emph{distinct} from the
 dissipative-DP non-Gaussian regime of Ref.~\cite{melo_dissipative}: the latter resides in
-the phase-space (momentum/energy) sector over the thermal-relaxation timescale, whereas
-the acoustic crossover concerns the position-coherence noise kernel over $t\lesssim
-3\tau_{DP}$; the two regimes do not overlap. Were the crossover accessible the discriminant
-would be sharp---the Di\'osi and Penrose collapse models predict exponential decoherence
-regardless of material---but eq.~\eqref{eq:mstar} shows it is not, at any realistic
-platform.
+the phase-space (momentum/energy) sector over the thermal-relaxation timescale, whereas the
+acoustic crossover concerns the position-coherence noise kernel over $t\lesssim
+3\tau_{DP}$; the two regimes do not overlap.
 
 \subsection{BMV entanglement}
 
@@ -837,10 +872,12 @@ not constrained by those experiments.
 \textbf{Limitations.} The Gaussian profile is a leading-order prediction; retardation
 corrections are $\mathcal{O}(v^2/c^2)$. The material-dependent crossover
 (Conjecture~\ref{conj:material}) requires a more detailed model of the phonon-spectrum
-contribution to the noise kernel -- an open problem -- but the accessibility question is
-now settled: the crossover threshold $m_\ast\sim10^{-11}$--$10^{-10}$~kg
-(eq.~\eqref{eq:mstar}) lies three to four orders of magnitude above the most massive
-proposed superposition platform, so no realistic experiment reaches the crossover regime.
+contribution to the noise kernel -- an open problem, and a more consequential one than
+previously stated. The crossover threshold $m_\ast\sim10^{-11}$--$10^{-10}$~kg
+(eq.~\eqref{eq:mstar}) is quantitative and lies three to four orders of magnitude above
+the most massive proposed superposition platform, but \emph{which side of it corresponds
+to which profile is undetermined} pending that model, so no accessibility verdict follows
+(\S\ref{sec:material}).
 The ensemble-dephasing caveat of Remark~\ref{rem:dephasing} is resolved at the operational
 level (\S\ref{sec:per_realization}): the coherence magnitude is exactly conserved per
 realization and the Gaussian $t^2$ suppression is an echo-reversible inhomogeneous-dephasing

@@ -29,7 +29,7 @@ defects:
     found: 2026-07-25
     by: adversary
     severity: correctness
-    status: OPEN - awaiting an authorial decision, see remediation
+    status: RESOLVED 2026-07-25 - direction withdrawn, see resolution
     finding: >
       The formula is correct; its directional interpretation is inverted
       everywhere it is applied. Independently re-derived twice by sympy:
@@ -93,14 +93,20 @@ defects:
       BMV microdiamond that Result 2 predicts GAUSSIAN decoherence for - a direct
       conjecture-versus-result conflict about one body, where the paper currently
       claims no discriminating prediction and consistency with Result 2.
-    remediation_blocked_on: >
-      An authorial decision that cannot be read off the text. Either (A)
-      tau_c ~ 1/omega_phonon was meant literally, in which case the direction is
-      simply inverted and the fix is to flip it; or (B) it was always a
-      placeholder pending the paper's own admitted open phonon-spectrum problem,
-      in which case the abstract, README and accessibility claims are overreach
-      beyond what is derived and the honest fix is "direction undetermined"
-      rather than a flip. These produce different papers.
+    resolution: >
+      Experimenter decision, 2026-07-25: tau_c ~ 1/omega_phonon was a PLACEHOLDER
+      pending the paper's own admitted open phonon-spectrum problem, not a literal
+      identification. The direction is therefore WITHDRAWN rather than flipped -
+      flipping would assert a physical claim the formula alone does not support,
+      given that a different candidate mechanism (amplitude suppression) would
+      give the opposite direction and neither is derived.
+      Applied: the formula and m_* are kept unchanged; the directional sentence in
+      the conjecture is withdrawn; the accessibility verdict is retracted as
+      overreach beyond what is derived; the abstract, both README locations, the
+      table caption and the Limitations paragraph state the direction as
+      undetermined rather than asserting either branch. A withdrawal note in the
+      paper records what was claimed, why it was wrong, and why it was not simply
+      flipped.
     also_unresolved: >
       Whether tau_c for the phonon channel is the oscillation period
       ~1/omega_phonon, as written, or damping-limited ~Q/omega_phonon. Good
@@ -125,5 +131,14 @@ routes; the defense additionally caught a transcription slip in the attack's own
 formula (a factor of tau_c where tau_c^2 belongs, dimensionally short by one
 power of time), which does not affect the limits.
 
-**Nothing in the paper has been changed.** The remediation is blocked on an
-authorial decision, recorded above.
+**Resolved 2026-07-25.** The direction is withdrawn, not flipped. The formula,
+the frequency-crossing threshold and `m_*` are untouched; the accessibility
+verdict is retracted as overreach. A withdrawal note in the paper records what
+was claimed, why it was wrong, and why flipping it would have been a second
+unsupported assertion rather than a fix.
+
+Still open, and now stated as such in the paper: whether `tau_c` for the phonon
+channel is the oscillation period as written or damping-limited `~Q/omega_phonon`
+(six to ten orders of magnitude apart for good crystal resonators), and whether
+the intended mechanism was amplitude suppression rather than time-averaging.
+Either would fix the direction; neither is derived.
