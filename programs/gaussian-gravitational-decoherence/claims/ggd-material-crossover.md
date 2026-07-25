@@ -21,7 +21,51 @@ consequence: >
   Determines which platforms should show Gaussian versus exponential profiles,
   and therefore whether Result 2's Gaussian prediction is safe on current
   hardware.
-novelty: {status: unchecked}
+novelty:
+  status: independent-rederivation
+  searched: 2026-07-25
+  found: []
+  note: >
+    SPLIT.
+    THE CROSSOVER FORMULA IS PRIOR ART and textbook - and the paper cites
+    nothing for it, which is a citation gap in merged content. Canonical chain:
+    P. W. Anderson, J. Phys. Soc. Jpn. 9, 316 (1954); R. Kubo, J. Phys. Soc.
+    Jpn. 9, 935 (1954); and R. Kubo, "A Stochastic Theory of Line Shape", Adv.
+    Chem. Phys. 15, 101 (1969), which gives the exact relaxation function
+    Phi(t) = exp[-Delta^2 tau_c^2 (exp(-t/tau_c) - 1 + t/tau_c)] - quadratic
+    exponent at short t, linear at long t, precisely the printed case structure.
+    For the decay rather than lineshape framing: Klauder and Anderson, Phys. Rev.
+    125, 912 (1962). The mathematics was verified at full text through an
+    independent modern rederivation (cond-mat/0401519 eq. 7) since the 1950s
+    originals are not fetchable.
+    THE m_star THRESHOLD IS NOVEL. Nothing found equates the lowest acoustic
+    phonon frequency to the gravitational coherence frequency, uses the shared
+    1/R scaling to cancel the radius, and obtains a single size-independent
+    critical mass. Closest prior work, and an honest neighbour: Diosi,
+    arXiv:1404.6644 (2014), asks the structurally similar question - do internal
+    acoustic modes matter for DP decoherence - but yields a critical WAVELENGTH
+    from a fixed nuclear-oscillator frequency, with no sound-speed dependence and
+    no E_Delta construction. Adjacent question, different construction.
+    Also checked and rejected as a coincidence: sqrt(hbar c_s / G), a Planck mass
+    with sound speed substituted for c, does appear in the analog-gravity
+    literature (arXiv:1907.02902) in a physically unconnected context. A
+    dimensional match, not prior art.
+  territory: >
+    The field's standard review (Bassi, Grossardt and Ulbricht, arXiv:1706.05677)
+    was full-text-checked for phonon, rigid-body and internal-structure content
+    and has NONE. Adjacent work exists (Diosi 2014, Quach 2017, Aguiar and Matsas
+    2025) but the specific construction does not.
+  citations_owed:
+    - >
+      Kubo, Adv. Chem. Phys. 15, 101 (1969) as primary for the crossover, with
+      Anderson (1954) and Kubo (1954) as the foundational pair. These predate
+      arXiv and Crossref, so check resolution against tools/verify_citations.py
+      before they enter the bibliography - this repository has already been
+      bitten in both directions, by a resolving citation that was wrong (geroch)
+      and a correct one that would not resolve.
+    - >
+      Diosi arXiv:1404.6644 as an explicit "related but distinct" reference near
+      the m_star discussion.
 tex: {file: programs/gaussian-gravitational-decoherence/index.tex, label: eq:crossover}
 provenance: {born: 2026-07-25, born_by: adversary}
 defects:

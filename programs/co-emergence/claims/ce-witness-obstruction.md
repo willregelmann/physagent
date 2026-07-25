@@ -41,13 +41,33 @@ consequence: >
   aggregates, not merely the two witnesses actually tried, and says what to do
   instead: a genuinely two-parameter witness, not a fourth weighting.
 novelty:
-  status: unchecked
+  status: novel
+  searched: 2026-07-25
+  found: []
   note: >
-    NOT YET CHECKED. Owed a prior-art pass. The parent claim's own sweep found
-    that the general principle - distinct resource monotones need not order
-    states alike - is established, with a no-finite-complete-set theorem naming
-    imaginarity explicitly. This obstruction is sharper and more specific, but
-    the relationship to that theorem needs establishing.
+    NOT subsumed by arXiv:2212.02473, and the relationship was settled at full
+    text rather than assumed. That theorem requires monotones to be continuous
+    AND faithful, concerns the CARDINALITY of a set that determines
+    convertibility, and places no restriction whatever on functional form. This
+    claim is about a structural FORM of witness. Orthogonal axes.
+    The parent's own note was verified rather than inherited: 2212.02473 does
+    name imaginarity explicitly, multiple times, so that record is accurate.
+    Closest relative, and genuinely close: Unitary-Invariant Witnesses of Quantum
+    Imaginarity, PRL 133, 190201 (arXiv:2403.15066), whose Theorem 4 shows
+    pairwise overlaps alone admit an imaginarity-free real realization. Same
+    intuition INVERTED - there magnitude data is insufficient without phase, here
+    phase-kernel data is insufficient without modulus - and in a different formal
+    object entirely: 3-state overlap realizability, a binary detection question,
+    not monotonicity along a one-parameter family. Adjacent, not overlapping.
+    No paper states the witness-form obstruction, and none states the
+    two-degrees-of-freedom mechanism as an explicit remark, in the imaginarity,
+    coherence, or entanglement-witness literatures.
+  unverified: >
+    arXiv:2506.09799 (Wu and Wu, unified relative-entropy imaginarity monotones)
+    would not extract on two attempts - the same PDF failure mode already logged
+    on ggd-noise-kernel. The general-rank question in this claim's gaps is
+    therefore UNVERIFIED rather than checked-clean, and should not be treated as
+    literature-complete until a PDF-capable pass runs.
 provenance: {born: 2026-07-25, born_by: adversary}
 derivation: >
   I_S depends per entry on both the real part of the coherence and its modulus.

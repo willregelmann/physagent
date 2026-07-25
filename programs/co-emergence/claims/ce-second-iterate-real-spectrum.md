@@ -41,13 +41,36 @@ consequence: >
   protection that keeps the first doubling clean provably does not recur at the
   second. Any new period-2 orbit must be born by fold, matching what is observed.
 novelty:
-  status: unchecked
+  status: independent-rederivation
+  searched: 2026-07-25
+  found: []
   note: >
-    NOT YET CHECKED. A prior-art pass is owed before this is relied on. The
-    parent first-iterate result was found to be classical in part (the
-    symmetric-definite generalized eigenvalue problem) and novel only in its
-    bifurcation-theoretic packaging; this extension needs the same treatment,
-    including the k >= 3 breakdown argument.
+    SPLIT, and the prior-art half is more useful than a plain loss.
+    PART A, the algebra, is PRIOR ART and weaker than what is published. Garbe
+    and Wei, "A characterization for positive semi-definite matrix products",
+    arXiv:2605.02314 (May 2026), Theorem 1.6: a symbolic matrix product is
+    real-eigenvalued IF AND ONLY IF it is symmetric, where symmetric means
+    cyclically rearrangeable into palindromic L L^T form. That is exactly this
+    structure, for arbitrary word length, as a biconditional. This claim's
+    derivation is a rote second application of the same congruence-by-a-square-
+    root step the parent already used.
+    PART B, the bifurcation consequence and the k >= 3 breakdown, is NOVEL.
+    Wang arXiv:2605.15651 was re-fetched in full and contains no bifurcation
+    taxonomy, confirming the parent's report. Nothing connects palindromic
+    real-spectrum results to Neimark-Sacker exclusion, and nothing explains a
+    period-doubling cap this way. Notably the nearby literature shows cascades
+    CONTINUING past period 2 in related map classes, so a cap at 2 is not the
+    expected default.
+  actionable: >
+    Garbe and Wei's "only if" direction would supply an actual PROOF for the
+    k >= 3 breakdown, which this claim currently supports only by "generically"
+    plus a numerical witness - see gaps. Published prior art may close a gap this
+    node self-flags as open. Worth a prover pass.
+  verification_caveat: >
+    Garbe and Wei was read at abstract-plus: theorem and definition text
+    recovered consistently across four independent extraction routes on a
+    garbled PDF, not a raw full-text read. Confirm via the arXiv e-print source
+    before this is used to justify a promotion or demotion.
 provenance: {born: 2026-07-25, born_by: adversary}
 derivation: >
   Conjugating by S(e)^(-1/2), well defined because S(e) is positive definite on

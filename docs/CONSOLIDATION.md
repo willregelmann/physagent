@@ -15,9 +15,10 @@ eight to ten against a design that called for five.
 | Routine definitions | **11** (steward added) |
 | With a scheduled caller | **11** |
 | Actually running | **0** — fleet dark on Copilot quota since 2026-07-14 |
-| Claims in graph | 37 (27 live, 10 dead) |
-| Tier distribution | 17 rigorous, 9 sketch, **0 conjecture**, 1 speculation |
-| Lint errors | 11 |
+| Claims in graph | 38 (28 live, 10 dead) |
+| Tier distribution | 17 rigorous, 9 sketch, **2 conjecture**, 0 speculation |
+| Novelty-unchecked claims | **0** — L5 is unconditional and the backlog is cleared |
+| Lint errors | 9 (3×L4, 3×L6, 2×L10, 1×L11) |
 | Cycles run | 2, both by hand |
 
 ### The structural problem: two disjoint systems
@@ -71,8 +72,19 @@ Select the highest-ranked live conjecture from the graph instead of claiming an
 `agent-ready` issue. Ranking rule versioned in the repo (consequence ×
 tractability × novelty).
 
-*Blocked because:* the graph currently holds **zero conjectures**. A prover
-picking the highest-ranked live conjecture has nothing to pick.
+*Unblocked 2026-07-25.* The graph now holds two live conjectures, so a prover
+has something to pick. Note what they are, because it matters for what step 2
+is actually testing:
+
+- `ggd-material-crossover` — a conjecture that was **already in the paper**; the
+  node records it rather than creating it.
+- `ce-euclidean-vacuum-at-fixed-point` — the first claim to reach the conjecture
+  tier **through the promotion gate**, which is the mechanism the redesign was
+  built to test.
+
+One of the two is a real answer to the open question; the other is bookkeeping.
+Step 2 can proceed, but a sample of one is not yet evidence the generative tier
+sustains a prover.
 
 ### Step 3 — fold `reviewer` and `red-team` into `adversary`; retire `responder`
 
@@ -136,11 +148,12 @@ are the numbers that say whether it will:
 
 | Metric | Now | Healthy |
 |---|---|---|
-| Conjectures live | **0** | growing — this is what blocks step 2 |
-| Kill rate (speculations killed / generated) | 10/10 | high, but **not** 100% indefinitely |
-| Novel rate (fraction of new claims passing prior-art) | 8/23 novel, 7 independent-rederivation | high; a low rate means rediscovery |
+| Conjectures live | **2** (1 promoted, 1 extracted) | growing |
+| Reached conjecture *via the gate* | **1** | this is the number that matters |
+| Kill rate (speculations killed / generated) | 10/10 killed as stated; 1 later revived by reframing | high, but **not** 100% indefinitely |
+| Novel rate (fraction of claims passing prior-art) | 12 novel, 9 independent-rederivation, 0 unchecked | high; a low rate means rediscovery |
 | Findings *not* from a surviving speculation | 6, then ~7 | — |
-| Defects found in existing merged content, per cycle | 1, then 3 | — |
+| Defects found in existing merged content, per cycle | 1, then 3, plus 4 from the novelty sweep | — |
 
 **The pattern is now at n = 2 and is the main finding of both cycles.** Zero
 speculations have survived, and thirteen substantive findings have come out
@@ -154,9 +167,10 @@ survival rate. **Two cycles is enough to justify rewriting it; one was not.** Th
 rewrite should target provocativeness: heavily-depended-on nodes, cross-program
 edges, and claims already rated CONFIRMED.
 
-The open question the redesign was built to answer is still open: **can a
-generative cycle ever populate the conjecture tier**, or does it only ever yield
-sketch-tier byproducts and tombstones? Two cycles say tombstones and byproducts.
+The open question the redesign was built to answer now has its first data point.
+**Can a generative cycle populate the conjecture tier?** Once, yes — and by a
+route neither the design nor the two cycle logs anticipated. See "The first
+promotion" below.
 
 ## Cycle log
 
@@ -247,3 +261,78 @@ The speculation tier has its first live entry. Whether a generative cycle can
 ever populate the conjecture tier — rather than only producing sketch-tier
 byproducts and tombstones — remains the open question the redesign was built to
 answer.
+
+### Novelty sweep — 2026-07-25
+
+Run after `NOVELTY_ENFORCED_FROM` was deleted and L5 made unconditional, clearing
+the last four unchecked nodes. Every check was dispatched blind, in a separate
+context, with no access to the claim's own prior conclusion.
+
+| Claim | Verdict |
+|---|---|
+| `ce-witness-obstruction` | **novel** |
+| `ce-euclidean-vacuum-at-fixed-point` | **novel** — cleared for promotion |
+| `ce-second-iterate-real-spectrum` | split: algebra prior art, bifurcation consequence novel |
+| `ggd-material-crossover` | split: crossover formula prior art (Kubo/Anderson), `m_*` novel |
+
+Four defects in existing content, which is now the reliable yield of any pass:
+
+1. **The crossover formula is textbook and the paper cites nothing for it.** The
+   Anderson (1954) / Kubo (1954) / Kubo (1969) chain gives the exact relaxation
+   function whose short- and long-time limits are the printed case structure.
+   Citations owed; these predate arXiv and Crossref, so check them against
+   `tools/verify_citations.py` before they enter the bibliography.
+2. **A shallower novelty check missed strictly closer prior art.** The parent
+   `ce-self-consistency-real-spectrum` was checked one day earlier and called
+   Part A textbook, citing Golub and Van Loan. Garbe and Wei arXiv:2605.02314
+   Theorem 1.6 gives the same characterization as a *biconditional* for
+   arbitrary word length, and had been on arXiv since 4 May. Recorded on the
+   parent as a correction.
+3. **Published prior art may close a gap a claim self-flags as open.** Garbe and
+   Wei's "only if" direction would supply an actual proof for the k ≥ 3
+   breakdown that `ce-second-iterate-real-spectrum` currently supports by
+   "generically" plus one numerical witness. Prior art as a *gift*, not a loss —
+   worth a prover pass.
+4. **`arXiv:1503.01826` is Siemssen's thesis**, not a standalone two-author
+   preprint. The repository's bibliography key correctly cites the journal
+   article; the exploratory reference was the loose one.
+
+**The methodological finding is (2), and it generalises.** A novelty verdict is
+an answer at a given search effort, not a durable fact. L5 prevents *unchecked*
+claims; it cannot prevent *insufficiently* checked ones, and one day's gap was
+enough to flip a verdict. Every `novelty.status` should be read together with its
+`searched` date and the depth of the pass that produced it. This is a gap in the
+lint set with no mechanical fix — a staleness lint (L6-style) could flag old
+checks, but nothing can flag a shallow one.
+
+### The first promotion
+
+`ce-euclidean-vacuum-at-fixed-point` was promoted speculation → conjecture on
+2026-07-25, the first claim to pass the gate rather than be extracted through it.
+
+All five criteria were met, and the novelty check that gated it settled a
+question two previous passes had left open — at full text, with an answer neither
+anticipated. The strongest candidate prior art (Pinamonti–Siemssen) turns out to
+be neither of the two structures previously guessed: a state *functional* is fixed
+once and the contraction runs on a single variable, and the resulting states are
+adiabatic order zero, explicitly **not** Hadamard or Bunch–Davies. Better still,
+the extension is *structurally excluded* rather than merely unattempted — their
+renormalization constants are chosen specifically to cancel the higher-derivative
+anomaly term, which is the very mechanism driving the Starobinsky fixed point.
+
+Two things about this promotion are worth stating plainly, because both cut
+against the tidy version:
+
+**The generator did not produce it.** The generator proposed a Sorkin–Johnston
+version, which was killed outright. The *defense* pass constructed this reframing
+while arguing against that death. The generative tier produced it through its
+adversarial half, not its generative half — which is consistent with, and
+sharpens, the n=2 finding that value comes from the investigation a speculation
+provokes rather than from any being right.
+
+**Promotion did not resolve the caveat.** Falsifier (ii) — the instability, a
+lifetime of order 10⁻⁴² s — remains independently fatal to this as a claim about
+physically realised backgrounds. Promotion records a well-formed conjecture worth
+holding, not a description of anything realised. The conjecture tier is
+explicitly a resting place, and a claim resting there indefinitely is the design
+working, not a stalled promotion.
