@@ -42,13 +42,16 @@ provenance: {born: 2026-07-05, born_by: worker}
 Part (a) of the entropy excess, formalized in full: purity decrease for all
 ranks, via Fact 3 and the entrywise modulus bound.
 
-**`last_built` is deliberately absent.** No CI job in this repository runs
-`lake build`, and none ever has - `grep -rln 'lean\|lake' .github/workflows/`
-returns nothing. The `#print axioms` audit recorded in the paper's
-`rem:lean_entropy_excess` is a prose assertion about a machine check that no
-machine has re-run since it was written. Lint L10 fires on this node and should
-keep firing until the CI job exists. That is the correct state of the record,
-not a bookkeeping oversight.
+**`last_built` is absent until CI writes it.** When this node was created there
+was no job running `lake build` at all: the `#print axioms` audit recorded in the
+paper's `rem:lean_entropy_excess` was a prose assertion about a machine check no
+machine had re-run since it was written.
+
+`lean.yml` now exists, builds against a pinned toolchain, asserts no `sorry`, and
+verifies the axiom set against declarations generated from this graph. Its
+scheduled run writes the result back here via `claim_graph.py record-build`, so
+this field records something a machine actually did rather than something a
+human asserted. Until that run lands, L10 fires on this node - correctly.
 
 `bridge.reviewed` is likewise null: the formal-to-informal correspondence has
 never been adversarially reviewed as such.

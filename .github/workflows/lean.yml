@@ -34,7 +34,8 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write        # the scheduled run writes the build result back
+  pull-requests: write   # ... via a branch and PR, matching metrics.yml
 
 jobs:
   build:
@@ -150,3 +151,51 @@ jobs:
             echo "updated to today with \`result: pass\`. Until that write-back is"
             echo "wired, lint L10 continues to fire and mechanical coverage reads 0."
           } >> "$GITHUB_STEP_SUMMARY"
+
+      # WRITE-BACK, scheduled runs only.
+      #
+      # Without this the graph never learns the build happened: L10 keeps firing
+      # and mechanical coverage keeps reading zero while CI is green. The check
+      # runs, the record does not know -- the same shape of gap as a machine
+      # check nobody re-runs, one level up.
+      #
+      # Not on pull requests: a PR should not mutate the graph as a side effect
+      # of being tested.
+      #
+      # Branch -> PR -> auto-merge, matching metrics.yml. `record-build` is
+      # idempotent and reports what it changed, so an unchanged value opens no
+      # pull request and the weekly run is silent when there is nothing to say.
+      - name: Record the build result in the claim graph
+        if: github.event_name == 'schedule' && success()
+        working-directory: ${{ github.workspace }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          CHANGED=$(python tools/claim_graph.py record-build \
+            --program co-emergence --result pass \
+            | python -c "import json,sys; print(len(json.load(sys.stdin)['changed']))")
+          if [ "$CHANGED" = "0" ]; then
+            echo "Build record already current; nothing to write."
+            exit 0
+          fi
+
+          DATE=$(date -u +%Y-%m-%d)
+          BRANCH="lean-build-record-$DATE"
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add programs/*/claims/
+          git commit -m "Record lean build result ($DATE)
+
+          Written by lean.yml after a green build: lake build succeeded, no
+          'sorry' in the output, and every declaration named by a formal node
+          verified against Mathlib's standard axioms. Updates formal.last_built
+          so the graph records a machine check rather than an assertion."
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" "$BRANCH"
+          PR_URL=$(gh pr create --repo "$REPO" --head "$BRANCH" \
+            --title "Record lean build result ($DATE)" \
+            --body "Automated write-back from lean.yml. Not an agent research PR; quorum-exempt by design. Updates \`formal.last_built\` on formal claim nodes after a verified build." \
+            2>/dev/null || gh pr view "$BRANCH" --repo "$REPO" --json url --jq .url)
+          gh pr merge --repo "$REPO" --auto --squash "$PR_URL" || true
+          echo "Opened $PR_URL"

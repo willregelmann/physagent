@@ -617,6 +617,65 @@ novelty: {status: novel}
     assert "E016" in codes(validate_schema(Graph([claim(src, "c")])))
 
 
+# ── record-build ───────────────────────────────────────────────────
+
+
+def test_record_build_writes_inserts_and_is_idempotent(tmp_path):
+    """CI verifies the Lean development; this is how the graph learns it did.
+    Without the write-back, L10 fires and mechanical coverage reads zero while
+    the build is green -- the check runs but the record does not know."""
+    import claim_graph
+    d = tmp_path / "programs" / "p" / "claims"
+    d.mkdir(parents=True)
+    (d / "lean-thing.md").write_text(
+        "---\n"
+        "id: lean-thing\n"
+        "program: p\n"
+        "kind: formal\n"
+        "tier: rigorous\n"
+        "status: live\n"
+        "statement: s\n"
+        "formal:\n"
+        "  decl: Foo.bar\n"
+        "  sorry_free: true\n"
+        "discharges: []\n"
+        "---\n\nbody\n")
+
+    # inserts when absent
+    changed = claim_graph.record_build("p", "pass", "2026-07-25", root=str(tmp_path))
+    assert changed == ["lean-thing"]
+    text = (d / "lean-thing.md").read_text()
+    assert "  last_built: {at: 2026-07-25, by: ci, result: pass}" in text
+    # inserted INSIDE the formal block, not after it
+    assert text.index("last_built") < text.index("discharges:")
+
+    # idempotent -- no second PR for an unchanged value
+    assert claim_graph.record_build("p", "pass", "2026-07-25", root=str(tmp_path)) == []
+
+    # updates in place rather than duplicating
+    assert claim_graph.record_build("p", "fail", "2026-07-26", root=str(tmp_path)) == ["lean-thing"]
+    text = (d / "lean-thing.md").read_text()
+    assert text.count("last_built") == 1
+    assert "result: fail" in text
+
+    # still parses, and the round trip preserves the rest of the node
+    data, _ = claim_graph.parse_frontmatter(text)
+    assert data["formal"]["last_built"]["result"] == "fail"
+    assert data["formal"]["decl"] == "Foo.bar"
+    assert data["discharges"] == []
+
+
+def test_record_build_ignores_informal_nodes(tmp_path):
+    import claim_graph
+    d = tmp_path / "programs" / "p" / "claims"
+    d.mkdir(parents=True)
+    (d / "ordinary.md").write_text(
+        "---\nid: ordinary\nprogram: p\ntier: sketch\nstatus: live\n"
+        "statement: s\n---\n\nbody\n")
+    assert claim_graph.record_build("p", "pass", "2026-07-25", root=str(tmp_path)) == []
+    assert "last_built" not in (d / "ordinary.md").read_text()
+
+
 # ── The real graph ─────────────────────────────────────────────────
 
 
