@@ -28,20 +28,24 @@ ensemble fading "decoherence" is a question of words, not of what the experiment
 sees; and because the fading is in
 principle reversible, a spin-echo control run could even tell it apart from a
 truly irreversible collapse. A further
-idea — that rigid crystals would decay Gaussian while soft materials would
-drift back toward exponential — is a conjecture: the mechanism has not been
-worked out. We can now say, however, that the crossover would only show up in
-an object heavier than about a hundredth of a microgram — three to four orders
-of magnitude more massive than the most ambitious proposed experiment — so the
-conjecture, even if correct, predicts no observable difference for any object a
-laboratory could put into superposition in the foreseeable future. Nothing here
+idea — that the decay shape might depend on what the object is made of, because
+a solid's own internal vibrations have a timescale of their own — is a
+conjecture, and the mechanism has not been worked out. We can say where the two
+timescales cross: in an object heavier than about a hundredth of a microgram,
+three to four orders of magnitude more massive than the most ambitious proposed
+experiment. **We cannot yet say which side of that line is which.** An earlier
+version of this page said rigid crystals decay Gaussian and soft materials drift
+toward exponential; that direction has been withdrawn, because it does not follow
+from the formula as written and the physics that would fix it has not been built.
+So this conjecture currently predicts nothing about any particular experiment,
+in either direction. Nothing here
 has been tested by any experiment.
 
 ## Results
 
 1. **(Sketch)** The decoherence timescale is tau_coh = (4sqrt(2)/5) hbar/E_Delta ~ 1.13 tau_DP, determined by the same gravitational self-energy as the Diosi-Penrose prediction.
 2. **(Sketch)** The temporal profile is Gaussian, not exponential -- a consequence of the noise kernel for stationary matter being time-independent in the Newtonian limit. Both results rest on the Einstein-Langevin framework's Gaussian-noise assumption (made explicit as Assumption 1 in the paper, not derived); this is now the *only* source of the Sketch ceiling, since the ensemble-dephasing caveat (Remark 2) is resolved at the operational level (paper §4.3): the per-realization coherence magnitude is exactly conserved and the Gaussian suppression is an echo-reversible inhomogeneous-dephasing effect recovered only on averaging, so the predicted quantity is the free-evolution ensemble visibility a many-shot interferometer measures (the identification holds because the framework locates the noise source in the superposition's own mass distribution, so each fresh preparation redraws the noise; a frozen external field is a distinct model the framework does not adopt).
-3. **(Conjecture, restricted)** The profile is material-dependent: rigid crystalline bodies give Gaussian decoherence, while bodies whose acoustic modes approach the gravitational coherence frequency would transition toward exponential. The crossover mechanism is asserted, not derived. The crossover condition is now quantified (Sketch): it occurs at a single material-dependent critical mass m* = sqrt(5 hbar c_s / 12 G), independent of body size, evaluating to ~10^-11 to 10^-10 kg (radii ~20-27 um) for materials from aerogel to diamond. This is three to four orders of magnitude above the most massive proposed superposition platform (BMV, ~10^-14 kg), so no realistic experiment reaches the crossover; the conjecture is restricted to this experimentally inaccessible regime. The crossover regime is distinct from the dissipative-DP non-Gaussian regime of #92.
+3. **(Conjecture, direction withdrawn 2026-07)** The profile is material-dependent: internal acoustic dynamics introduce a finite correlation time into the noise kernel. The mechanism is asserted, not derived. The frequency-crossing threshold is quantified (Sketch) and stands: a single material-dependent critical mass m* = sqrt(5 hbar c_s / 12 G), independent of body size, evaluating to ~10^-11 to 10^-10 kg (radii ~20-27 um) from aerogel to diamond — three to four orders of magnitude above the most massive proposed platform (BMV, ~10^-14 kg). **Which side of that threshold gives Gaussian and which gives exponential is not determined**, and no accessibility verdict follows. The earlier claim that rigid bodies give Gaussian, and the conclusion that no realistic experiment reaches the crossover, are withdrawn: read literally the formula gives the opposite direction, while a different candidate mechanism (amplitude suppression) would give the original one, and neither is derived. Settling it needs the phonon noise-kernel model, which is an open problem. The crossover regime is distinct from the dissipative-DP non-Gaussian regime of #92.
 
 ## Relationship to other programs
 
