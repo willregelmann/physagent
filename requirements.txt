@@ -1,8 +1,13 @@
-# Numerical dependencies for the co-emergence toy model and its test suite.
+# Dependencies required to run the pytest suite.
+#
+# Keep this file to exactly that. Anything the suite does not import does not
+# belong here, because tests.yml installs this file and nothing else -- so a
+# dependency listed here can break CI whether or not any test uses it. That is
+# not hypothetical: matplotlib lived here, was never imported by any collected
+# test, and broke the whole matrix twice (see requirements-plots.txt).
 numpy>=1.24
 scipy>=1.10
 pytest>=9.1.1
 
-# Used by the standalone exploration/plotting scripts in programs/*/tests/
-# (not required to run the pytest suite).
-matplotlib>=3.11.1
+# Plotting dependencies are in requirements-plots.txt and are deliberately NOT
+# installed by CI.
