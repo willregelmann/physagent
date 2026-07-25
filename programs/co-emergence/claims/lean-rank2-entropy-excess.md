@@ -60,3 +60,10 @@ Recorded for the record: the general-rank entropy excess is **not** formalized
 because it is **false**, and was retracted. That retraction came out of an
 attempted formalization - the highest-value thing Lean has done in this
 repository, and it was a killing, not a verification.
+
+**`last_built` is absent until CI writes it.** `lean.yml`'s scheduled run
+populates this field via `claim_graph.py record-build`, so it records a build a
+machine performed rather than an assertion a human made. L10 fires until then,
+correctly. Note that a passing build would not change this node's accounting
+anyway: `discharges` is empty, so its mechanical coverage contribution is zero
+whether or not the build is green.

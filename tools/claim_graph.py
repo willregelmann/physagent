@@ -847,6 +847,50 @@ def mechanical_coverage(g: Graph, claim_id: str) -> dict:
     }
 
 
+def record_build(program: str, result: str, date: str,
+                 root: str = REPO_ROOT) -> list[str]:
+    """Write a build result into each formal node's `formal.last_built`.
+
+    CI verifies the Lean development; this is how the graph learns that it did.
+    Without it L10 fires and mechanical coverage reads zero even while the build
+    is green — the check runs but the record does not know, which is the same
+    class of gap as a machine check nobody re-runs.
+
+    Edits the frontmatter line-wise rather than round-tripping the parser, which
+    would reflow every file it touched. Idempotent: returns the ids actually
+    changed, so a caller can skip opening a no-op pull request.
+    """
+    changed = []
+    entry = f"  last_built: {{at: {date}, by: ci, result: {result}}}"
+    pattern = os.path.join(root, "programs", program, "claims", "*.md")
+    for path in sorted(glob.glob(pattern)):
+        with open(path, encoding="utf-8") as f:
+            lines = f.read().split("\n")
+        try:
+            start = next(i for i, L in enumerate(lines) if L.rstrip() == "formal:")
+        except StopIteration:
+            continue                                   # not a formal node
+        end = start + 1
+        while end < len(lines) and (lines[end].startswith("  ") or not lines[end].strip()):
+            end += 1
+        block = lines[start + 1:end]
+        existing = next((i for i, L in enumerate(block)
+                         if L.startswith("  last_built:")), None)
+        if existing is not None:
+            if block[existing].rstrip() == entry:
+                continue                               # already current
+            block[existing] = entry
+        else:
+            while block and not block[-1].strip():      # keep trailing blanks last
+                block.pop()
+            block.append(entry)
+        lines[start + 1:end] = block
+        with open(path, "w", encoding="utf-8") as f:
+            f.write("\n".join(lines))
+        changed.append(os.path.splitext(os.path.basename(path))[0])
+    return changed
+
+
 def stats(g: Graph) -> dict:
     live = [c for c in g.claims if c.status == "live"]
     dist = {t: sum(1 for c in live if c.tier == t) for t in TIERS}
@@ -959,6 +1003,14 @@ def _cmd_formal(args) -> int:
     return 0
 
 
+def _cmd_record_build(args) -> int:
+    date = args.date or _dt.date.today().isoformat()
+    changed = record_build(args.program, args.result, date)
+    print(json.dumps({"program": args.program, "result": args.result,
+                      "date": date, "changed": changed}, indent=2))
+    return 0
+
+
 def _cmd_stats(args) -> int:
     g, _ = Graph.load()
     print(json.dumps(stats(g), indent=2))
@@ -997,6 +1049,13 @@ def main(argv=None) -> int:
     p = sub.add_parser("formal", help="emit formal (Lean) nodes as JSON for CI")
     p.add_argument("--program", help="restrict to one program")
     p.set_defaults(fn=_cmd_formal)
+
+    p = sub.add_parser("record-build",
+                       help="write a CI build result into formal nodes' last_built")
+    p.add_argument("--program", required=True)
+    p.add_argument("--result", required=True, choices=["pass", "fail"])
+    p.add_argument("--date", help="ISO date; defaults to today")
+    p.set_defaults(fn=_cmd_record_build)
 
     p = sub.add_parser("stats", help="graph-level counts")
     p.set_defaults(fn=_cmd_stats)
