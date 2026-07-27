@@ -13,6 +13,7 @@ formal:
   mathlib: v4.31.0
   axioms: [propext, Classical.choice, Quot.sound]
   sorry_free: true
+  last_built: {at: 2026-07-27, by: ci, result: pass}
 bridge:
   to: ce-entropy-excess
   claim: >
