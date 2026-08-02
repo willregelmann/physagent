@@ -312,7 +312,8 @@ def main(argv=None) -> int:
     unknown = [r for r in results if r.state == "UNKNOWN"]
 
     if args.json:
-        print(json.dumps({"fired": [r.code for r in fired],
+        print(json.dumps({"generated_at": _now().isoformat(),
+                          "fired": [r.code for r in fired],
                           "results": [r.as_dict() for r in results]}, indent=2))
     else:
         for r in results:
