@@ -18,6 +18,15 @@
 # It also fails loudly on a fired tripwire rather than reporting quietly, so
 # GitHub's own workflow-failure notification is a second, independent alert path
 # that does not depend on SMTP being configured.
+#
+# It also posts every run's result to the "Tripwire monitor" issue (below),
+# specifically so `steward` can read it. Found 2026-08-02: the steward routine
+# runs inside a Copilot cloud-agent sandbox whose GitHub credential 403s on
+# `actions/runs` (it has issues/PRs/contents access, not Actions-API access),
+# so it cannot run this same evaluation itself and, correctly, reported every
+# tripwire as UNKNOWN rather than guessing. Posting the JSON to an issue
+# steward can read with the access it already has closes that gap without
+# granting the sandbox any new credential.
 
 name: tripwires
 
@@ -32,7 +41,7 @@ permissions:
   contents: read
   actions: read          # T6 and T5 read workflow-run history
   pull-requests: read    # T1 and T4 read merged PR labels
-  issues: read           # T3 reads quorum verdict markers in PR comments
+  issues: write          # T3 reads quorum verdict markers; also posts the snapshot below
 
 jobs:
   evaluate:
@@ -73,6 +82,26 @@ jobs:
             echo "Evaluated on the default \`GITHUB_TOKEN\`, deliberately independent of"
             echo "the routine fleet's credential path — see this workflow's header."
           } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish snapshot to the Tripwire monitor issue
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          NUM=$(gh issue list --repo "$REPO" --state open --search 'in:title "Tripwire monitor"' --json number,title \
+            | jq -r '[ .[] | select(.title == "Tripwire monitor") ][0].number // empty')
+          if [ -z "$NUM" ]; then
+            NUM=$(gh issue create --repo "$REPO" --title "Tripwire monitor" --label governance \
+              --body "Mechanical T1/T3/T5/T6 evaluation (T2/T4 report \`manual\`), posted every 6h by \`tripwires.yml\` on the default \`GITHUB_TOKEN\` — independent of the routine fleet's credential path. One comment per run. This is what \`steward\` reads instead of running \`tools/tripwires.py\` itself: its own Copilot cloud-agent sandbox 403s on the Actions API, so it cannot query \`gh run list\` directly (see automation/routines/steward.md). Treat a comment older than ~14h (more than two missed fires) as stale, not as passing." \
+              | grep -oE '[0-9]+$')
+          fi
+          FIRED=$(jq -r '.fired | join(", ")' /tmp/tripwires.json)
+          gh issue comment "$NUM" --repo "$REPO" --body "**$(jq -r .generated_at /tmp/tripwires.json)** — fired: ${FIRED:-none}
+          \`\`\`json
+          $(cat /tmp/tripwires.json)
+          \`\`\`"
 
       # Degrades gracefully: send_email.py exits quietly when SMTP is unset.
       - name: Alert on a fired tripwire
