@@ -139,6 +139,26 @@ The steward routine still runs the same check and still goes down with the fleet
 that is now correct division of labour rather than a gap. The workflow is the
 liveness signal, the routine is what acts on it.
 
+**Correction, 2026-08-02:** the paragraph above is half right. The workflow
+*is* the liveness signal, but "the routine is what acts on it" assumed the
+routine could still read that signal by running the same check itself — and
+it cannot. Steward's Copilot cloud-agent sandbox 403s on the Actions API
+(issues/PRs/contents access only), confirmed on both 2026-08-01 and
+2026-08-02 (issues #196, #197): every attempt to run `tools/tripwires.py`
+inside the routine reports T1/T3/T5/T6 as `UNKNOWN`, correctly rather than
+guessing, but that meant the routine had *no working path* to the mechanical
+result at all, not degraded access to it. Compounding this, T6 itself was
+fleet-wide (fired only if *zero* `autonomy-*` runs succeeded anywhere), so a
+six-of-ten-role outage on 2026-08-02 (bad `MODEL_<ROLE>` variable) sat
+undetected by both the routine (couldn't read the signal) and the tripwire
+(wasn't scoped to notice a partial outage) for a week. Fixed same day: T6 is
+now per-role (`tools/tripwires.py`), and `tripwires.yml` posts its JSON result
+to a "Tripwire monitor" issue every six hours specifically so steward can read
+it with the issues-scope access its sandbox does have, instead of re-running a
+query it cannot make. `automation/routines/steward.md` §1 updated accordingly.
+Division of labour is now: the workflow computes *and* publishes; the routine
+reads the publication and decides whether to halt.
+
 Step 5 is complete.
 
 ## What to watch
