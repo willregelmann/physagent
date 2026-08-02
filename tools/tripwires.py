@@ -95,38 +95,89 @@ class Result:
 # not touch the failing credential path), the digest ran green, and every other
 # tripwire is a ratio over merged work, which goes stale rather than alarming
 # when production stops.
+#
+# ORIGINALLY fleet-wide: FIRED only if *zero* autonomy-* runs succeeded
+# anywhere in the window. Found insufficient on 2026-08-02: a bad MODEL_<ROLE>
+# variable killed six of ten roles (worker/reviewer/red-team/governor/
+# generator/adversary) for a week while responder/scout/librarian/steward —
+# on no override, hence unaffected — kept succeeding on schedule. That alone
+# was enough to hold the fleet-wide check at "ok" the entire time; nothing
+# fired. Rewritten per-role: each role gets its own liveness window sized to
+# its own registered cadence (see each autonomy-<role>.yml's cron and
+# EXPERIMENT.md §Parameters), and T6 FIRES if any role that has actually
+# attempted a run in its window has zero successes in it — a role that
+# simply hasn't been scheduled yet within its own window is not evaluable,
+# not a defect, and is not counted either way.
+
+T6_ROLE_WINDOWS_HOURS = {
+    "worker": 48,
+    "reviewer": 48,
+    "responder": 48,
+    "generator": 48,
+    "adversary": 48,
+    "steward": 48,
+    "red-team": 96,     # every 3 days
+    "scout": 192,       # weekly
+    "librarian": 192,   # weekly
+    "governor": 192,    # weekly light pass; the workflow itself still fires weekly
+    "explorer": 384,    # biweekly, self-gated to even ISO weeks
+}
+# Infrastructure, not research routines — excluded from per-role liveness.
+T6_EXCLUDED_ROLES = {"event-dispatch", "identity-probe"}
+
 
 def t6_liveness() -> Result:
-    runs = gh("run", "list", "--repo", REPO, "--limit", "120",
+    runs = gh("run", "list", "--repo", REPO, "--limit", "200",
               "--json", "name,conclusion,createdAt")
     if runs is None:
         return Result("T6", "routine liveness", "UNKNOWN",
                       "could not query workflow runs")
     routine = [r for r in runs
                if str(r.get("name", "")).startswith("autonomy-")
-               and r.get("name") != "autonomy-event-dispatch"]
+               and str(r.get("name", ""))[len("autonomy-"):] not in T6_EXCLUDED_ROLES]
     if not routine:
         return Result("T6", "routine liveness", "UNKNOWN",
                       "no autonomy-* runs in the queried window")
-    cutoff = _now() - dt.timedelta(hours=T6_LIVENESS_HOURS)
-    recent = [r for r in routine if (_parse(r.get("createdAt", "")) or _now()) >= cutoff]
-    ok = [r for r in recent if r.get("conclusion") == "success"]
-    last_ok = next((r for r in routine if r.get("conclusion") == "success"), None)
-    since = None
-    if last_ok:
-        t = _parse(last_ok.get("createdAt", ""))
-        if t:
-            since = round((_now() - t).total_seconds() / 3600, 1)
-    if ok:
-        return Result("T6", "routine liveness", "ok",
-                      f"{len(ok)} successful routine run(s) in the last {T6_LIVENESS_HOURS}h",
-                      {"recent_runs": len(recent), "successes": len(ok)})
+
+    by_role: dict[str, list] = {}
+    for r in routine:
+        role = str(r.get("name", ""))[len("autonomy-"):]
+        by_role.setdefault(role, []).append(r)
+
+    per_role_data = {}
+    dead_roles = []
+    for role, role_runs in by_role.items():
+        window_hours = T6_ROLE_WINDOWS_HOURS.get(role, T6_LIVENESS_HOURS)
+        cutoff = _now() - dt.timedelta(hours=window_hours)
+        recent = [r for r in role_runs
+                  if (_parse(r.get("createdAt", "")) or _now()) >= cutoff]
+        ok = [r for r in recent if r.get("conclusion") == "success"]
+        entry = {"window_hours": window_hours, "recent_runs": len(recent),
+                  "successes": len(ok)}
+        if recent and not ok:
+            last_ok = next((r for r in role_runs if r.get("conclusion") == "success"), None)
+            since = None
+            if last_ok:
+                t = _parse(last_ok.get("createdAt", ""))
+                if t:
+                    since = round((_now() - t).total_seconds() / 3600, 1)
+            entry["hours_since_last_success"] = since
+            dead_roles.append(role)
+        per_role_data[role] = entry
+
+    if dead_roles:
+        detail = (
+            f"{len(dead_roles)} role(s) attempted a run but had zero successes inside "
+            f"their own liveness window: {', '.join(sorted(dead_roles))}"
+        )
+        return Result("T6", "routine liveness", "FIRED", detail, per_role_data)
+
+    total_ok = sum(d["successes"] for d in per_role_data.values())
+    evaluated = [role for role, d in per_role_data.items() if d["recent_runs"]]
     return Result(
-        "T6", "routine liveness", "FIRED",
-        f"no successful routine run in {T6_LIVENESS_HOURS}h"
-        + (f"; last success {since}h ago" if since is not None else "; none found in window")
-        + f"; {len(recent)} run(s) attempted and all failed",
-        {"recent_runs": len(recent), "successes": 0, "hours_since_last_success": since})
+        "T6", "routine liveness", "ok",
+        f"{total_ok} successful run(s) across {len(evaluated)} role(s) with attempts "
+        "in their respective liveness windows", per_role_data)
 
 
 # ── T1: red team collapsed into approval ───────────────────────────
