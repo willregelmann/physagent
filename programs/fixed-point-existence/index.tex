@@ -101,13 +101,27 @@ We seek $g^*$ such that $\mathcal{F}(g^*) = g^*$.
 \medskip\noindent\textbf{State selection.} Step~1 requires care: the Hadamard condition
 constrains the wavefront set of the two-point function but does not uniquely select a
 state. In the cosmological case (Section~\ref{sec:starobinsky}), de~Sitter symmetry
-selects the conformal vacuum. In the perturbative case (Section~\ref{sec:banach}), the
-state on the corrected geometry is the unique perturbation of the state on the classical
-background. For the Schauder argument (Section~\ref{sec:schauder}), multi-valuedness is
-handled by restricting to a suitable branch or by applying Kakutani's theorem for
-set-valued maps.
+selects the conformal vacuum. Beyond such symmetry-reduced sectors, however, the paper
+does not construct a canonical selector $g\mapsto |\Psi_g\rangle$ on $K_\rho$; Hadamard
+regularity specifies an admissible class, not a unique state. Thus the perturbative
+language ``the unique perturbation of the background state'' is honest only after extra
+input has been supplied (for example a symmetry condition, a chosen foliation with an
+adiabatic prescription, or another verified branch choice).
 
-\medskip\noindent\textbf{Single-valuedness assumption.} The Banach argument (Section~\ref{sec:banach}) assumes $\mathcal{F}$ is single-valued: in the perturbative regime, the Hadamard state on the corrected geometry is the unique perturbation of the state on the classical background, so no state-selection ambiguity arises. The Schauder argument (Section~\ref{sec:schauder}) likewise assumes single-valuedness via the branch restriction noted above. An extension to the genuinely set-valued case via Kakutani's fixed-point theorem is possible but is not pursued here.
+\medskip\noindent\textbf{Single-valuedness and the role of $\Sigma$.} Two distinct
+well-definedness issues are therefore present. First, the passage from a spacetime fixed
+point $g^*=\mathcal{F}(g^*)$ to a fixed point of Cauchy data on a chosen hypersurface
+$\Sigma$ is not automatic: it would require either a genuine spatial reduction of the
+Lorentzian response kernel or a controlled global foliation proving that different choices
+of $\Sigma$ are gauge-equivalent for the construction at hand. The analysis of Gap~(M3)
+shows that this reduction is precisely where the Banach proof's spatial strategy fails, so
+Gap~(M8) is a documented structural obstruction at the generality of
+assumptions~(A1)--(A6). Second, even after fixing $\Sigma$, Hadamard admissibility alone
+does not make $\mathcal{F}$ single-valued: without a verified selector one should regard
+the map as potentially set-valued. A Kakutani-style reformulation would then need its own
+hypotheses checked (nonempty compact convex values and upper semicontinuity after the
+Einstein solve), which is not done here. Any repair is therefore foliation-restricted
+and/or selector-dependent rather than established in the present generality.
 
 %======================================================================
 \section{Cosmological fixed point: exact solution}
@@ -533,14 +547,23 @@ any $s' < s$.
 \subsection{Assumptions}
 
 \begin{itemize}
-\item[\textbf{(A1)}] \textit{Hadamard state existence.} For each $g\in K_\rho$, a
-Hadamard state $|\Psi_g\rangle$ exists and $\langle\hat{T}_{\mu\nu}\rangle_{g,\text{ren}}$
-is well-defined. \textbf{[Established:} Radzikowski~\cite{radzikowski},
-Fulling--Sweeny--Wald~\cite{fulling_sweeny_wald}.\textbf{]}
+\item[\textbf{(A1)}] \textit{Hadamard-state input.} For each $g\in K_\rho$, choose a
+Hadamard state $|\Psi_g\rangle$ so that $\langle\hat{T}_{\mu\nu}\rangle_{g,\text{ren}}$ is
+defined. \textbf{[Status: partly established, partly assumed.} Radzikowski~\cite{radzikowski}
+and Fulling--Sweeny--Wald~\cite{fulling_sweeny_wald} establish the Hadamard
+microlocal/singularity-propagation framework, while Hollands--Wald~\cite{hollands_wald_wick}
+construct the locally covariant Wick-polynomial/time-ordered-product renormalization once a
+Hadamard state is supplied. What the fixed-point map still assumes is the existence of a
+\emph{chosen} family $g\mapsto |\Psi_g\rangle$ on $K_\rho$; no canonical selector is proved
+here.\textbf{]}
 
 \item[\textbf{(A2)}] \textit{Continuous metric dependence.} The map $g\mapsto
 \langle\hat{T}_{\mu\nu}\rangle_{g,\text{ren}}$ is continuous $H^s\to H^{s-2}$.
-\textbf{[Established:} Hollands--Wald~\cite{hollands_wald_wick}.\textbf{]}
+\textbf{[Assumption, not established by the cited algebraic results.} Hollands--Wald
+\cite{hollands_wald_wick} prove local/covariant dependence of Wick polynomials and
+time-ordered products in the algebraic sense; the $H^s\to H^{s-2}$ continuity of the
+\emph{selected-state} expectation value used here is a stronger analytic input, and would
+also require continuity of the selector $g\mapsto |\Psi_g\rangle$.\textbf{]}
 
 \item[\textbf{(A3)}] \textit{Uniform stress-energy bound.} There exists $B(\rho)<\infty$
 with $\|\langle\hat{T}_{\mu\nu}\rangle_{g,\text{ren}}\|_{H^{s-2}} \leq B(\rho)$ for all
@@ -648,8 +671,10 @@ At order $\kappa^0$, the evolution is classical GR with given matter initial dat
 At order $\kappa^1$, the semiclassical correction $\langle\hat{T}_{\mu\nu}\rangle^{(1)}$
 is computed on the order-$\kappa^0$ background geometry. By Parker--Simon~\cite{parker_simon}
 order reduction, the resulting system is second-order in time, with initial data for
-$g_{\mu\nu}$ and $\partial_t g_{\mu\nu}$ on $\Sigma$ supplemented by the adiabatic vacuum
-state at each order.
+$g_{\mu\nu}$ and $\partial_t g_{\mu\nu}$ on $\Sigma$ supplemented by a \emph{chosen}
+perturbative state prescription (for example an adiabatic branch on a fixed foliation);
+the existence/uniqueness of such a prescription is precisely part of Gap~(M9), not an
+established theorem at the generality used elsewhere in the paper.
 
 The order-reduced system at each order $\kappa^n$ is a second-order hyperbolic PDE,
 well-posed by Choquet-Bruhat~\cite{choquet_bruhat}. The perturbative expansion is valid
@@ -730,21 +755,32 @@ that any repair must still discharge, in the norm that repair uses. Restoring a 
 label at the general stated scope is therefore not available; a foliation-restricted
 re-promotion is.
 
-\item \textbf{Well-definedness of the map $\mathcal{F}$ (M8, M9).}
-Two structural gaps predate the demotion and remain open. \emph{(M8)}~Sections
-\ref{sec:banach}--\ref{sec:schauder} work with fields in $H^s(\Sigma)$ on a single Cauchy
-surface, while $\mathcal{F}$ is defined on spacetime geometries; the equivalence between
-a spacetime fixed point and a fixed point of data on a chosen $\Sigma$ is never
-constructed (the Hadamard condition is global), and the role of the chosen $\Sigma$ must
-be shown to be pure gauge. \emph{(M9)}~The single-valuedness of $\mathcal{F}$ rests on
-the assertion that the Hadamard state on the corrected geometry is ``the unique
-perturbation'' of the background state; Hadamard states are not unique, and the
-perturbation prescription that would make this precise is assumed, not constructed.
-Relatedly, the ``Established'' tags on (A1) and (A2) are generous: Hollands--Wald
-\cite{hollands_wald_wick} establishes local/analytic metric dependence of Wick
-polynomials in the algebraic sense, not an $H^s \to H^{s-2}$ continuity statement, and
-the deformation existence argument behind (A1) should be attributed and verified
-precisely.
+\item \textbf{Well-definedness of the map $\mathcal{F}$ (M8, M9): M8 is a documented
+obstruction; M9 still needs extra selector structure.}
+\emph{(M8)}~The issue is now pinned down by the same analysis that closed FPE-4 with
+Outcome~B: the Banach proof's missing spatial reduction is not a repairable bookkeeping
+step but a structural obstruction
+(\texttt{explorations/2026-06-16-FPE4-M3-structural-obstruction.md}). A spacetime fixed
+point can be rewritten as a fixed point of data on a chosen $\Sigma$ only if one first
+reduces the Lorentzian, $J^-(x)$-supported response kernel to a controlled spatial object,
+or else supplies a controlled global foliation proving the $\Sigma$-choice is pure gauge
+for the construction. Assumptions~(A1)--(A6) provide neither, so at the paper's stated
+generality M8 is a \emph{documented structural obstruction}; any honest repair is
+foliation-restricted and local in time. \emph{(M9)}~Hadamard regularity still does not
+single out a unique state. The abstract-only pointer recorded in issue~\#140 (Eleanor
+March, \texttt{arXiv:2606.22767}, exploratory/unverified against the primary source) is
+useful here in a limited way: even its abstract argues mainly about why the Hadamard
+condition should define the \emph{admissible class} of states for well-defined operator
+products and renormalized observables, not a unique selector. That surviving motivation is
+compatible with the present paper, but it does not close M9. To make $\mathcal{F}$
+single-valued one must add a verified selector $g\mapsto |\Psi_g\rangle$ (symmetry,
+adiabatic branch on a chosen foliation, boundary condition, variational principle, \emph{etc.})
+and prove the corresponding continuity; alternatively one must reformulate the problem as a
+genuine correspondence and check Kakutani-type hypotheses after the Einstein solve. Neither
+has been carried out here. Relatedly, the old ``Established'' reading of (A1)--(A2) was too
+strong: Hollands--Wald~\cite{hollands_wald_wick} gives the locally covariant algebraic
+renormalization machinery, not the paper's required $H^s\to H^{s-2}$ continuity for a
+chosen family of states.
 
 \item \textbf{Extension to massless fields.}
 The binding obstruction for the massless extension is Gap~(M3), not an
