@@ -1,0 +1,7 @@
+eps=0.15: no three-extremum solutions in c3 in [-0.70,-0.25]; n_ext values: [1]
+eps=0.20: no three-extremum solutions in c3 in [-0.70,-0.25]; n_ext values: [1]
+eps=0.25: no three-extremum solutions in c3 in [-0.70,-0.25]; n_ext values: [1]
+eps=0.30: no three-extremum solutions in c3 in [-0.70,-0.25]; n_ext values: [1]
+eps=0.35: no three-extremum solutions in c3 in [-0.70,-0.25]; n_ext values: [1]
+eps=0.40: window c3 in [-0.360,-0.350]; symmetric DB at c3*=-0.35069, peak a=0.7819, neck a=0.7768; I_DB/a=-9.5913, I_S4/a=-6.6000, dI/a=-2.9913
+eps=0.45: window c3 in [-0.390,-0.330]; symmetric DB at c3*=-0.35308, peak a=0.7657, neck a=0.7497; I_DB/a=-10.1189, I_S4/a=-6.8000, dI/a=-3.3189

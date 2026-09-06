@@ -1,0 +1,2209 @@
+                                                     Trace anomaly driven inflation
+                                                          S.W. Hawking∗, T. Hertog†,
+                                         DAMTP, Centre for Mathematical Sciences, University of Cambridge
+                                            Wilberforce Road, Cambridge CB3 0WA, United Kingdom
+                                                                     and
+                                                                 H.S. Reall‡
+arXiv:hep-th/0010232v4 26 Jan 2001
+
+
+
+
+                                            Physics Department, Queen Mary and Westfield College,
+                                               Mile End Road, London E1 4NS, United Kingdom
+
+                                                         Preprint DAMTP-2000-92, QMW-PH/00-10
+                                                                            25 October 2000
+
+
+                                                                                  Abstract
+                                             This paper investigates Starobinsky’s model of inflation driven by the trace anomaly
+                                         of conformally coupled matter fields. This model does not suffer from the problem of
+                                         contrived initial conditions that occurs in most models of inflation driven by a scalar field.
+                                         The universe can be nucleated semi-classically by a cosmological instanton that is much
+                                         larger than the Planck scale provided there are sufficiently many matter fields. There are
+                                         two cosmological instantons: the four sphere and a new “double bubble” solution. This
+                                         paper considers a universe nucleated by the four sphere. The AdS/CFT correspondence is
+                                         used to calculate the correlation function for scalar and tensor metric perturbations during
+                                         the ensuing de Sitter phase. The analytic structure of the scalar and tensor propagators is
+                                         discussed in detail. Observational constraints on the model are discussed. Quantum loops
+                                         of matter fields are shown to strongly suppress short scale metric perturbations, which
+                                         implies that short distance modifications of gravity would probably not be observable in the
+                                         cosmic microwave background. This is probably true for any model of inflation provided
+                                         there are sufficiently many matter fields. This point is illustrated by a comparison of
+                                         anomaly driven inflation in four dimensions and in a Randall-Sundrum brane-world model.
+
+                                     ∗
+                                       email: S.W.Hawking@damtp.cam.ac.uk
+                                     †
+                                       email: T.Hertog@damtp.cam.ac.uk
+                                     ‡
+                                       email: H.S.Reall@qmw.ac.uk
+
+
+
+
+                                                                                       1
+Contents
+1 Introduction                                                                                    3
+
+2 O(4) Instantons                                                                                 6
+  2.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    6
+  2.2 The trace anomaly . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       7
+  2.3 Energy conservation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       8
+  2.4 Shape of the instanton . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      9
+  2.5 Analytic continuation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    11
+
+3 Metric perturbations                                                                           11
+  3.1 Scalars, vectors and tensors . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     11
+  3.2 Matter effective action . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    12
+  3.3 Solving the Einstein equations: scalars and vectors . . . . . . . . . . . . . . . .        15
+  3.4 Tensor perturbations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     17
+  3.5 The gravitational action . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     18
+  3.6 Metric correlation functions . . . . . . . . . . . . . . . . . . . . . . . . . . . . .     21
+
+4 Analytic structure of propagators                                                              22
+  4.1 Flat space limit . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   22
+  4.2 Scalar propagator on the sphere . . . . . . . . . . . . . . . . . . . . . . . . . . .      23
+  4.3 Tensor propagator on the sphere . . . . . . . . . . . . . . . . . . . . . . . . . . .      24
+  4.4 Complex poles . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    26
+
+5 Lorentzian two-point correlators                                                               27
+  5.1 Scalar propagator . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    27
+  5.2 Tensor propagator . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      28
+
+6 Observational constraints                                                                      29
+  6.1 Duration of inflation . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .    29
+  6.2 Amplitude of perturbations . . . . . . . . . . . . . . . . . . . . . . . . . . . . .       31
+
+7 Short distance physics                                                                         32
+  7.1 Introduction . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .   32
+  7.2 Randall-Sundrum model . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .        33
+  7.3 Brane-world perturbations . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .      34
+
+8 Conclusions                                                                                    37
+
+
+
+
+                                                 2
+1    Introduction
+Inflation [1] in the very early universe seems the only natural explanation of many observed
+features of our universe, in particular the recent measurements of a Doppler peak in the cosmic
+microwave background fluctuations [2]. However, while it provides an appealing explanation for
+several cosmological problems, it provokes the natural question of why the conditions were such
+as to start inflation in the first place.
+    The new inflationary scenario [3, 4] was proposed primarily to overcome the problem of
+obtaining a natural exit from the inflationary era. In this model, the value of the scalar is
+supposed to be initially confined to zero by thermal effects. As the universe expands and cools
+these effects disappear, leaving the scalar field miraculously exposed on a mountain peak of the
+potential. If the low temperature potential is sufficiently flat near φ = 0 then slow roll inflation
+will occur, ending when the field reaches its true minimum φc . This scenario seems implausible
+because a high temperature would confine only the average or expectation value of the scalar to
+zero. Rather than be supercooled to a state with φ ∼ 0 locally, the field fluctuates and rapidly
+forms domains with φ near ±φc The dynamics of the phase transition is governed by the growth
+and coalescence of these domains and not by a classical roll down of the spatially averaged field
+φ [5]. Because this and other problems, new inflation was largely abandoned in favor of chaotic
+inflation [6] in which it is just assumed that that the scalar field was initially displaced from
+the minimum of the potential. One attempt to explain these initial conditions for inflation in
+terms of quantum fluctuations of the scalar field seems to lead to eternal inflation at the Planck
+scale [7], at which the theory breaks down. Another attempt, using the Hartle-Hawking “no
+boundary” proposal [8], found that the most probable universes did not have enough inflation
+[9]. No satisfactory answer to the question of why the scalar field was initially displaced from
+the minimum of its potential has been found.
+    In this paper we will reconsider an earlier model, in which inflation is driven by the trace
+anomaly of a large number of matter fields. The Standard Model of particle physics contains
+nearly a hundred fields. This is at least doubled if the Standard Model is embedded in a
+supersymmetric theory. Therefore there were certainly a large number of matter fields present
+in the early universe, so the large N approximation should hold in cosmology, even at the
+beginning of the universe. In the large N approximation, one performs the path integral over
+the matter fields in a given background to obtain an effective action that is a functional of the
+background metric:                              Z
+                                 exp(−W [g]) = d[φ] exp(−S[φ; g]).                             (1.1)
+One then argues that the effect of gravitational fluctuations is small in comparison to the large
+number of matter fluctuations. Thus one can neglect graviton loops, and look for a stationary
+point of the combined gravitational action and the effective action for the matter fields. This is
+equivalent to solving the Einstein equations with the source being the expectation value of the
+matter energy momentum tensor:
+                                          1
+                                     Rij − Rgij = 8πGhTij i,                                   (1.2)
+                                          2
+where
+                                                    2 δW
+                                       hT ij i = − √         .                                 (1.3)
+                                                     −g δgij
+
+                                                 3
+Finally, one can calculate linearized metric fluctuations about this stationary point metric and
+check they are small. This is confirmed observationally by measurements of the cosmic mi-
+crowave background, which indicate that the primordial metric fluctuations were of the order
+of 10−5 [10].
+    Matter fields might be expected to become effectively conformally invariant if their masses
+are negligible compared to the spacetime curvature. Classical conformal invariance is broken
+at the quantum level [11] (see [12, 13] for reviews), leading to an anomalous trace for the
+energy-momentum tensor:
+                                          g ij hTij i =
+                                                      6 0.                                  (1.4)
+This trace is entirely geometrical in origin and therefore independent of the quantum state. In
+a maximally symmetric spacetime, the symmetry of the vacuum implies that the expectation
+value of the energy momentum tensor can be expressed in terms of its trace
+                                                    1
+                                        h0|Tij |0i = gij g klh0|Tkl |0i.                                    (1.5)
+                                                    4
+Thus the trace anomaly acts just like a cosmological constant for these spacetimes. Hence a
+positive trace anomaly permits a de Sitter solution to the Einstein equations [14].
+    This is very interesting from the point of view of cosmology, as pointed out by Starobinsky
+[15]. Starobinsky showed that the de Sitter solution is unstable, but could be long-lived, and
+decays into a matter dominated Friedman-Robertson-Walker (FRW) universe. The purpose of
+Starobinsky’s work was to demonstrate that quantum effects of matter fields might resolve the
+Big Bang singularity1 . From a modern perspective, it is more interesting that the conformal
+anomaly might have been the source of a finite but significant period of inflation in the early
+universe. This inflation would be followed by particle production and (p)reheating during the
+subsequent matter dominated phase. Starobinsky’s work is reviewed and extended by Vilenkin
+in [17]. For a more recent discussion of the Starobinsky model, see [18].
+    Starobinsky showed that the de Sitter phase is unstable both to the future and to the past, so
+it was not clear how the universe could have entered the de Sitter phase. However, this problem
+can be overcome by an appeal to quantum cosmology, which predicts that the de Sitter phase
+of the universe is created by semi-classical tunneling from nothing. This process is mediated
+by a four sphere cosmological instanton [17]. One of the results of this paper is that the four
+sphere is not the only cosmological instanton in this model.
+    In order to test the Starobinsky model, it is necessary to compare its predictions for the
+fluctuations in the cosmic microwave background (CMB) with observation. This was partly
+addressed by Vilenkin [17]. Using an equation derived by Starobinsky [19], Vilenkin showed
+that the amplitude of long wavelength gravitational waves could be brought within observational
+limits at the expense of some fine-tuning of the coefficients parameterizing the trace anomaly.
+Density perturbations were discussed by Starobinsky in [20].
+    The analysis of Starobinsky and Vilenkin was complicated by the fact that tensor pertur-
+bations destroy the conformal flatness of a FRW background, making the effective action for
+matter fields hard to calculate. However, we now have a way of calculating the effective action
+for a particular theory, namely N = 4 U(N) super Yang-Mills theory, using the AdS/CFT
+   1
+    Another paper [16] which discussed the effects of the trace anomaly in cosmology failed to obtain non-singular
+solutions because it included a contribution from a classical fluid.
+
+
+                                                        4
+correspondence [21]. In this paper we will calculate the effective action for this theory in a
+perturbed de Sitter background. This enables us to calculate the correlation function for metric
+perturbations around the de Sitter background. We can then compare our results with observa-
+tions. The fact that we are using the N = 4 Yang-Mills theory is probably not significant, and
+we expect our results to be valid for any theory that is approximately massless during the de
+Sitter phase. One might think that our results could shed light on the effects of matter interac-
+tions during inflation since AdS/CFT involves a strongly interacting field theory. However, as
+we shall explain, our results are actually independent of the Yang-Mills coupling.
+    Our calculations will be performed in Euclidean signature (on the four sphere), and then
+analytically continued to Lorentzian de Sitter space. The condition that all perturbations are
+regular on the four sphere defines the initial quantum state for Lorentzian perturbations. The
+four sphere instanton is much larger than the Planck scale (since we are dealing with a large N
+theory), so there is a clear cut separation into background metric and fluctuation.
+    We shall include in our action higher derivative counterterms, which arise naturally in the
+renormalization of the Yang-Mills theory. There are three independent terms that are quadratic
+in the curvature tensors: the Euler density, the square of the Ricci scalar and the square of the
+Weyl tensor. The former just contributes a multiple of the Euler number to the action. Metric
+perturbations do not change the Euler number, so this term has no effect. The square of the
+Ricci scalar has the important effect of adjusting the coefficient of the ∇2 R term in the trace
+anomaly. It is precisely this term that is responsible for the Starobinsky instability, so by varying
+the coefficient of the R2 counter term we can adjust the duration of inflation. The Weyl-squared
+counterterm does not affect the trace anomaly but it can contribute to suppression of tensor
+perturbations. The effects of this term were neglected by Starobinsky and Vilenkin. They also
+neglected the effects of the non-local part of the matter effective action. We shall take full
+account of all these effects.
+    Vilenkin showed that the initial de Sitter phase is followed by a phase of slow-roll inflation
+before inflation ends and the matter-dominated phase begins. Since the horizon size grows
+significantly during this slow-roll phase, it is important to investigate whether modes we observe
+today left the horizon during the de Sitter phase or during the slow-roll phase. If the present
+horizon size left during the de Sitter phase, we find that the amplitude of metric fluctuations
+can be brought within observational bounds if N, the number of colours, is of order 105 . Such
+a large value for N is rather worrying, which leads us to the second possibility, that the present
+horizon size left during the slow-roll phase. Our results then suggest that the coefficient of
+the R2 term must be at most of order 108 , and maybe much lower, but N is unconstrained
+(except by the requirement that the large N approximation is valid so that AdS/CFT can be
+used). We also find that the tensor perturbations can be suppressed independently of the scalar
+perturbations by adjusting the coefficient of the Weyl-squared counterterm in the action.
+    Inflation blows up small scale physics to macroscopic scales. This suggests that inflation
+may lead to observational consequences of small-scale modifications of Einstein gravity, such as
+extra dimensions. However, we find that the non-local part of the matter effective action has the
+effect of strongly suppressing tensor fluctuations on very small scales, a result first noted in flat
+space by Tomboulis [22]. This suggests that any small-scale modifications to four dimensional
+Einstein gravity would be unobservable in the CMB since matter fields would dominate the
+graviton propagator at the scales at which such modifications might be expected to become
+important. This result is probably not restricted to trace anomaly driven inflation since it is
+
+                                                 5
+simply a consequence of the presence of a large number of matter fields. As we have mentioned,
+there really are a large number of matter fields in the universe and these will suppress small-scale
+graviton fluctuations in any model of inflation.
+    We illustrate this point by considering a Randall-Sundrum (RS) [23] version of the Starobin-
+sky model. In the RS model, our universe is regarded as a thin domain wall in anti-de Sitter
+space (AdS). RS showed that linearized four dimensional gravity is recovered on the domain wall
+at distances much larger that the AdS radius of curvature, but gravity looks five dimensional
+at smaller scales. Therefore, if the AdS length scale is taken to be small, then the RS model
+is a short distance modification of four dimensional Einstein gravity. We shall show that when
+the large N field theory is included, the effects of the matter fields dominate the RS correc-
+tions to the graviton propagator and render them unobservable. This work is an extension of
+our previous paper [24] to include the effects of scalar perturbations and the higher derivative
+counterterms in the action.
+    This paper is organized as follows. We start in section 2 by showing that the Starobinsky
+model has two instantons: the round four sphere and a new “double bubble” instanton. We
+consider only the four sphere instanton in this paper. In section 3 we use the AdS/CFT cor-
+respondence to calculate the effective action of the large N Yang-Mills theory on a perturbed
+four sphere. Coupling this to the gravitational action then allows us to compute the scalar and
+tensor graviton propagators on the four sphere. In section 4, we discuss the analytic structure
+of our propagators. The tensor propagator is shown to be free of ghosts. In section 5, we show
+how our Euclidean propagators are analytically continued to Lorentzian signature. Section 6
+discusses two observational constraints on the Starobinsky model, namely the duration of infla-
+tion and the amplitude of perturbations. In section 7, we use the RS version of the Starobinsky
+model as an example to illustrate how matter fields strongly suppress metric perturbations on
+small scales. Finally, we summarize our conclusions and suggest possible directions for future
+work.
+
+
+2       O(4) Instantons
+2.1     Introduction
+Homogeneous isotropic FRW universes are obtained by analytic continuation of cosmological in-
+stantons invariant under the action of an O(4) isometry group. In other words, we are interested
+in instantons with metrics of the form
+
+                                         ds2 = dσ 2 + b(σ)2 dΩ23 .                                   (2.1)
+
+We shall restrict ourselves to instantons with spherical topology, for which b(σ) vanishes at a
+“North pole” and a “South pole”. Regularity requires that b′ (σ) = ±1 at these poles. (Instan-
+tons with topology R × S 3 also exist but are excluded by the no boundary proposal because
+they are non-compact.) The scale factor b(σ) is determined by Einstein’s equation2
+
+                                            Gij = 8πGhTij i,                                         (2.2)
+    2
+    We use a positive signature metric and a curvature convention for which a sphere or de Sitter space has
+positive Ricci scalar.
+
+
+                                                    6
+where the right hand side involves the expectation value of the energy momentum tensor of the
+matter fields, which we are assuming to come from the N = 4 U(N) super Yang-Mills theory.
+hTij i can be obtained for the most general quantum state of the Yang-Mills theory consistent
+with O(4) symmetry by using the trace anomaly and energy conservation, as we shall describe
+below.
+
+2.2     The trace anomaly
+The general expression for the trace anomaly of our strongly coupled large N CFT3 was calcu-
+lated using AdS/CFT in [25]. It turns out that it is exactly the same as the one loop result for
+the free theory, which is given for a general CFT by the following equation [12, 13]
+
+                                       g ij hTij i = cF − aG + d∇2 R                                   (2.3)
+
+where F is the square of the Weyl tensor:
+
+                                              F = Cijkl C ijkl ,                                       (2.4)
+
+G is proportional to the Euler density:
+
+                                    G = Rijkl Rijkl − 4Rij Rij + R2 ,                                  (2.5)
+
+and the constants a, c and d are given in terms of the field content of the CFT by
+                                          1
+                                 a=             (NS + 11NF + 62NV ) ,                                  (2.6)
+                                       360(4π)2
+                                        1
+                                  c=          (NS + 6NF + 12NV ) ,                                     (2.7)
+                                     120(4π)2
+                                        1
+                                  d=          (NS + 6NF − 18NV ) ,                                     (2.8)
+                                     180(4π)2
+where NS is the number of real scalar fields, NF the number of Dirac fermions and NV the
+number of vector fields. The coefficients a and c are independent of renormalization scheme but
+d is not. We have quoted the result given by zeta-function regularization or point-splitting; the
+result given by dimensional regularization has +12 instead of −18 as the coefficient of NV [12].
+In fact, d can be adjusted to any desired value by adding the finite counter term
+                                                 αN 2 Z 4 √ 2
+                                        Sct =           d x gR .                                       (2.9)
+                                                192π 2
+This counter term explicitly breaks conformal invariance. α is a dimensionless constant. The
+field content of the Yang-Mills theory is NS = 6N 2 , NF = 2N 2 (there are 4N 2 Majorana
+fermions, which is equivalent to 2N 2 Dirac fermions) and NV = N 2 . This gives
+
+                                                   N2
+                                        a=c=            ,     d = 0.                                  (2.10)
+                                                  64π 2
+   3
+     We shall often refer to the N = 4 Yang-Mills theory as a CFT even though it is not conformally invariant
+on the four sphere.
+
+                                                      7
+We have used the coefficient −18 for NV when calculating d – this is the value predicted by
+AdS/CFT [25]. If d = 0 then inflation never ends in Starobinsky’s model. We shall therefore
+include the finite counter term, which does not change a or c but gives
+                                                 αN 2
+                                              d=       .                                     (2.11)
+                                                 16π 2
+When we couple the Yang-Mills theory to gravity, the presence of Sct implies that we are
+effectively dealing with a higher derivative theory of gravity. It is, of course, arbitrary whether
+one regards Sct as part of the gravitational action or as part of the matter action. We have
+adopted the latter perspective and therefore included an explicit factor of N 2 in the action
+(since there are O(N 2 ) fields in the Yang-Mills theory).
+
+2.3    Energy conservation
+Having obtained the trace of the energy-momentum tensor, we can use energy-momentum con-
+servation to obtain the full energy-momentum tensor. Introduce the energy density ρ and
+pressure p, defined in an orthonormal frame by
+                                 hTσσ i = −ρ,            hTαβ i = pδαβ .                    (2.12)
+The minus sign in the first expression arises because we are considering Euclidean signature.
+These must obey
+                                       − ρ + 3p = hT i,                                (2.13)
+and we also have the energy-momentum conservation equation
+                                              3
+                                       ρ′ +      b(p + ρ) = 0.                              (2.14)
+                                              b′
+Eliminating p gives an equation for ρ:
+                                             ′
+                                           b4 ρ    = −b3 b′ hT i.                           (2.15)
+Substituting in the expression for hT i and integrating gives
+               3N 2 (1 − b′ 2 )2
+                       "                                                            #
+                                                 1                  3 4
+                                                                            
+                                                        2     2             2
+            ρ= 2 4               + α b2 b′ b′′′ − b2 b′′ + bb′ b′′ − b′ + b′ + C .          (2.16)
+              8π b      4                        2                  2
+The expression for p is easily determined from equation 2.13. The appearance of the constant
+of integration C shows that the quantum state can contain an arbitrary amount of radiation.
+Setting C = α/2 reproduces the energy-momentum tensor for the vacuum state. The cosmology
+resulting from the trace anomaly in the presence of an arbitrary amount of null radiation was
+investigated in [16]. The cosmological solutions obtained were generically singular. However,
+Starobinsky [15] showed if this null radiation is not present (i.e., if C = α/2) then non-singular
+solutions can be obtained.
+    To conclude, we have found the energy-momentum tensor for a strongly coupled large N
+Yang-Mills theory in the most general quantum state that is consistent with O(4) symmetry.
+The effects of strong coupling do not show up in our energy-momentum tensor, which is of the
+same form as used in [16, 15]. In the next subsection we shall use this result in the Einstein
+equations to determine the shape of the instanton.
+
+                                                     8
+2.4    Shape of the instanton
+Taking the σσ component of the Einstein equation gives
+
+                                                b′ 2 − 1
+                                         Gσσ ≡ 3 2 = −8πGρ.                                          (2.17)
+                                                    b
+Substituting in our result for ρ gives
+
+        1 − b′ 2   N 2 G (1 − b′ 2 )2               b′′ 2 b′ 2 b′′ 3b′ 4 b′ 2
+                           "                                                          !      #
+                                          b′ b′′′                                          C
+                 =                    + α         −      + 3 − 4 + 4                      + 4 .      (2.18)
+          b2        π       4b4            b2       2b2     b      2b    b                 b
+
+Regularity at the poles of the instanton requires b′ → ±1 as b → 0. Substituting this into
+equation 2.18, one finds that b′′ = 0 and C = α/2 are also required for regularity at the poles.
+In other words, the no boundary proposal has singled out a particular class of quantum states
+for us, namely those that do not contain any radiation. These are precisely the states that can
+give rise to non-singular cosmological solutions. In our picture this is because such cosmological
+solutions can be obtained from a Euclidean instanton.
+    It is convenient to introduce a length scale R defined by
+
+                                                  2 N 2G
+                                                R =      .                                           (2.19)
+                                                     4π
+We can now define dimensionless variables
+
+                                     σ̃ = σ/R,        f (σ̃) = b(σ)/R.                               (2.20)
+
+Equation 2.18 becomes
+                                                                              !4                
+      1 − f ′2   (1 − f ′ 2 )2        2f ′ f ′′′ f ′′ 2     f ′2 f ′′     f′           f ′2  1
+               =               + 2α            −       + 2           − 3           + 2 4 + 4.      (2.21)
+        f2           f4                 f2        f2          f3          f            f    f
+
+The boundary conditions at the poles are f = 0, f ′ = ±1, f ′′ = 0 (where a prime now denotes
+a derivate with respect to σ̃). One solution to equation 2.21 is
+
+                                               f (σ̃) = sin σ̃,                                      (2.22)
+
+which simply gives us a round four sphere instanton. Note that the expression multiplying α
+vanishes for this solution. Another simple solution is
+
+                                                 f (σ̃) = σ̃,                                        (2.23)
+
+i.e. flat Euclidean space.
+    In order to integrate 2.21 numerically, we assume that σ̃ = 0 is a regular “North pole” of
+the instanton. We start the integration at σ̃ = ǫ. The boundary conditions for the integration
+are
+                                               1
+                                  f (ǫ) = ǫ + f ′′′ (0)ǫ3 + . . .                       (2.24)
+                                               6
+                                               1
+                                  f ′ (ǫ) = 1 + f ′′′ (0)ǫ2 + . . .                     (2.25)
+                                               2
+                                                      9
+                        0.6
+
+
+
+
+                        0.4
+
+
+
+
+                        0.2
+
+
+
+
+                              0         1                 2                 3   4
+
+
+
+Figure 1: Scale factor f (σ̃) for a regular “double bubble” instanton with α = −1 and f ′′′ (0) =
+−2.05.
+
+                                            f ′′ (ǫ) = f ′′′ (0)ǫ + . . .                          (2.26)
+We shall neglect the higher order terms (denotes by the ellipses) in our numerical integration.
+It is important to retain all of the terms displayed in order to obtain f ′′′ (ǫ) = f ′′′ (0) + . . . from
+the equation of motion. Note that f ′′′ (0) is a free parameter. Our strategy is to choose the
+value of f ′′′ (0) so that the instanton is compact and closes off smoothly at the South pole.
+       The instanton is non-compact when f ′′′ (0) > 0. The solution is flat Euclidean space when
+f ′′′ (0) = 0. We shall therefore concentrate on f ′′′ (0) < 0. The four sphere solution has f ′′′ (0) =
+−1. It is convenient to discuss the cases α > 0 and α < 0 separately.
+       If α > 0 then there are two types of behaviour. (i) −1 < f ′′′ (0) < 0 the instanton is non-
+compact. For f ′′′ (0) close to −1, the scale factor increases to a local maximum and then starts
+to decrease. However, before reaching f = 0, the scale factor turns around again and increases
+indefinitely. (ii) f ′′′ (0) < −1. These instantons are compact but do not have a regular South
+pole since b′ diverges there. They are the analogues of the singular instantons discussed in [9].
+       If α < 0 then there are two types of behaviour. (i) −1 < f ′′′ (0) < 0. These instantons are
+compact with an irregular South pole. (ii) f ′′′ (0) < −1. The scale factor of these instantons
+increases to a local maximum, decreases to a local minimum, then has another maximum before
+decreasing to zero at the South pole, which is irregular. The instanton therefore has two “peaks”.
+There is a critical value γ(α) such that for γ < f ′′′ (0) < −1 the larger peak is near the North
+pole while for f ′′′ (0) < γ, the larger peak is near the South pole. It follows that when f ′′′ (0) = γ
+the peaks have the same size and the instanton is symmetrical about its equator with a regular
+South pole. The scale factor is shown in figure 1.
+       To summarize, if α < 0 then there are two regular compact instantons, namely the round
+four sphere and a new “double bubble” instanton. We shall not have much to say about the new
+instanton in this paper since the lack of an analytical solution makes dealing with perturbations
+of this instanton rather difficult.
+
+
+
+                                                        10
+2.5    Analytic continuation
+The four sphere instanton can be analytically continued to Lorentzian signature by slicing at
+the equator σ̃ = π/2 and writing
+                                              π
+                                        σ̃ = − it/R,                                   (2.27)
+                                              2
+which yields the metric on a closed de Sitter universe:
+
+                                  ds2 = −dt2 + R2 cosh2 (t/R)dΩ23 .                        (2.28)
+
+The Hubble parameter is R−1 , which is much smaller than the Planck mass because N is large.
+A change of coordinate takes one from a closed FRW metric to an open FRW metric.
+    The double bubble instanton can be analytically continued across its “equator” to give a
+closed FRW universe. Numerical studies suggest that this universe rapidly collapses. How-
+ever, this instanton can also be continued to an inflationary open universe (the details of the
+continuation are the same as in [9]) and therefore may give rise to realistic cosmology.
+
+
+3     Metric perturbations
+3.1    Scalars, vectors and tensors
+In this section we shall calculate correlation functions for metric perturbations around our four
+sphere instanton. These can then be analytically continued to yield correlation functions in de
+Sitter space. The metric on the perturbed four sphere can be written
+
+                                     ds2 = (R2 γ̂ij + hij )dxi dxj ,                        (3.1)
+
+where γ̂ij denotes the metric on a unit four sphere. The perturbation can be decomposed into
+scalar, vector and tensor parts with respect to the four sphere:
+                                            ˆ (i χj) (x) + ∇
+                       hij (x) = θij (x) + 2∇              ˆ i∇
+                                                              ˆ j φ(x) + γ̂ij ψ(x).         (3.2)
+                                                  ˆ θij is a transverse traceless symmetric
+The connection on the unit four sphere is denoted ∇.
+tensor with respect to the four sphere:
+                                             ˆ i θij = θi = 0,
+                                             ∇                                              (3.3)
+                                                        i
+
+where indices i, j are raised and lowered with γ̂ij . χi is a transverse vector:
+                                                ˆ i χi = 0.
+                                                ∇                                           (3.4)
+
+There is a small ambiguity in our decomposition - it is invariant under φ → φ + Y , ψ → ψ + λY
+where Y satisfies
+                                     ∇  ˆ j Y + λγ̂ij Y = 0.
+                                     ˆ i∇                                                 (3.5)
+This equation can only be solved when λ = 1. The solutions are simply the regular p = 1
+spherical harmonics on S 4 , i.e., the regular p = 1 solutions of
+                                                        
+                                           ˆ 2 + p(p + 3) Y = 0.
+                                           ∇                                                (3.6)
+
+                                                    11
+The spherical harmonics are labelled with integers p, k, l, m with 0 ≤ |m| ≤ l ≤ k ≤ p. Hence
+there are five independent spherical harmonics with p = 1, given in terms of spherical harmonics
+Yklm on the three sphere by
+                                     sin ρY1lm ,   cos ρY000                               (3.7)
+where ρ is the polar angle on the four sphere. These five harmonics correspond to gauge
+transformations involving the five conformal Killing vector fields on the four sphere [26]. If we
+assume that ψ is regular on S 4 then we can expand it in terms of spherical harmonics. We shall
+fix the residual gauge ambiguity by demanding that ψ contain no contribution from the p = 1
+harmonics.
+    It is possible to gauge away φ and χi through a coordinate transformation on the four sphere
+of the form xi → xi − η i − ∂ i η, where η i is a transverse vector and η is a scalar. For the moment
+we shall use a general gauge but later we will assume that φ and χi vanish.
+
+3.2    Matter effective action
+We need to calculate the action for metric perturbations. The hardest part to calculate is
+the effective action for the matter fields. This can be expanded around a round four sphere
+background:
+                            1     √
+                                    Z
+                             (0)
+                 W = W −      d4 x γhTij (x)ihij (x)
+                            2 Z
+                     1    4 √       √
+                       Z
+                   +     d x γ d4 x′ γhij (x)hTij (x)Tkl (x′ )ihkl (x′ ) + . . .               (3.8)
+                     4
+Here γ denotes the determinant of the metric on the sphere. If we know the one and two
+point function of the CFT energy momentum tensor on a round S 4 then we can calculate the
+effective action to second order in the metric perturbation. The one point function is given
+by the conformal anomaly on the round four sphere. In flat space, the 2-point function is
+determined entirely by conformal invariance. On the sphere, symmetry determines the 2-point
+function only up to a single unknown function [27]. However, the sphere is conformally flat so
+one can calculate the 2-point function on the sphere using a conformal transformation from flat
+space. The energy-momentum tensor transforms anomalously, so there will be a contribution
+from the trace anomaly in the transformation. Therefore, the 2-point function on the sphere is
+determined by two quantities, namely the 2-point function in flat space, and the trace anomaly.
+For the N = 4 super Yang-Mills theory that we are considering, both of these quantities are
+independent of the Yang-Mills coupling. It follows that the 2-point function on the sphere
+(or any other conformally flat space) must be independent of coupling. Therefore the effective
+action will be independent of coupling to second order in the metric perturbation so the effects
+of strong coupling will not show up in our results.
+    For the moment, we shall consider the four sphere to have arbitrary radius R rather than
+using the value given by equation 2.19. Introduce a fictional ball of AdS that has the sphere as
+its boundary. Let ¯l, Ḡ be the AdS radius and Newton constant of this region. If we take ¯l to
+zero then the sphere is effectively at infinity in AdS so we can use AdS/CFT to calculate the
+generating functional of the CFT on the sphere. In other words, ¯l is acting like a cut-off in the
+
+
+
+                                                 12
+CFT and taking it to zero corresponds to removing the cut-off. However the relation
+                                                    ¯l3   2N 2
+                                                        =      ,                                               (3.9)
+                                                    Ḡ     π
+implies that if ¯l is taken to zero then we must also take Ḡ to zero since N is fixed (and large).
+   The CFT generating functional is given by evaluating the action of the bulk metric g that
+matches onto the metric h of the boundary [30, 31], and adding surface counterterms to cancel
+divergences as ¯l, Ḡ → 0 [31, 32, 25, 33, 34, 35, 36]:
+
+                      W [h] = SEH [g] + SGH [g] + S1 [h] + S2 [h] + S3 [h] + Sct [h],                        (3.10)
+
+where SEH denotes the five dimensional Einstein-Hilbert action with a negative cosmological
+constant:
+                                        1       5 √       12
+                                             Z              
+                              SEH = −          d x g R + ¯2 ,                         (3.11)
+                                      16π Ḡ               l
+the overall minus sign arises because we are considering a Euclidean signature theory. The
+second term in the action is the Gibbons-Hawking boundary term [29]:
+                                                       1 Z 4 √
+                                          SGH = −           d x hK,                                          (3.12)
+                                                      8π Ḡ
+where K is the trace of the extrinsic curvature of the boundary and h the determinant of the
+induced metric. The first two surface counterterms are
+                                            3
+                                                  Z
+                                                      4
+                                                         √
+                                     S1 =           d   x  h,                         (3.13)
+                                          8π Ḡ¯l
+                                            ¯l Z     √
+                                            S2 = d4 x hR,                              (3.14)
+                                          32π Ḡ
+where R now refers to the Ricci scalar of the boundary metric. The third counterterm is4
+                                   ¯l3                Z     √          1
+                                                                             
+                        S3 = −           log(¯l/R) − β    d4 x h Rij Rij − R2 ,                              (3.15)
+                                 64π Ḡ                                   3
+ where Rij is the Ricci tensor of the boundary metric and boundary indices i, j are raised and
+ lowered with the boundary metric. This term is required to cancel logarithmic divergences as
+¯l, Ḡ → 0. The finite part of this term is arbitrary, which is why we have included the constant
+ β. The integrand of this term is a combination of the Euler density and the square of the
+ Weyl tensor. The former just contributes a constant term to the action but the latter may
+ have important physical effects so we shall include it. For a pure gravity theory, adding a Weyl
+ squared term to the action results in spin-2 ghosts in flat space but we shall see that this is not
+ the case when the Yang-Mills theory is also included. The final counterterm Sct is the finite R2
+ counterterm defined in equation 2.9.
+      When the four sphere boundary is unperturbed, the metric in the AdS region is
+
+                                      ds2 = ¯l2 (dy 2 + sinh2 yγ̂ij dxi dxj ),                               (3.16)
+   4
+     In the prefactor of this equation, R refers to the radius of the sphere. In the integrand it refers to the Ricci
+scalar.
+
+                                                         13
+and the sphere is at y = y0 , where y0 is given by R = ¯l sinh y0 . Note that y0 → ∞ as ¯l → 0 since
+R is fixed. In order to use AdS/CFT for the perturbed sphere, we need to know how the metric
+perturbation extends into the bulk. This is done by solving the Einstein equations linearized
+about the AdS background.
+    Our first task is therefore to solve the Einstein equations in the bulk to find the bulk metric
+perturbation that approaches hij on the boundary. We shall impose the boundary condition that
+the metric perturbation be regular throughout the AdS region. The most general perturbation
+of the bulk metric can be written
+                ds2 = ¯l2 (dy 2 + sinh2 yγ̂ij dxi dxj ) + Ady 2 + 2Bi dydxi + Hij dxi dxj .   (3.17)
+The first step is to decompose the bulk metric fluctuation into scalar, vector and tensor parts
+with respect to the four sphere:
+                                            ˆ (i χj) (y, x) + ∇
+                 Hij (y, x) = θij (y, x) + 2∇                 ˆ i∇
+                                                                 ˆ j φ(y, x) + γ̂ij ψ(y, x). (3.18)
+The connection on the four sphere is denoted ∇.   ˆ θij is a transverse traceless symmetric tensor
+with respect to the four sphere:
+                                         ˆ i θij = θi = 0,
+                                         ∇                                                  (3.19)
+                                                     i
+where indices i, j are raised and lowered with γ̂ij . χi is a transverse vector:
+                                             ˆ i χi = 0.
+                                             ∇                                              (3.20)
+We can also decompose Bi into a transverse vector and a scalar:
+                                            Bi = B̂i + ∂i B.                                  (3.21)
+The quantities that we have introduced are gauge dependent. If we perform an infinitesimal
+change of coordinate then the five dimensional metric perturbation undergoes the gauge trans-
+formation
+                                   δgµν → δgµν + ∇ ¯ µ ξν + ∇
+                                                            ¯ ν ξµ .                           (3.22)
+We are using Greek letters to denote five dimensional indices. ∇     ¯ is the connection with respect
+to the background AdS metric. The gauge parameters ξµ can be decomposed with respect to
+the four sphere. ξy is a scalar and ξi can be decomposed into a transverse vector and a scalar.
+Thus in total, we have four scalar degrees of freedom in our metric perturbation but there are
+two scalar gauge degrees of freedom so we can only expect two gauge invariant scalars. Similarly
+we have two vectors in our metric perturbation, but one vector gauge degree of freedom so there
+is only one gauge invariant vector quantity. The tensor part of the metric perturbation is gauge
+invariant. It is easy to check that the following scalar quantities are gauge invariant:
+                                                                 !
+                                                         ψ
+                                  Ψ1 ≡ A − ∂y                     ,                           (3.23)
+                                                    cosh y sinh y
+                                    1             ψ
+                         Ψ2 ≡ B − ∂y φ −                    + coth y φ.                   (3.24)
+                                    2       2 cosh y sinh y
+Note that the residual gauge invariance discussed in section 3.1 is also present here – we shall
+have more to say about this later on.
+   The gauge invariant vector quantity is
+                                      Xi ≡ B̂i − ∂y χi + 2 coth yχi.                          (3.25)
+The gauge invariant tensor is θij .
+
+                                                   14
+3.3    Solving the Einstein equations: scalars and vectors
+The Einstein equation in the bulk is
+                                            1       6
+                                       Rµν − Rgµν = ¯2 gµν .                               (3.26)
+                                            2       l
+We want to solve this such that our metric matches onto the perturbed metric on the four sphere
+boundary. The solution for the unperturbed sphere is simply AdS. Denote this background
+metric by ḡµν . Linearizing around this background yields the equation
+
+              ¯ µ∇
+              ∇  ¯ ρ δgρν + ∇  ¯ ρ δgρµ − ∇
+                            ¯ ν∇          ¯ 2 δgµν − ∇  ¯ ν δg ρ = 2 δgµν − 2 ḡµν δg ρ,
+                                                     ¯ µ∇                                  (3.27)
+                                                              ρ    ¯l2      ¯l2      ρ
+
+
+This equation is gauge invariant and can therefore be expressed in terms of the gauge invariant
+variables. The yy component gives
+                   ˆ 2 Ψ1 − 2∂y ∇
+                   ∇            ˆ 2 Ψ2 − 4 cosh y sinh y∂y Ψ1 − 8 sinh2 yΨ1 = 0.           (3.28)
+
+The vector part of the iy components gives
+                                            ˆ 2 Xi = −3Xi .
+                                            ∇                                              (3.29)
+
+The scalar part of the iy components gives
+
+                                  ∂i (cosh y sinh yΨ1 − 2Ψ2 ) = 0.                         (3.30)
+
+The tensor part of the ij components gives
+                                                               ˆ 2 θij = 0.
+                            ∂y2 θij − 4 coth2 yθij + cosech2 y ∇                           (3.31)
+
+   The vector part of the ij components gives
+                                                     ˆ (i Xj) = 0.
+                                     (∂y + 2 coth y) ∇                                     (3.32)
+
+The scalar part of the ij components gives
+                   ˆ i∇
+                   ∇  ˆ j (−Ψ1 + 2∂y Ψ2 + 4 coth yΨ2)
+                                                                                 
+                                                                        ˆ 2 Ψ2 = 0.
+               + γ̂ij cosh y sinh y∂y Ψ1 + (8 cosh2 y − 2)Ψ1 + 2 coth y ∇                  (3.33)
+
+Solving equation 3.32 yields
+                                                        2
+                               ˆ (i Xj) (y, x) = sinh y0 ∇
+                               ∇                         ˆ (i Xj) (y0 , x),                (3.34)
+                                                 sinh2 y
+which is singular at y = 0. We must therefore take the solution
+                                          ˆ (i Xj) (y, x) = 0.
+                                          ∇                                                (3.35)
+
+Thus the gauge invariant vector perturbation vanishes: we are free to choose Xi = 0.
+
+                                                   15
+   Rearranging the equations for the scalars, one obtains
+                                                 ˆ 2 Ψ1 = −4Ψ1
+                                                 ∇                                           (3.36)
+
+and                                                                          
+                           cosh y sinh y∂y + (4 cosh2 y − 2)         ˆ i∇
+                                                                     ∇  ˆ j + γ̂ij Ψ1 = 0.   (3.37)
+This has the solution
+                                                      2         2
+                       ˆ j + γ̂ij Ψ1 (y, x) = sinh y0 cosh y0 ∇
+                                                                                 
+                    ˆ i∇
+                    ∇                                          ˆ i∇
+                                                                  ˆ j + γ̂ij Ψ1 (y0, x).     (3.38)
+                                               sinh2 y cosh2 y
+Once again, this is singular at y = 0 unless we take
+                                                         
+                                            ˆ i∇
+                                            ∇  ˆ j + γ̂ij Ψ1 (y, x) = 0.                     (3.39)
+
+There is a regular solution to this equation, however it is simply an artifact of the ambiguity in
+our metric decomposition discussed in section 3.1 (see equation 3.5) so Ψ1 can be consistently
+set to zero. Equation 3.30 then implies that Ψ2 is an arbitrary function of y. This is again
+related to an ambiguity in the metric decomposition: we are free to add an arbitrary function
+of y to φ without changing the metric perturbation. Hence we can choose Ψ2 = 0.
+    To summarize: we have solved the bulk Einstein equation for the gauge invariant vector and
+scalars, obtaining the result
+                                       Ψ1 = Ψ2 = Xi = 0.                                    (3.40)
+   So far we have been working in a general gauge. We shall now specialize to Gaussian normal
+coordinates, in which we define ly to be the geodesic distance from some origin in our ball
+of perturbed AdS, and then introduce coordinates xi on surfaces of constant y (which have
+spherical topology). In these coordinates we have
+
+                                               A = B = B̂i = 0.                              (3.41)
+
+The presence of a metric perturbation implies that the boundary of the ball is not at constant
+geodesic distance from the origin. Instead it will be at a position
+
+                                                 y = y0 + ξ(x).                              (3.42)
+
+We can now use our solution 3.40 to write down the bulk metric perturbation in Gaussian
+normal coordinates:
+                               ψ(y, x) = f (x) sinh y cosh y,                    (3.43)
+                                φ(y, x) = f (x) sinh y cosh y + g(x) sinh2 y,                (3.44)
+                                            χi (y, x) = χ̂i (x) sinh2 y,                     (3.45)
+where f , g are arbitrary functions of x and χ̂i is an arbitrary transverse vector function of x.
+We now appear to have three independent scalar functions of x to deal with (namely f , g and
+ξ). These should be specified by demanding that the bulk metric perturbation match onto the
+boundary metric perturbation. However the boundary metric perturbation is specified by only
+
+
+                                                          16
+two scalars. We therefore need another boundary condition: regularity at the origin. Solutions
+proportional to sinh y cosh y are unacceptable since they lead to
+
+                                              ḡ µν δgµν ∝ coth y,                                        (3.46)
+
+which is singular at y = 0. We must therefore set f (x) = 0. To first order, the induced metric
+perturbation on the boundary is
+
+                               hij (x) = Hij (y0 , x) + 2l2 sinh y0 cosh y0 γ̂ij ξ.                       (3.47)
+
+Recall that Hij is given by equation 3.18. The left hand side is decomposed into scalar, vec-
+tor and tensor pieces in equation 3.25 . We can substitute the solution for the bulk metric
+perturbation into the right hand side and read off
+
+                                       ψ(x) = 2l2 sinh y0 cosh y0 ξ(x),                                   (3.48)
+
+                                            φ(x) = g(x) sinh2 y0 ,                                        (3.49)
+                                          χi (y, x) = χ̂i (x) sinh2 y.                                    (3.50)
+These equations determine ξ(x), g(x) and χ̂i (x) in terms of the boundary metric perturbation.
+In section 3.1, we showed that φ(x) and χi (x) could be gauged away so we shall now set
+
+                                          g(x) = 0,          χ̂i (x) = 0.                                 (3.51)
+
+This implies that
+                                 φ(y, x) = ψ(y, x) = 0,            χi (y, x) = 0.                         (3.52)
+In other words, all scalar and vector perturbations vanish in the bulk: the bulk perturbation is
+transverse and traceless. The only degrees of freedom that remain are therefore the bulk tensor
+perturbation and the scalar perturbation ξ(x) describing the displacement of the boundary.
+
+3.4     Tensor perturbations
+The tensor perturbations are less trivial: we have to solve equation 3.31. This was done in [24]
+                                               (p)
+by expanding in tensor spherical harmonics Hij . These obey
+                                               (p)      ˆ i Hij(p) (x) = 0,
+                                        γ̂ ij Hij (x) = ∇                                                 (3.53)
+
+and they are regular tensor eigenfunctions of the Laplacian:
+                                       ˆ 2 Hij(p) = (2 − p(p + 3)) Hij(p) ,
+                                       ∇                                                                  (3.54)
+
+where p = 2, 3, . . .. We have suppressed extra labels k, l, m, . . . on these harmonics. The
+harmonics are orthonormal with respect to the obvious inner product. Further properties are
+given in [28].
+   5
+     We apologize for our slightly confusing notation: ψ(x), φ(x) and χi (x) in equation 3.2 have, so far, nothing
+to do with the bulk quantities ψ(y, x), φ(y, x) and χi (y, x).
+
+
+                                                        17
+   The boundary condition at y = y0 is6 θij (y0 , x) = θij (x), where θij (x) is the tensor part of
+the metric perturbation on the boundary. Imposing this condition together with regularity at
+the origin gives a unique bulk solution [24]
+                                      X fp (y)        (p)
+                                                               Z       q
+                                                                                      (p)
+                       θij (y, x) =                  Hij (x)       d4 x′ γ̂θkl (x′ )Hkl (x′ ),      (3.55)
+                                      p   fp (y0 )
+where fp is given in terms of a hypergeometric function:
+                                  sinhp+2 y                                    2
+                       fp (y) =             2 F1 (p/2, (p + 1)/2, p + 5/2, tanh y).                 (3.56)
+                                   coshp y
+
+3.5     The gravitational action
+We have now solved the Einstein equations in the bulk and found a solution that matches onto
+the metric perturbation of the boundary. The next step is to compute the action of this solution.
+The bulk contribution from the Einstein-Hilbert action with cosmological constant is
+                     ¯l3 Z        q Z y0 +ξ
+          Sbulk   =           4
+                             d x γ̂         dy sinh4 y                                              (3.57)
+                    2π Ḡ            0
+                       1
+                           Z
+                                5  √  
+                                                   1   6
+                                                             
+                                                                µν       µνρσ
+                                                                               
+                  −           d x ḡ − R̄µν − R̄ḡµν − 2 ḡµν δg − δgµν ∆L δgρσ .
+                    16π Ḡ                         2   l
+The term that is first order in δgµν will vanish because the background obeys the Einstein
+equation. The second order term involves the Lichnerowicz operator (generalized to include the
+effect of a cosmological constant) ∆L , which is a second order differential operator with the
+symmetry property
+                                        ∆µνρσ
+                                         L    = ∆ρσµν
+                                                  L   .                                  (3.58)
+This term vanishes because the perturbation is on shell, i.e.,
+                                                ∆µνρσ
+                                                 L    δgρσ = 0.                                     (3.59)
+We are left simply with the background contribution
+                    ¯l3 Z      q Z y0 +ξ
+       Sbulk   =             4
+                          d x γ̂          dy sinh4 y                                               (3.60)
+                 2π Ḡ               0
+                 ¯l3 Ω4 Z y0                ¯l3 Z      q                                       
+               =              dy sinh4 y +         d4 x γ̂ 4 sinh4 y0 ξ + 8 sinh3 y0 cosh y0 ξ 2 ,
+                 2π Ḡ 0                   8π Ḡ
+where Ω4 denotes the volume of a unit four sphere. Of course, in order to rearrange the
+Einstein-Hilbert action into the form 3.57 we have to integrate by parts several times, giving
+rise to surface terms. These will depend on derivatives of the bulk metric perturbation evaluated
+at the boundary. Since there are only tensor degrees of freedom excited in the bulk, only tensors
+will occur in these surface terms – there will be no dependence on ξ. The surface terms are
+                                 ¯l3 Z
+                                                                                            !
+                                           q    3             coth y0
+                       Ssurf =         d4 x γ̂ ¯4 θij ∂y θij − ¯4 θij θij .                         (3.61)
+                               16π Ḡ          4l               l
+  6
+     The boundary is actually at y = y0 + ξ(x), which gives higher order corrections. These would appear at
+third order in the action as couplings between tensors and scalars.
+
+                                                         18
+    The second contribution to the gravitational action is the Gibbons-Hawking term. In
+evaluating this, it is important to remember that the unit normal to the boundary changes
+when we perturb the bulk metric. The boundary is a hypersurface defined by the condition
+f (y, x) ≡ y − ξ(x) = y0 . The unit normal is therefore given to second order by
+
+                                                ∂i ξ∂ i ξ
+                                                             !
+                                    n = ¯l 1 −        2   dy − ¯l∂i ξdxi .                                  (3.62)
+                                               2 sinh y
+
+Note that this holds for a range of y and therefore defines a unit covector field that is normal
+to the family of hypersurfaces f = constant. In other words, it defines an extension of the unit
+normal on the boundary into a neighbourhood of the boundary. Written as a vector, the normal
+takes the form
+                              ∂i ξ∂ i ξ                   ∂i ξ     θij (y, x)∂j ξ
+                                              !                                       !
+                        1                         ∂                                        ∂
+                     n= ¯ 1−                         − ¯         −  ¯l3 sinh4 y               ,             (3.63)
+                        l    2 sinh2 y            ∂y   l sinh2 y                          ∂xi
+
+where θij (y, x) is the bulk tensor perturbation. The trace of the extrinsic curvature is
+
+                                                   K ≡ ∇µ nµ .                                              (3.64)
+
+In evaluating this one must take account of both the perturbation in the unit normal and the
+perturbation in the connection. The result is
+                       4                 1   ˆ 2 ξ − cosh y ∂i ξ∂ i ξ
+                  K =  ¯l coth y − ¯l sinh y
+                                           2 ∇      ¯l sinh3 y
+                            1     ij ˆ ˆ            1        ij         cosh y ij
+                   + ¯3        4 θ ∇i ∇j ξ − ¯5          4 θ ∂y θij + ¯5        θ θij . (3.65)
+                       l sinh y                2l sinh y              l sinh5 y
+                                                          √
+This has to be evaluated at y = y0 + ξ. To evaluate γ on the boundary, we need to know the
+induced boundary metric perturbation to second order:
+
+ hij (x) = θij (y0, x) + 2¯l2 sinh y0 cosh y0 γ̂ij ξ + ¯l2 2 sinh2 y0 + 1 γ̂ij ξ 2 + ¯l2 ∂i ξ∂j ξ + ξ∂y θij . (3.66)
+                                                                         
+
+
+These results can now be substituted into the Gibbons-Hawking term, yielding
+                   ¯l3 Z      q h                                              
+      SGH = −             d4 x γ̂ 4 cosh y0 sinh3 y0 + sinh2 y0 16 sinh2 y0 + 12 ξ         (3.67)
+                  8π Ḡ
+                                                                                  1 ij
+                                                                                       
+                                       2            2                     ˆ 2
+              + cosh y0 sinh y0 32 sinh y0 + 12 ξ − 3 cosh y0 sinh y0 ξ ∇ ξ − ¯4 θ ∂y θij .
+                                                                                2l
+We have integrated some terms by parts. So far, we have expressed the scalar part of the action
+in terms of ξ. However, we really want to express everything in terms of the induced metric on
+the boundary, which has scalar part ψ(x). This can be done by taking the trace of equation
+3.66 and solving for ξ in terms of ψ to second order, giving
+                                                                
+                           ψ           2 sinh2 y0 + 1 ψ 2          ∂i ψ∂ i ψ
+                ξ = ¯2               − ¯4                 −                        .                        (3.68)
+                   2l sinh y0 cosh y0 8l sinh3 y0 cosh3 y0 32¯l4 sinh3 y0 cosh3 y0
+
+
+                                                        19
+The total contribution from the Einstein-Hilbert and Gibbons-Hawking terms is given by the
+sum of the following
+                                        3¯l3 Ω4 y0
+                                               Z
+                               (0)
+                             Sgrav =−              dy sinh2 y cosh2 y,               (3.69)
+                                         2π Ḡ 0
+                                     3¯l3        q 1
+                                           Z
+                           (1)                 4
+                          Sgrav = −           d x γ̂ ¯2 cosh y0 sinh y0 ψ,           (3.70)
+                                    4π Ḡ            l
+                                                                
+                 (2)
+                           ¯l3 Z
+                                  4
+                                    q     3 2 sinh2 y0 + 1 ψ 2              ˆ 2ψ
+                                                                         3ψ ∇
+                Sgrav = −        d x γ̂                         −
+                                           2¯l4 sinh y0 cosh y0   8¯l4 sinh y0 cosh y0
+                                        
+                          8π Ḡ
+                                                                                           #
+                                                                1               coth y0 ij
+                                                              − ¯4 θij ∂y θij −        θ θij .        (3.71)
+                                                               8l                 2¯l4
+
+We can now expand the action in powers of ¯l/R (using sinh y0 = R/¯l). This gives terms that
+diverge as ¯l−4 and ¯l−2 as ¯l goes to zero. For the scalar perturbation, these divergences are
+cancelled by the counter terms S1 and S2 . For the tensor perturbation (dealt with in [24]), the
+third counter term S3 is needed to cancel a logarithmic divergence7 .
+    The final term that we have to include in the effective action is the finite counter term Sct .
+Evaluating this to second order gives
+
+                3αN 2 Ω4    3αN 2                                            ˆ 2 θij − 4 θij θij .
+                                                               ˆ 2 ψ + 2 θij ∇
+                                      Z       q                                                 
+        Sct =            +                          ˆ 4 ψ + 4ψ ∇
+                                          d4 x γ̂ ψ ∇                                                 (3.72)
+                  4π 2     64π 2 R4                                    3               3
+The final result for the Yang-Mills effective action is
+
+                                      W = W (0) + W (1) + W (2) + . . .                               (3.73)
+
+where
+                                     3βN 2 Ω4 3αN 2 Ω4 3N 2 Ω4
+                         W (0) = −             +          +        (4 log 2 − 1) ,                    (3.74)
+                                       8π 2        4π 2      32π 2
+                                           (1)    3N 2 Z 4 q
+                                       W =                d x γ̂ ψ,                                   (3.75)
+                                                 16π 2 R2
+
+                              3N 2
+                                           Zq h                              i
+                  W (2) = −            d 4
+                                           x  γ̂  ψ ˆ 2 + 2 ψ − αψ ∇
+                                                    ∇                 ˆ 4 + 4∇
+                                                                             ˆ2 ψ
+                             64π 2 R4
+                              N2 X
+                                       Z         q                2
+                                              4 ′    ij  ′   (p) ′
+                         +                   d x γ̂ θ (x )Hij (x )                                    (3.76)
+                           256π 2 R4 p
+                         × (Ψ(p) + 2βp(p + 1)(p + 2)(p + 3) − 4αp(p + 3)) ,
+
+where
+
+           Ψ(p) = p(p + 1)(p + 2)(p + 3) [ψ(p/2 + 5/2) + ψ(p/2 + 2) − ψ(2) − ψ(1)]
+                  +p4 + 2p3 − 5p2 − 10p − 6.                                                          (3.77)
+   7
+     This counter term is formed from the Euler number and the square of the Weyl tensor, neither of which is
+affected by scalar perturbations. S3 therefore does not contribute to the action for scalar perturbations.
+
+
+                                                         20
+The scalar perturbations have an action that can be expressed simply in position space. How-
+ever, the tensor perturbations are given in momentum space where they have an action with
+complicated non-polynomial dependence on p. This corresponds to a non-local action in position
+space. At large p it behaves like p4 log p, as expected from the flat space result for hTij (x)Ti′ j ′ (x′ )i
+[30].
+
+3.6     Metric correlation functions
+Our theory is just four dimensional Einstein gravity coupled to the Yang-Mills theory, with
+action
+                                            1         √
+                                               Z
+                                   S=−            d4 x gR + W,                             (3.78)
+                                         16πG
+where we have not included a Gibbons-Hawking term because the instanton has no boundary.
+Note that we are still working in Euclidean signature. W denotes the Yang-Mills effective action,
+including the effect of the finite counterterms. G is the four dimensional Newton constant. In
+order to compute the two point correlation functions of metric perturbations we need to calculate
+the terms in S that are quadratic in the metric perturbations described by θij and ψ.
+    To second order, the Einstein-Hilbert action of the perturbed four sphere is
+
+           3Ω4 R2    3                            1             ˆ 2 ψ + 2θij θij − 1 θij ∇
+                                                                               q 3
+                                 Z       q                      Z                                              
+   SEH = −        −                  4
+                                     d x γ̂ψ +       d x γ̂    ψ∇          4             ˆ 2 θij .
+            4πG     4πG                        16πGR2        2                     4
+                                                                                                (3.79)
+Adding the Yang-Mills effective actions gives the total action. This has a non-vanishing piece
+linear in ψ. Varying ψ fixes R to take the value given by equation 2.19, which implies that the
+linear term vanishes. Equation 2.19 can be used to write G in terms of R, which brings the
+quadratic part of the scalar action to the form8
+
+                                       3N 2
+                                                Z     q                                         
+                         Sscalar =                              ˆ2 −1
+                                                    d4 x γ̂ ψ 2α∇                       ˆ 2 + 4 ψ,
+                                                                                        ∇                      (3.80)
+                                     128π 2R4
+and the quadratic part of the tensor action becomes
+
+                                 N2 X
+                                                Z          q                              2
+                                                      4 ′             ij        (p)
+                     Stensor =                       dx        γ̂ θ        (x )Hij (x′ )
+                                                                               ′
+                                                                                                F (p, α, β),   (3.81)
+                               256π 2 R4 p
+
+where
+
+         F (p, α, β) = p2 + 3p + 6 + Ψ(p) + 2βp(p + 1)(p + 2)(p + 3) − 4αp(p + 3).                             (3.82)
+
+From these expressions we can read off the correlation functions of metric perturbations:
+
+                                       32π 2 R4
+                                                                    "                                    #
+                                ′                      1        1
+                     hψ(x)ψ(x )i =                          −        ,                                         (3.83)
+                                     2          2   ˆ 2 + m2 −∇
+                                   3N (−α)(4 + m ) −∇         ˆ2 − 4
+   8
+     If α = 0 then this is almost exactly the same as the scalar action one would obtain for perturbations about
+a de Sitter solution supported by a cosmological constant. The only difference is that the overall sign is reversed.
+This implies that, with the exception of the homogeneous mode, the conformal factor problem of Euclidean
+quantum gravity is solved by coupling to the Yang-Mills theory when α = 0.
+
+
+                                                          21
+where
+                                                                   1
+                                                       m2 =          .                             (3.84)
+                                                                  2α
+The tensor correlator is
+                                                             ∞
+                                                  128π 2 R4 X     (p)
+                       hθij (x)θi′ j ′ (x′ )i =       2
+                                                                Wiji′ j ′ (x, x′ )F (p, α, β)−1,   (3.85)
+                                                    N       p=2
+
+                         (p)
+where the bitensor Wiji′ j ′ (x, x′ ) is defined as
+                                      (p)                               (p)       (p)
+                                   Wiji′ j ′ (x, x′ ) =               Hij (x)Hi′ j ′ (x′ ),
+                                                            X
+                                                                                                   (3.86)
+                                                          k,l,m,...
+
+with the sum running over all the suppressed labels k, l, m, . . . of the tensor harmonics on the
+four sphere.
+
+
+4     Analytic structure of propagators
+4.1     Flat space limit
+Before analyzing our correlation functions we shall consider the analagous functions in flat
+space. This will allow us to constrain the allowed values of the parameters α and β, which will
+be important when we return to the de Sitter case.
+   Recall that in equations 3.75, 3.76 and 3.79, the radius R is arbitrary. To avoid confusion,
+we shall now denote this arbitrary radius by R̃ to distinguish it from the on-shell value R, given
+by equation 2.19. We can recover flat space results by taking R̃ → ∞. Before taking this limit,
+we first replace the dimensionless momentum p with the dimensionful momentum k = p/R̃.
+   There is no conformal anomaly in flat space and the scalar ψ corresponds to a conformal
+transformation. Therefore, the only matter contribution to the scalar propagator comes from
+the term in the Yang-Mills action that breaks the conformal invariance, namely the finite counter
+term Sct . The other contribution to the scalar correlator comes from the Einstein-Hilbert action.
+One obtains
+                                                     1         1
+                                hψ(x)ψ(x′ )i ∝     2      2
+                                                            −      ,                         (4.1)
+                                                −∂ + M        −∂ 2
+with a positive constant of proportionality. M 2 is given by
+                                                                   1
+                                                     M2 = −           ,                             (4.2)
+                                                                  αR2
+where R is given by equation 2.19, although we emphasize that we are now working in flat
+space. The second term in the propagator describes a massless scalar ghost. This can be dealt
+with by gauge fixing the action. The first term is more worrying. If α > 0 then it describes a
+tachyon. We regard this as undesirable: we do not want flat space to be an unstable solution
+of our theory. We shall therefore always take α < 0, which gives a massive scalar in flat space.
+    For the tensor propagator, the limit R̃ → ∞ makes the coefficient of the third counterterm
+S3 diverge. To cancel this divergence, introduce a length scale ρ defined by
+                                                     β = log(ρ/R̃).                                 (4.3)
+
+                                                             22
+The R̃ dependence in the coefficient of the third counterterm then drops out, leaving a finite
+coefficient depending on the renormalization scale ρ. The R̃ → ∞ limit of the propagator is
+similarly well-defined. The result is proportional to
+                                                   1
+                                                                         ,                     (4.4)
+                                 k 2 {1 + R2 k 2 [1 + log(k 2 ρ2 /4)]}
+Our propagator is of exactly the same form as given by Tomboulis [22] in his analysis of the
+effects of large N matter on the flat space graviton propagator. The propagator is defined for
+k 2 > 0. It can be analytically continued into the complex k 2 plane by taking a branch cut
+for the logarithm along the negative real axis. There are generally two poles present, with
+positions dependent on ρ. If ρ < 2R/e then these poles are on the positive real axis. One has
+positive residue and the other negative residue, so they correspond to a tachyon and a ghost.
+As ρ → 2R/e, the two poles move together and merge to form a double pole. For ρ > 2R/e,
+this double pole splits into a pair of complex conjugate poles which move off into the complex
+k 2 plane. The modulus r and phase θ of k 2 at these poles are related by
+                                                   sin θ
+                                              r=         .                                     (4.5)
+                                                   R2 θ
+θ is given by solving
+                                                   ρ2
+                                                                             !
+                                                              sin θ
+                              θ cot θ = − 1 + log     2
+                                                        + log       ,                          (4.6)
+                                                  4R            θ
+which is straightforward to analyze graphically. The solution obeys θ → ±π and r → 0 as
+ρ → ∞.
+   The presence of tachyons for small ρ was not mentioned by Tomboulis since he implicitly
+assumed ρ ≫ R. Since we want flat space to be a stable solution of our theory, we shall take
+ρ > 2R/e when we consider the propagator in de Sitter space. This corresponds to taking
+β > log 2 − 1.
+   It is interesting to note that changing ρ changes the coefficient of the third counter term
+S3 by a finite amount. This corresponds to introducing a finite counter term involving the
+Euler number and the square of the Weyl tensor. The former is left unchanged by metric
+perturbations. However, the latter is known to give rise to spin-2 ghosts in a pure gravity
+theory. Such ghosts do not appear in our model: coupling to the CFT removes them.
+
+4.2    Scalar propagator on the sphere
+Equation 3.83 is the propagator of scalar metric perturbations on a spherical instanton supported
+by the conformal anomaly of the CFT. The first term in the propagator describes a particle
+with physical mass-squared m2 /R2 = (2αR2 )−1 . Since we are assuming α < 0, we have m2 < 0
+so this particle is a tachyon. This is good because we do not want the spherical solution to be
+stable since that would lead to a Lorentzian de Sitter solution in which inflation never ends.
+Making α more negative makes the tachyon mass squared less negative, and therefore makes
+the instability weaker. This suggests that if α is sufficiently negative then inflation will last for
+a long time. We shall make this more precise later.
+    The second term in the propagator describes a ghost. This is the normal scalar mode of
+gravity that is canceled by the scalar parts of the Fadeev-Popov ghosts [26]. These ghosts supply
+
+                                                   23
+                                ˆ 2 + 4) factor in the scalar action. The propagator can then
+a determinant that cancels the (∇
+be read off from the action:
+                                               32π 2 R4  ˆ 2    2 −1
+                                                                  
+                              hψ(x)ψ(x′ )i =             −∇   + m     .                         (4.7)
+                                               3|α|N 2
+This propagator can be written in momentum space as
+                                                       ∞
+                                              32π 2 R4 X  W (p) (µ(x, x′ ))
+                            hψ(x)ψ(x′ )i =                                  ,                   (4.8)
+                                              3|α|N 2 p=0 p(p + 3) + m2
+
+where the biscalar W (p) is a function of the geodesic distance µ between x and x′ , given by
+
+                               W (p) (µ(x, x′ )) =           H (p) (x)H (p) (x′ ),
+                                                     X
+                                                                                                (4.9)
+                                                     k,l,m
+
+
+where H (p) denote spherical harmonics on the four sphere and the sum runs over the suppressed
+eigenvalues k, l, m.
+    Notice that there are many negative modes if α is negative and close to zero. However,
+if α < −1/8 then only the homogenous (p = 0) negative mode remains. To compute the
+primordial density fluctuations in the microwave background radiation we are interested in the
+two-point function with the homogenous mode projected out [37]. Notice also that the Fadeev-
+Popov ghosts fix the residual gauge ambiguity associated with the p = 1 modes. These modes
+no longer have zero action and therefore cannot be regarded as gauge.
+
+4.3    Tensor propagator on the sphere
+The tensor propagator (equation 3.85) has an interesting analytic structure. The momentum
+space propagator is proportional to F (p, α, β)−1, where F is given by equation 3.82.
+    For a physical interpretation, we need to study the behaviour of F in the complex λp plane,
+where λp = p(p + 3) − 2 is the eigenvalue of −∇    ˆ 2 . We must therefore first write the propagator
+as a function of λp . Since                         s
+                                               3        17
+                                          p=− ±            + λp ,                               (4.10)
+                                               2         4
+we must choose a branch for the square root. The Euclidean propagator is defined as a sum
+over p = 2, 3, . . ., for which λp is positive. We must therefore take the positive sign for the
+square root. The analytic continuation into the complex λp plane is given by taking a branch
+cut along the negative axis for λp < −17/4. p has positive imaginary part just above the cut
+and negative imaginary part just below the cut. Note that Re(p) ≥ −3/2. The branch cut
+corresponds to a continuum of multi-particle states. The imaginary part of the propagator is
+discontinuous across the cut. In general, the absence of negative norm states implies that the
+imaginary part of the propagator just below the cut minus the imaginary part just above the
+cut should be positive, which is indeed the case for our tensor propagator.
+    It is also possible for the tensor propagator to have discrete poles in the λp plane. Poles on the
+real axis are of particular importance. If such a pole occurs at positive λp then it corresponds
+to a tachyon. In fact, since the graviton in de Sitter space has an equation of motion with
+
+                                                     24
+      6.0
+
+
+                                                     0.2
+
+      4.0
+
+
+
+
+                                                     0.1
+      2.0
+
+
+
+
+      0.0                                            0.0
+
+
+
+       −1.5      −1.0     −0.5       0.0       0.5   −0.1               0.0                 0.1
+
+
+
+Figure 2: Inverse propagator F (p, 0, 0) for −3/2 ≤ p ≤ 1/2 and −0.1 < p < 0.1. The graph
+grows monotonically for p > 0. There are zeroes at p ≈ −1.48 (massive particle), p ≈ −0.054
+(ghost) and p = 0 (massless graviton).
+
+λp = −2, it seems appropriate to regard particles with λp > −2 as tachyons. If a pole on the
+real axis has negative residue then it corresponds to a ghost.
+    Our propagator always has a pole at λp = −2 (p = 0), corresponding to the massless
+graviton in de Sitter space. Support for this interpretation comes from observing that transverse
+traceless tensor harmonics have 5 degrees of freedom. However, the mode with p = 0 mixes
+with transverse vector harmonics, which have 3 degrees of freedom. Thus the p = 0 mode has
+3 gauge degrees of freedom, leaving 2 physical degrees of freedom, as appropriate for a massless
+spin-2 particle.
+    We shall start by considering the case α = β = 0, for which there are two other poles in our
+propagator, one at p ≈ −1.48 and the other at p ≈ −0.054. The former has λp ≈ −17/4 (but is
+not quite on the cut) and has positive residue, the latter has λp ≈ −2.16 and negative residue.
+The behaviour of F (p, 0, 0) is plotted in figure 2. It is easy to show that signs of the residues
+of F −1 with respect to λp are given by the slope of F as it passes through 0. The positions of
+the poles are shown in figure 3. Changing the value of β (still with α = 0) changes the position
+and nature of these poles. As β is made more positive, the pole with p ≈ −1.48 gets absorbed
+into the branch cut and the ghost moves towards p = −1 (i.e. λp = −4). As β is made more
+negative, the pole with p ≈ −1.48 moves towards p = −1 while the other pole moves to positive
+p (i.e., λp > −2), with its residue changing sign as it crosses p = 0. This pole corresponds to a
+tachyon. Recall that tachyons were also present in flat space for sufficiently negative β. In order
+for tachyons to be absent in flat space, we had to choose β > log 2 − 1. We have roughly the
+same restriction on β in order to avoid spin-2 tachyons in de Sitter space. We shall therefore
+exclude the case β < log 2 − 1 as unphysical.
+    Now consider the effect of turning on α < 0. This has no effect on the pole at λp = −2, so
+the massless graviton remains. If β = 0, then the two other poles move together as α decreases
+and eventually coalesce into a double pole. This splits into a pair of complex conjugate poles
+that move off into the complex λp plane. For β > 0 then there is generally only one pole present
+(in addition to the graviton pole) when α = 0. As α is decreased, an additional pole (with
+positive residue) emerges from the branch point and moves towards the ghost pole, eventually
+coalescing with it. This then splits into a pair of complex conjugate poles. If β < 0, then the
+
+                                                25
+                          01        01              0011         0101                01         01 01
+
+Figure 3: Analytic structure of the tensor propagator in the complex λp plane when α = 0.
+The dotted lines denote λp = −2. Poles on the real axis to the right of this line correspond to
+tachyons. There is a branch cut at λp = −17/4 and the thick line represents the branch cut.
+There is always a massless graviton pole at λp = −2. The diagram on the left is for β > 0,
+when there is a single ghost pole. As β decreases, this pole moves to the right and another pole
+emerges from the branch cut. This new pole corresponds to a massive particle and appears in
+the second diagram, which is for β = 0. The final diagram is for β < 0, when the ghost pole
+crosses through λp = −2 and becomes a tachyon.
+
+two poles again move together, coalesce and then become a pair of complex conjugate poles.
+In all cases, the effect of making α more negative is similar to the effect of increasing ρ in the
+flat space propagator, i.e., pathologies such as ghosts and tachyons move off into the complex
+plane. When β is large, the poles becomes complex for α < −β/8, so no fine tuning of the ratio
+α/β is involved.
+
+4.4     Complex poles
+We have seen how ghost poles can be moved off the real axis, becoming a pair of complex
+conjugate poles. The interpretation of such a pair of poles has been reviewed by Coleman [38].
+The presence of complex conjugate poles with (complex) masses given        √ by m = a ± ib with
+b > 0 implies causality violation at lengths or times of the order of 1/ b. For Tomboulis’ flat
+space propagator, we have b ∼ R−1 , so one expects causality to be violated at a length scale
+of the order of R, which is roughly N times the Planck length. Unless N is enormous, this is
+far less than any scale probed by particle physics experiments so such causality violations are
+unobservable9 , as noted by Tomboulis.
+√ For −1 our de Sitter propagator, the complex poles again√  have b ∝ R−1 . If |α| is large then b ∝
+  −αR , so causality violation occurs on a time scale R/ −α. If |α| is not large then causality
+violation occurs on a time scale R. This is much smaller than scales probed in experiments,
+but may have observational consequences in the CMB since R is the Hubble time, and therefore
+the time scale for microphysics during inflation. However, we shall see in the next section that
+observations suggest that |α| is of order 109 , so causality violation occurs on a time scale much
+shorter than the Hubble time and is therefore completely unobservable.
+
+
+   9
+   In fact, these effects might be smaller than the effects of the gravitational field of subatomic particles, which
+would also lead to modifications of causality through tilting of light cones.
+
+
+                                                           26
+5      Lorentzian two-point correlators
+In this section we will show how the scalar and tensor propagators on the four sphere instanton
+uniquely determine the primordial CMB perturbation spectrum in Lorentzian closed de Sit-
+ter space. The two-point correlators in the Lorentzian region are obtained directly from the
+Euclidean propagators by analytic continuation. We refer the reader for the details of this cal-
+culation to our previous paper [24], where we described the analytic continuation of the graviton
+correlator in a Randall-Sundrum version of the Starobinsky model. The techniques to perform
+these calculations were developed in [39, 40].
+
+5.1    Scalar propagator
+We have the Euclidean correlator 4.8 as an infinite sum over real p, where p labels the level of
+the four sphere scalar harmonics. Although this is a convenient labelling to study their analytic
+structure, the eigenspace of the Laplacian on de Sitter space suggests that the Lorentzian
+propagator is most naturally expressed in terms of an integral over real positive p′ = i(p + 3/2),
+corresponding to scalar harmonics of the Lorentzian Laplacian with eigenvalue λp′ = (p′ 2 + 9/4).
+We must therefore first analytically continue our result for the propagators into the complex
+p-plane before continuing to Lorentzian signature. In terms of the label p′ , the Euclidean scalar
+correlator 4.8 becomes
+
+                                           32π 2 R4 +i∞
+                                                                ′
+                                                      X W (p ) (z(Ω, Ω′ ))
+                                     ′
+                           hψ(Ω)ψ(Ω )i = −                                 ,                   (5.1)
+                                           3|α|N 2 p′ =5i/2 p′2 + 9/4 − m2
+
+with
+                       ′        5ip′ (p′2 + 1/4)
+                   W (p ) (z) =           2
+                                                               ′          ′
+                                                 2 F1 (3/2 + ip , 3/2 − ip , 2, 1 − z)       (5.2)
+                                       3π
+and z = cos2 (µ/2). This biscalar is analytic in the upper half p′ -plane. The coefficient of the
+biscalar is also analytic in the upper half plane apart from a simple pole at p′ = Λt , where
+                                                 s
+                                                     9
+                                           Λt = i      − m2 .                                  (5.3)
+                                                     4
+This pole corresponds to the tachyon. Notice that the sum in equation 5.1 starts at p′ = 5i/2
+because we have projected out the negative homogenous mode, which should be regarded as
+part of the background [37].
+    Knowing the analytic structure of the correlator, we are able to write the sum 5.1 as an
+integral along a contour C1 encircling the points p′ = 5i/2, 7i/2, ..ni/2, where n tends to infinity.
+This yields
+                                                                      (p′ )
+                                        16iπ 2 R4                ′
+                                                        ′ (tanh p π)W       (µ)
+                                                  Z
+                                  ′
+                       hψ(Ω)ψ(Ω )i =            2
+                                                     dp                         .              (5.4)
+                                         3|α|N C1           p + 9/4 − m2
+                                                             ′2
+
+The contour C1 can be distorted to run along the real p′ -axis. Apart from the tachyon pole,
+we encounter two extra poles at p′ = 3i/2 and p′ = i/2 in the tanh p′ π factor. The p′ = 3i/2
+pole corresponds to the negative homogenous mode that we have projected out in the Euclidean
+correlator. On the other hand, W (i/2) (µ) = 0 so the pole at p′ = i/2 does not contribute to
+
+                                                    27
+the propagator. The contribution from the closing of the contour in the upper half p′ -plane
+vanishes. Hence our final result for the Euclidean correlator reads
+                                                   (p′ )
+                16iπ 2 R4
+                          "Z                                                               #
+                                              ′
+                                    ′ (tanh p π)W        (z) πi                        10i
+                             +∞
+           ′                                                               (Λt )
+ hψ(Ω)ψ(Ω )i =                   dp                         − (tanh Λt π)W       (z) + 2 2 . (5.5)
+                 3|α|N 2 −∞             p′2 + 9/4 − m2       Λt                       mπ
+Finally one can rewrite 5.5 as an integral from 0 to ∞, over the eigenspace of the Lorentzian
+Laplacian, and the two discrete contributions from the tachyon pole and the homogenous mode.
+The tachyon contribution grows exponentially for timelike intervals. However, the relevant
+propagator for computing the CMB anisotropies is the Feynman propagator, which should be
+bounded both to the past and future. Therefore, the propagator that we have obtained by
+analytic continuation from the four sphere does not obey the appropriate boundary conditions.
+In order to obtain the two-point function that describes the correlations in the primordial density
+fluctuation spectrum, we change the contour of integration so as to exclude the contribution
+from the tachyon pole. We then obtain the Lorentzian Feynman scalar propagator,
+                                                                              ′
+                              32π 2 R4                    (tanh p′ π)W L(p ) (z(x, x′ ))
+                                          "Z                                                            #
+                                                 +∞                                        10
+             hψ(x)ψ(x′ )i = −                         dp′                                + 2 2 .            (5.6)
+                              3|α|N 2        0                 p + 9/4 − m
+                                                                ′2              2         mπ
+                                  ′                         ′                                               ′
+The Lorentzian biscalar W L(p ) differs from W (p ) only by a factor of −i and (tanh p′ π)W L(p ) (z)
+equals the sum of the degenerate scalar harmonics on closed de Sitter space with eigenvalue
+λp′ = (p′2 + 9/4) of the Laplacian. For spacelike separations, we have z = cos2 (µ/2), where
+µ(x, x′ ) is the geodesic distance between x and x′ . The correlator for timelike intervals is
+obtained by setting ρ = π/2 − it, where ρ is the polar angle on the four sphere. For a purely
+timelike separation, this gives z = cosh2 ((t − t′ )/2).
+
+5.2     Tensor propagator
+The principles of the continuation of the tensor propagator 3.85 are the same, but the calculation
+is more complicated. We refer the interested reader to our previous paper [24] for the technical
+details. The differences between [24] and the present paper are that we now have included the
+effect of the finite R2 counterterm, we have kept β in the coefficient of the third counterterm
+arbitrary and we now treat the discrete poles in the propagator more carefully.
+                                                  (p′ )
+    In [24] it was shown that the bitensor Wiji′ j ′ (µ) can be unambiguously extended as an
+analytic function into the upper half p′ -plane. In addition, from subsection 4.3 we know that its
+coefficient F (−ip′ −3/2, α, β)−1 is analytic, apart from a simple pole at p′ = 3i/2, corresponding
+to the massless graviton in de Sitter space, and a pair of poles with complex masses Λ1 and
+Λ2 = −Λ̄1 (we are assuming that α < −β/8 so that there are complex poles instead of a ghost).
+These poles always occur in the upper half p′ -plane.
+    Writing the sum in equation 3.85 as a contour integral yields
+                                         64iπ 2 R4
+                                                      Z
+                              ′                                             (p′ )
+               hθij (Ω)θi′ j ′ (Ω )i = −                    dp′ tanh p′ πW iji′ j ′ (z)G(p′ , α, β)−1       (5.7)
+                                           N2          C1
+
+where
+        G(p′ , α, β) = F (−ip′ − 3/2, α, β)
+                     = p′4 − 4ip′3 − p′2 /2 − 5ip′ − 3/16 + (p′2 + 9/4)[4α + (p′2 + 1/4) ×
+                       (ψ(−ip′ /2 + 5/4) + ψ(−ip′ /2 + 7/4) − ψ(1) − ψ(2) + 2β)].
+
+                                                          28
+As we deform the contour towards the real axis we encounter, apart from the poles mentioned
+above, two extra poles in the tanh p′ π factor. However, as explained in detail in [24], they do not
+contribute to the tensor fluctuation spectrum. The contribution from the closing of the contour
+in the upper half p′ -plane vanishes. Using G(−p̄′ , α, β) = Ḡ(p′ , α, β), one can again rewrite the
+remaining integral over the real axis as an integral from 0 to ∞. The continuation of z(x, x′ )
+for timelike intervals is the same as for the scalar two-point function. We then obtain for the
+Lorentzian tensor propagator,
+
+                                  128π 2 R4        +∞
+                                                 Z
+                         ′                                            L(p′ )
+          hθij (x)θi′ j ′ (x )i =     2
+                                                      dp′ (tanh p′ π)W iji′j ′ (z) ℜ(G(p′ , α, β)−1)
+                                    N            0
+                                                                          (Λ )
+                                                           h                               io
+                                  −πRiji′ j ′ (z) − 2πℜ (tanh Λ1 π)W iji1′ j ′ (z) R(Λ1 ) .                         (5.8)
+
+                                  L(p′ )
+In the integral, (tanh p′ π)W iji′ j ′ (z(x, x′ )) can be identified with the sum of the degenerate
+rank-two tensor harmonics on closed de Sitter space with eigenvalue λp′ = (p′ 2 + 17/4) of the
+Laplacian. The integrand vanishes as p′ → 0, so the correlator is well-behaved in the infrared.
+   The first term in equation 5.8 represents the continuous tensor fluctuation spectrum. The
+second term describes the massless graviton with Riji′j ′ (z) defined as the residue at p′ = 3i/2
+of
+                                             (p′ )        tanh p′ π
+                                          W iji′ j ′ (z)              .                       (5.9)
+                                                         G(p′ , α, β)
+The third term in 5.8 is the combined contribution from the complex poles, with R(Λ1 ) denoting
+the residue of G(p′ , α, β)−1 at p′ = Λ1 . For large |α| this mode grows exponentially, imply-
+ing that the analytically continued propagator does not obey the boundary conditions for the
+Feynman propagator. This can be remedied by changing the contour of integration to exclude
+the contribution from the complex poles, giving the correct propagator for two-point tensor
+correlations in the microwave background:
+
+                            128π 2R4
+                                       Z +∞                                                                    
+                  ′                                          L(p′ )
+    hθij (x)θi′ j ′ (x )i =                    dp (tanh p π)W iji′ j ′ (z) ℜ(G(p′ , α, β)−1) − πRiji′ j ′ (z)
+                                                 ′         ′
+                                                                                                                    .
+                              N2        0
+                                                                                              (5.10)
+If |α| is large then the tensor propagator is proportional to (|α|N 2 )−1 . At large p′ the tensor
+propagator behaves like (p′4 log p′ )−1 , just as the Euclidean correlator 3.85. This is in contrast
+to the usual p′−2 behavior of the graviton propagator for de Sitter space with a cosmological
+constant.
+
+
+6     Observational constraints
+6.1     Duration of inflation
+The Starobinsky instability in four dimensions has been analyzed carefully by Vilenkin [17]. He
+showed that the scale factor grows exponentially until
+                                                          6H0
+                                               t = t∗ ∼       (γ − 1),                                              (6.1)
+                                                          M2
+
+
+                                                          29
+where, for our model, the parameters H0 and M are given by
+                                                           √          −1
+                               H0 = R−1 ,             M=        −2αR         .                 (6.2)
+
+The parameter γ is related to the initial perturbation from the exact de Sitter solution
+                                                  1
+                                            γ=      log(2/δ0 ),                                (6.3)
+                                                  2
+where
+                                                H0 − H
+                                               δ0 =     ,                                      (6.4)
+                                                   H0
+is the perturbation of the Hubble parameter H = ȧ/a at time t = 0. If δ0 < 0 then the solution
+eventually becomes singular [15], at least if one neglects spatial curvature (which should be a
+good approximation if there is a lot of inflation). We shall therefore restrict ourselves to δ0 > 0.
+    For t < t∗ , there is exponential growth with Hubble parameter H0 . The number of e-foldings
+of inflation during this phase is therefore
+                                                   6H02
+                                           N1 =         (γ − 1).                               (6.5)
+                                                   M2
+For our values of H0 and M, this gives
+
+                                           N1 = −12α(γ − 1).                                   (6.6)
+
+   For t > t∗ , there is a phase of slow-roll inflation in which the Hubble parameter changes
+from H0 to M. The number of e-foldings of inflation during this phase is [17]
+
+                                 N2 = −12α log cosh 1 ≈ −2.26α.                                (6.7)
+
+The slow-roll phase lasts until t ∼ 6γH0 /M 2 . Once this phase ends, the universe enters a matter
+dominated era in which the scale factor behaves as [15, 17]
+                                                   2
+                                                                                
+                                     2/3
+                            a(t) ∝ t           1+     sin Mt + O(t−2 ) .                       (6.8)
+                                                  3Mt
+The oscillations in the scale factor can drive particle production and reheating.
+    Vilenkin used the Wheeler-DeWitt equation to obtain an estimate for δ0 . Using his results,
+we obtain
+                                     1
+                             δ0 ∼ √ ,         N1 = −12α(log N − 1).                           (6.9)
+                                     2N
+Quantum cosmology therefore predicts γ ≫ 1. So far, the only restriction on N is that N must
+be large enough for our AdS/CFT calculation to be valid. This implies that log N is not close
+to 1, so taking α < −5 makes N1 sufficiently large to solve the horizon and flatness problems.
+    Our correlation functions for metric perturbations were calculated assuming a four sphere
+(or de Sitter) background. The present day horizon size left the horizon about fifty e-folds before
+the end of inflation. Hence the long-wavelength temperature fluctuations in the microwave sky
+carry the imprint of the first expansion phase provided N2 < 50, which is true if α > −20.
+Because our correlation functions for metric perturbations were calculated assuming a four
+
+                                                      30
+sphere (or de Sitter) background, the predicted spectrum can then be directly compared with
+observation. However, our results will be modified for modes that left the horizon during the
+slow-roll phase, when the background is not exactly de Sitter. Therefore, if α ≤ −20 then it
+would be necessary to do a calculation based on an scalar/vector/tensor decomposition on the
+three sphere in order to enable us to evolve the spectrum through the instability and predict in
+detail the CMB fluctuation spectrum.
+
+6.2     Amplitude of perturbations
+In order to compare our results with observations, we should first render the propagators di-
+mensionless by dividing by R4 . The correlators are then functions of p divided by N 2 . Long
+wavelength perturbations are insensitive to what happens after inflation, so these can be di-
+rectly compared with observation. For the tensors, long wavelength perturbations correspond
+to modes on the four sphere10 with p = 2. The amplitude of the fluctuations can be obtained
+from the correlator:                                       !1/2
+                                                     2
+                                               128π
+                                θij /R2 ∼                       .                       (6.10)
+                                           N 2 F (2, α, β)
+In order to agree with observations this should not exceed 10−5 , which requires
+
+                                      N 2 (250 + 240β − 40α) > 1013 .                                    (6.11)
+
+Since we are assuming N is large, the obvious way to satisfy this inequality is to take N =
+O(105 ). However, this implies that the number of fields present is 11N 2 = O(1011 ), which
+seems to contradict present day observations11 . Instead, we could take N 2 β to be of order
+4 × 1010 or N 2 |α| to be of order 2 × 1011 . The former corresponds to taking the coefficient of
+the Weyl squared term in the action to be of order 107 and the latter corresponds to taking the
+coefficient of the R2 counterterm to be of order 108 .
+    Note that if we take β to be large then we would also have to take α to be large in order
+to avoid ghosts in the tensor propagator. Therefore the most natural choice is probably to
+take just α to be large. Note that suppression of tensor perturbations through a Weyl squared
+counterterm (i.e. taking β large) was not mentioned in [15, 17] since this counterterm does not
+affect the coefficients a, c, d in the trace anomaly.
+    Turning to the scalar perturbations, we see that these can also be suppressed by taking
+  2
+N |α| to be large. Changing β does not affect the scalars. Our scalar correlator suggests that
+taking N 2 |α| to be of order 2 × 1011 should bring the scalar perturbations within observational
+bounds.
+    We conclude that if N 2 |α| is of order 2 × 1011 then we can bring metric perturbations within
+the observational bounds. N just has to be large enough to justify the large N approximation
+for the matter fields. For example, we could take N = 10 and α = −2 × 109 . However, such a
+large value for α implies that all modes that we observe today must have left the horizon during
+  10
+       We should really be studying the Lorentzian correlators here. However, the overall amplitude of the
+Lorentzian and Euclidean propagators is the same.
+   11
+      However, it is possible that these fields may have masses large compared to the scale probed in colliders,
+i.e., m ≫ 1 TeV, but small compared with the scale at which inflation takes place, m ≪ 10−5 mpl . Such fields
+would be effectively massless during inflation but unobservable today.
+
+
+                                                      31
+the slow-roll phase of inflation. Our results for the two-point correlators will be modified in
+this case, since we assumed a four sphere background in our calculation. However, it is usually
+the case that the amplitude of perturbations is inversely proportional to the horizon radius at
+which they left the horizon. The horizon radius increases during slow-roll so it seems likely that
+if |α| is very large the amplitude of perturbations will be smaller than the amplitude obtained
+above. This argument is confirmed by the estimates of Vilenkin [17]. We conclude that taking
+N 2 |α| ≈ 2 × 1011 will bring the perturbations within observational bounds, and a far smaller
+value may in fact be sufficient.
+     A coefficient of order 108 in the action is large, but this is essentially the same fine-tuning
+problem that also appears in all scalar field models of inflation. In these scenarios, matching
+the amplitude of perturbations to COBE typically requires a fine-tuned parameter in the action
+of O(10−12 ).
+     Note that taking |α| to be very large implies that causality violations during inflation occur
+on a time scale much shorter than the Hubble time, so they would not have had a significant
+effect on microphysics. One might worry that taking |α| to be large would imply significant
+deviations from Einstein gravity today, arising from the higher derivative R2 term in the action.
+In flat space, the only effect of this term is to introduce a scalar field with mass given by equation
+4.2. If we take N = 10 and |α| of order 109 then this scalar has mass M ≈ 10−6 mpl , which is
+far too massive to be observed nowadays.
+
+
+7      Short distance physics
+7.1     Introduction
+The observational constraints that we have derived do not depend on the detailed structure
+of our propagators and could be obtained directly from the work of Starobinsky and Vilenkin.
+In this section we shall consider a new phenomenon revealed by our propagators, namely the
+suppression of short distance metric perturbations by matter fields. This suppression is evident
+in Tomboulis’ flat space propagator 4.4, which falls off as (k 4 log k 2 )−1 for large momentum k.
+It is also present in our tensor propagator12 , equation 3.85, which falls off as (p4 log p)−1 at
+large p. This behaviour has not been discussed in previous studies of the Starobinsky model
+because these have neglected the non-local part of the matter effective action.
+    Inflation acts as a “cosmic magnifying glass” by blowing up microscopic physics to macro-
+scopic scales. It is often assumed that this might lead to some characteristic signature in the
+CMB of new physics at short distances, e.g., extra dimensions. Our results appear to contradict
+this inflationary dogma, because they show that at small scales, matter fields will completely
+drown out the effects of any new gravitational physics. In this section we shall illustrate this
+phenomenon by comparing our results with the results for a model with an extra dimension,
+namely the Randall-Sundrum (RS) [23] version of the Starobinsky model.
+
+  12
+     Once again, we shall concentrate on the Euclidean propagators in the section. The Lorentzian propagators
+exhibit similar short distance behaviour.
+
+
+
+
+                                                     32
+7.2       Randall-Sundrum model
+The RS model consists of a five dimensional spacetime with negative cosmological constant, and
+a thin positive tension domain wall whose tension is fine tuned to cancel the effect of the bulk
+cosmological constant. The ground state solution of this model is a Poincaré symmetric domain
+wall separating two regions of AdS. In the RS version of the Starobinsky model, we simply add
+a U(N) Yang-Mills theory to the worldvolume of the domain wall. This model was extensively
+discussed in our previous paper [24]. For related work, see [41, 42, 43, 44]. The (Euclidean)
+action is
+                                      S = Sbulk + Sbrane ,                                  (7.1)
+where
+                                    1
+                                          Z
+                                            √
+                                                
+                                                      12
+                                                         
+                                                               1
+                                                                  Z      √
+                      Sbulk = −         d5 x g R + 2 −               d4 x h[K]+−,             (7.2)
+                                  16πG5               l      8πG5
+                                              3
+                                                   Z     √
+                                 Sbrane =            d4 x h + W [h],                          (7.3)
+                                            4πG5 l
+where gµν denotes the five dimensional bulk metric and hij the metric induced on the domain
+wall, l is the radius of the AdS solution, W is the generating functional of the Yang-Mills theory
+on the domain wall and [K]+   − is the discontinuity in the trace of the extrinsic curvature at the
+              13
+domain wall .
+   There are two simple solutions of the equations of motion for this model. Since the trace
+anomaly vanishes in flat space, a Poincaré symmetric solution still exists. However, on a domain
+wall with de Sitter geometry, the trace anomaly acts like an extra contribution to the tension
+which permits a self-consistent de Sitter solution to the equations of motion. The Euclidean
+version of this is a spherical domain wall separating two balls of AdS. The radius R of the
+domain wall is given by [24]            s
+                                    R3 R2            N 2 G5 R 4
+                                              +  1 =       + 4.                               (7.4)
+                                     l3    l2         8πl3    l
+The metric in each bulk region is pure AdS:
+
+                                          ds2 = l2 (dy 2 + sinh2 ydΩ24 ),                     (7.5)
+
+for 0 ≤ y < y0 . The domain wall at y = y0 , where y0 is given by R = l sinh y0 .
+    The RS model can be interpreted using the AdS/CFT correspondence as four dimensional
+gravity coupled to a Yang-Mills theory with an ultraviolet cut-off [46, 24]. The Yang-Mills
+theory is two copies of the N = 4 U(NRS ) super Yang-Mills theory with NRS given by
+
+                                                   l3     2
+                                                        2NRS
+                                                      =      .                                (7.6)
+                                                   G5    π
+We shall refer to this dual Yang-Mills theory as the RS CFT in order to distinguish it from
+the theory on the domain wall. The Newton constant in four dimensions is given by the RS
+value G4 = G5 /l. The four dimensional dual of the RS model with a U(N) CFT on the domain
+wall is four dimensional gravity coupled to both the RS CFT and the U(N) CFT. These two
+CFTs are rather different in that the former has an ultraviolet cut-off (so its effective action
+ 13
+      See [45] for an explanation of why this term is required.
+
+                                                         33
+does not behave as p4 log p at large p) whereas the latter does not. The effective action of the
+                              2
+RS CFT is proportional to NRS    , while the effective action of the other CFT is proportional to
+  2
+N . This implies that the effects of the RS CFT should be negligible when N ≫ NRS . This is
+confirmed by expanding equation 7.4 in powers of N/NRS . At leading order, one recovers the
+four dimensional result 2.19. Note that N ≫ NRS implies R ≫ l, i.e., the domain wall is large
+compared with the AdS length scale.
+
+7.3    Brane-world perturbations
+The RS model is a short distance modification of gravity. For length scales much greater than
+the AdS length l, four dimensional gravity is recovered. However, at shorter distances gravity
+becomes five dimensional. One might expect this to lead to a characteristic signal in the CMB.
+This turns out not to be true when the Yang-Mills theory is included on the domain wall.
+The reason is simple: at short distances, the matter contribution to the graviton propagator
+completely dominates the contribution from the four or five dimensional Einstein-Hilbert action.
+One might think that this effect is peculiar to our model of anomaly driven inflation, and would
+not occur in other models of inflation. However, any model has to take account of the Standard
+Model, which contains a large number of fields. These matter fields will suppress small scale
+metric perturbations in the same way as our Yang-Mills theory.
+    We shall illustrate this effect explicitly by calculating the scalar and tensor graviton propa-
+gators for anomaly driven inflation in the RS model. Our method will be the same as above, i.e.,
+we shall calculate the propagators in Euclidean signature and analytically continue to Lorentzian
+signature. The initial quantum state of perturbations is defined by the boundary condition of
+regularity on the Euclidean solution. In the RS case, this condition of regularity extends into
+the bulk.
+    This work is an extension of our previous paper [24], which contained the first rigorous
+derivation of cosmological perturbations in RS cosmology. However, in that paper we only
+discussed tensor perturbations and did not include the finite R2 counterterm. Here, we shall
+include this counterterm and also consider scalar perturbations. Our method involves integrat-
+ing out metric perturbations in the fifth dimension. For alternative approaches to brane-world
+cosmological perturbations, see [47, 48, 49, 50, 51, 52].
+    The metric perturbation on the domain wall can be decomposed as in subsection 3.1, giving
+a scalar ψ(x) and a tensor θij (x). Correlation functions of these quantities can be calculated
+by integrating out the bulk metric perturbation, as explained in [24]. This is done by splitting
+the bulk metric perturbation δg into a classical part δg0 and a quantum part δg′ . The classical
+part is the solution of the linearized Einstein equation in the bulk that is regular throughout the
+bulk and matches onto the metric perturbation at the domain wall. The quantum part vanishes
+at the domain wall. Performing the path integral over δg′ gives some determinant Z0 that we
+shall not worry about. The classical part simply contributes the bulk action evaluated on shell:
+                                Z
+                                    d[δg]e−Sbulk [δg] = Z0 e−Sbulk [δg0 ] .                   (7.7)
+
+We conclude that the effective action governing metric perturbations on the domain wall is
+
+                                    Sef f = 2Sbulk [δg0 ] + Sbrane .                          (7.8)
+
+                                                    34
+The factor of 2 is necessary if we regard Sbulk as the action of just one of the bulk regions.
+Sbrane is straightforward to compute using our result for W , equation 3.73. The bulk metric
+perturbation δg0 can be obtained from the results of section 3 by replacing ¯l and Ḡ by l and
+G5 . It follows that the bulk metric perturbation is transverse traceless, and the scalar ψ arises
+from a perturbation in the position of the domain wall in Gaussian normal coordinates. Sbulk
+can be obtained from equations 3.69, 3.70 and 3.71 since the bulk action in the RS model is
+exactly the same as the bulk action for the AdS/CFT correspondence.
+    From Sef f one can read off the metric propagators. The Euclidean scalar correlator can be
+written in position space as
+
+                                        32π 2 R4
+                                                                     "                              #
+                                   ′                    1        1
+                      hψ(x)ψ(x )i =                          −        ,                                   (7.9)
+                                      2          2   ˆ 2 + m2 −∇
+                                    3N (−α)(4 + m ) −∇         ˆ2 − 4
+
+where
+                                                                1 + 2e−2y0
+                                                                             !
+                                                    1
+                                                    2
+                                               m =                               .                       (7.10)
+                                                   2α           1 + e−2y0
+The tensor correlator is
+                                                              ∞
+                                                   128π 2 R4 X     (p)
+                        hθij (x)θi′ j ′ (x′ )i =       2
+                                                                 Wiji′ j ′ (x, x′ )F (p, y0 , ρ, α)−1,   (7.11)
+                                                     N       p=2
+
+where
+                                                    f ′ (y0 )
+                                                                                            !
+                      F (p, y0 , α, β) = e sinh y0 p
+                                                   y0
+                                                              + 4 coth y0 − 6 + Ψ(p)
+                                                    fp (y0 )
+                                       + 2βp(p + 1)(p + 2)(p + 3) − 4αp(p + 3).                          (7.12)
+
+Recall that y0 is defined by R = l sinh y0 . We have used equation 7.4 to write l3 /G5 in terms
+of R. fp is defined in equation 3.56. Equation 7.12 was derived in [24] but the term involving
+α was not included. In comparing our propagators in the RS model with those of the four
+dimensional model, we first render them dimensionless by dividing by R4 .
+    The scalar correlator for the RS model is very similar to that of the four dimensional model,
+as given by equation 3.83. The only difference is the y0 -dependence of the tachyon mass m2 .
+As y0 → ∞, the four dimensional value is recovered. This is to be expected since, in this limit,
+R/l → ∞, which implies N/NRS → ∞ using equation 7.4. We have already discussed how the
+RS corrections are expected to be negligible when N ≫ NRS . Note that as y0 increases from 0
+to ∞, m2 just changes monotonically by a factor of 2/3.
+    The analytic structure of the RS tensor propagator is very similar to the four dimensional
+case. There is always a pole at p = 0: this is the massless graviton of the RS model14 . Other
+poles behave as discussed in subsection 4.3.
+    The tensor propagator appears to exhibit more interesting dependence on y0 . The first term
+in equation 7.12 arises from the gravitational part of the action, so this is where differences
+between a RS model and the four dimensional model show up. As y0 → ∞, the first term tends
+to p2 + 3p + 6, in agreement with the four dimensional result (equation 3.82). For very small y0 ,
+ 14
+      This pole was mistakenly identified as gauge in [24].
+
+
+                                                               35
+                       25
+
+
+
+                       20
+
+
+
+
+                       15
+
+
+
+                       10
+
+
+
+
+                        5
+
+
+
+
+                        0
+
+
+
+                       −5
+                            −1.5   −1.0     −0.5        0.0        0.5       1.0
+
+
+
+Figure 4: F (p, y0, 0, 0) plotted against p. The lower curve on the left (upper curve on the right)
+is for R ≫ l, when four dimensional gravity is recovered. The other curve is for R = l, when
+the RS corrections might be expected to be large. However, they clearly have very little effect.
+
+the first term is p + 6. If y0 is held fixed but large then the first term grows quadratically with p
+as p is increased but eventually becomes linear for sufficiently large p, corresponding to gravity
+becoming five dimensional at short distances. Thus the difference between a RS model and four
+dimensional gravity might be expected to show up in 1/p behaviour in the tensor propagator at
+large p, rather than the usual 1/p2 behaviour. However, this neglects the effects of the matter
+fields, which are given by the other terms in equation 7.12. At large p, Ψ(p) grows like p4 log p
+and completely dominates the first term. Therefore, at large p the tensor propagator behaves like
+(p4 log p)−1 irrespective of whether one is considering a RS model or four dimensional gravity.
+The differences between the RS model and four dimensional gravity are drowned out by the
+damping effect of matter fields at short distances, rendering them unobservable.
+    RS corrections are expected to be important at distances of order l. If we take R = l then
+all the tensor harmonics have wavelengths smaller than l, not just the large p ones. Therefore,
+one might expect RS corrections to be important at small p for such a small domain wall.
+Surprisingly, this turns out not to be the case, as shown in figure 4. This surprising behaviour
+can be understood in the four dimensional dual picture. Taking R = l corresponds to N 2 ≈
+      2
+6.4NRS   , so the matter on the domain wall still dominates the effect of the RS corrections. The
+RS corrections would be expected to be about as important as the matter on the wall when
+NRS ≈ N, which corresponds to R ≈ 0.46l. In other words, the RS corrections only become
+large when the entire domain wall is smaller than the AdS radius.
+    One might worry that introducing a cut-off into the matter theory would spoil the damping
+at large p. However, if we did have a momentum cut-off Λ then we would need ΛR ≫ 1 in order
+for field theory to be valid during inflation, as is always assumed. It therefore seems appropriate
+to take Λ ∼ mpl , which corresponds to pmax ∼ N ≫ 1. Figure 4 shows that the matter fields
+dominate the propagator even for quite small p, so introducing a cut-off would have little effect.
+
+
+
+                                                   36
+8       Conclusions
+There is now good observational evidence suggesting that the early universe underwent a period
+of inflationary expansion. Most theoretical models of inflation involve a scalar field rolling down
+its potential. The simplicity of such models is attractive but they have several serious problems.
+All these models require contrived initial conditions – no explanation is given of why the scalar
+field was initially displaced from the minimum of its potential15 . Secondly, in order to obtain
+sufficient inflation and small CMB fluctuations, the CMB potential has to be highly fine-tuned.
+Finally, models of scalar field driven inflation usually disregard the effect of the large number
+of other fields in the universe. It is usually argued that the effect of such fields rapidly becomes
+negligible during inflation. However, as we have seen, this is not necessarily true because the
+trace anomaly of matter fields provides an additional contribution to the cosmological constant
+constant during inflation.
+    In this paper, we have argued in favour of Starobinsky’s model of trace anomaly driven
+inflation [15] as an alternative to scalar field driven inflation. In Starobinsky’s model, the trace
+anomaly supports a de Sitter phase of expansion which is unstable, but can be long lived. This
+model is better motivated from the point of view of initial conditions since quantum cosmology
+predicts that the de Sitter universe can nucleate semi-classically via a four sphere instanton [17].
+We have seen that this model admits a second instanton. This can probably be interpreted in a
+similar way to the Coleman-de Luccia [53] instanton, i.e., as describing the semi-classical decay
+of the de Sitter phase via nucleation of a pair of bubbles, each containing an open inflationary
+universe. Owing to the lack of an analytic solution for this instanton, we have concentrated on
+the four sphere instanton in this paper.
+    During the de Sitter phase, particle masses would have been small compared with the space-
+time curvature so matter fields would have been classically conformally invariant. Moreover, we
+observe a large number of fields today and supersymmetry predicts that there should be many
+more, so the large N approximation is justified in studies of trace anomaly driven inflation. This
+leads to a very attractive way of calculating the effective action of matter fields during the de
+Sitter phase, viz the AdS/CFT correspondence. Using AdS/CFT, we have presented the first
+calculation of scalar and tensor metric propagators for trace anomaly driven inflation, taking
+full account of the back-reaction of matter fields.
+    In order for the de Sitter phase to be unstable, it is necessary for the coefficient d =
+αN 2 /(16π 2) of the ∇2 R term in the trace anomaly to be negative (in our conventions). We
+therefore included a R2 counterterm in the action to control this coefficient. We also took
+account of the other curvature squared counterterms. We demonstrated that the amplitude
+of long wavelength metric perturbations could be brought within observational bounds at the
+expense of fine-tuning of N 2 |α|. This fine-tuning is no worse than required in scalar field driven
+inflation, and agrees with the results of Vilenkin [17]. In fact, the amount of tuning required may
+be much less than for scalar field driven inflation. A more detailed treatment of the slow-roll
+phase would be required to verify this.
+    One might worry that introducing a R2 counterterm into the action would lead to observa-
+tional consequences for, say, solar system physics. However, the√     effect of this term in flat space
+is just to introduce a scalar field whose mass is of order mpl /(N −α). Even though |α| is very
+  15
+       Quantum cosmology can answer this question, but only for very contrived false-vacuum potentials [53, 54].
+
+
+
+                                                       37
+large, this mass is still much too large to lead to observable effects today. For example, taking
+N = 10 and α of order 109 gives a mass of order 10−6 mpl .
+    Our tensor propagator exhibits interesting analytic structure. We have shown that ghosts
+can be removed without fine-tuning, although this introduces a pair of complex conjugate poles.
+Such poles were studied long ago and found to correspond √     to violations of causality. We have
+seem that this causality violation occurs on a time scale R/ −α, where R is the Hubble time.
+This time scale is much smaller than R when |α| is large enough to bring the amplitude of
+metric perturbations within the observational bound16 .
+    At large p, the tensor propagator exhibits the behaviour first discovered for flat space by
+Tomboulis [22], namely suppression of metric perturbations by matter fields. This suppression
+does not involve fine-tuning, as required for suppression of long-wavelength perturbations. The
+matter fields make the tensor propagator decay like (p4 log p)−1 at large wavenumber p. This
+behaviour would be expected whenever the large N expansion is valid. Since we observe a large
+number of matter fields, we have argued that this suppression should occur even if inflation
+were not driven by a trace anomaly. This implies that matter fields damp out the effects of any
+short distance modifications of gravity (such as extra dimensions), rendering them unobservable.
+We illustrated this effect by comparing the propagators for trace anomaly driven inflation in
+four dimensions and in a Randall-Sundrum model. At large p, the tensor propagators are
+indistinguishable and at small p they only differ when the entire domain wall is smaller than
+the radius of curvature of the fifth dimension.
+    There are many directions in which our work could be extended. For example, our use of
+AdS/CFT has restricted us to a strongly coupled theory. However, we have argued that our 2-
+point functions are independent of the Yang-Mills coupling. Dependence on the coupling would
+be expected to show up in higher order correlation functions of metric perturbations. This
+implies that these higher order correlation functions would not be determined by the 2-point
+functions, so the spectrum of CMB fluctuations would exhibit non-Gaussianity.
+    In the Einstein static universe, the strongly coupled Yang-Mills theory exhibits a confine-
+ment/ de-confinement transition at a certain temperature, corresponding to two different bulk
+solutions in the AdS/CFT correspondence [31]. One might therefore wonder whether there is a
+bulk solution different from pure AdS which could have a spherical boundary with an O(4) sym-
+metric metric. If so, then one might have a phase transition in a cosmological background. This
+does not appear possible. To see this, assume that the O(4) isometry group of the boundary
+implies a corresponding O(4) isometry group in the bulk (we are thinking of a cut-off CFT, cor-
+responding to a finite boundary). Birkhoff’s theorem then implies that the bulk is (Euclidean)
+Schwarzschild-AdS. However, in order for the instanton to have spherical topology, the orbits
+of the O(4) group have to degenerate at two points on the instanton (the poles) and this is not
+possible if the bulk is Schwarzschild-AdS except when the mass parameter vanishes. In other
+words, there is a unique solution (pure AdS) in the bulk and therefore no phase transition. This
+bulk solution corresponds to a deconfined phase of the Yang-Mills theory (this is evident from
+the overall N 2 factor in the Yang-Mills effective action).
+    When one has a choice between several cosmological instantons, one usually argues that the
+instanton with the least Euclidean action is preferred, on the basis that this instanton would give
+  16
+    Even if the time scale for causality violation were the Hubble time, it is not clear that this would contradict
+cosmological observations and such violations would certainly not be observable in the laboratory.
+
+
+
+                                                        38
+the dominant contribution to a gravitational path integral. Instantons which are saddle points,
+rather than local minima of the action, would not be viewed as satisfactory. These instantons
+would possess negative modes, corresponding to directions in field space along which the action
+decreases. Such instantons have been extensively discussed in [55], where it was argued that
+they may be interpreted as describing quantum tunneling in an existing universe, rather than
+creation of a universe from nothing. Since we have found two instantons, it would be interesting
+to examine whether they have negative modes. This could give support to the idea that the
+double bubble instanton describes an instability of the de Sitter vacuum.
+    Any discussion of negative modes presupposes the existence of a gravitational path integral.
+This is not well-defined even for Einstein gravity since it is well-known that the Euclidean
+gravitational action is unbounded below. In our case, the presence of the R2 counterterm with
+a negative coefficient appears to make matters even worse. However, it is known that Einstein
+gravity coupled to a R2 term can be rewritten as Einstein gravity coupled to a scalar field [56]
+so the situation is probably no worse than usual.
+    We have emphasized that there are two instantons in the Starobinsky model. However, there
+is also a third, namely flat space viewed as the infinite radius limit of the four sphere. This has
+infinitely negative Euclidean action. It might therefore be necessary to invoke the anthropic
+principle to explain why an inflationary universe is nucleated rather than an empty flat universe.
+The situation is analagous to false vacuum decay [53, 54], for which the instanton describing
+nucleation of a universe in the true vacuum state has lower action than the instanton describing
+nucleation of a universe in the false vacuum state. Clearly there is plenty of scope for future
+work on understanding the quantum cosmology of the Starobinsky model.
+    Our approach was based on decomposing the metric perturbation into scalar, vector and
+tensor representations of O(5), or O(4, 1). This made the AdS/CFT calculation relatively
+straightforward, but means that our results are only directly applicable to the initial de Sitter
+phase, although we have argued that the amplitude of metric perturbations should not increase
+during the slow roll phase. In order to produce a detailed fluctuation spectrum that could be
+compared with observation, it would be necessary to do a calculation based on a decomposi-
+tion into scalar, vector and tensor represenations of O(4) (assuming a closed universe). If the
+AdS/CFT calculation could be extended to perturbations around a Euclidean background with
+a general O(4) invariant metric then, by analytic continuation, one could calculate how the
+metric propagators evolve during the slow-roll phase. The perturbations spectrum at the end of
+inflation could then be used to predict the detailed spectrum of temperature fluctuations in the
+CMB. An O(4) approach would also be necessary to investigate the double bubble instanton.
+
+                                   Acknowledgments
+  We are very grateful to Steven Gratton, Hugh Osborn and Neil Turok for useful discussions.
+TH is Aspirant FWO, Belgium.
+
+
+References
+ [1] A.H. Guth, Phys. Rev. D23, 347 (1981).
+
+ [2] P. de Bernardis et al., Nature 404, 955 (2000); astro-ph/0004404.
+
+
+                                                39
+ [3] A.D. Linde, Phys. Lett. B108, 389 (1982).
+
+ [4] A. Albrecht and P.J. Steinhardt, Phys. Rev. Lett. 48, 1220 (1982).
+
+ [5] G.F. Mazenko, W.G. Unruh, R.M. Wald, Phys. Rev. D31, 273 (1985).
+
+ [6] A.D. Linde, Phys. Lett. B129, 177 (1983).
+
+ [7] A.D. Linde, D. Linde, A. Mehzlumian, Phys. Rev. D54, 2504 (1996).
+
+ [8] J.B. Hartle and S.W. Hawking, Phys. Rev. D28, 2960 (1983).
+
+ [9] S.W. Hawking and N. Turok, Phys. Lett. B425, 25 (1998); hep-th/9802030.
+
+[10] C. Bennett et al., Astrophys.J. 464, L1 (1996); astro-ph/9601067.
+
+[11] D.M. Capper and M.J. Duff, Nuovo Cimento 23A, 173 (1974).
+
+[12] N.D. Birrell and P.C.W. Davies, Quantum fields in curved space, Cambridge University
+     Press (1982).
+
+[13] M.J. Duff, Class. Quant. Grav. 11, 1387 (1994); hep-th/9308075.
+
+[14] J.S. Dowker and R. Critchley, Phys. Rev. D13, 3224 (1976).
+
+[15] A.A. Starobinsky, Phys. Lett. 91B, 99 (1980).
+
+[16] M.V. Fischetti, J.B. Hartle and B.L. Hu, Phys. Rev. D20, 1757 (1979).
+
+[17] A. Vilenkin, Phys. Rev. D32, 2511 (1985).
+
+[18] J.C. Fabris, A.M. Pelinson and I.L. Shapiro, hep-th/0009197.
+
+[19] A.A. Starobinsky, JETP Lett. 34, 438 (1981).
+
+[20] A.A. Starobinsky, Sov. Astron. Lett. 9, 302 (1983).
+
+[21] J. Maldacena, Adv. Theor. Math. Phys. 2, 231 (1998); hep-th/9711200.
+
+[22] E. Tomboulis, Phys. Lett. 70B, 361 (1977).
+
+[23] L. Randall and R. Sundrum, Phys. Rev. Lett. 83, 4690 (1999); hep-th/9906064.
+
+[24] S.W. Hawking, T. Hertog and H.S. Reall, Phys. Rev. D62, 043501 (2000); hep-th/0003052.
+
+[25] M. Henningson and K. Skenderis, JHEP 9807, 023 (1998); hep-th/9806087.
+
+[26] G.W. Gibbons and M.J. Perry, Nucl. Phys. B146, 90 (1978).
+
+[27] H. Osborn and G.M. Shore, Nucl. Phys. B571, 287 (2000); hep-th/9909043.
+
+[28] A. Higuchi, J. Math. Phys. 28 (7), 1553 (1987).
+
+
+                                              40
+[29] G.W. Gibbons and S.W. Hawking, Phys. Rev. D15, 2752 (1977).
+
+[30] S.S. Gubser, I.R. Klebanov and A.M. Polyakov, Phys. Lett. B428, 105-114 (1998); hep-
+     th/9802109.
+
+[31] E. Witten, Adv. Theor. Math. Phys. 2, 253 (1998); hep-th/9802150.
+
+[32] A. Tseytlin and H. Liu, Nucl. Phys. B533, 88 (1998); hep-th/9804083.
+
+[33] M. Henningson and K. Skenderis, Fortsch. Phys. 48, 125 (2000); hep-th/9812032.
+
+[34] V. Balasubramanian and P. Kraus, Commun. Math. Phys. 208, 413 (1999); hep-th/9902121.
+
+[35] R. Emparan, C.V. Johnson and R.C. Myers, Phys. Rev. D60, 104001 (1999); hep-
+     th/9903238.
+
+[36] P. Kraus, F. Larsen and R. Siebelink, Nucl. Phys. B563, 259 (1999); hep-th/9906127.
+
+[37] S.W. Hawking, Phys. Lett. 115B, 295 (1982).
+
+[38] S. Coleman in Theory and phenomenology in particle physics, Ed. A. Zichichi, New York
+     (1969).
+
+[39] S. Gratton and N. Turok, Phys. Rev. D60, 123507 (1999); astro-ph/9902265.
+
+[40] T. Hertog and N. Turok, astro-ph/9903075.
+
+[41] S. Nojiri, S.D. Odintsov and S. Zerbini, Phys. Rev. D62, 064006 (2000); hep-th/0001192.
+
+[42] S. Nojiri and S.D. Odintsov, Phys. Lett. B484, 119 (2000); hep-th/000497.
+
+[43] S. Nojiri, O. Obregon and S.D. Odintsov, hep-th/0005127.
+
+[44] L. Anchordoqui, C. Nunez and K. Olsen, hep-th/0007064.
+
+[45] H.A. Chamblin and H.S. Reall, Nucl. Phys. B562, 133 (1999); hep-th/9903225.
+
+[46] S.S. Gubser, hep-th/9912001.
+
+[47] S. Mukohyama, hep-th/0004067.
+
+[48] H. Kodama, A. Ishibashi and O. Seto, Phys. Rev. D62, 064022 (2000); hep-th/0004160.
+
+[49] R. Maartens, hep-th/0004166.
+
+[50] D. Langlois, hep-th/0005025.
+
+[51] C. van de Bruck, M. Dorca, R. Brandenberger and A. Lukas, hep-th/0005032.
+
+[52] K. Koyama and J. Soda, hep-th/0005239.
+
+[53] S. Coleman and F. de Luccia, Phys. Rev. D21, 3305 (1980).
+
+
+                                             41
+[54] S.W. Hawking and I. Moss, Phys. Lett. B110, 35 (1982).
+
+[55] S. Gratton and N. Turok, hep-th/0008235.
+
+[56] B. Whitt, Phys. Lett. B145, 176 (1984).
+
+
+
+
+                                               42
+

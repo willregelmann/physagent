@@ -1,0 +1,23 @@
+(i) closed caps, KS bulk (no boundary) vs position's Gamma_full; and Moebius test on the round sphere in frames C:
+   sphere               C=0.5: theta_end=3.13759  Gamma_pos=+0.00000  Gamma_KS=+0.00000  diff=+0.00000  I_R2=-5.33333(R2 part of I_loc)
+   sphere               C=1.0: theta_end=3.13959  Gamma_pos=+0.00000  Gamma_KS=+0.00000  diff=+0.00000  I_R2=-5.33333(R2 part of I_loc)
+   sphere               C=2.0: theta_end=3.14059  Gamma_pos=+0.00000  Gamma_KS=+0.00000  diff=+0.00000  I_R2=-5.33333(R2 part of I_loc)
+   double bubble eps=1  C=0.5: theta_end=3.14124  Gamma_pos=+1.92229  Gamma_KS=+1.11316  diff=-0.80913  I_R2=-8.56983(R2 part of I_loc)
+   double bubble eps=1  C=1.0: theta_end=3.14141  Gamma_pos=+1.92229  Gamma_KS=+1.11316  diff=-0.80913  I_R2=-8.56983(R2 part of I_loc)
+   double bubble eps=1  C=2.0: theta_end=3.14150  Gamma_pos=+1.92229  Gamma_KS=+1.11316  diff=-0.80913  I_R2=-8.56983(R2 part of I_loc)
+(ii) partial double bubble to the neck: bulk-only (position), HHJ bulk+boundary, and the cocycle-invariant Gamma[sigma_C]-Gamma[omega_C]:
+   C=0.298429: theta(neck)=1.57080  Gamma_pos(bulk only)=+0.96114  Gamma_KS bulk=+0.55658 +bdy=+0.00000 = +0.55658 | Gamma_KS[omega_C]=+0.00000 | invariant Gamma[sigma_C]-Gamma[omega_C]=+0.55658 (dev from C_sym: +0.0e+00)
+   C=0.500000: theta(neck)=2.06538  Gamma_pos(bulk only)=-0.17484  Gamma_KS bulk=-0.45463 +bdy=+0.56348 = +0.10885 | Gamma_KS[omega_C]=-0.44773 | invariant Gamma[sigma_C]-Gamma[omega_C]=+0.55658 (dev from C_sym: +4.6e-09)
+   C=1.000000: theta(neck)=2.56156  Gamma_pos(bulk only)=-0.91193  Gamma_KS bulk=-0.63374 +bdy=-0.23134 = -0.86508 | Gamma_KS[omega_C]=-1.42166 | invariant Gamma[sigma_C]-Gamma[omega_C]=+0.55658 (dev from C_sym: +5.2e-09)
+   C=2.000000: theta(neck)=2.84535  Gamma_pos(bulk only)=-1.15631  Gamma_KS bulk=-0.54012 +bdy=-1.58541 = -2.12552 | Gamma_KS[omega_C]=-2.68211 | invariant Gamma[sigma_C]-Gamma[omega_C]=+0.55658 (dev from C_sym: +5.9e-09)
+   C=4.000000: theta(neck)=2.99266  Gamma_pos(bulk only)=-1.23002  Gamma_KS bulk=-0.50624 +bdy=-2.97266 = -3.47890 | Gamma_KS[omega_C]=-4.03548 | invariant Gamma[sigma_C]-Gamma[omega_C]=+0.55658 (dev from C_sym: +2.4e-09)
+(iii) same test for the round sphere cut at its equator (expect invariant = 0):
+   C=1.0: theta(eq)=1.57080  Gamma_pos(bulk)=+0.00000  Gamma_KS[sigma_C]=+0.00000  Gamma_KS[omega_C]=+0.00000  invariant=+0.00000
+   C=0.5: theta(eq)=0.92730  Gamma_pos(bulk)=+0.48084  Gamma_KS[sigma_C]=+0.65429  Gamma_KS[omega_C]=+0.65429  invariant=+0.00000
+   C=2.0: theta(eq)=2.21430  Gamma_pos(bulk)=-0.48084  Gamma_KS[sigma_C]=-0.65430  Gamma_KS[omega_C]=-0.65430  invariant=+0.00000
+   C=4.0: theta(eq)=2.65164  Gamma_pos(bulk)=-0.82188  Gamma_KS[sigma_C]=-1.72690  Gamma_KS[omega_C]=-1.72690  invariant=+0.00000
+(iv) generic (K != 0) cut of the double bubble at tau=1.6 (between peak and neck): invariant across frames
+   C=0.298429: theta1=0.80517 K1=a'/a=-0.4079  Gamma_pos(bulk)=+1.44527  Gamma_KS bulk=+0.61224 bdy=+0.12138  invariant=+0.73362
+   C=0.500000: theta1=1.23942 K1=a'/a=-0.4079  Gamma_pos(bulk)=+0.61228  Gamma_KS bulk=+0.41577 bdy=-0.27961  invariant=+0.73362
+   C=1.000000: theta1=1.91907 K1=a'/a=-0.4079  Gamma_pos(bulk)=-0.73533  Gamma_KS bulk=-0.78141 bdy=+0.35837  invariant=+0.73362
+   C=2.000000: theta1=2.46753 K1=a'/a=-0.4079  Gamma_pos(bulk)=-1.34785  Gamma_KS bulk=-1.16601 bdy=-0.12974  invariant=+0.73362

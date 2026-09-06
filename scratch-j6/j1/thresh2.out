@@ -1,0 +1,4 @@
+eps=0.30: no three-extremum solution for c3 in [-0.375,-0.330] step 5e-4
+eps=0.33: no three-extremum solution for c3 in [-0.375,-0.330] step 5e-4
+eps=0.35: window [-0.3460,-0.3460] but no sign change (a''' from -0.023 to -0.023; peak-neck 0.0000)
+eps=0.36: window [-0.3485,-0.3460] c3*=-0.347204 peak=0.8005 neck=0.8001 (gap 0.0004) I_DB/a=-9.1487 I_S4/a=-6.4400 dI/a=-2.7087 | lambda+=0.742, N_inf(a2=1e6)~5.0, N_inf(a2=1e7)~6.6

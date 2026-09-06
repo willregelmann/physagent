@@ -1,0 +1,16 @@
+Mobius boost b=0.3: Gamma = +0.000e+00   (expect 0)
+      with the opposite sign of the 2*box term: -9.398e-02   (should NOT vanish)
+Mobius boost b=1.0: Gamma = -2.776e-17   (expect 0)
+      with the opposite sign of the 2*box term: -8.534e-01   (should NOT vanish)
+Mobius boost b=2.0: Gamma = +8.882e-16   (expect 0)
+      with the opposite sign of the 2*box term: -2.013e+00   (should NOT vanish)
+radius 0.5: Gamma = -2.772589, 4 ln r = -2.772589
+radius 2.0: Gamma = +2.772589, 4 ln r = +2.772589
+eps=0.36 DB c3=-0.347204 cutoff a0=1e-02: theta_end=3.138850  Gamma(analytic derivs)=+0.586895  Gamma(spline FD)=+0.586895
+eps=0.36 DB c3=-0.347204 cutoff a0=3e-03: theta_end=3.140771  Gamma(analytic derivs)=+0.586895  Gamma(spline FD)=+0.586895
+eps=0.36 DB c3=-0.347204 cutoff a0=1e-03: theta_end=3.141321  Gamma(analytic derivs)=+0.586895  Gamma(spline FD)=+0.586896
+eps=0.36 DB c3=-0.347204 cutoff a0=3e-04: theta_end=3.141521  Gamma(analytic derivs)=+0.587565  Gamma(spline FD)=+0.596339
+eps=1.0 DB c3=-0.349489 cutoff a0=1e-02: theta_end=3.140702  Gamma(analytic derivs)=+1.922289  Gamma(spline FD)=+1.922289
+eps=1.0 DB c3=-0.349489 cutoff a0=3e-03: theta_end=3.141325  Gamma(analytic derivs)=+1.922289  Gamma(spline FD)=+1.922289
+eps=1.0 DB c3=-0.349489 cutoff a0=1e-03: theta_end=3.141504  Gamma(analytic derivs)=+1.922289  Gamma(spline FD)=+1.922289
+eps=1.0 DB c3=-0.349489 cutoff a0=3e-04: theta_end=3.141566  Gamma(analytic derivs)=+1.922289  Gamma(spline FD)=+1.922289

@@ -1,0 +1,347 @@
+                                             The No-Boundary Proposal as a Path Integral with Robin Boundary Conditions
+
+
+                                                                                   Alice Di Tucci1 and Jean-Luc Lehners1
+                                                   1
+                                                       Max–Planck–Institute for Gravitational Physics (Albert–Einstein–Institute), 14476 Potsdam, Germany
+                                                           Realising the no-boundary proposal of Hartle and Hawking as a consistent gravitational path
+                                                        integral has been a long-standing puzzle. In particular, it was demonstrated by Feldbrugge et al.
+                                                        that the sum over all universes starting from zero size results in an unstable saddle point geometry.
+                                                        Here we show that in the context of gravity with a positive cosmological constant, path integrals
+                                                        with a specific family of Robin boundary conditions overcome this problem. These path integrals
+                                                        are manifestly convergent and are approximated by stable Hartle-Hawking saddle point geometries.
+                                                        The price to pay is that the off-shell geometries do not start at zero size. The Robin boundary
+                                                        conditions may be interpreted as an initial state with Euclidean momentum, with the quantum
+                                                        uncertainty shared between initial size and momentum.
+arXiv:1903.06757v2 [hep-th] 3 Jun 2019
+
+
+
+
+                                            If quantum theory is universal, and there currently is          gral neatly captures quantum interference, and focussing
+                                         no reason to think otherwise, then the universe should             on solutions that cannot be described via a path inte-
+                                         be describable by a quantum state just like any other              gral may thus not correctly reproduce central quantum
+                                         system. While its quantum properties might be hidden               effects.
+                                         today they may well have played a crucial role in an early            In this Letter, we will combine several of the ideas men-
+                                         phase of its evolution. An intriguing idea in this context         tioned above, using Robin boundary conditions in order
+                                         is that a finite universe might have made its appearance           to impose a condition on a linear combination of the ini-
+                                         out of nothing due to something akin of a quantum tun-             tial size and momentum of the universe. For a family
+                                         nelling effect. In fact this idea has a long history dating        of such conditions, we find that the path integral can
+                                         back all the way to Lemaı̂tre [1]. Quantum cosmology               be approximated solely by the stable no-boundary sad-
+                                         should then be able to describe such a process. The most           dle points, thus avoiding instabilities and representing a
+                                         concrete formulations of this idea go under the names of           consistent definition of the no-boundary proposal.
+                                         “no boundary proposal” [2] and “tunnelling proposal”                  But first, it seems appropriate to briefly review the
+                                         [3]. The path integral formulation of these proposals has          negative result that we are trying to overcome. We will
+                                         recently been analysed in the context of Lorentzian quan-          work in minisuperspace, where the geometries considered
+                                                                                                                                               2
+                                         tum cosmology [4–8]. There, a transition amplitude from            are of the form [16] ds2 = − Nq dt2 + qdΩ23 , with dΩ23 a
+                                         a geometry of zero size, i.e. from “nothing”, to a finite
+                                                                                                            three sphere of volume 2π 2 . The function q(t) is the
+                                         one was evaluated. It was shown that the two proposals
+                                                                                                            squared scale factor, while N (t) is the lapse function.
+                                         are in fact identical in this formulation and that the path
+                                                                                                            The propagator for the no boundary proposal G[q1 , 0]
+                                         integral gives a result analogous to the tunnelling am-
+                                                                                                            describes a transition from a spatial 3-geometry of zero
+                                         plitude described in [3]. Perturbations around the back-
+                                                                                                            size, q0 = 0, to a later one of size q1 . The propagator can
+                                         ground geometry however turn out to be unstable, mean-
+                                                                                                            be evaluated as a path integral over 4-geometries with a
+                                         ing that larger and larger deviations from homogeneity
+                                                                                                            weighting eiS given by the Einstein-Hilbert action with
+                                         and isotropy are favoured quantum mechanically. This
+                                                                                                            a cosmological constant Λ = 3H 2 . The steps needed
+                                         led to the conclusion that neither the no boundary nor
+                                                                                                            to define the gravitational path integral can be found in
+                                         the tunnelling proposal can be appropriate descriptions
+                                                                                                            [17, 18], with final result (in constant lapse gauge Ṅ = 0)
+                                         of the initial conditions of our universe.
+                                                                                                                                    Z ∞        Z q(t=1)=q1
+                                            In follow-up works different implementations of the                       G[q1 , 0] =         dN                 δq eiS/~ ,   (1)
+                                         proposals were proposed in order to avoid this nega-                                       0+          q(t=0)=0
+                                         tive conclusion. One attempt by Diaz-Dorronsoro et al.
+                                         was to consider intrinsically complex contours of integra-         where the action takes the form (with 8πG = 1)
+                                         tion for the lapse function [9], also in conjunction with                                   Z 1
+                                                                                                                 4 √                          q̇ 2
+                                                                                                               Z            
+                                         a specification of the initial momentum [10]. However,                          R         2
+                                                                                                            S = d x −g     −Λ = 6π      dt [−      +N (1−H 2 q)] .
+                                         these modifications either still included unstable pertur-                      2            0       4N
+                                         bations [6] or led to inconsistencies [11]. Another ap-
+                                         proach by Vilenkin and Yamada (in the context of the               The integration domain for the lapse is N ∈ (0+ , ∞), en-
+                                         tunnelling proposal) was to modify the boundary condi-             suring that the geometries in the sum have a Lorentzian
+                                         tions for the perturbations to be of Robin type [12, 13].          signature. This makes the path integral a propagator
+                                         A final proposition by Halliwell, Hartle and Hertog was            in the sense that it solves the inhomogeneous Wheleer-
+                                         to simply abandon the path integral, and concentrate on            DeWitt equation ĤG[q1 , 0] = −iδ(q1 ) where Ĥ is the
+                                         solutions of the Wheeler-DeWitt equation with desirable            quantum Hamiltonian.
+                                         properties [14] (see also [15]). However, the path inte-              It has been shown in [4] that the result of the various
+                                                                                                                                    2
+
+integrations to leading order in ~ is
+                               4π 2   4π 2 H
+                                             (q1 − H12 )3/2                          2                                1
+            G[q1 , 0] = e− H 2 ~ −i     ~                       (2)
+
+where we assumed that q1 > 1/H 2 . The negative weight-
+      4π 2
+ing − ~H 2 is characteristic of the tunnelling proposal [3],                                           N=0
+whereas the conjectured no-boundary result is [2]
+
+                      4π 2        4π 2 H       1
+        Ψ(q1 ) = e+ H 2 ~ cos[           (q1 − 2 )3/2 ] .       (3)                 3                                 4
+                                    ~         H
+
+   The difference between the two proposals may be elu-
+cidated by considering the saddle points of the full path
+integral (1). There are four saddle points, with geome-               Figure 1: The minisuperspace path integral contains 4 sad-
+tries given by q(t) = H 2 N 2 t(t − 1)p+ q1 t, with the lapse         dle points (orange dots) in the plane of the complex lapse N .
+taking the values Nc1 ,c2 = Hc12 ( H 2 q1 − 1 + c2 i) for             Steepest descent/ascent lines of the magnitude of the action
+c1 , c2 ∈ {−1, 1}. Their action is                                    are drawn as black lines, with the arrows indicating descent.
+                                                                      Asymptotic regions of convergence are shown in green, diver-
+                             4π 2                                     gent ones are red. For the path integral with Dirichlet bound-
+        S(Nc1 ,c2 ) = c1          [c2 i − (H 2 q1 − 1)3/2 ] .         ary conditions, the defining contour of positive real lapse (or-
+                             H2
+                                                                      ange line) can be deformed to the (orange dashed) thimble
+From this expression we see that the propagator (2) is                flowing through saddle point 1 only. With Robin boundary
+given by the contribution of the saddle point with c1 = 1             conditions, saddle points 1, 2 and the singularity of the action
+and c2 = 1, in the upper right quadrant of the complex                at N = 0 move. Shown here is the direction of motion for
+N plane. It is in fact possible to show, applying Picard-             negative imaginary β.
+Lefschetz theory, that the integral along the positive real
+N line is equivalent to the integral along the steepest de-
+scent path (“thimble”) running through this saddle point              In other words we fix the field value at t = 1 to be
+alone, see Fig. 1. This saddle point is however unstable              q(t = 1) = q1 corresponding to a Dirichlet boundary
+[5, 19]. Thus the result (2), though mathematically cor-              condition, while at t = 0 we impose a condition on the
+rect, cannot describe our universe on physical grounds.               linear combination of q0 and q̇0 . With these boundary
+                                                                      conditions, the solution of the equation of motion reads
+  The no-boundary result (3) instead would have been
+obtained by considering the contribution of the two sad-                                             (αβ + q1 − H 2 N 2 )
+dle points in the lower half complex N plane, with c1 = 1,                     q(t) =H 2 N 2 t2 −                         Nt
+                                                                                                          3π 2 β − N
+c2 = −1 and c1 = −1, c2 = 1. There is however no
+convergent contour which can be deformed into a steep-                                     3π 2 (q1 − H 2 N 2 ) + N α
+                                                                                         +                            β           (4)
+est descent path running through solely these two sad-                                             3π 2 β − N
+dle points [6]. In this sense, the wavefunction (3) is
+not the saddle point approximation of the no bound-                   Plugging this solution back into the action we find that
+ary wavefunction for any Lorentzian path integral with                the saddle points are
+these boundary conditions. With different boundary con-                              p                   p
+                                                                              2        H 2 q1 − 1         9π 4 βH 4 − αβH 2 − 1
+ditions, the situation may change, as we will now discuss.            Ns = 3π β+c1                +c1 c2
+                                                                                         H  2                      H2
+  Let us consider augmenting the action with a Robin
+boundary term at the initial surface,                                 A crucial requirement in order to obtain an implementa-
+                                                                      tion of the no-boundary idea is that at the saddle point,
+                                            q02                       the geometry should be of Hawking type, and in partic-
+                   Stot = S + αq0 +             .                     ular it should start at zero size. From (4) one can see
+                                            2β
+                                                                      that the initial size q̄0 vanishes at one (or more) of the
+The variation of the full action is now                               saddle points if α = ±6π 2 i or β = 0. For α = +6π 2 i, this
+            Z 1 h                                                     occurs at the “tunnelling” saddle points c1 = c2 = 1 and
+                   3q̈          i      3π 2                           c1 = c2 = −1. These are however unstable, so that in the
+δStot =2π 2    dt      − 3N H 2 δq −        q̇1 δq1 + B δq0 .
+             0     2N                   N                             following we will consider α = −6π 2 i (we will discuss the
+                                                                      meaning of β momentarily). This gives q 0 = 0 for
+Thus we can see that the variational principle is well
+defined if we impose δq1 = 0 and                                                                     p
+                                                                                               −i       H 2 q1 − 1
+                                                                                      N3,4 = 2 ∓                   ,
+                      3π 2           q0                                                        H         H2
+                B≡         q̇0 + α +    = 0.
+                       N             β                                which are precisely the Hartle-Hawking saddle points.
+                                                                                                                                      3
+
+                               N=0                                the way”. For real negative β this approximately means
+                                                                  that they have to move further to the left than N ? , which
+    singular                                       singular       marks the origin of the integration contour. But since the
+                3                             4                   real part of the saddle points depends on q1 , this is non-
+                                                                  sensical from a physical point of view, as the initial condi-
+                                                                  tions would have to keep being readjusted as the universe
+                                N*
+                                                                  keeps expanding! On the other hand, in the imaginary N
+                                                                  direction, the unstable point (with an original location at
+                                                                  Im(N1 ) = +i/H 2 ) only has to move beyond the stable
+               2                              1                   one at Im(N4 ) = −i/H 2 . This condition is independent
+                                                                  of the final size of the universe, and thus we will only
+                                                                  consider imaginary β. The minimal magnitude of β is
+                                                                  determined precisely by the condition that the unstable
+                                                                  saddle point move below the stable one,
+Figure 2: For sufficiently large negative imaginary β, the un-
+stable saddle point 1 moves below the Hartle-Hawking saddle                                               1
+point 4. The thimble emanating from the singularity of the                           |β| > βmin =               .
+                                                                                                       3π 2 H 2
+action at N ? now only passes through this stable saddle point,
+and the problem with instabilities is avoided. In white we in-    For β being negative imaginary and of magnitude larger
+dicate the locus of geometries that contain a singularity, and    than this minimal value, the Hartle-Hawking saddle point
+which we require the thimble to avoid.                            becomes the only relevant one – see Fig. 2 for an illus-
+                                                                  tration. Thus we have successfully isolated the Hartle-
+                                                                  Hawking saddle point, leading to the propagator
+The other two saddle points are now located at
+                                                                                                4π 2      4π 2 H
+                                                                                                                 (q1 − H12 )3/2
+                        p                                                  G[q1 , 0]Robin = e+ H 2 ~ −i     ~                     .
+                   i       H 2 q1 − 1
+           N1,2 = 2 ±                 + 6π 2 β
+                  H          H2                                   In fact, we also have the possibility of including both
+                                                                  thimbles emanating from N ? , passing through saddles 3
+and their initial size is q 0 = 12π 2 β(i + 3π 2 βH 2 ). There-   and 4 in Fig. 2. If we define the integration contour
+fore requiring that at least one of the saddle point geome-       to run over all real values of N , from minus infinity to
+tries starts out at zero size corresponds to a specific value     plus infinity, the result will be the real no-boundary wave-
+of α but leaves β free. The value of β in fact determines         function (3) proposed by Hartle and Hawking. Moreover,
+which saddle point(s) are relevant to the path integral.          in the latter case the wave function will satisfy the ho-
+   For β = 0, the relevant saddle point is N1 . In this limit     mogeneous Wheeler-DeWitt equation ĤΨ = 0 (cf. the
+the Robin boundary condition reduces to the Dirichlet             appendix of Ref. [4]).
+boundary value q0 = 0. For non-zero β the saddle points              The Robin boundary condition implies a relationship
+in the upper half plane move, and the singularity in the          between the initial size and the initial momentum of the
+action, which originally resides at N ? = 0, is also shifted      geometries summed over in the path integral. It does
+to N ? = 3π 2 β. Importantly, the lower saddle points             however not necessarily avoid the appearance of singu-
+(numbers 3 and 4 in Fig. 1), which correspond to the              larities, in the sense that it may be possible that some of
+desired Hartle-Hawking geometries, stay put.                      the off-shell geometries contain a region where the size of
+   Our strategy will be to define the path integral on a          the universe passes through zero, see Fig. 3. We would
+thimble, for the simple reason that it is then manifestly         like to avoid summing over such geometries, as they are
+convergent. This has the important consequence that the           (infinitely) sensitive to the addition of higher curvature
+partial integrations over the scale factor, the lapse and         terms. This will imply an upper bound on |β|.
+any other fields that might be present, can be performed             Thus we must analyse the locus of geometries contain-
+in any desired order without changing the end result (i.e.        ing a region of zero volume. We start by noting that the
+Fubini’s theorem applies). At vanishing β our defining in-        imaginary part of the scale factor vanishes at
+tegration contour is simply the Lorentzian one, along real
+positive values of N. This can then be deformed, using                    3π 2 iβ [−q1 + 6π 2 iβ + H 2 (n2 + m2 + 6π 2 iβm)]
+Picard-Lefschetz theory, to the thimble passing through            τ =−                                                      ,
+                                                                          H 2m              [n2 + (m + 3π 2 iβ)2 ]
+the unstable saddle point 1, as shown in Fig. 1. As β is
+turned on, the singularity of the integral at N = 0 shifts        where we have split the lapse into real and imaginary
+to N ? , and thus, in order to maintain an invariant def-         parts as N = n+i m. We must then determine if the real
+inition, we will consider as our integration contour the          part of the scale factor (4) may simultaneously vanish,
+thimble(s) emanating from N ? .                                   with 0 ≤ τ ≤ 1. There is no concise analytic expression
+   But which value should β take? Roughly speaking, the           for this function. At large magnitudes of the lapse, this
+unstable saddle points remain relevant until β is large           singular curve quickly becomes horizontal, see Fig. 2 for
+enough in magnitude so that they have moved “out of               a sketch. Therefore the relevant question is whether near
+                                                                                                                              4
+
+                                                                 factor as q(t) = H 2 N 2 (t−γ)(t−δ), where γ, δ can be read
+                                                                 off from (4). Then we find that two linearly independent
+                                                                                              √           √
+                                                                 solutions for φ(t) are f (t)/ q and g(t)/ q with
+
+                                                                                       t − δ ±µ
+                                                                     f (t), g(t) = [        ] 2 [(1 ∓ µ)(γ − δ) + 2(t − γ)]
+                                                                                       t−γ
+        saddle point         off-shell      singular
+                                                                 and µ2 = 1 − 4l(l + 2)/[(γ − δ)2 N 2 H 4 ] . At the saddle
+                                                                 point the parameters  p reduce to µ(N4 ) = (l + 1), γ(N4 ) =
+Figure 3: On the left we have the smooth saddle point geome-
+try of Hartle-Hawking type. By contrast, with Robin bound-       0, δ(N4 ) = −2i/( H 2 q1 − 1 − i) . It is straightforward
+ary conditions a typical off-shell geometry will not start at    to check that this implies that the mode f blows up at
+                                                                                      √
+zero size (middle). Some off-shell geometries contain a recol-   t = 0 whereas g/ q|t=0 = 0. Thus regularity selects the
+lapse to zero size, and it is these geometries that we would     mode g, whose action at the saddle point is given by
+like to avoid summing over (right).                                                                           √
+                                                                                l(l + 1)(l + 2)     2 l(l + 2) q1
+                                                                                                                     1 
+                                                                  S (2) = i φ21          2
+                                                                                                − φ 1             +O √      ,
+                                                                                     2H                    2H          q1
+the saddle point the thimble, which asymptotically runs
+off to infinity at an angle of π/6 [4], can avoid crossing       where φ1 is the final (real) magnitude of the perturbation.
+                                                                                               (2)
+the singular curve. Thus at N4 we want the angle θ of            The resulting amplitude eiS /~ describes Gaussian dis-
+the thimble to be larger than the angle ϕ of the singular        tributed perturbations with a scale-invariant spectrum.
+curve. This latter angle is given by                             We conclude therefore that the model is stable against
+                                      p                          small deviations since large values of φ1 are suppressed.
+                    (−2 + 3π 2 iβH 2 ) H 2 q1 − 1                   More generally, we can specify Robin boundary condi-
+          tan(ϕ) =                                .
+                        (q1 + 3π 2 iβ)H 2 − 4                    tions for the perturbations. The full action for the per-
+                                                                                       (2)                   φ2
+                                                                 turbations is then Stot = S (2) + αφ φ0 + 2β0φ which leads
+Meanwhile, the angle θ is found to be
+                                                                 to δφ1 = 0 and
+                           −1 + 3π 2 iβH 2
+  tan(θ) = p                 p                            ,                             2π 2 q02 φ̇0        φ0
+               H 2 q1 − 1 + H q1 − 6π 2 iβ − 9π 4 H 2 β 2                     δφ0 [−          2
+                                                                                                     + αφ +    ] = 0.
+                                                                                          N                 βφ
+where we have assumed that |β| > βmin . The condition
+θ > ϕ is then satisfied for negative imaginary β with            Any Robin boundary condition with αφ = 0 and arbi-
+                                                                 trary βφ will then retain the stable mode at the saddle
+                            1 3H 2 q1 − 4       1                point, while also specifying initial conditions for the per-
+       |β| < βmax =                          ≈ 2 2,              turbations off-shell. Since we are only summing over non-
+                         3π 2 H 2 H 2 q1 − 2  π H
+                                                                 singular geometries off-shell, for sufficiently small pertur-
+where we assumed q1 > H22 . Thus for negative imaginary          bation amplitudes the approximation of linear pertur-
+β with magnitude between βmin and βmax the path inte-            bation theory around the background will be justified,
+gral is well defined and contains only the Hartle-Hawking        as the perturbations encounter no divergence anywhere.
+saddle point(s).                                                 Thus, the inclusion of perturbations will leave the path
+   Let us now explicitly verify that the perturbations are       integral well-defined, and stable.
+indeed suppressed. In our model we only have gravita-               As already pointed out in the case of perturbations
+tional wave perturbations to deal with. For a single mode        by Vilenkin and Yamada [12, 13], the Robin boundary
+with fixed polarisation, the action at quadratic order is        condition can also be implemented as a Gaussian integral
+given by (see e.g. [5, 6])                                                  Z                Z                  2
+                                                                                                               q0
+
+                       Z 1    h φ̇2               i                             dN dq eiS/~     dq0 eiαq0 /~− 2|β| ,
+         S (2) = π 2      dt N q 2 2 − l(l + 2)φ2
+                        0         N                              where we must include an integration over the initial scale
+where φ denotes the magnitude of the perturbation,               factor q0 . Owing to the fact that β has to be negative
+which has been expanded in spherical harmonics with              imaginary, this may then also be interpreted as an initial
+l ≥ 2 being the principal quantum number. The exten-             coherent state, albeit one with a Euclidean momentum α.
+sion to a sum over all modes is straightforward. The             The presence of a Euclidean momentum not only imple-
+equation of motion for φ is thus                                 ments the idea of closing the geometry off in Euclidean
+                                                                 time, but it also adds a positive weighting to the associ-
+                     q̇   N2                                     ated geometries. In this way we can obtain a final result
+               φ̈ + 2 φ̇ + 2 l(l + 2)φ = 0 .                                                         2    2
+                                                                 with an enhanced weighting e+4π /(~H ) , which in the
+                     q     q
+                                                                 implementation with Dirichlet boundary conditionspwas
+In order to solve it, it is convenient to rewrite the scale      simply impossible [6]. Note that in this context |β|
+                                                                                                                          5
+
+takes on the role of the uncertainty in the initial size q0 .   over compact and regular geometries [2]. Here the sum is
+And because we have a coherent state, the uncertainty           redefined to be over geometries with approximately zero
+in the initial momentum is then simply its inverse,             initial size and approximately Euclidean initial momen-
+                                                                tum. This is just fuzzy enough to allow quantum theory
+                p      1              ~                         to pick out a regular no-boundary geometry at the saddle
+        ∆q0 =    |β| ∼   ,     ∆p0 = p     ∼ ~H .
+                       H               |β|                      point, but the uncertainty is not so large that singular
+                                                                geometries start contributing too.
+Thus we see that in order to have a well defined path
+integral, the uncertainty must be shared between the ini-
+tial size and the initial momentum, with the uncertainty        Acknowledgments: We would like to thank Sebastian
+being of order the Hubble length.                               Bramberger, Job Feldbrugge and Neil Turok for numer-
+   In concluding, let us note that the present implementa-      ous discussions. We gratefully acknowledge the support
+tion of the no-boundary proposal effectively corresponds        of the European Research Council in the form of the ERC
+to a redefinition. Originally, it was formulated as a sum       Consolidator Grant CoG 772295 “Qosmology”.
+
+
+
+
+ [1] G. Lemaitre, “Republication of: The beginning of the            Lett. 121 (2018) no. 8, 081302, arXiv:1804.01102
+     world from the point of view of quantum theory,”                [gr-qc].
+     Nature 127 (1931) 706. [Gen. Rel. Grav.43,2929(2011)].     [11] J. Feldbrugge, J.-L. Lehners, and N. Turok,
+ [2] J. B. Hartle and S. W. Hawking, “Wave Function of the           “Inconsistencies of the New No-Boundary Proposal,”
+     Universe,” Phys. Rev. D28 (1983) 2960–2975. [Adv.               Universe 4 (2018) no. 10, 100, arXiv:1805.01609
+     Ser. Astrophys. Cosmol.3,174(1987)].                            [hep-th].
+ [3] A. Vilenkin, “Creation of Universes from Nothing,”         [12] A. Vilenkin and M. Yamada, “Tunneling wave function
+     Phys. Lett. 117B (1982) 25–28.                                  of the universe,” Phys. Rev. D98 (2018) no. 6, 066003,
+ [4] J. Feldbrugge, J.-L. Lehners, and N. Turok, “Lorentzian         arXiv:1808.02032 [gr-qc].
+     Quantum Cosmology,” Phys. Rev. D95 (2017) no. 10,          [13] A. Vilenkin and M. Yamada, “Tunneling wave function
+     103508, arXiv:1703.02076 [hep-th].                              of the universe II: the backreaction problem,”
+ [5] J. Feldbrugge, J.-L. Lehners, and N. Turok, “No smooth          arXiv:1812.08084 [gr-qc].
+     beginning for spacetime,” Phys. Rev. Lett. 119 (2017)      [14] J. J. Halliwell, J. B. Hartle, and T. Hertog, “What is
+     no. 17, 171301, arXiv:1705.00192 [hep-th].                      the No-Boundary Wave Function of the Universe?,”
+ [6] J. Feldbrugge, J.-L. Lehners, and N. Turok, “No rescue          Phys. Rev. D99 (2019) no. 4, 043526,
+     for the no boundary proposal: Pointers to the future of         arXiv:1812.01760 [hep-th].
+     quantum cosmology,” Phys. Rev. D97 (2018) no. 2,           [15] S. P. de Alwis, “The Wave Function of the Universe and
+     023509, arXiv:1708.05104 [hep-th].                              CMB Fluctuations,” arXiv:1811.12892 [hep-th].
+ [7] A. Di Tucci and J.-L. Lehners, “Unstable no-boundary       [16] J. J. Halliwell and J. Louko, “Steepest Descent
+     fluctuations from sums over regular metrics,” Phys.             Contours in the Path Integral Approach to Quantum
+     Rev. D98 (2018) no. 10, 103506, arXiv:1806.07134                Cosmology. 1. The De Sitter Minisuperspace Model,”
+     [gr-qc].                                                        Phys. Rev. D39 (1989) 2206.
+ [8] J.-L. Lehners, “No smooth beginning for spacetime,”        [17] C. Teitelboim, “Quantum Mechanics of the
+     Int. J. Mod. Phys. D28 (2018) no. 02, 1930005.                  Gravitational Field,” Phys. Rev. D25 (1982) 3159.
+ [9] J. Diaz Dorronsoro, J. J. Halliwell, J. B. Hartle,         [18] J. J. Halliwell, “Derivation of the Wheeler-De Witt
+     T. Hertog, and O. Janssen, “Real no-boundary wave               Equation from a Path Integral for Minisuperspace
+     function in Lorentzian quantum cosmology,” Phys. Rev.           Models,” Phys. Rev. D38 (1988) 2468.
+     D96 (2017) no. 4, 043505, arXiv:1705.05340 [gr-qc].        [19] J. J. Halliwell and J. B. Hartle, “Integration Contours
+[10] J. Diaz Dorronsoro, J. J. Halliwell, J. B. Hartle,              for the No Boundary Wave Function of the Universe,”
+     T. Hertog, O. Janssen, and Y. Vreys, “Damped                    Phys. Rev. D41 (1990) 1815.
+     perturbations in the no-boundary state,” Phys. Rev.
+

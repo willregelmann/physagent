@@ -1,0 +1,41 @@
+## 4. Consequences for the program under Position T
+
+| Item | Under T | Label |
+|---|---|---|
+| Dominant real root | The round S⁴ at every ε > 0: both caps enter with e^{+I}, I_S⁴ = −a(5+4ε) > I_DB ≈ I_S⁴ − a(4ε + 2.6), so the sphere wins by e^{(4ε+2.6)a} (≥ e^{1.5 × 10⁴} at a₂ = 10⁶); the runaway caps of §3.3 are suppressed as e^{−|I|} | Sketch (sign assignment §3.4 is Conjecture; the arithmetic is J-1's, Rigorous (numerical)) |
+| J-1's bound ε < ε_c | Lifted. It was a statement about e^{−I}; under e^{+I} root uniqueness of the dominant cap holds for all ε > 0 | Sketch |
+| N_inf | N_inf ≈ ln(M_P/H₀)/λ₊(ε) is unconstrained by root dominance; sixty e-folds at a₂ = 10⁶ needs ε ≈ 5.2, M ≈ 0.44 H₀, β_tot ≈ 370 (step-0 table) — allowed. The R² coefficient reverts to a free modulus, as the J-1 negative branch (b) anticipated | Sketch (seed estimate inherited) |
+| The state | The tunneling state (Vilenkin's sign, FLT's contour). Its background weight is e^{−|I_half|}: nucleation is *suppressed*, not enhanced, and more suppressed at larger ε (I_half = −a(5+4ε)/2) — the opposite ε-dependence to HH. The block's cap is the least-suppressed regular cap at its own data | Sketch |
+| "State of minimum excitation" (the reframing's premise) | Splits. For the *fields* on the cap it is retained and, under VY, forced: the mode boundary condition is the Euclidean vacuum. For the *background modulus* it is false: the tunneling weight does not minimize the Euclidean action, it minimizes |I| — the sphere is the cap of least action magnitude, not of least action. The premise should be restated as "the cap is the Euclidean vacuum of the fields on the least-suppressed regular geometry" | Sketch |
+| J-3 (junction selection beyond regularity) | Unchanged: the K = 0 equator is still selected by the branch; the runaway family (§3.3) adds real Euclidean caps at real data that never reach a Lorentzian section, so "junction" remains the sphere's equator and J-3's question is unaffected | Sketch |
+| J-4 (reflection positivity across the equator) | Strengthened in premise: the field state on the cap is not assumed but imposed by the VY boundary condition. The tensor sector's Euclidean form is positive for every admissible β (§2.2), which is the precondition for a reflection-positive Euclidean vacuum of the *gravitons*, a sector J-4 had not covered. Cost: the obstruction FLT raise (strong coupling near the pole for gravitons) transfers to J-4 as an explicit open item | Sketch |
+| J-5 (Page–Wootters gap) | Unchanged in content; the WKB branches are the same conjugate pair (T = π/2 ± i arccosh a₁, §3.3), and the phase of the tunneling saddle, Im I/a = ∓[(5/2)y + ε(3y + y³)] with y = √(a₁² − 1), is the Hamilton–Jacobi function on the branch | Rigorous (numerical) for the phase; the rest Sketch |
+| J-6 orientation | The sign choice is a branch of √g in the path-integral measure (§3.1), not an orientation of the Euclidean segment: I(T) is even in T. No arrow is added by the contour; the causal orientation of #216 §6d stands | Rigorous (evenness); Sketch (reading) |
+| Upstream FPE | The record should state that for ε > 0 the Euclidean action is unbounded below on regular caps (§3.3), so the Hartle–Hawking measure of the anomaly-plus-R² theory has no dominant saddle; the DB is a local competitor only | Rigorous (numerical) |
+
+**The negative branches, named.** If the contour assignment of §3.4 comes out HH-signed (the Conjecture fails), Position T collapses into Position H with the runaway of §3.3 added — which is *worse* for H than J-1 stated, and points to the adaptation: a bounded-below completion of the Euclidean action (a positive R⁴ or a ln-R term, i.e. the next order of the effective action) as the object that decides dominance. If VY's mode prescription fails for gravitons (FLT's strong-coupling objection survives for the tensor sector), the tunneling state has a Gaussian scalar sector and an inverse-Gaussian tensor sector, and the adaptation is to make the tensor sector's boundary condition an explicit fourth item of J-4.
+
+## 5. Falsifiers, axiom check, underspecification
+
+**Falsifiers (any one kills the position as stated).**
+1. A Picard–Lefschetz analysis of the regular-cap sum (§3.4) whose real-lapse thimbles pass through the a′(0) = +1 sheet (HH sign) for the dS-history data. Concrete test: compute the descent flow of Re(iS) from the real c₃-line on both sheets for ε = 1, a₁ = 3.
+2. A demonstration that the Euclidean-vacuum boundary condition for the fourth-order tensor modes is not implementable by a local boundary term (the VY construction fails for gravitons in this theory).
+3. F(p) < 0 for some p ≥ 2 at an admissible local Weyl coefficient — i.e. a verified error in HHR's Ψ(p) or in the mapping α = −ε/2 (both checked here: Ψ(p) transcribed verbatim, the mapping fixed by the Rigorous step-0 polynomial).
+4. A regular cap with c₃ > 0 reaching Lorentzian data with I above the sphere's — none found; the runaway is monotone in c₃ (§3.3 table).
+5. If the program later needs N_inf ≥ 60 *and* the record arrow (Hawking–Laflamme–Lyons), the tunneling state's suppressed nucleation weight at large ε (I_half ∝ −(5+4ε)) must not be read as a probability; under T there is no "most probable ε" and the □R coefficient is a free modulus. A derivation that fixes ε from the tunneling weight would contradict this.
+
+**Axiom check (the hidden-assumption warnings).**
+- *Time evolution sneaking back in.* The Lorentzian lapse N is a gauge parameter integrated over; nothing evolves. The real-lapse contour is a choice of integration cycle in a timeless integral, and its saddle is a complex four-geometry, a block. No evolution is asserted. ✓
+- *Smuggled background structure.* The FRW minisuperspace foliation is inherited from the reframing (disclosed in #216 §4 and J-1). New here: the Ostrogradsky datum K₁ at the final surface — an extrinsic curvature, i.e. a property of the embedding of Σ in the block, not a background. The Casimir-type term (a/2π²)∫N dt/q (§3.1) refers to the conformal frame's S³, which is intrinsic to the conformally flat class; disclosed. ✓
+- *Preferred observer/foliation.* None beyond minisuperspace. The contour N ∈ (0, ∞) versus (−∞, ∞): FLT show both give the same saddle set with the same sign for these data; the choice does not pick a foliation. ✓
+- *Does N > 0 smuggle a time orientation?* No: §3.1 shows I(T) is even in T, so the "tunneling sign" is not the direction in which the Euclidean segment is traversed; it is the branch a′(0) = −1 of the regular series, i.e. the sign of √g in the measure. The two WKB branches (T = π/2 ± i arccosh a₁) are conjugate and both present; their ℤ₂ is `ce-theta-conjugation`, not an arrow. The causal orientation is the one of #216 §6d, derived from Σ as initial boundary. ✓
+- *Rigor label discipline.* Nothing here is labelled above Sketch except the numerical facts (F(p) signs; the sphere's lapse-gauge action; the on-shell q-equation; the saddle enumerations; the runaway table) and the evenness of I(T). The sign assignment is a Conjecture and is said to be one. ✓
+
+**Underspecification (honest list).**
+1. The contour assignment in the fourth-order theory (§3.4): the position's central Conjecture. The computation is well posed (descent flow on the two-sheeted c₃-family) and was not done.
+2. The tensor-mode boundary condition in the Ostrogradsky sector: VY's construction is for a second-order scalar; its fourth-order graviton extension is asserted by the existence of the Euclidean vacuum (F > 0), not constructed.
+3. The nonlocal Weyl piece on a half-manifold: read from the closed-sphere Ψ(p); a half-sphere computation with the Lorentzian continuation was not done.
+4. The FLT–VY dispute for gravitons: VY-II's exact result is for a conformally coupled scalar and a heavy scalar; the graviton is neither.
+5. The absolute action normalization: the Casimir-type term and the higher-derivative boundary terms at Σ affect the phase (Hamilton–Jacobi function), not the real part, at Lorentzian data; this was checked for the Einstein piece only.
+6. The runaway family (§3.3) reaches Planckian curvature at c₃ ≈ 1 (a₂ = 10⁶); its use is confined to c₃ ≲ 0.3, where it already dominates the sphere by e^{170a} under the HH sign.
+

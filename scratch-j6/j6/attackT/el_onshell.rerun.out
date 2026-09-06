@@ -1,0 +1,7 @@
+EL_t on the round sphere (symbolic, eps=3/2, N=1/2): 0
+tau=0.3: regular cap c3=-0.3: EL_t = -1.510e-14  (scale of individual terms ~ 0.06)
+tau=0.6: regular cap c3=-0.3: EL_t = +7.540e-14  (scale of individual terms ~ 0.20)
+tau=0.9: regular cap c3=-0.3: EL_t = +6.036e-14  (scale of individual terms ~ 0.35)
+tau=1.2: regular cap c3=-0.3: EL_t = +3.073e-14  (scale of individual terms ~ 0.42)
+perturb a''+=0.0: EL_t = +7.5398e-14   (-N/16pi^2)*TR = -5.5120e-17
+perturb a''+=0.5: EL_t = +1.4524e-01   (-N/16pi^2)*TR = +2.2638e-17

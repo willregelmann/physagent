@@ -1,0 +1,18 @@
+(a) boost-independence of the closed double bubble's anomaly action Gamma_full:
+   C=0.5: theta(neck)=2.06538  Gamma(to neck)=-0.17484  Gamma_full=+1.92229  I_full=-8.64754  theta_end=3.14124
+   C=1.0: theta(neck)=2.56156  Gamma(to neck)=-0.91193  Gamma_full=+1.92229  I_full=-8.64754  theta_end=3.14141
+   C=2.0: theta(neck)=2.84535  Gamma(to neck)=-1.15631  Gamma_full=+1.92229  I_full=-8.64754  theta_end=3.14150
+   C=4.0: theta(neck)=2.99266  Gamma(to neck)=-1.23002  Gamma_full=+1.92229  I_full=-8.64754  theta_end=3.14155
+(b) symmetric frame: choose C so that theta(neck)=pi/2
+   C_sym=0.298429
+   theta(neck)=1.570796  I(to neck)=-4.32377  I_full/2=-4.32377   [I_loc half -5.28492 vs -5.28492; Gamma half +0.96115 vs +0.96114]
+(c) Re I along the real recollapsing continuation from the neck, symmetric frame:
+   t=0.10: a=+0.5534+4.5e-10i  Re I=-4.32377  Im I=-0.2857  theta=1.5708+0.1806i
+   t=0.20: a=+0.5374+3.8e-09i  Re I=-4.32377  Im I=-0.6032  theta=1.5708+0.3709i
+   t=0.30: a=+0.5077+1.4e-08i  Re I=-4.32377  Im I=-1.0092  theta=1.5708+0.5842i
+   t=0.40: a=+0.4582+3.6e-08i  Re I=-4.32377  Im I=-1.6698  theta=1.5708+0.8458i
+   t=0.50: a=+0.3747+8.7e-08i  Re I=-4.32377  Im I=-3.6447  theta=1.5708+1.2236i
+   t=0.55: a=+0.3084+1.4e-07i  Re I=-4.32377  Im I=-8.8321  theta=1.5708+1.5307i
+   t=0.60: a=+0.2005+3.0e-07i  Re I=-4.32413  Im I=-96.0577  theta=1.5708+2.1535i
+(d) sphere in a boosted frame C=2: half action to the equator and full:
+   theta(equator)=2.21430  I(to equator)=-4.14750 (C=1 gives -3.66667)  I_full=-7.33333 (expect -7.33333)

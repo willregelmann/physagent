@@ -1,0 +1,25 @@
+Sphere checks (Gamma_S4 should be 0 for unit sphere):
+S4: eps=0.36 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-2.77333 | Gamma_S4=+0.00000 | I_J1 total=-6.44000 | I_S4ref total=-4.77333
+S4: eps=1.0 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-5.33333 | Gamma_S4=+0.00000 | I_J1 total=-9.00000 | I_S4ref total=-7.33333
+bracket fail 0.36 The function value at x=-0.350204 is NaN; solver cannot continue.
+S4: eps=0.36 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-2.77333 | Gamma_S4=+0.00000 | I_J1 total=-6.44000 | I_S4ref total=-4.77333
+DB: eps=0.36 c3=-0.347204  tau_end=3.8199 theta_end=3.141321 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-3.68801 I_an(sub=0)=+12.81803 I_R2=-3.48190 | Gamma_S4=+0.58689 | I_J1 total=-9.16990 | I_S4ref total=-4.89500
+   ==> eps=0.36: Delta I (J-1 scheme) = -2.7299   Delta I (S4-reference anomaly) = -0.1217   difference = +2.6082   [anomaly parts: J1 -2.0213, S4ref +0.5869]
+S4: eps=0.4 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-2.93333 | Gamma_S4=+0.00000 | I_J1 total=-6.60000 | I_S4ref total=-4.93333
+DB: eps=0.4 c3=-0.350688  tau_end=3.8726 theta_end=3.141349 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-3.79877 I_an(sub=0)=+12.81570 I_R2=-3.79214 | Gamma_S4=+0.69323 | I_J1 total=-9.59091 | I_S4ref total=-5.09890
+   ==> eps=0.4: Delta I (J-1 scheme) = -2.9909   Delta I (S4-reference anomaly) = -0.1656   difference = +2.8253   [anomaly parts: J1 -2.1321, S4ref +0.6932]
+S4: eps=0.45 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-3.13333 | Gamma_S4=+0.00000 | I_J1 total=-6.80000 | I_S4ref total=-5.13333
+DB: eps=0.45 c3=-0.353079  tau_end=3.9285 theta_end=3.141379 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-3.93563 I_an(sub=0)=+12.81161 I_R2=-4.18369 | Gamma_S4=+0.82191 | I_J1 total=-10.11931 | I_S4ref total=-5.36178
+   ==> eps=0.45: Delta I (J-1 scheme) = -3.3193   Delta I (S4-reference anomaly) = -0.2284   difference = +3.0909   [anomaly parts: J1 -2.2690, S4ref +0.8219]
+S4: eps=0.5 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-3.33333 | Gamma_S4=+0.00000 | I_J1 total=-7.00000 | I_S4ref total=-5.33333
+DB: eps=0.5 c3=-0.354147  tau_end=3.9756 theta_end=3.141403 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-4.04840 I_an(sub=0)=+12.81694 I_R2=-4.57805 | Gamma_S4=+0.94534 | I_J1 total=-10.62644 | I_S4ref total=-5.63271
+   ==> eps=0.5: Delta I (J-1 scheme) = -3.6264   Delta I (S4-reference anomaly) = -0.2994   difference = +3.3271   [anomaly parts: J1 -2.3817, S4ref +0.9453]
+S4: eps=1.0 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-5.33333 | Gamma_S4=+0.00000 | I_J1 total=-9.00000 | I_S4ref total=-7.33333
+DB: eps=1.0 c3=-0.349489  tau_end=4.2108 theta_end=3.141504 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-4.58127 I_an(sub=0)=+13.03898 I_R2=-8.56984 | Gamma_S4=+1.92229 | I_J1 total=-15.15111 | I_S4ref total=-8.64755
+   ==> eps=1.0: Delta I (J-1 scheme) = -6.1511   Delta I (S4-reference anomaly) = -1.3142   difference = +4.8369   [anomaly parts: J1 -2.9146, S4ref +1.9223]
+S4: eps=2.0 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-9.33333 | Gamma_S4=+0.00000 | I_J1 total=-13.00000 | I_S4ref total=-11.33333
+DB: eps=2.0 c3=-0.342261  tau_end=4.3361 theta_end=3.141549 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-4.84565 I_an(sub=0)=+13.49882 I_R2=-16.58404 | Gamma_S4=+3.10635 | I_J1 total=-23.42969 | I_S4ref total=-15.47769
+   ==> eps=2.0: Delta I (J-1 scheme) = -10.4297   Delta I (S4-reference anomaly) = -4.1444   difference = +6.2853   [anomaly parts: J1 -3.1790, S4ref +3.1063]
+S4: eps=5.0 c3=-0.166667  tau_end=3.1406 theta_end=3.140593 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-1.66667 I_an(sub=0)=+13.53514 I_R2=-21.33333 | Gamma_S4=+0.00000 | I_J1 total=-25.00000 | I_S4ref total=-23.33333
+DB: eps=5.0 c3=-0.337009  tau_end=4.4064 theta_end=3.141576 (pi=3.141593) | I_EH=-2.00000 I_an(J1,sub=1)=-4.98025 I_an(sub=0)=+14.30003 I_R2=-40.61033 | Gamma_S4=+4.84336 | I_J1 total=-47.59057 | I_S4ref total=-37.76697
+   ==> eps=5.0: Delta I (J-1 scheme) = -22.5906   Delta I (S4-reference anomaly) = -14.4336   difference = +8.1569   [anomaly parts: J1 -3.3136, S4ref +4.8434]

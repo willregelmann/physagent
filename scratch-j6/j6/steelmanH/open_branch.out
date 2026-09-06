@@ -1,0 +1,23 @@
+<lambdifygenerated-5>:2: RuntimeWarning: overflow encountered in scalar multiply
+  return (A0**2*A2 - A0*epsilon*(3*A1*A3 + A2**2) + A0*(A1**2 - 1) + A2*epsilon*(5*A1**2 - 2) + 2*A2*(A1**2 - 1))/(A0**2*epsilon)
+<lambdifygenerated-5>:2: RuntimeWarning: invalid value encountered in scalar divide
+  return (A0**2*A2 - A0*epsilon*(3*A1*A3 + A2**2) + A0*(A1**2 - 1) + A2*epsilon*(5*A1**2 - 2) + 2*A2*(A1**2 - 1))/(A0**2*epsilon)
+/home/will/.local/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py:521: RuntimeWarning: invalid value encountered in divide
+  err5 = np.dot(K.T, self.E5) / scale
+/home/will/.local/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py:522: RuntimeWarning: invalid value encountered in divide
+  err3 = np.dot(K.T, self.E3) / scale
+eps=20.0: c3*=-0.334258
+eps=50.0: c3*=-0.333704
+Open (pole) continuation of the symmetric double bubble: e-folds ln a accumulated before R reaches Mbar_P^2 and M_P^2 (a2=1e6: 70.4, 1768; a2=1e7: 704, 17684), H/H0 there, and the time of the curvature singularity
+ eps   c3*        t(Mbar,1e6) lna   H   | t(M_P,1e6) lna   H  | t(Mbar,1e7) lna  | t_sing  lna_sing  | H range on branch | Re b max
+ 0.36 -0.347204    1.61   1.6  2.27 |   2.61   6.0 11.13 |   2.48   4.8 |   2.84   14.2 | 32.97..264.2 | 0.0e+00
+ 0.40 -0.350687    1.70   1.7  2.28 |   2.79   6.6 11.22 |   2.64   5.3 |   3.04   15.5 | 30.95..266.1 | 0.0e+00
+ 0.45 -0.353077    1.82   2.0  2.29 |   3.02   7.3 11.29 |   2.86   5.9 |   3.29   17.2 | 28.70..268.1 | 0.0e+00
+ 0.50 -0.354147    1.95   2.2  2.30 |   3.26   8.1 11.35 |   3.08   6.5 |   3.55   19.0 | 26.72..269.7 | 0.0e+00
+ 1.00 -0.349489    3.28   4.6  2.35 |   5.67  15.6 11.72 |   5.34  12.6 |   6.20   36.1 | 15.68..278.1 | 0.0e+00
+ 2.00 -0.342261    5.96   9.4  2.38 |  10.50  30.6 11.91 |   9.88  24.8 |  11.51   70.2 | 8.62..283.1 | 0.0e+00
+ 5.00 -0.337009   13.96  23.7  2.41 |  24.92  75.6 12.07 |  23.42  61.4 |  27.34  172.3 | 3.81..286.3 | 0.0e+00
+10.00 -0.335180   27.24  47.4  2.41 |  48.90 150.5 12.11 |  45.94 122.3 |  52.56  230.2 | 2.24..45.1 | 0.0e+00
+20.00 -0.334258   53.78  94.9  2.42 |    -      -    -   |    -      -  |  89.38  232.5 | 1.66..7.0 | 0.0e+00
+50.00 -0.333704     -      -    -   |    -      -    -   |    -      -  | 131.86  233.6 | 1.49..2.4 | 0.0e+00
+N_open(Mbar_P, a2=1e6) vs eps: [(0.36, 1.6), (0.4, 1.7), (0.45, 2.0), (0.5, 2.2), (1.0, 4.6), (2.0, 9.4), (5.0, 23.7), (10.0, 47.4), (20.0, 94.9)]

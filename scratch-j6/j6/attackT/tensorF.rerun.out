@@ -1,0 +1,44 @@
+Psi(p) and ratio F/Einstein at beta=0, eps=1:
+p=    2  Einstein=      16.0  Psi=         247.6  Psi/(2p^4 ln(p/2))=    nan  F(eps=1,b=0)/E=    17.73
+p=    3  Einstein=      24.0  Psi=         958.9  Psi/(2p^4 ln(p/2))= 14.599  F(eps=1,b=0)/E=    42.46
+p=    4  Einstein=      34.0  Psi=        2609.5  Psi/(2p^4 ln(p/2))=  7.353  F(eps=1,b=0)/E=    79.40
+p=    6  Einstein=      60.0  Psi=       11375.4  Psi/(2p^4 ln(p/2))=  3.995  F(eps=1,b=0)/E=   192.39
+p=   10  Einstein=     136.0  Psi=       79587.4  Psi/(2p^4 ln(p/2))=  2.473  F(eps=1,b=0)/E=   588.11
+p=   20  Einstein=     466.0  Psi=     1253882.0  Psi/(2p^4 ln(p/2))=  1.702  F(eps=1,b=0)/E=  2693.71
+p=   40  Einstein=    1726.0  Psi=    21379771.7  Psi/(2p^4 ln(p/2))=  1.394  F(eps=1,b=0)/E= 12389.88
+p=  100  Einstein=   10306.0  Psi=   955851549.2  Psi/(2p^4 ln(p/2))=  1.222  F(eps=1,b=0)/E= 92750.09
+p= 1000  Einstein= 1003006.0  Psi=13668312762763.5  Psi/(2p^4 ln(p/2))=  1.100  F(eps=1,b=0)/E=13627351.95
+
+Sign of F(p) for p in [2,200] over the local-Weyl coefficient beta (HHR flat-space stability needs beta > ln2-1 = -0.307):
+beta=+1.000 eps= 0.0: negative modes: none
+beta=+1.000 eps= 1.0: negative modes: none
+beta=+1.000 eps= 5.0: negative modes: none
+beta=+0.000 eps= 0.0: negative modes: none
+beta=+0.000 eps= 1.0: negative modes: none
+beta=+0.000 eps= 5.0: negative modes: none
+beta=-0.307 eps= 0.0: negative modes: none
+beta=-0.307 eps= 1.0: negative modes: none
+beta=-0.307 eps= 5.0: negative modes: none
+beta=-0.500 eps= 0.0: negative modes: none
+beta=-0.500 eps= 1.0: negative modes: none
+beta=-0.500 eps= 5.0: negative modes: none
+beta=-1.000 eps= 0.0: negative modes: none
+beta=-1.000 eps= 1.0: negative modes: none
+beta=-1.000 eps= 5.0: negative modes: none
+beta=-2.000 eps= 0.0: negative modes: F<0 for p in [2,6]  (p_* = 7)
+beta=-2.000 eps= 1.0: negative modes: F<0 for p in [2,6]  (p_* = 7)
+beta=-2.000 eps= 5.0: negative modes: F<0 for p in [2,6]  (p_* = 7)
+beta=-3.000 eps= 0.0: negative modes: F<0 for p in [2,21]  (p_* = 22)
+beta=-3.000 eps= 1.0: negative modes: F<0 for p in [2,21]  (p_* = 22)
+beta=-3.000 eps= 5.0: negative modes: F<0 for p in [2,20]  (p_* = 21)
+beta=-4.000 eps= 0.0: negative modes: F<0 for p in [2,59]  (p_* = 60)
+beta=-4.000 eps= 1.0: negative modes: F<0 for p in [2,59]  (p_* = 60)
+beta=-4.000 eps= 5.0: negative modes: F<0 for p in [2,59]  (p_* = 60)
+beta=-5.000 eps= 0.0: negative modes: F<0 for p in [2,165]  (p_* = 166)
+beta=-5.000 eps= 1.0: negative modes: F<0 for p in [2,165]  (p_* = 166)
+beta=-5.000 eps= 5.0: negative modes: F<0 for p in [2,165]  (p_* = 166)
+beta=-6.000 eps= 0.0: negative modes: F<0 for p in [2,200]  (p_* = 201)
+beta=-6.000 eps= 1.0: negative modes: F<0 for p in [2,200]  (p_* = 201)
+beta=-6.000 eps= 5.0: negative modes: F<0 for p in [2,200]  (p_* = 201)
+a2=1e+06: M_P/H0 = 42.1
+a2=1e+07: M_P/H0 = 133.0
