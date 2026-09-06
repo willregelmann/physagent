@@ -2,13 +2,14 @@
 
 **Date:** 2026-09-06
 **Milestone:** J-1 of `programs/no-boundary-junction/OBJECTIVES.md` (#215 step 1). Standing assumption: conformal field content with a₂ ≡ (N_S + 11N_F + 62N_V)/2 ≥ 10⁶, an explicit input.
-**Role:** interactive session, experimenter-directed. Exploration note (Markdown, exploratory-tier citations, how-checked stated inline). Units: H₀ = 1 for the anomaly-driven de Sitter fixed point, G a = π with a = a₂/180 the Euler anomaly coefficient in the Duff normalization; ε is the total □R coefficient of the trace equation in Hubble units, ε = H₀²/M² with M the scalaron mass (step-0 note §2.2; Linde's M⁻² = −k₃/(2880π²)).
+**Role:** interactive session, experimenter-directed. Exploration note (Markdown, exploratory-tier citations, how-checked stated inline).
+**Correction (2026-09-06, same day, before any downstream use):** the anomaly-action regularization in the original §3.2 (Einstein-static-universe reference with an 8(σ′² − 1) subtraction) dropped cap-dependent boundary terms and overstated the action gap by a factor 2–20. Found by the position-H agent of the J-6 debate and verified independently by the lead with a compact-reference (round S⁴) Riegert functional. §3.2–3.3 and every number derived from them are replaced below; the existence threshold, the caps' geometry, the recollapse, and the ordering of the two caps are unaffected, and the dominance conclusion survives because a ≥ 5.6 × 10³ makes even the corrected gap decisive. Units: H₀ = 1 for the anomaly-driven de Sitter fixed point, G a = π with a = a₂/180 the Euler anomaly coefficient in the Duff normalization; ε is the total □R coefficient of the trace equation in Hubble units, ε = H₀²/M² with M the scalaron mass (step-0 note §2.2; Linde's M⁻² = −k₃/(2880π²)).
 
 ---
 
 ## Summary
 
-**Result (outcome (a) of the J-1 done-condition, in inequality form).** In FRW minisuperspace with the anomaly-induced effective action plus the R² counterterm, the Euclidean solutions regular at the pole form a one-parameter family; the round S⁴ is a real, regular, K = 0 junction for *every* value of ε, so the real-junction condition alone fixes nothing. But for the unstable sign ε > 0 — the sign the de Sitter exit requires — a second reflection-symmetric regular cap exists once ε exceeds a threshold ε_c ∈ (0.35, 0.36): Hawking–Hertog–Reall's "double bubble," symmetric about its neck. Its Euclidean action is *lower* than the sphere's by a finite gap already at birth (ΔI ≈ −2.7 a at ε = 0.36, growing to ΔI ≈ −4ε a for large ε; with a ≥ 5.6 × 10³ that is e^{10⁴}-level dominance), and its real Lorentzian continuation across the neck is a closed universe of radius a_neck < 1 that recollapses within a fraction of a Hubble time. Hence, under the no-boundary Euclidean weighting, **the S⁴ is the unique and dominant real root of the junction iff 0 < ε < ε_c ≈ 0.355**, equivalently the scalaron must be heavier than ≈ 1.7 H₀, equivalently the R² coefficient in natural units is bounded, |β_tot| = ε a₂/(1440π²) ≲ 25 at a₂ = 10⁶. That bound caps the root's de Sitter depth: N_inf(ε_c) ≈ ln(M_P/H₀)/λ₊(ε_c) ≈ 5 e-folds at a₂ = 10⁶ (6.5 at 10⁷), against the ≈ 370-unit coefficient sixty e-folds would need. *(Family count, reality condition, action normalization: Rigorous, sympy-verified identities. Existence threshold, action ordering, recollapse: Rigorous (numerical) within minisuperspace. "Dominant root" and the N_inf bound: Sketch — they assume the Euclidean weight e^{−I} and the step-0 seed estimate.)*
+**Result (outcome (a) of the J-1 done-condition, in inequality form).** In FRW minisuperspace with the anomaly-induced effective action plus the R² counterterm, the Euclidean solutions regular at the pole form a one-parameter family; the round S⁴ is a real, regular, K = 0 junction for *every* value of ε, so the real-junction condition alone fixes nothing. But for the unstable sign ε > 0 — the sign the de Sitter exit requires — a second reflection-symmetric regular cap exists once ε exceeds a threshold ε_c ∈ (0.35, 0.36): Hawking–Hertog–Reall's "double bubble," symmetric about its neck. Its Euclidean action is *lower* than the sphere's by a small finite gap already at birth (ΔI ≈ −0.12 a at ε = 0.36, reaching ≈ −1.3 a at ε = 1 and ≈ −3.3ε a for large ε; with a ≥ 5.6 × 10³ even the gap at birth is e^{680}-level dominance), and its real Lorentzian continuation across the neck is a closed universe of radius a_neck < 1 that recollapses within a fraction of a Hubble time. Hence, under the no-boundary Euclidean weighting, **the S⁴ is the unique and dominant real root of the junction iff 0 < ε < ε_c ≈ 0.355**, equivalently the scalaron must be heavier than ≈ 1.7 H₀, equivalently the R² coefficient in natural units is bounded, |β_tot| = ε a₂/(1440π²) ≲ 25 at a₂ = 10⁶. That bound caps the root's de Sitter depth: N_inf(ε_c) ≈ ln(M_P/H₀)/λ₊(ε_c) ≈ 5 e-folds at a₂ = 10⁶ (6.5 at 10⁷), against the ≈ 370-unit coefficient sixty e-folds would need. *(Family count, reality condition, action normalization, and the scaling identity I_EH = −2a: Rigorous, sympy-verified identities. Existence threshold, action ordering, recollapse: Rigorous (numerical) within minisuperspace. "Dominant root" and the N_inf bound: Sketch — they assume the Euclidean weight e^{−I} and the step-0 seed estimate.)*
 
 **What it means.** The junction does constrain the coupling — not to a value but to a window, and through root *dominance* rather than through the reality condition. The mechanism is structural, not numerical: the sign of the R² term that makes de Sitter unstable is the sign for which the Euclidean action is unbounded below on high-curvature configurations, so the no-boundary measure prefers small, high-curvature caps whose Lorentzian continuations never inflate. Root uniqueness of the tree argument (J-6) and a long inflationary root are incompatible for this junction under Euclidean weighting. No hierarchy is generated (a bound is not a scale), so the mass-spectrum residue of #216 is unchanged; what is new is that the framework's second gravitational number is no longer free.
 
@@ -79,39 +80,43 @@ the Euler–Lagrange equation of L equals μ·√g·(T) *identically*, with μ =
 
 (script 2; full residual 0). So κ = 0 is ε = −⅓, the Riegert functional's own −⅔□R; every other ε is an R² counterterm, and the unstable sign ε > 0 means κ < 0.
 
-### 3.2 Regularization and the sphere (Rigorous)
+### 3.2 The anomaly action, computed with a compact reference (Rigorous)
 
-The term 8σ′² diverges linearly at the poles (σ′ → ±1). Replacing it by 8(σ′² − 1) subtracts ∫8 dη, the same divergent constant for every compact regular cap (the difference ∫[σ_A′² − σ_B′²]dη converges and is invariant under the conformal-time shift ambiguity, since both integrands tend to 1 at both ends). Differences of actions between caps at the same ε are therefore well defined; absolute values are not (and W[S⁴] carries the scheme log noted in #216).
+The Riegert functional gives W[g] − W[ḡ] for g = e^{2σ}ḡ. With a *non-compact* reference (the Einstein static universe of §3.1) the by-parts steps that produce 2σ″² + 8σ′² leave boundary terms at η → ±∞ whose finite parts depend on the cap; the original version of this note subtracted the divergent ∫8 dη and dropped those terms, which is wrong by a cap-dependent amount (this is the correction recorded above). The unambiguous choice is the *round unit S⁴* as reference: every closed FRW cap is g = e^{2σ̂} ĝ with ĝ = sech²η (dη² + dΩ₃²) and σ̂ = ln(a(η) cosh η), which is smooth on the compact sphere, so there are no boundary terms and W[cap] − W[S⁴] = Γ[σ̂] with
 
-For the sphere (σ = −ln cosh η), per 2π²: Einstein–Hilbert −1/(πG) = −a/π², anomaly −5a/(6π²), R² term 192κ = −(2a/3π²)(3ε + 1). Total, times 2π²:
+Γ[σ̂] = (a/16π²) ∫√ĝ [ σ̂ Ê₄ + 2σ̂ Δ̂₄ σ̂ ],  Ê₄ = 24,  Δ̂₄ = □̂² − 2□̂ on the unit S⁴,
 
-**I(S⁴) = −a(5 + 4ε).**
+or, integrating by parts on the compact sphere (Rigorous): Γ/a = ⅛ ∫ [24 sech⁴η σ̂ + 2(σ̂″ − 2 tanh η σ̂′)² + 4 sech²η σ̂′²] dη, with primes d/dη = a d/dτ. Two identities check the normalization and sign: a sphere of radius r (σ̂ = ln r) gives Γ = 4a ln r, the Gauss–Bonnet value ∫√g⟨T⟩ = −4a integrated against the scale; and a Möbius boost of the sphere (a = sech(η − η₀), a conformal isometry) gives Γ = 0 to 10⁻¹⁶ (script 4). The shift ambiguity of conformal time is therefore harmless, as it must be.
 
-The numerical integrator reproduces this to 10⁻⁴ at every ε tested (table below) — the check that validates the machinery. The ε-slope −4a is the R² term's ∫√g R² = 384π² on the unit sphere times dκ/dε (the on-shell Hellmann–Feynman relation).
+**Scaling identity (Rigorous).** Under a constant rescaling a → λa of a compact regular solution, I_EH → λ² I_EH, the R² term is invariant, and Γ → Γ + 4a ln λ (the anomaly). A solution extremizes the action under this variation, so 2I_EH + 4a = 0: **I_EH = −2a for every compact regular cap**, sphere or double bubble. The numerics confirm it to 10⁻⁵ (script 4). The Einstein–Hilbert piece therefore never contributes to a difference between caps; only the anomaly piece Γ and the R² piece do.
+
+**The sphere.** I_EH = −2a; Γ = 0 (it is the reference); R² piece 192κ·2π² = −(4/3)(3ε + 1)a. So, in this scheme, I(S⁴) = −a(10/3 + 4ε); the ε-slope −4a is ∫√g R² = 384π² on the unit sphere times dκ/dε (the on-shell Hellmann–Feynman relation). The absolute value carries the reference constant W[S⁴] and the scheme log noted in #216; differences at fixed ε do not.
 
 ### 3.3 The double bubble (Rigorous (numerical))
 
-| ε | I(S⁴)/a analytic | I(S⁴)/a numeric | I(DB)/a | ΔI/a = (I_DB − I_S⁴)/a | dominant (Euclidean weight) |
-|---|---|---|---|---|---|
-| 0.36 | −6.4400 | — | −9.1487 | **−2.709** | double bubble |
-| 0.40 | −6.6000 | — | −9.5913 | −2.991 | double bubble |
-| 0.45 | −6.8000 | — | −10.1189 | −3.319 | double bubble |
-| 0.50 | −7.0000 | −7.0001 | −10.6247 | −3.625 | double bubble |
-| 1 | −9.0000 | −9.0001 | −15.1515 | −6.152 | double bubble |
-| 2 | −13.0000 | −13.0001 | −23.4296 | −10.430 | double bubble |
-| 5 | −25.0000 | −25.0001 | −47.5902 | −22.590 | double bubble |
-| 10 | −45.0000 | −45.0001 | −87.6377 | −42.638 | double bubble |
+Computed on the half cap (pole to neck, doubled by symmetry) to avoid the numerically fragile south pole; the reflection symmetry at the neck holds to a‴ ≲ 10⁻⁴ at each root (script 4).
 
-ΔI/a ≈ −(4.0ε + 2.6) for ε ≳ 2; the double bubble's action falls twice as fast in ε as the sphere's because its high-curvature neck makes ∫√g R² about twice the sphere's. **The gap is finite at birth**: the flat-topped cap at ε = 0.36 already sits 2.7a below the sphere, so dominance switches discontinuously at ε_c. With a = a₂/180 ≥ 5.6 × 10³ the ratio of no-boundary weights e^{−2ΔI_half} = e^{−ΔI} exceeds e^{1.5 × 10⁴} everywhere the double bubble exists.
+| ε | ΔR² piece /a | ΔΓ (anomaly) /a | ΔI/a = (I_DB − I_S⁴)/a | original (wrong) value | dominant (Euclidean weight) |
+|---|---|---|---|---|---|
+| 0.36 | −0.709 | +0.587 | **−0.122** | −2.709 | double bubble |
+| 0.40 | −0.859 | +0.693 | −0.166 | −2.991 | double bubble |
+| 0.45 | −1.050 | +0.822 | −0.228 | −3.319 | double bubble |
+| 0.50 | −1.245 | +0.945 | −0.299 | −3.625 | double bubble |
+| 1 | −3.237 | +1.922 | −1.314 | −6.152 | double bubble |
+| 2 | −7.251 | +3.106 | −4.144 | −10.430 | double bubble |
+| 5 | −19.277 | +4.843 | −14.434 | −22.590 | double bubble |
+| 10 | −39.295 | +6.215 | −33.080 | −42.638 | double bubble |
+
+The anomaly piece *opposes* the double bubble (Γ > 0: the cap's conformal factor relative to the sphere costs anomaly action), and the R² piece favors it by more; the sign of the total is set by the R² term for every ε > ε_c. **The gap is finite but small at birth** (−0.12a; the flat-topped cap at ε = 0.36 is close to the sphere in action, not in geometry) and grows to ≈ −3.3ε a at large ε. With a = a₂/180 ≥ 5.6 × 10³ the ratio of no-boundary weights e^{−ΔI} is ≥ e^{680} at birth and e^{7 × 10³} at ε = 1: dominance switches at ε_c as before, decisively, but by a factor two to twenty smaller in the exponent than the original note claimed. The independent computation by the position-H agent of the J-6 debate (compact reference, pole-cutoff convergence, finite-difference cross-check) reproduces every entry to three digits.
 
 ## 4. Interpretation
 
-1. **Why the ordering is structural.** The Euclidean R² term contributes 36κ∫(1 − σ″ − σ′²)² dη = κ∫√g R²/(2π²) with κ < 0 for ε > −⅓: for the unstable sign the Euclidean action is unbounded below on high-curvature configurations. The double bubble is the regular saddle that exploits this — its neck is a region of large R — and its action decreases without bound as ε grows and the neck shrinks. The instability of de Sitter (Lorentzian) and the dominance of the small-neck cap (Euclidean) are the same sign choice seen twice.
+1. **Why the ordering is structural.** The Euclidean R² term contributes 36κ∫(1 − σ″ − σ′²)² dη = κ∫√g R²/(2π²) with κ < 0 for ε > −⅓: for the unstable sign the Euclidean action is unbounded below on high-curvature configurations. The double bubble is the regular saddle that exploits this — its neck is a region of large R — and its R² action decreases without bound as ε grows and the neck shrinks, faster than the anomaly piece (which opposes it) can compensate. The instability of de Sitter (Lorentzian) and the dominance of the small-neck cap (Euclidean) are the same sign choice seen twice.
 2. **Root dominance, not the reality condition, is what constrains ε.** The reality condition admits the sphere at every ε and the double bubble at every ε > ε_c; neither selects a value. Uniqueness of the real root — the premise of the tree argument (J-6) and of the reframing's "single Euclidean state" — holds iff ε < ε_c. Dominance is stated in the no-boundary *measure* on histories (Hartle–Hawking–Hertog's e^{−2I_R} weighting): the two real junctions sit at different 3-geometries (radius 1 versus a_neck < 0.8), so at the sphere's own equator the double bubble does not contribute at all; what the measure compares is the inflating history against the recollapsing one.
-3. **The bound and the depth.** ε < ε_c ≈ 0.355 ⟺ M > H₀/√ε_c ≈ 1.68 H₀ ⟺ |β_tot| < ε_c a₂/(1440π²) ≈ 25 (a₂ = 10⁶). Step 0 gave N_inf ≈ ln(M_P/H₀)/λ₊(ε) with λ₊ = [−3 + √(9 + 4/ε)]/2; at ε_c, λ₊ = 0.75 and N_inf ≈ 5.0 (a₂ = 10⁶), 6.5 (a₂ = 10⁷). Sixty e-folds needed ε ≈ 5 (step-0 table), where the double bubble dominates by e^{2 × 10⁵}. **Under Euclidean weighting, a unique root and a long inflationary phase are mutually exclusive at this junction.** (Sketch: the seed estimate δH_i/H₀ ~ H₀/M_P is inherited from step 0; the bound on ε is Rigorous (numerical), its translation into e-folds is not.)
+3. **The bound and the depth.** ε < ε_c ≈ 0.355 ⟺ M > H₀/√ε_c ≈ 1.68 H₀ ⟺ |β_tot| < ε_c a₂/(1440π²) ≈ 25 (a₂ = 10⁶). Step 0 gave N_inf ≈ ln(M_P/H₀)/λ₊(ε) with λ₊ = [−3 + √(9 + 4/ε)]/2; at ε_c, λ₊ = 0.75 and N_inf ≈ 5.0 (a₂ = 10⁶), 6.5 (a₂ = 10⁷). Sixty e-folds needed ε ≈ 5 (step-0 table), where the double bubble dominates by e^{8 × 10⁴} (a₂ = 10⁶). **Under Euclidean weighting, a unique root and a long inflationary phase are mutually exclusive at this junction.** (Sketch: the seed estimate δH_i/H₀ ~ H₀/M_P is inherited from step 0; the bound on ε is Rigorous (numerical), its translation into e-folds is not.)
 4. **What survives of the reframing's root.** For ε < ε_c the picture is exactly as proposed — one Euclidean state, the sphere, a K = 0 equator, an unstable de Sitter branch — but short: the branch exits within a few e-folds. For ε > ε_c the no-boundary state is dominated by a cap whose branch recollapses immediately; the sphere is a subdominant saddle. Either way the reframing cannot use the anomaly root to supply a long inflationary history without a change of saddle prescription.
 
-**Caveats (all disclosed, none resolved here).** (i) Euclidean weighting: under the Lorentzian / Picard–Lefschetz definition of the no-boundary state the relevant saddles are picked by steepest-descent thimbles and the Euclidean sign can invert (Feldbrugge–Lehners–Turok 2017; Di Tucci–Lehners 2019 — verified earlier in this cycle); whether the double bubble contributes there, and with what sign, is J-6's saddle question and must be settled before the bound is treated as final. (ii) Minisuperspace: no perturbations; HHR note the double bubble's perturbation analysis is hard. (iii) Only reflection-symmetric caps are junctions; asymmetric compact instantons exist and contribute to Ψ at Euclidean-region data but not to any real history. (iv) ε is the total □R coefficient including the anomaly's scheme-dependent b′ term; the physical statement is about the sum, which is what the trace equation and the exit see. (v) The threshold ε_c and the actions are numerical; the S⁴ analytic check and the a‴ = 0 residuals bound the error at the 10⁻⁴ level, and ε_c is bracketed by direct scans on both sides.
+**Caveats (all disclosed, none resolved here).** (i) Euclidean weighting: under the Lorentzian / Picard–Lefschetz definition of the no-boundary state the relevant saddles are picked by steepest-descent thimbles and the Euclidean sign can invert (Feldbrugge–Lehners–Turok 2017; Di Tucci–Lehners 2019 — verified earlier in this cycle); whether the double bubble contributes there, and with what sign, is J-6's saddle question and must be settled before the bound is treated as final. (ii) Minisuperspace: no perturbations; HHR note the double bubble's perturbation analysis is hard. (iii) Only reflection-symmetric caps are junctions; asymmetric compact instantons exist and contribute to Ψ at Euclidean-region data but not to any real history. (iv) ε is the total □R coefficient including the anomaly's scheme-dependent b′ term; the physical statement is about the sum, which is what the trace equation and the exit see. (v) The threshold ε_c and the actions are numerical; the S⁴ analytic check, the scaling identity I_EH = −2a, the two Riegert identities, and the a‴ ≈ 0 residuals bound the error at the 10⁻⁴ level, and ε_c is bracketed by direct scans on both sides. (vi) The original anomaly-action regularization was wrong; see the correction notice and §3.2.
 
 ## 5. Consequences for the program
 
@@ -125,7 +130,7 @@ The numerical integrator reproduces this to 10⁻⁴ at every ε tested (table b
 - **Dimensional:** ε, c₃ (in H₀ = 1 units), I/a all dimensionless ✓; the physical action is I = a × (table value), a = a₂/180.
 - **Limiting cases:** ε → 0: the family degenerates to the sphere (c₅ ∝ 1/ε) ✓; ε < 0: sphere only, de Sitter stable — no exit and no competitor, consistent ✓; ε = −⅓: κ = 0, the pure Riegert functional ✓; the sphere's action reproduces the Einstein–Hilbert piece −2π/(GH₀²) of #216's attack-C ✓; the Lorentzian linearization reproduces step 0 ✓.
 - **Consistency with the record and literature:** HHR's two-instanton statement for α < 0, the "no radiation" selection, and the double bubble's rapid recollapse — all verified verbatim this session; the sphere's ε-independence matches `fpe-starobinsky-existence`; nothing merged is contradicted.
-- **Numerical validation:** the analytic sphere action is reproduced to 10⁻⁴ at six values of ε by the same integrator used for the double bubble; a‴ at the neck vanishes to ≤ 2 × 10⁻⁹ at each root; the Euler–Lagrange/trace-equation match and the Riegert identity are exact symbolic identities.
+- **Numerical validation:** the sphere's Einstein–Hilbert and R² pieces are reproduced to 10⁻⁵ and its anomaly piece vanishes to 10⁻¹¹ with the compact-reference functional; the scaling identity I_EH = −2a holds to 10⁻⁵ on every double bubble; the Riegert functional reproduces 4a ln r on a rescaled sphere and vanishes on Möbius boosts to 10⁻¹⁶; a‴ at the neck vanishes to ≲ 10⁻⁴ at each root on the half-cap runs; the Euler–Lagrange/trace-equation match and the Riegert identity are exact symbolic identities. The first version of this note used a regularization that failed the Möbius test implicitly and was corrected the same day.
 - **Hidden assumptions:** Euclidean weighting (disclosed, routed to J-6); FRW minisuperspace foliation (inherited from the reframing, disclosed in #216 §4); the seed estimate in N_inf (Sketch); no time evolution asserted beyond classical continuation of a saddle.
 
 ## 7. Scripts (numpy/scipy/sympy; run 2026-09-05/06)
@@ -292,3 +297,27 @@ Output (ε ≥ 0.5) is the table of §2–§3; the threshold scans (`thresh.py`,
 - M. J. Duff, CQG 11, 1387 (1994), eq. (31) — anomaly coefficients (verified at full text in the #216 cycle).
 - A. Linde, arXiv:2509.01675 — H₀⁻² = k₂/(2880π²), M⁻² = −k₃/(2880π²) (verified at full text at step 0).
 - J. Feldbrugge, J.-L. Lehners, N. Turok, PRL 119, 171301 (2017); A. Di Tucci, J.-L. Lehners, PRL 122, 201302 (2019) — cited for caveat (i) only; verified with polarity in the #216 cycle.
+
+### Script 4 — compact-reference anomaly action, identities, scaling law, half-cap gaps (the correction)
+```python
+import numpy as np
+from scipy.integrate import trapezoid, cumulative_trapezoid
+src=open('caps.py').read().split("res={}")[0]; exec(src)
+def half_pieces(e,c3):
+    ex,cl,sol=run(c3,e,dense=True)
+    tsym=ex[1][0] if len(ex)>=3 else ex[0][0]          # neck for DB, equator for sphere
+    ts=np.linspace(sol.t[0],tsym,400001); Y=sol.sol(ts); A,A1,A2=Y[0],Y[1],Y[2]
+    EH=2*2*np.pi**2*trapezoid((-(6/(16*np.pi**2))*A**2*(1+A1**2))/A,ts)
+    R2=2*2*np.pi**2*trapezoid((36*(-(3*e+1)/(288*np.pi**2))*(1-A*A2-A1**2)**2)/A,ts)
+    eta=cumulative_trapezoid(1/A,ts,initial=0); eta-=eta[-1]                       # eta=0 at the symmetric point
+    s=np.log(A)+np.log(np.cosh(eta)); s1=A1+np.tanh(eta); s2=A*A2+np.cosh(eta)**-2
+    G=2*0.125*trapezoid((24*np.cosh(eta)**-4*s + 2*(s2-2*np.tanh(eta)*s1)**2 + 4*np.cosh(eta)**-2*s1**2)/A,ts)
+    # symmetry check at the symmetric point: a''' there
+    return EH,R2,G,(ex[0][1], ex[1][1] if len(ex)>=3 else None, ex[1][4] if len(ex)>=3 else ex[0][4])
+H={0.36:-0.122,0.40:-0.166,0.45:-0.228,0.5:-0.299,1.0:-1.314,2.0:-4.144,5.0:-14.43}
+print("sphere half*2:",[f"{x:+.5f}" for x in half_pieces(1.0,-1/6)[:3]])
+for e,c3 in ((0.36,-0.347204),(0.40,-0.350687),(0.45,-0.353077),(0.5,-0.354147),(1.0,-0.349489),(2.0,-0.342261),(5.0,-0.337009),(10.0,-0.335180)):
+    EH,R2,G,(ap,an,a3)=half_pieces(e,c3); dI=(EH+2)+(R2+(4/3)*(3*e+1))+G
+    print(f"eps={e:5.2f}: dEH={EH+2:+.2e} dR2={R2+(4/3)*(3*e+1):+.4f} dGamma={G:+.4f} => dI/a={dI:+.4f}  (H: {H.get(e,float('nan')):+.3f})  [a_peak={ap:.4f} a_neck={an:.4f} a'''_neck={a3:+.1e}]")
+```
+Output: sphere half×2 pieces (−1.99999, −5.33333 at ε = 1, +0.00000); the table of §3.3 with dEH ≤ 3 × 10⁻⁵ in every row. The identity checks (4 ln r; Möbius → 10⁻¹⁶) are in `anom_s4ref2.py` on the scratch record.
