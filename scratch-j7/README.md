@@ -11,7 +11,7 @@ Never merged, never deleted (AUTONOMY.md, explorer scratch tier). Scripts import
 - `j7/av_table.py`, `av_fix.py` — fixed-(a,v) census (3, −i√8) re-evaluated with I_inv; gauge repair for the six failures; complex-pair continuation.
 - `j7/cone_num.py` — smoothed-cone action, numerical confirmation of the log coefficient.
 - `j7/aR_onshell.py`, `kzero_caps.py` — on-shell fixed-(a,R) action along the real family; the K = 0 turning-point caps at fixed radius (R-marginal saddles).
-- `j7/av_six.py` — gauge repair + constant-lapse test for the six census saddles the real-seed secant could not gauge.
+- `j7/av_six.py` — gauge repair + constant-lapse test for the six census saddles the real-seed secant could not gauge. Outcome: neither this (32 seeds, 25-min timeout, no saddle completed) nor `av_fix.py` (72 seeds, stopped after 2.5 h) produced a gauge; the six remain unevaluated (J-7b item 4).
 - `j7/attack-j7a.md` with `atk_hj_fine.py`, `atk_family.py`, `atk_cone.py`, `atk_census.py` — attack pass (18 items).
 - `j7/steelman-j7a.md` with `stm_cone.py`, `stm_aR_onshell.py`, `stm_lapse_census.py`, `stm_complex_caps.py`, `stm_complex_caps_lapse0.py`, `stm_pair.py`, `stm_pair2.py` — steelman pass (per-flaw verdicts, corrected statements).
 - `j7/dh09.txt`, `fs95.txt`, `hhj15.txt` — pdftotext extracts of Dyer–Hinterbichler 2009, Fursaev–Solodukhin 1995, Herzog–Huang–Jensen 2015 used for passage-level citation verification.
