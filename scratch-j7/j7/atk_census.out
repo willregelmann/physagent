@@ -1,0 +1,14 @@
+=== path dependence of the fixed-(a,v) census at (3,-i sqrt8), eps=1: straight | real-then-vertical | vertical-then-horizontal ===
+sphere  | straight: a=3.000-0.000j v=-0.000-2.828j ReI=  -3.0002 ImI= -30.537 gauge=ok | re-then-im: a=3.000-0.000j v=-0.000-2.828j ReI=  -3.0002 ImI= -30.537 gauge=ok | im-then-re: a=3.000-0.000j v=-0.000-2.828j ReI=  -3.0002 ImI= -30.537 gauge=ok
+   [sym_C: not converged, |f|=4.7e+00]
+A       | straight: a=3.000-0.000j v=0.000-2.828j ReI=  -5.5816 ImI= +13.210 gauge=ok | re-then-im: a=3.000-0.000j v=0.000-2.828j ReI= -92.4975 ImI= +10.420 gauge=NO | im-then-re: a=3.000-0.000j v=0.000-2.828j ReI=  -5.5816 ImI= +13.210 gauge=ok
+   [sym_C: not converged, |f|=1.6e+00]
+B       | straight: a=3.000+0.000j v=-0.000-2.828j ReI=  -1.0510 ImI= +13.284 gauge=ok | re-then-im: a=0.599-0.421j v=-0.089-0.123j ReI=  -5.1302 ImI= -20.192 gauge=NO | im-then-re: a=3.000+0.000j v=-0.000-2.828j ReI=  -1.0510 ImI= +13.284 gauge=ok
+<string>:17: RuntimeWarning: overflow encountered in scalar multiply
+<string>:17: RuntimeWarning: invalid value encountered in scalar multiply
+/home/will/.local/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py:521: RuntimeWarning: invalid value encountered in divide
+  err5 = np.dot(K.T, self.E5) / scale
+/home/will/.local/lib/python3.12/site-packages/scipy/integrate/_ivp/rk.py:522: RuntimeWarning: invalid value encountered in divide
+  err3 = np.dot(K.T, self.E3) / scale
+<string>:12: RuntimeWarning: overflow encountered in scalar power
+<string>:12: RuntimeWarning: invalid value encountered in scalar multiply

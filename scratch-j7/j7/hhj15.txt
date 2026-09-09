@@ -1,0 +1,4454 @@
+YITP-SB-15-37
+
+arXiv:1510.00021v3 [hep-th] 16 Oct 2015
+
+Universal Entanglement and Boundary Geometry
+in Conformal Field Theory
+Christopher P. Herzog, Kuo-Wei Huang, and Kristan Jensen
+
+C. N. Yang Institute for Theoretical Physics,
+Department of Physics and Astronomy,
+Stony Brook University, Stony Brook, NY 11794
+
+Abstract
+Employing a conformal map to hyperbolic space cross a circle, we compute the universal contribution to the vacuum entanglement entropy (EE) across a sphere in even-dimensional conformal
+field theory. Previous attempts to derive the EE in this way were hindered by a lack of knowledge of the appropriate boundary terms in the trace anomaly. In this paper we show that the
+universal part of the EE can be treated as a purely boundary effect. As a byproduct of our computation, we derive an explicit form for the A-type anomaly contribution to the Wess-Zumino
+term for the trace anomaly, now including boundary terms. In d = 4 and 6, these boundary
+terms generalize earlier bulk actions derived in the literature.
+
+Contents
+1 Introduction
+
+2
+
+2 The Two Dimensional Case and Rényi entropy
+
+4
+
+2.1
+
+Anomaly Action with Boundary and Entanglement Entropy . . . . . . . . . . . . . .
+
+4
+
+2.2
+
+The Schwarzian Derivative . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+
+2.3
+
+Entanglement Entropy from the Plane and Cylinder . . . . . . . . . . . . . . . . . .
+
+9
+
+2.4
+
+Rényi Entropies from the Annulus . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+11
+
+3 Anomaly Actions in More than Two Dimensions
+
+13
+
+3.1
+
+Boundary Term of the Euler Characteristic . . . . . . . . . . . . . . . . . . . . . . .
+
+13
+
+3.2
+
+An Explicit Expression For The Boundary Term . . . . . . . . . . . . . . . . . . . .
+
+17
+
+3.3
+
+Wess-Zumino Consistency . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+18
+
+3.4
+
+A Complete Classification in d = 4 and Boundary Central Charges . . . . . . . . . .
+
+20
+
+3.5
+
+Dimensional Regularization . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+22
+
+4 Dilaton Effective Actions and Boundary Terms
+
+24
+
+4.1
+
+The Dilaton Effective Action in d = 4 . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+24
+
+4.2
+
+The Dilaton Effective Action in d = 6 . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+25
+
+5 The Sphere Entanglement Entropy: General Result
+
+26
+
+5.1
+
+Casimir Energy . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+27
+
+5.2
+
+Dilaton Effective Action . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+29
+
+5.3
+
+The Boundary Contribution to W in General Dimension . . . . . . . . . . . . . . . .
+
+30
+
+5.4
+
+A Different Conformal Transformation: de Sitter spacetime . . . . . . . . . . . . . .
+
+32
+
+6 Discussion
+
+34
+
+A Differential Geometry with a Boundary
+
+36
+
+A.1 The Covariant Derivative and the Second Fundamental Form . . . . . . . . . . . . .
+
+36
+
+A.2 Gauss and Codazzi . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+38
+
+B Wess-Zumino Consistency in d = 4
+
+38
+
+C Effective Action from Dimensional Regularization
+
+41
+
+C.1 d = 4 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+42
+
+C.2 d = 6 . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+42
+
+D Holographic Calculation
+
+44
+
+1
+
+1
+
+Introduction
+
+Entanglement entropy has played an increasingly important role in theoretical physics. Invented as
+a measure of quantum entanglement, it has been successfully applied in a much broader context.
+Entanglement entropy can serve as an order parameter for certain exotic phase transitions [1, 2]. It
+is likely very closely related to black hole entropy [3, 4]. Certain types of entanglement entropy order
+quantum field theories under renormalization group flow [5, 6, 7, 8]. It is the last result which is most
+relevant to this paper. In even space-time dimension, the connection between entanglement entropy
+and renormalization group flow is tied up in the existence of a Weyl, or trace, anomaly [5, 7, 8]. In
+fact, certain universal terms in the entanglement entropy can be extracted from the anomaly. The
+moral of this paper is that to use the anomaly correctly, one should understand how to write it down
+on a manifold with a codimension one boundary.
+To define entanglement entropy, we assume that the Hilbert space can be factorized, H = HA ⊗
+HB , where HA corresponds to the Hilbert space for a spatial region A of the original quantum field
+theory.1 Given such a factorization one can construct the reduced density matrix ρA = trB ρ by
+tracing over the degrees of freedom in the complementary region B, where ρ is the initial density
+matrix. The entanglement entropy is the von Neumann entropy of the reduced density matrix:
+SE ≡ − tr(ρA ln ρA ) .
+
+(1)
+
+Only when ρ = |ψihψ| is constructed from a pure state |ψi does SE measure the quantum entanglement. Otherwise, it is contaminated by the mixedness of the density matrix ρ.
+In a quantum field theory context, the definition of SE presents a challenge because the infinite
+number of short distance degrees of freedom render SE strongly UV divergent. Consider for example
+a d-dimensional conformal field theory (CFT) in the vacuum. Let d be even so that the theory
+may have a Weyl anomaly, and let A be a (d − 1)-dimensional ball of radius `. In this case, the
+entanglement entropy has an expansion in a short distance cut-off δ of the form
+SE = α
+
+Area(∂A)
+δ
++ . . . + 4a(−1)d/2 ln + . . .
+d−2
+δ
+`
+
+(2)
+
+The constant α multiplying the leading term is sensitive to the definition of the cut-off δ and thus
+has no physical meaning. The fact that the leading term scales with the area of the boundary of A,
+however, is physical and suggests that most of the correlations in the vacuum are local.
+Most important for this paper, the subleading term in eq. (2) proportional to the logarithm is
+1 This factorization is a nontrivial assumption.
+
+The boundary between A and B, ∂A, plays an important role in
+
+recent discussons regarding the entanglement entropy of gauge theory [9, 10, 11, 12]. The boundary terms associated
+with ∂A we find in this paper suggests that the factorization is not always a clean and unambiguous procedure even
+for non-gauge theories.
+
+2
+
+“a,” the coefficient multiplying the Euler density in the trace anomaly [13]
+hT µ µ i =
+
+X
+
+cj Ij − (−1)d/2
+
+j
+
+4a
+Ed + Dµ J µ ,
+d! Vol(S d )
+
+(3)
+
+with Dµ the covariant derivative. In this expression, Ed is the Euler density normalized such that
+integrating Ed over an S d yields d! Vol(S d ). See section 3 for more details about the definition of Ed .
+The Ij are curvature invariants which transform covariantly with weight −d under Weyl rescalings.
+There is also a total derivative Dµ J µ whose precise form depends on the particular regularization
+scheme used in defining the partition function.2
+The motivation for this paper is a puzzle described in ref. [14]. The authors describe several
+different methods for verifying the logarithmic contribution to the entanglement entropy in (2).
+One is to conformally map the causal development of the ball, D, to the static patch of de Sitter
+spacetime, and then exploit the trace anomaly (3). Another method runs into difficulties. They
+attempt to compute SE by mapping D to hyperbolic space. Here, the authors were not able to use
+the anomaly directly. Instead, they resorted to an effective anomaly action, which here fails because
+hyperbolic space has a boundary. As we explain, and as was anticipated in ref. [14], getting the
+correct answer requires a careful treatment of boundary terms in the effective anomaly action.
+To our knowledge, the relation between these boundary terms and entanglement entropy has
+not been considered carefully before.3 In d = 2, the boundary contribution to the trace anomaly
+is textbook material [16]. In d = 4 and d = 6, the bulk anomaly induced dilaton effective actions
+are written down in refs. [8] and [17] respectively. (See also [18] for d = 4.) Given the importance
+of the dilaton effective action in understanding the a-theorem [8], and the recent “b-theorem” in
+d = 3 [19], it seems conceivable the boundary correction terms may be useful in a more general
+context. In this paper we generalize these dilaton effective actions with boundary terms for a
+manifold with codimension one boundary and we show that these boundary terms are crucial in
+computing entanglement entropy. We also provide a general procedure, valid in any even dimension,
+for computing these boundary terms.
+We begin with the two-dimensional case in section 2, where we illustrate our program and use
+an anomaly action with boundary terms to recover the well-known results of the interval Rényi
+entropy [20, 21] and the Schwarzian derivative. In section 3, we construct the boundary terms in
+the trace anomaly in d > 2 and present an abstract formula for the anomaly action in arbitrary even
+dimension. We demonstrate the result satisfies Wess-Zumino consistency. In section 4, we compute
+the anomaly action in four and six dimensions, keeping careful track of the boundary terms. (In
+six dimensions, our boundary action is only valid in a conformally flat space time, while in four
+dimensions, the answer provided is completely general.) In section 5, we resolve the puzzle of how
+to compute the entanglement entropy of the ball through a map to hyperbolic space in general
+2 In the terminology of ref. [13], the Euler term is a type-A anomaly and the Weyl-covariants I are type-B.
+j
+3 In a somewhat different vein, there is a discussion of entanglement entropy on spaces with boundary in ref. [15].
+
+3
+
+dimension. The resolution of this puzzle constitutes the main result of the paper. We also revisit
+the computation of the entropy in de Sitter spacetime. Finally, we conclude in section 6. We relegate
+various technical details to appendices. Appendix A reviews some useful differential geometry for
+manifolds with boundary. Appendix B contains a detailed check of Wess-Zumino consistency in four
+dimensions. Appendix C contains details of the derivation of the anomaly action in four and six
+dimensions. Appendix D provides a corresponding holographic calculation of entanglement entropy
+through a map to hyperbolic space.
+
+2
+
+The Two Dimensional Case and Rényi entropy
+
+In two dimensions, the stress tensor has the well known trace anomaly
+hT µ µ i =
+
+c
+R,
+24π
+
+(4)
+
+where we have replaced the anomaly coefficient a with the more common central charge c = 12a
+which appears in the two-point correlation function of the stress tensor. Eq. (4) is the Ward identity
+for the anomalous Weyl symmetry. It is equivalent to the variation of the generating functional
+W [gµν ] = − ln Z[gµν ] under a Weyl variation δgµν = 2gµν δσ. However, on a manifold with boundary,
+the anomalous variation of W may contain a boundary term. In this section, we show how to
+construct the anomaly effective action with boundary terms for the simplest case, d = 2. We will
+reproduce the classic entanglement entropy result using the boundary term in the anomaly action.
+We also show that the boundary term correctly recovers the universal term in the single-interval
+d = 2 Rényi entropy.
+
+2.1
+
+Anomaly Action with Boundary and Entanglement Entropy
+
+In d = 2, the most general result for the Weyl variation of the partition function consistent with
+Wess-Zumino consistency is [16]
+c
+δσ W = −
+24π
+
+Z
+
+2
+
+√
+
+Z
+
+d x gR δσ + 2
+M
+
+√
+
+dy γK δσ
+
+
+.
+
+(5)
+
+∂M
+
+To write this expression, we have introduced some notation. In d = 2, the notation is overkill, but
+we need the full story in what follows in d > 2. We denote bulk coordinates as xµ and boundary
+coordinates as y α . Let nµ be the unit-length, outward pointing normal vector to ∂M and γαβ the
+induced metric on ∂M . We can define K in two equivalent ways. First, locally near the boundary we
+can extend nµ into the bulk. We can choose to extend it in such a way that nµ Dµ nν = 0, in which
+case the extrinsic curvature is defined to be Kµν ≡ D(µ nν) . The trace of the extrinsic curvature
+is K = K µ µ . Alternatively, we can also define K purely from data on the boundary. The bulk
+covariant derivative Dµ induces a covariant derivative D̊α on the boundary. It can act on tensors
+4
+
+with bulk indices, boundary indices, or mixed tensors with both. We specify the boundary through
+a map ∂M → M , which amounts to a set of d embedding functions X µ (y α ). The ∂α X µ are tensors
+on the boundary, and their derivative gives the extrinsic curvature as Kαβ = −nµ D̊α ∂β X µ , and
+its trace K = γ αβ Kαβ . For more details on differential geometry of manifolds with boundary, see
+appendix A.
+Observe that, for a constant Weyl rescaling δσ = λ, the Weyl anomaly (5) is equivalent to
+c
+δλ W = − χλ ,
+6
+
+(6)
+
+where χ is the Euler characteristic of M . That is, the boundary term in the Weyl anomaly is simply
+the boundary term in the Euler characteristic.
+The stress tensor is defined as
+2 δW
+,
+hT µν i = − √
+g δgµν
+
+(7)
+
+in which case (5) leads to a boundary term in the trace of the stress tensor,
+hT µ µ i =
+
+
+c
+R + 2Kδ(x⊥ ) ,
+24π
+
+(8)
+
+where δ(x⊥ ) is a Dirac delta function with support on the boundary.
+We now wish to write down a local functional which reproduces the variation (5). To do so we
+introduce an auxiliary “dilaton” field τ which transforms under a Weyl transformation gµν → e2σ gµν
+as τ → τ + σ. The quantity
+ĝµν ≡ e−2τ gµν ,
+
+(9)
+
+is invariant under this generalized Weyl scaling and so too the effective action Ŵ ≡ W [e−2τ gµν ] =
+W [ĝµν ]. Then
+W[gµν , e−2τ gµν ] ≡ W − Ŵ ,
+
+(10)
+
+will vary to reproduce the anomaly, δσ W = δσ W .
+In what follows, we refer to W as a “dilaton effective action,” given its similarities with the
+dilaton effective action presented in refs. [8, 17]. However, unlike those works we are only considering
+conformal fixed points and not renormalization group flows, and so this name is a bit of a misnomer.
+More precisely, W is a Wess-Zumino term for the Weyl anomaly, or alternatively an anomaly effective
+action. Analytically continuing to Lorentzian signature, it computes the phase picked up by the
+partition function under the Weyl rescaling from a metric gµν to e−2τ gµν .
+What exactly is W in d = 2? The first quick guess is
+Z
+
+Z
+c
+√
+2 √
+d x gRτ + 2
+dy γKτ .
+W0 = −
+24π M
+∂M
+5
+
+(11)
+
+But the metric scales, and we should take into account that under Weyl scaling in d = 2,
+R[e2σ gµν ] = e−2σ (R[gµν ] − 2σ) ,
+
+(12)
+
+K[e2σ gµν ] = e−σ (K[gµν ] + nµ ∂µ σ) .
+
+To cancel these variations, we add a (∂τ )2 ≡ (∂µ τ )(∂ µ τ ) term to the effective action. The total
+effective anomaly action is then
+
+Z
+Z
+
+c
+√
+2
+2 √
+W=−
+dy γ K[gµν ]τ + (invariant) .
+d x g R[gµν ]τ − (∂τ ) + 2
+24π M
+∂M
+
+(13)
+
+The right-hand side is computed with the original unscaled metric gµν .4 In writing (13), we have
+allowed for the possibility of additional terms invariant under the Weyl symmetry. There are only
+two such terms with dimensionless coefficients,
+Z
+p
+d2 x ĝ R̂ ,
+
+Z
+dy
+
+M
+
+p
+
+γ̂ K̂ .
+
+(14)
+
+∂M
+
+However, now we use that by definition W = 0 when τ = 0. Thus neither of these terms can appear
+in W, so
+W=−
+
+Z
+
+c
+24π
+
+
+√
+d2 x g R[gµν ]τ − (∂τ )2 + 2
+
+√
+dy γ K[gµν ]τ
+
+Z
+
+M
+
+
+.
+
+(15)
+
+∂M
+
+The second step, which involved adding by hand a (∂τ )2 term to cancel some unwanted pieces
+of the Weyl variation, seemed to involve some guess work which could become a problem in d > 2
+where the expressions are much more complicated. In fact, there are several constructive algorithms
+which remove this element of guesswork. One method involves integrating the anomaly [23, 24, 25]:
+W=−
+
+c
+24π
+Z 1
+
+=−
+
+Z 1
+
+Z
+dt
+
+0
+
+Z
+p
+0
+g 0 R[gµν
+]τ + 2
+
+dy
+
+p
+
+0
+γ 0 K[gµν
+]τ
+
+
+0 =e−2tτ g
+gµν
+µν
+
+∂M
+
+M
+
+Z
+dt
+
+0
+
+d2 x
+
+p
+0
+d2 x g 0 hT µ µ [gνρ
+]iτ
+
+(16)
+
+.
+0 =e−2tτ g
+gµν
+µν
+
+M
+
+Thus, given the trace anomaly hT µ µ i, it is straightforward albeit messy to reconstruct W.
+The second method (which we elaborate in this paper) is dimensional regularization [26, 27]. We
+f [gµν ] in n = 2 +  dimensions:
+define W
+f [gµν ] ≡ −
+W
+
+c
+24π(n − 2)
+
+Z
+
+n
+
+d x
+
+√
+
+M
+
+Z
+gR+2
+
+n−1
+
+d
+
+y
+
+√
+
+
+γK
+
+,
+
+(17)
+
+∂M
+
+where R, K, gµν , and γαβ are dimensionally continued in the naive way. We claim then that
+
+
+f [gµν ] − W
+f [e−2τ gµν ] ,
+W = lim W
+n→2
+
+4 This action corrects a typo in eq. (1.2) of ref. [22], as well as accounts for the boundary term.
+
+6
+
+(18)
+
+as one may verify after a short calculation, using the more general rules for the Weyl transformations
+in n dimensions,
+
+R[e2σ gµν ] = e−2σ R[gµν ] − 2(n − 1)σ − (n − 2)(n − 1)(∂σ)2 ,
+K[e2σ gµν ] = e−σ (K[gµν ] + (n − 1)nµ ∂µ σ) .
+
+(19)
+
+In all three cases, we are computing the same difference between two effective actions. It would
+be preferable to have access to the effective actions themselves. There are two problems here. The
+full actions depend on more than the anomaly coefficients. They are also likely to be ultraviolet
+and perhaps also infrared divergent. If we focus just on the anomaly dependent portion, it could
+easily be that some of this anomaly dependence is invariant under Weyl scaling and drops out of
+the difference we have computed. Interestingly, the dimensional regularization procedure offers a
+f [gµν ] for the anomaly dependent portion of W [gµν ].
+regulated candidate W
+Let us try to extract some information from the regulated candidate action in flat space:
+Z
+c
+√
+f
+W [δµν ] = −
+dn−1 y γK .
+12π(n − 2) ∂M
+
+(20)
+
+A simple case, which also turns out to be relevant for the entanglement entropy calculations we
+would like to perform, is where M is a large ball of radius Λ with a set of q smaller, non-intersecting
+balls of radius δj removed. For each ball, we can work in a local coordinate system where r is a
+√
+√
+radial coordinate. For the smaller balls, γK = −rn−2 while for the large ball γK = rn−2 . It
+then follows that
+
+
+q
+X
+c
+1
+q
++
+1
+f [δµν ] = − 
+W
+(1 − q) +
+(γ + ln π) + ln Λ −
+ln δj + O(n − 2) .
+6 n−2
+2
+j=1
+
+(21)
+
+The leading divergent contribution is proportional to the Euler characteristic χ = 1−q of the surface.
+We claim that the ln δj pieces of the expression (21) can be used to identify a universal contribution to the entanglement entropy of a single interval in flat space. We will justify the computation
+through a conformal map to the cylinder, but in brief, the computation goes as follows. For an
+interval on the line with left endpoint u and right endpoint v, to regulate the UV divergences in
+the entanglement entropy computation we place small disks around the points u and v with radius
+δ. The entanglement entropy then turns out to be the logarithmic contribution of these disks to
+f [δµν ]:
+−W
+c
+SE ∼ − ln δ .
+3
+
+(22)
+
+As the underlying theory is conformal, the answer can only depend on the conformal cross ratio of
+the two circles 4δ 2 /|u − v|2 . Thus we find the classic result [28, 21]
+SE ∼
+
+c |v − u|
+ln
+.
+3
+δ
+7
+
+(23)
+
+Here and henceforth, the ∼ indicates that the LHS has a logarithmic dependence given by the RHS.
+We neglect the computation of the constant quantity in SE , as it depends on the precise choice of
+regulator and so is unphysical.
+A more thorough justification of this computation occupies the next two subsections. In broad
+terms, the same result turns out to be valid in even dimensions d > 2, a fact whose demonstration
+will occupy most of the remainder of the paper. More specifically, we mean that the logarithmic
+f [δµν ] for flat space with D × S d−2 removed, where D is a small disk of radius δ,
+contribution to W
+yields a universal contribution to entanglement entropy for a ball shaped region in flat space.
+To return to d = 2, we describe the plane to the cylinder map and its relevance for entanglement
+entropy in section 2.3. The demonstration however requires we also know how the stress tensor
+transforms under conformal transformations. The transformation involves the Schwarzian derivative
+which can be found in most textbooks on conformal field theory. In an effort to be self contained
+we will use our effective anomaly action to derive the Schwarzian derivative in section 2.2. In d = 2,
+the effective action turns out to be useful to compute not only the entanglement entropy but also
+the single interval Rényi entropies. A calculation of the Rényi entropies is provided in section 2.4.
+
+2.2
+
+The Schwarzian Derivative
+
+To calculate the change in the stress tensor under a Weyl scaling from gµν to ĝµν = e−2τ gµν , we
+begin with a variation of W = W − Ŵ with respect to the metric gµν ,
+δW =δW − δ Ŵ
+Z
+√
+
+p
+1
+=−
+g δgµν hT µν ig − ĝ δĝµν hT µν iĝ
+d2 x
+(24)
+2 M
+Z
+
+1
+√
+=−
+d2 x g δgµν hT µν ig − e−4τ hT µν iĝ ,
+2 M
+√
+√
+where in the last line we have used that ĝδĝµν = g e−(d+2)τ δgµν in d dimensions. The subscript
+g on the expectation value refers to hT µν i on the space with metric g, and similarly for ĝ. Using the
+explicit expression for W in (15), we compute its variation
+
+
+
+Z
+c
+1
+2 √
+µ
+ν
+µ ν
+µν
+2
+δW = −
+d x g δgµν ∂ τ ∂ τ + D ∂ τ − g
+(∂τ ) + τ
+24π M
+2
+Z
+c
+√
+−
+dy γ δgµν hµν nρ ∂ρ τ ,
+24π ∂M
+
+(25)
+
+where hµν is the projector to the boundary,
+hµν = gµν − nµ nν .
+
+(26)
+
+In obtaining (25) we have used that in two dimensions the Einstein tensor Rµν − R2 gµν vanishes,
+and that the variation of the Ricci tensor is a covariant derivative δRµν = Dρ δΓρ µν − Dν δΓρ µρ .
+
+8
+
+Putting (25) together with (24), we find
+
+
+
+c
+1
+c
+hTµν iĝ = hTµν ig −
+∂µ τ ∂ν τ + Dµ ∂ν τ − gµν
+(∂τ )2 + τ
+−
+δ(x⊥ )hµν nρ ∂ρ τ .
+12π
+2
+12π
+
+(27)
+
+Suppose we consider a Weyl rescaling which takes us from flat space, gµν = δµν , to the new
+metric ĝµν = e−2τ δµν . The stress tensor for a conformal theory in vacuum on the plane is usually
+defined to vanish. Thus the stress tensor on the manifold with metric e−2τ δµν will be
+
+
+
+1
+c
+∂µ τ ∂ν τ + ∂µ ∂ν τ − δµν
+(∂τ )2 + (τ )
+hTµν i = −
+12π
+2
+
+(28)
+
+(dropping the boundary contribution). The Schwarzian derivative describes how the stress tensor
+transforms under a conformal transformation, i.e. a combination of a Weyl rescaling and a diffeomorphism that leaves the metric invariant. If the complex plane is parametrized initially by z and
+z̄, we introduce new variables w(z) and w̄(z̄) and require that the Weyl rescaling satisfies
+
+
+
+∂w
+∂ w̄
+−2τ
+e
+=
+.
+∂z
+∂ z̄
+
+(29)
+
+Start with the stress tensor in the w-plane, and perform a diffeomorphism to go to the z variables.
+That transformed stress tensor should be related by a Weyl rescaling by e−2τ to the stress tensor
+on the flat complex z-plane. Recalling that gzz = 0, we find that
+(∂z w)2 hTww (w)i = hTzz (z)ie−2τ δµν
+
+
+c 
+(∂z τ )2 + (∂z2 τ )
+12π
+c 2(∂z3 w)(∂z w) − 3(∂z2 w)2
+,
+48π
+(∂z w)2
+
+= −
+=
+
+(30)
+
+which is the usual result for the Schwarzian derivative.
+
+2.3
+
+Entanglement Entropy from the Plane and Cylinder
+
+We now consider the entanglement entropy of an interval with left endpoint u and right endpoint
+v. The information necessary to compute the entropy is contained in the causal development of
+this interval, i.e. the diamond shaped region bounded by the four null lines x ± t = u and x ± t =
+v. See Fig. 1. We will indirectly deduce the entanglement entropy by conformally mapping to a
+thermal cylinder, keeping careful track of the phase picked up by the partition function under the
+transformation.
+Consider the following change of variables
+e2πw/β =
+
+z−u
+,
+z−v
+
+(31)
+
+where z = x − t = x + itE , and correspondingly for z̄ and w̄. If we let w = σ 1 + iσ 2 , then σ 2 is
+periodic with periodicity β, σ 2 ∼ σ 2 + β. In other words, the theory on the w-plane is naturally
+endowed with a temperature 1/β. The other nice property of this map is that the the interval at
+9
+
+1.0
+
+0.5
+
+t
+2L
+
+0.0
+
+-0.5
+
+-1.0
+-1.0
+
+0.0
+x
+
+-0.5
+
+0.5
+
+1.0
+
+2L
+
+Figure 1:
+
+The causal development of an interval of length L. The dots indicate the endpoints of
+
+the interval.
+
+time t = 0 is mapped to the real line Re(w). Thus the reduced density matrix ρA associated with
+the interval is related by a unitary transformation to the thermal density matrix ρβ on the line. As
+the entanglement entropy is invariant under unitary transformations, the entanglement entropy of
+the interval is the thermal entropy associated with the cylinder, that is the thermal entropy on the
+infinite line. If we let
+ρ=
+
+e−βH
+,
+tr e−βH
+
+(32)
+
+where H is the Hamiltonian governing evolution on the line, then
+SE = − tr(ρ ln ρ) = β tr(ρH) + ln tr(e−βH ) = βhHi − Wcyl ,
+
+(33)
+
+where Wcyl ≡ − ln tr e−βH is the partition function on the cylinder. This entropy is infinite because
+the cylinder is infinitely long in the σ 1 direction, and we need to regulate the divergence. The natural
+way to regulate is to cut off the cylinder such that −Λ < σ 1 < Λ. In the z = x + itE plane, these
+cut-offs correspond to putting small disks of radius δ around the endpoints u and v, where now
+δ
+= e−2πΛ/β .
+v−u
+
+(34)
+
+We have two quantities to compute, βhHi and Wcyl . We can use the Schwarzian derivative from
+the previous subsection to compute
+Z
+βhHi =
+
+hT 00 idσ 1 ,
+
+(35)
+
+cyl
+
+where we have analytically continued σ 0 = −iσ 2 . From the transformation rules (30) and (31), the
+10
+
+ww component of the stress tensor on the cylinder is
+hTww (w)i =
+
+πc
+.
+12β 2
+
+(36)
+
+In Cartesian coordinates, T 22 = − 14 (T ww + T w̄w̄ ). Thus we have, analytically continuing to real
+πc
+time σ 0 = −iσ 2 , a positive thermal energy hT 00 i = 6β
+2 from which follows the first quantity of
+
+interest
+βhHi =
+
+πc
+c |v − u|
+Λ = ln
+.
+3β
+6
+δ
+
+(37)
+
+Toward the goal of computing Wcyl , we first compute the difference in anomaly actions W[δµν , e−2τ δµν ]
+where the dilaton τ is derived from the plane to cylinder map
+
+
+
+1
+β
+1
+1
+τ = − ln
+−
++ c.c.
+2
+2π v − z
+u−z
+
+(38)
+
+Given the dilaton, we can compute the bulk contribution to the difference in effective actions
+ 2 Z
+Z
+2
+πw
+8π 2
+π
+2
+2 √
+=
+Λ,
+(39)
+dw dw̄ coth
+d x g (∂τ ) =
+β
+β
+β
+cyl
+and the boundary contribution
+Z
+−2
+
+16π 2
+√
+dy γ Kτ ∼ 8π ln δ ∼ −
+Λ.
+β
+
+(40)
+
+Assembling the pieces, the difference in anomaly actions is then
+W[δµν , e−2τ δµν ] ∼ −
+
+πc
+c |v − u|
+Λ = − ln
+.
+3β
+6
+δ
+
+(41)
+
+The last component we need is the universal contribution to W [δµν ], which we claimed was actually
+equal to the universal contribution to single interval entanglement entropy. Indeed, everything works
+as claimed since the contributions from βhHi and W[δµν , e−2τ δµν ] cancel out:
+f [δµν ] ∼ c ln |v − u| .
+SE = βhHi + W[δµν , e−2τ δµν ] − W [δµν ] ∼ −W
+3
+δ
+
+2.4
+
+(42)
+
+Rényi Entropies from the Annulus
+
+In d = 2, the anomaly effective action also allows us to compute the Rényi entropies of an interval
+A,
+Sn ≡
+
+1
+ln tr ρnA .
+1−n
+
+(43)
+
+We use the replica trick to compute Sn . We can replace tr ρnA with a certain ratio of Euclidean
+partition functions
+tr ρnA =
+
+Z(n)
+,
+Z(1)n
+11
+
+(44)
+
+where Z(n) is the path integral on an n-sheeted cover of flat space, branched over the interval A.
+In the present case, we can use the coordinate transformation,
+w=
+
+z−u
+,
+z−v
+
+(45)
+
+to put the point u at the origin and the point v at infinity. As is familiar from the computation in
+the previous subsection, we need to excise small disks around the points u and v, or correspondingly
+restrict to an annulus in the w plane of radius rmin < r < rmax .
+To get the Rényi entropies, we would like to compare the partition function on the annulus to
+an n-sheeted cover of the annulus. In two dimensions, these two metrics are related by a Weyl
+transformation. We take the metric on the annulus to be
+g = dr2 + r2 dθ2 ,
+
+(46)
+
+ĝ = e−2τ g = dρ2 + n2 ρ2 dθ2 ,
+
+(47)
+
+while on the n-sheeted cover we have
+
+with e−τ = nrn−1 and ρ = rn . With this choice of τ , the difference in anomaly actions becomes
+Z rmax
+
+c
+2
+rmax
+−2τ
+(∂τ ) r dr − 2τ |rmin
+W[δµν , e
+δµν , ] =
+12 rmin
+(48)
+rmax
+c 2
+(n − 1) ln
+=
+.
+12
+rmin
+Now to isolate the universal contribution to W [e−2τ δµν ], we should remove the universal contribution
+from W [δµν ]:
+W [e−2τ δµν ] ∼ −
+
+rmax
+c
+c 2
+(n + 1) ln
+∼−
+12
+rmin
+12
+
+
+n+
+
+1
+n
+
+
+ln
+
+ρmax
+.
+ρmin
+
+(49)
+
+We can tentatively identity this quantity with − ln Z(n). To compute the Rényi entropies, we need
+to subtract off n ln Z(1). There is an issue here, however: both ln Z(n) and ln Z(1) are divergent
+quantities, and in comparing them we must arrange for the cutoffs to be congruous. We claim that
+in order to compare ln Z(n) with ln Z(1) we ought to use the ρ-cutoffs so that we excise discs of the
+same radius in each case. Thus, we need to subtract nW [δµν ] using the cut-offs in the ρ coordinate
+system,
+c
+ln Z(n) − n ln Z(1) ∼
+12
+
+
+
+1
+−n +
+n
+
+
+
+Using the definition (43) of the Rényi entropy, we find that
+
+
+c
+1
+ρmax
+Sn ∼
+1+
+ln
+.
+12
+n
+ρmin
+
+12
+
+ln
+
+ρmax
+.
+ρmin
+
+(50)
+
+(51)
+
+Translating back to the z plane, this result recovers the classic result [20, 21]5
+
+
+c
+1
+|v − u|
+Sn ∼
+1+
+ln
+.
+6
+n
+δ
+
+(52)
+
+Taking n → 1, it reduces to the previous entanglement entropy result (23). Note that in d > 2, one
+still has an n-sheeted cover of an annulus, but it is less clear what to do with the remaining d − 2
+dimensions.
+
+3
+
+Anomaly Actions in More than Two Dimensions
+
+The trace anomaly (3) and effective anomaly action W have an increasingly complicated structure as
+the dimension increases. Several issues need to be addressed for a complete treatment of the effective
+action. Before embarking, we warn the reader that this section is technical. The chief results are
+1) the boundary term in the a-type anomaly (61) and (68), 2) two equivalent forms for the a-type
+anomaly action in (69) and (113), and 3) a demonstration that the a-type anomaly, including the
+boundary term we obtain, is Wess-Zumino consistent in any dimension in subsection 3.3. Finally, 4)
+in (108) we present the most general form of the trace anomaly in d = 4, including boundary central
+charges.
+
+3.1
+
+Boundary Term of the Euler Characteristic
+
+As this paper was motivated by the problem of universal contributions to the entanglement entropy
+across a sphere in flat space, our main focus is on how the a contribution to the anomaly action
+is modified in the presence of a boundary. Regarding the other issues, we make a few preliminary
+comments which will be developed minimally in the rest of the paper.
+The presence of a boundary affects the cj contributions to the trace anomaly (3) trivially. Let
+us dispose of this issue immediately. The Ij are, by definition, covariant under Weyl scaling. In fact
+√
+the gIj are invariant under Weyl scaling and so the cj contributions to W[gµν , e−2τ gµν ] are simply
+X Z
+√
+Wc ≡ −
+cj
+dd x g τ Ij ,
+(53)
+j
+
+M
+
+with no additional boundary term.
+The total derivative term in the trace anomaly (3) depends on the choice of scheme. As we focus
+on universal aspects of the trace anomaly, with some exceptions we shall largely ignore this object in
+what follows. A fourth issue we have little to say about, with one exception, is the possible existence
+of additional terms in the trace anomaly associated purely with the boundary. These additional
+terms are best understood when the bulk CFT is odd-dimensional, so that the trace anomaly only
+5 The calculation we have just presented is very similar in spirit if not in detail to ones in refs. [29, 30].
+
+13
+
+has boundary terms. Those boundary terms can include the boundary Euler density as well as
+Weyl-covariant scalars [31, 32], in analogy with the trace anomaly of even-dimensional CFT. See
+ref. [19], which argued for a boundary “c-theorem” using this boundary anomaly. In this work we
+focus on CFTs in even dimension, with an odd-dimensional boundary. In d = 4, using Wess-Zumino
+consistency, we identify two allowed boundary terms in the trace anomaly, but have nothing to add
+in d ≥ 6.
+To return to the a-type anomaly, the central observation is that the a dependent contribution
+to the trace anomaly (3) integrates to give a quantity proportional to the Euler characteristic for
+a manifold without boundary. The natural guess is then that in the presence of a boundary, one
+should add whatever boundary term is needed such that the integral continues to give a quantity
+proportional to the Euler characteristic. (Indeed we saw precisely this story play out in two dimensions in section 2.) The requisite boundary term is well known in the mathematics literature.
+See for example the review [33]. It is a Chern-Simons like term constructed from the Riemann and
+extrinsic curvatures. To write it down, we need some notation.
+µ
+We start by introducing the orthonormal (co)frame one forms eA = eA
+µ dx , in terms of which
+µ
+B
+the metric on M is gµν = δAB eA
+µ eν . Here and there, we also need their inverse EA , satisfying
+µ B
+µ A
+A
+. From the eA and the Levi-Civita connection Γµ νρ , we construct the
+eµ = δ B
+EA
+eν = δνµ and EA
+
+connection one-form ω A B via
+ρ
+A
+A
+B
+∂µ eA
+ν − Γ νµ eρ + ω Bµ eν = 0 .
+
+(54)
+
+From this definition, it follows that ω AB = −ω BA and the torsion one-form vanishes,
+deA + ω A B ∧ eB = 0 .
+
+(55)
+
+Further, the curvature two-form built from ω A B ,
+RA B ≡ dω A B + ω A C ∧ ω C B =
+
+1 A
+R Bµν dxµ ∧ dxν ,
+2
+
+(56)
+
+is related to the Riemann curvature by
+µ A
+µ
+EA
+R Bρσ eB
+ν = R νρσ .
+
+(57)
+
+The curvature two-form satisfies the Bianchi identity
+dRA B + ω A C ∧ RCB − RA C ∧ ω C B = 0 .
+
+(58)
+
+Ed ≡ RA1 A2 ∧ · · · ∧ RAd−1 Ad A1 ···Ad .
+
+(59)
+
+The Euler form is then
+
+where A1 ···Ad is the totally antisymmetric Levi-Civita tensor in dimension d. The Euler form and
+Euler density are related in the obvious way Ed = Ed vol(M ), for vol(M ) the volume form on M . In
+writing (59) we have normalized the Euler form so that its integral over an S d is d! Vol(S d ).
+14
+
+To define the Chern-Simons like boundary term, it is convenient to define a connection one-form
+and curvature two-form that interpolate linearly between a reference one-form ω0 and the actual
+one-form of interest ω:
+ω(t) ≡ tω + (1 − t)ω0 ,
+R(t)A B ≡ dω(t)A B + ω(t)A C ∧ ω(t)C B .
+The boundary term is constructed from the d − 1 form:
+Z
+d 1
+Qd ≡
+dt ω̇(t)A1 A2 ∧ R(t)A3 A4 ∧ · · · ∧ R(t)Ad−1 Ad A1 ···Ad .
+2 0
+
+(60)
+
+(61)
+
+(The density Qd is given by Qd = Qd vol(∂M ).) If we also define
+E(t)d ≡ R(t)A1 A2 ∧ · · · ∧ R(t)Ad−1 Ad A1 ···Ad ,
+
+(62)
+
+then it follows, as we show below,
+E(1)d − E(0)d = dQd .
+
+(63)
+
+The relevance of this construction to the Euler characteristic is that we can calculate the Euler
+characteristic for a manifold M with boundary by comparing it to a manifold M 0 with the same
+boundary and zero Euler characteristic. Because χ(A × B) = χ(A)χ(B) and because χ vanishes in
+odd dimensions, one such zero characteristic manifold is a product manifold where both A and B
+are odd dimensional. In a patch near the boundary, we can always choose to express the metric in
+Gaussian normal coordinates,
+g = dr2 + f (r, x)µν dxµ dxν ,
+
+(64)
+
+where the boundary is located at r = r0 . In this patch, we can choose a reference metric g0 so that
+the patch is a product space,
+g0 = dr2 + f (r0 , x)µν dxµ dxν .
+
+(65)
+
+Let ω0 be the connection one-form associated with the metric g0 . By construction Ed (1) = Ed , and
+it follows from the local relation (63) that the Euler characteristic for a manifold with boundary is
+Z
+
+Z
+2
+χ(M ) =
+E
+−
+Q
+.
+(66)
+d
+d
+d! Vol(S d )
+M
+∂M
+We have normalized the characteristic so that χ(S d ) = 2.
+On the boundary ∂M , we can give an explicit formula for ω̇ AB in terms of the extrinsic curvature,
+ω̇(t)AB = ω AB − ω0AB = KA nB − KB nA ,
+
+(67)
+
+where we have defined the extrinsic curvature one-form Kα ≡ Kαβ dy β , and converted its index to a
+µ
+flat index through the eA , metric, and embedding functions. Similarly, nA = eA
+µn .
+
+15
+
+In analogy with the two dimensional variation (5), we therefore posit that the a-dependent piece
+of the Weyl anomaly is
+δσ W = (−1)d/2
+
+4a
+d! Vol(S d )
+
+Z
+
+Z
+Ed δσ −
+
+M
+
+
+Qd δσ + . . .
+
+(68)
+
+∂M
+
+where the ellipsis denotes terms depending on ci , the total divergence in the trace anomaly, and
+possibly other purely boundary contributions. We verify this claim in subsection 3.3 by showing
+that the anomaly (68) is Wess-Zumino consistent. With this variation in hand, we can integrate it
+in one of the same three ways we used in d = 2: guess work, using the integral (16), or dimensional
+regularization. The integral (16) gives the a dependent contribution to the effective anomaly action,
+
+Z 1 Z
+Z
+4a
+0
+0
+W[gµν , e−2τ gµν ] = (−1)d/2
+dt
+τ
+E
+[g
+]
+−
+τ
+Q
+[g
+,
+(69)
+]
+d
+d
+d! Vol(S d ) 0
+M
+∂M
+g 0 =e−2tτ gµν
+µν
+
+We also deduce W from dimensional regularization in subsection 3.5.
+Let us next study the relation between Ed and Qd . The relation (63) is an example of a “transgression form” (see e.g. [34] for a modern summary of transgression forms). To prove it, consider
+∂E(t)d
+d
+E(t)d = Ṙ(t)A B ∧
+.
+dt
+∂R(t)A B
+
+(70)
+
+It is convenient to introduce an exterior covariant derivative D. It takes tensor-valued p-forms to
+tensor-valued p + 1-forms. For example it acts on a matrix-valued p-form, f A B as
+Df A B = df A B + ω A C ∧ f C B − (−1)p f A C ∧ ω C B ,
+
+(71)
+
+and correspondingly for (co)vector-valued forms. It has the Lifshitz property, e.g.
+d(f AB ∧ gAB ) = D(f AB ∧ gAB ) = Df AB ∧ gAB + (−1)p f AB ∧ DgAB .
+
+(72)
+
+Defining D(t), we then have
+D(t)R(t)A B = 0 ,
+
+Ṙ(t)A B = D(t)ω̇(t)A B .
+
+(73)
+
+The metric δAB and antisymmetric Levi-Civita tensor A1 ...Ad are also constant under D(t), provided
+that we let the eA depend on t so that ω(t) is associated with a metric g(t). Consequently,
+D(t)
+
+
+∂E(t)d
+d
+= D(t) R(t)A1 A2 ∧ . . . ∧ R(t)Ad−3 Ad−2 ABA1 ...Ad = 0 ,
+AB
+∂R(t)
+2
+
+(74)
+
+and we can rewrite (70) as
+
+
+d
+∂E(t)d
+E(t)d = d ω̇(t)AB ∧
+dt
+∂R(t)AB
+
+
+d
+=d
+ω̇(t)A1 A2 ∧ R(t)A3 A4 ∧ . . . ∧ R(t)Ad−1 Ad εA1 ...Ad .
+2
+Integrating this equality over t ∈ [0, 1] immediately yields (63).
+16
+
+(75)
+
+3.2
+
+An Explicit Expression For The Boundary Term
+
+It will be expedient in the rest of this section to have an explicit expression for the boundary term
+R
+Qd , that is to perform the integral over t in (61). The final result is (81).
+∂M
+Before doing so, we will use that the pullback of RAB to the boundary can be expressed in
+terms of the intrinsic and extrinsic curvatures of the boundary. The relations between RAB and
+the boundary curvatures are known as the Gauss and Codazzi equations, and we discuss them in
+appendix A.
+Denoting the intrinsic Riemann curvature tensor of the boundary as R̊α βγδ , we define the intrinsic
+curvature two-form
+R̊α β ≡
+
+1 α
+R̊ βγδ dy γ ∧ dy δ ,
+2
+
+(76)
+
+and thereby R̊A B . Using the boundary covariant derivative D̊α , we define a boundary exterior
+covariant derivative D̊ just like D. The Gauss and Codazzi equations can then be summarized as
+RA B = R̊A B − KA ∧ KB + nB D̊KA − nA D̊KB ,
+
+(77)
+
+We can similarly decompose the pullback of R(t). On the boundary
+ω(t)A B = ω A B + (t − 1)(KA nB − nA KB ) ,
+
+(78)
+
+which implies that on the boundary
+R(t)A B = RA B + (t − 1)D̊(KA nB − nA KB ) + (t − 1)2 (KA nC − nA KC ) ∧ (KC nB − nC KB )
+
+
+(79)
+= RA B − (t2 − 1)KA ∧ KB + (t − 1) nB D̊KA − nA D̊KB ,
+where we have used that D̊nA = KA . Putting this together with (77), we have
+
+
+R(t)A B = R̊A B − t2 KA ∧ KB + t nB D̊KA − nA D̊KB .
+
+(80)
+
+Then on the boundary the definition of Qd (61) becomes
+Z 1
+
+
+
+
+Qd = d
+dt nA1 KA2 ∧ R̊A3 A4 − t2 KA3 ∧ KA4 ∧ . . . ∧ R̊Ad−1 Ad − t2 KAd−1 ∧ KAd A1 ...Ad
+0
+
+
+m−1
+X m − 1 (−1)k
+
+
+R̊m−1−k ∧ K2k+1 nA A... ,
+(81)
+=d
+2k + 1
+k
+k=0
+
+where we have defined m ≡ d2 and in the last line we have suppressed the indices of the curvature
+forms, all of which are dotted into the epsilon tensor. We have also used that only one index of the
+epsilon tensor can be dotted into the normal vector nA , and so the factors of D̊KA in R(t) never
+appear in Qd .
+The integral representation of Qd in the first line of (81) is not new. A similar expression appears
+in e.g. ref. [35].
+17
+
+For example, in four and six dimensions we have
+
+
+1
+Q4 = 4nA KB ∧ R̊CD − KC ∧ KD ABCD ,
+(82)
+3
+
+
+2
+1
+Q6 = 6nA KB ∧ R̊CD ∧ R̊EF − R̊CD ∧ KE ∧ KF + KB ∧ KC ∧ KD ∧ KE ∧ KF ABCDEF .
+3
+5
+
+3.3
+
+Wess-Zumino Consistency
+
+We now verify that the posited term proportional to a in the Weyl anomaly (68) is Wess-Zumino
+consistent. In this setting, Wess-Zumino consistency requires that the anomaly satisfies
+[δσ1 , δσ2 ]W = 0 .
+
+(83)
+
+Notating the anomalous variation proportional to a as
+Z
+
+Z
+δ σ Wa = A
+δσ Ed −
+δσ Qd ,
+M
+
+A ≡ (−1)d/2
+
+∂M
+
+4a
+,
+d! Vol(S d )
+
+we consider
+Z
+δσ2 δσ1 Ed −
+
+δσ1 δσ2 Wa = A
+
+
+
+Z
+
+M
+
+δσ2 δσ1 Qd
+
+.
+
+(84)
+
+∂M
+
+The variation of Ed is a total derivative,
+
+
+∂Ed
+AB
+δσ Ed = d δσ ω
+∧
+,
+∂RAB
+
+(85)
+
+with
+B A µ
+δσ ω AB = (eA eB
+µ − e eµ )∂ δσ .
+
+(86)
+
+It then follows that the bulk part of the second variation is
+Z
+A3 A4
+2 µ
+δσ1 δσ2 Wa = 2dA
+eA1 eA
+∧ . . . ∧ RAd−1 Ad A1 ...Ad + (boundary term) ,
+µ ∂ δσ1 ∧ dδσ2 ∧ R
+M
+Z
+√
+(87)
+=A
+dd x g Xdµν ∂µ δσ1 ∂ν δσ2 + (boundary term) ,
+M
+
+where we have defined
+Xdµν ≡
+
+d
+Rν ν ρ ρ . . . Rνd−3 νd−2 ρd−3 ρd−2 µρν1 ...νd−2 ν ρ ρ1 ...ρd−2 .
+2d/2 1 2 1 2
+
+(88)
+
+Xdµν is symmetric, Xdµν = Xdνµ , on account of Rµνρσ = Rρσµν . The symmetry of Xdµν together with
+the variation (87) imply
+[δσ1 , δσ2 ]Wa = (boundary term) .
+
+(89)
+
+In other words, the bulk term in the a-anomaly is Wess-Zumino consistent. It suffices now to show
+that the boundary term also vanishes.
+18
+
+To proceed, we require the Weyl variations of the extrinsic and intrinsic curvatures. The variation
+of Kαβ and so KA is
+δσ Kαβ = δσKαβ + γαβ nµ ∂µ δσ ,
+
+δσ KA = eA nµ ∂µ δσ = (δσ ω A B )nB ,
+
+(90)
+
+where eA in the variation of KA is pulled back to the boundary, while the variation of R̊A B is
+δσ R̊A B = D̊δσ ω̊ A B ,
+
+(91)
+
+for ω̊ A B the connection one-form on the boundary. The variation of ω A B on the boundary is related
+to those of ω̊ A B via
+
+δσ ω A B = δσ ω̊ A B + nB δσ ω A C − nA δσ ωCB nC .
+
+(92)
+
+Under a general variation of KA and R̊A B , Qd in (81) varies as
+
+
+
+
+m−1
+X m−1
+
+ (−1)k δKB ∧ R̊CD + m − 1 − k δ R̊BC ∧ KD ∧ R̊m−2−k ∧ K2k nA ABCD... . (93)
+δQd = d
+2k + 1
+k
+k=0
+
+Specializing to Weyl variations, this becomes
+1
+δσ Qd =δσ ω B C nC Rm−1 nA AB...
+d
+
+
+
+m
+−
+2
+
+ (−1)k (m − 1)D̊KD ∧ R̊m−2−k ∧ K2k nA ABCD...
++ δσ ω̊ BC ∧
+k
+k=0
+
+
+
+
+m−2
+
+
+X m−2
+m
+−
+1
+
+ (−1)k
++ d δσ ω̊ BC ∧
+R̊m−2−k ∧ K2k+1 nA ABC... ,
+
+
+2k + 1
+k
+m−2
+X
+
+(94)
+
+k=0
+
+where we have used the Gauss equation in simplifying the δσ K variation along with D̊R̊ = 0 in simplifying the δσ R̊ variation. Using the Codazzi equation, RA B nB = D̊KA , the second line combines
+with the first to give
+δσ Qd = δσ ω AB ∧
+
+
+∂Ed
++ d (m − 1)δσ ω̊ AB ∧ (Qd−2 )AB
+∂RAB
+
+.
+
+(95)
+
+In writing the boundary term, we have defined the matrix-valued (d − 3)-form (Qd−2 )AB to be
+
+
+m−2
+X m − 2 (−1)k
+
+
+(Qd−2 )AB ≡ d
+R̊m−2−k ∧ K2k+1 nC ABC...
+(96)
+2k + 1
+k
+k=0
+
+The reason for the name is the similarity with the explicit expression (81) for Qd : the sum (96) is
+identical to that in the expression for Qd , except it runs to k = m − 2 rather than k = m − 1.
+Putting δσ Qd together with the variation of the Euler form (85), the boundary term in the
+R
+variation of M δσ2 δσ1 Ed cancels against the first half of the variation of Qd in (95), so that
+Z
+
+Z
+µν
+A B α
+d √
+δσ1 δσ2 Wa =A
+d x g X ∂µ δσ1 ∂ν δσ2 − 2(m − 1)
+e eα ∂ δσ1 ∧ dδσ2 ∧ (Qd−2 )AB
+∂M
+ZM
+
+(97)
+Z
+d √
+µν
+αβ
+d−1 √
+=A
+d x g X ∂µ δσ1 ∂ν δσ2 −
+d y γ Y ∂α δσ1 ∂β δσ2 ,
+M
+
+∂M
+
+19
+
+where Y αβ is
+
+
+m
+−
+2
+m−1
+
+ (−1)k
+Y αβ =dαγγ1 ...γd−3 β γ δ1 ...δd−3
+(2k
++
+1)2m−3−k
+k
+k=0
+m−2
+X
+
+(98)
+
+× R̊γ1 γ2 δ1 δ2 · · · R̊γd−2k−5 γd−2k−4 δd−2k−5 δd−2k−4 Kγd−2k−3 δd−2k−3 · · · Kγd−3 δd−3 .
+Y αβ is symmetric owing to the symmetry of the boundary curvatures, R̊αβγδ = R̊γδαβ and Kαβ =
+Kβα . Then (97) yields
+[δσ1 , δσ2 ]Wa = 0 ,
+
+(99)
+
+which is what we sought to show.
+
+3.4
+
+A Complete Classification in d = 4 and Boundary Central Charges
+
+The previous subsection was somewhat abstract. Let us see how the consistency works in d = 4.
+Along the way, we will also classify the potential boundary terms in the Weyl anomaly, finding two
+“boundary central charges.” To our knowledge, one of these “central charges” was first noted in [36]
+and the other later in ref. [37].
+In d = 4, E4 and Q4 are equivalent to the scalars
+E4 = Rµνρσ Rµνρσ − 4Rµν Rµν + R2 ,
+
+
+2
+1
+Q4 = 4 2E̊αβ K αβ + tr(K 3 ) − KKαβ K αβ + K 3 ,
+3
+3
+
+(100)
+
+where E̊αβ = R̊αβ − R̊2 γαβ is the boundary Einstein tensor, and the a-type term in the anomaly is
+Z
+
+Z
+a
+√
+√
+δ σ Wa = A
+d4 x g δσE4 −
+d3 y γ δσQ4 ,
+.
+(101)
+A=
+16π 2
+M
+∂M
+The Weyl variations of E4 and Q4 are
+δσ E4 = −4δσE4 + 8Dµ (E µν ∂ν δσ) ,
+(102)
+n
+ o
+ αβ
+
+αβ
+µ
+αβ
+αβ
+αβ
+δσ Q4 = −3δσQ4 − 4 R αβ n ∂µ − 2D̊α K − Kγ
+D̊β δσ − 8D̊α K − Kγ
+∂β δσ ,
+Using the Gauss and Codazzi equations (77), which here are
+nµ Rµαβγ = D̊γ Kαβ − D̊β Kαγ ,
+
+Rαβγδ = R̊αβγδ − Kαγ Kβδ + Kαδ Kβγ ,
+
+(103)
+
+we can rewrite the variation of Q4 as
+δσ Q4 = −3δσQ4 + 8nµ E µν ∂ν δσ − 8D̊α
+
+
+
+The second variation of Wa is then
+Z
+Z
+√
+δσ1 δσ2 Wa = −8A
+d4 x g E µν (∂µ δσ1 )(∂ν δσ2 ) +
+M
+
+∂M
+
+20
+
+
+K αβ − Kγ αβ ∂β δσ .
+
+3
+
+√
+
+d y γ K
+
+αβ
+
+− Kγ
+
+αβ
+
+
+
+(104)
+
+
+(∂α δσ1 )(∂β δσ2 ) ,(105)
+
+which is manifestly symmetric under δσ1 ↔ δσ2 , so that
+[δσ1 , δσ2 ]Wa = 0 .
+
+(106)
+
+In this instance, the tensors X µν and Y αβ are
+X µν = −8E µν ,
+
+
+Y αβ = 8 K αβ − Kγ αβ .
+
+(107)
+
+So much for showing that the a-type anomaly is consistent. Are there any other boundary terms
+which may be allowed in the anomaly? This is essentially a cohomological question, which we answer
+in three steps:
+1. Posit the most general boundary variation of W characterized by dimensionless coefficients.
+2. Use the freedom to add local boundary counterterms to remove as many of these coefficients
+as possible.
+3. Demand that the residual variation is Wess-Zumino consistent.
+We perform this algorithm in Appendix B. The final result is that the total Weyl anomaly for a
+d = 4 CFT is
+1
+δσ W =
+16π 2
+
+Z
+
+4
+
+√
+
+d x g δσ
+M
+
+2
+aE4 − cWµνρσ
+
+
+
+
+
+√
+d3 y γ δσ AQ4 − b1 trK̂ 3 − b2 γ αγ K̂ βδ Wαβγδ ,(108)
+
+Z
+−
+∂M
+
+K
+γαβ , and Wαβγδ is
+where K̂αβ is the traceless part of the extrinsic curvature, K̂αβ = Kαβ − d−1
+
+the pullback of the Weyl tensor. The terms proportional to b1 and b2 are the additional type-B
+boundary terms in the anomaly. We refer to b1 and b2 as “boundary central charges,” and they are
+formally analogous to c insofar as they multiply Weyl-covariant scalars. The purely extrinsic term
+proportional to b1 first appeared in [36], and the second term proportional to b2 later appeared in
+[37].
+It is an interesting exercise to compute b1 and b2 for a conformally coupled scalar field. The
+simplest way to proceed is to look at existing heat kernel calculations for a scalar field in the
+presence of a boundary and then restrict to the conformally coupled case. The action for such a
+conformally coupled scalar is
+
+
+Z
+Z
+1
+1
+√
+√
+d3 y γKφ2 .
+S=
+d4 x g (∂φ)2 + Rφ2 +
+6
+3 ∂M
+M
+
+(109)
+
+Note that the last term ensures Weyl invariance. It is also necessary for coupling the theory to
+gravity.6 By comparing this result with heat kernel calculations for a conformally coupled scalar
+6 If we are not interested in dynamical gravity, we could add an additional boundary term of the form φ(K +3nµ ∂
+
+µ )φ
+
+with arbitrary coefficient. This term preserves Weyl invariance. However, it does not modify the boundary conditions
+or the scalar functional determinant. Consequently the boundary central charges that we determine below do not
+depend on this term. See the appendix of [19] for a related discussion.
+
+21
+
+field in the presence of a boundary, we can extract values for b1 and b2 . There are two Weylinvariant boundary conditions to consider, Dirichlet φ|∂M = 0 (in which case the boundary term
+can be neglected) and the conformally-invariant Robin (nµ ∂µ + 31 K)φ|∂M = 0. Comparing with for
+example (1.17) of [38] or the expressions for a4 on p 5 of [39], we deduce that
+b1 (Robin) = −
+
+1 2
+,
+(4π)2 45
+
+b1 (Dirichlet) = −
+
+1 2
+,
+(4π)2 35
+
+1 1
+.
+(4π)2 15
+
+b2 =
+
+(110)
+
+The value for b1 (Dirichlet) was computed before in eq. (19) of ref. [36], while b1 (Robin) can be
+found in eq. (55) of ref. [40]. The coefficient b2 was computed in the Dirichlet case in eq. (15) of
+ref. [37]. (In our conventions, a = 1/360 and c = 1/120 for a 4d conformally coupled scalar.) As
+|b1 (Dirichlet)| > |b1 (Robin)|, and one can flow from the Robin theory to the Dirichlet theory by
+R
+deforming the Robin theory by a “boundary mass” d3 y mφ2 ; it is tempting to speculate that b1
+satisfies a monotonicity property under boundary renormalization group flows, similar to the one
+conjectured for a by Cardy and now proven in d = 4 by ref. [8]. This conjecture is different from
+the “boundary F -theorem” conjectured in [41, 42, 43] for d = 4 boundary flows. We leave further
+analysis of these boundary central charges b1 and b2 for the future.
+
+3.5
+
+Dimensional Regularization
+
+In the two dimensional case, we saw that an effective anomaly action could be constructed in
+dimensional regularization using a combination of the Einstein-Hilbert action and the GibbonsHawking surface term in n = 2 +  dimensions. In the limit  → 0, these objects sum together
+to give the Euler characteristic. The obvious guess, which we shall verify, is that to construct the
+anomaly action in d dimensions, we need to continue the Euler density along with the Qd ChernSimons like term to n = d +  dimensions. In the mathematics community, such a dimensionally
+continued Euler density is called a Lipschiftz-Killing curvature, while in the physics community,
+these objects are used to construct actions for Lovelock gravities.
+The mth Lipschitz-Killing curvature form in dimension n, 2m ≤ n, is:
+!
+!
+m
+n
+^
+^
+A2i−1 A2i
+Ai
+En,m ≡
+R
+∧
+e
+A1 ···An ,
+i=1
+
+(111)
+
+i=2m+1
+
+where A1 ···An is the totally antisymmetric Levi-Civita tensor in dimension n. In n = 2m dimensions,
+the Lipschitz-Killing form reduces to the Euler form, E2m,m = E2m . The analog of the GibbonsHawking term we call Qn,m :
+Z 1
+Qn,m ≡ m
+
+ω̇(t)
+0
+
+A1 A2
+
+∧
+
+m
+^
+
+!
+A2i−1 A2i
+
+R(t)
+
+i=2
+
+∧
+
+n
+^
+
+!
+e
+
+Ai
+
+A1 ···An dt .
+
+(112)
+
+i=2m+1
+
+It is a n − 1 degree Chern-Simons like form which is only defined on the boundary, which reduces
+to Qd in n = 2m dimensions.
+22
+
+f [gµν ] in n = d +  dimensions, i.e. the d dimensional
+The obvious guess for the effective action W
+analog of (17), is
+f [gµν ] = (−1)m
+W
+
+4a
+(n − 2m)(2m)! Vol(S 2m )
+
+Z
+
+
+
+Z
+En,m −
+
+M
+
+Qn,m
+
+,
+
+(113)
+
+∂M
+
+where d = 2m. The effective anomaly action is then just
+
+
+f [gµν ] − W
+f [e−2τ gµν ] .
+W[gµν , e−2τ gµν ] = lim W
+n→d
+
+(114)
+
+Note that this effective action only recovers the a dependent portion of the trace anomaly.
+As in subsection 3.2, we can perform the integral over t in the definition of Qn,m to deduce an
+explicit expression for Qn,m in terms of the extrinsic and intrinsic curvatures of the boundary. The
+integration over t is identical to that performed in subsection 3.2, except now we have n − 2m factors
+of eA to account for. The final result is
+
+
+m−1
+X m − 1 (−1)k
+
+
+R̊m−1−k ∧ K2k+1 ∧ en−2m nA A... ,
+Qn,m = 2m
+2k
++
+1
+k
+
+(115)
+
+k=0
+
+where for brevity we have suppressed the indices of the curvatures and factors of eA , all of which
+are contracted with the remaining indices of the epsilon tensor.
+Next we show that dimensional regularization (113) reproduces the a portion of the Weyl
+anomaly. Our approach is almost identical to the demonstration that the a-anomaly is Wess-Zumino
+consistent in subsection 3.3. We begin with the expressions (111) and (115) for En,m and Qn,m . We
+consider the Weyl variation of
+Z
+
+Z
+En,m −
+
+M
+
+Qn,m ,
+
+(116)
+
+∂M
+
+in n dimensions. We compute this variation in two steps. First we show that this difference does
+not depend on any variation of the connection one-form ω A B while keeping the eA fixed.7 Then the
+Weyl variation only arises from the Weyl variation of the eA while keeping the ω A B fixed. This last
+variation is rather simple, as the eA only appear through wedge products in En,m and Qn,m .
+Now consider a variation of the connection one-form ω A B whilst keeping the eA and embedding
+of the boundary fixed. The bulk and boundary curvatures vary as
+δω RA B = Dδω A B ,
+
+δω R̊A B = D̊δω̊ A B ,
+
+δω KA = (δω A B )nB ,
+
+(117)
+
+where ω̊ A B is the connection one-form on the boundary. The computation of this variation is
+virtually identical to that in subsection 3.3, as the only difference between En,m and Ed , and Qn,m
+7 This same computation shows that the Lovelock gravities have a well-defined variational principle for the metric
+
+gµν on a space with boundary (see ref. [44]).
+
+23
+
+and Qd , is an extra wedge product of n − 2m factors of the eA . The analogues of (85) and (95) are
+
+
+∂En,m
+AB
+δω En,m = d δω
+,
+∧
+∂RAB
+(118)
+∂En,m
+AB
+δω Qn,m = δω
++ (total deriative) ,
+∧
+∂RAB
+so that
+δω (En,m − dQn,m ) = 0 ,
+
+(119)
+
+as claimed.
+Now consider a variation under which ω A B is fixed and the eA vary as in an infinitesimal Weyl
+rescaling,
+δσ eA = δσeA .
+
+(120)
+
+δσ (En,m − dQn,m ) = (n − 2m)δσ (En,m − dQn,m ) ,
+
+(121)
+
+Then
+
+f in (113) is
+so that the variation of the dimensionally regulated anomaly action W
+Z
+
+Z
+4a
+m
+f
+δσ W = (−1)
+En,m δσ −
+Qn,m δσ .
+(2m)! Vol(S 2m )
+M
+∂M
+
+(122)
+
+In the n → 2m limit, this variation coincides with the a-anomaly (68).
+
+4
+
+Dilaton Effective Actions and Boundary Terms
+
+In this section, we present the a contribution to the dilaton effective action in a spacetime with
+boundary in four and six dimensions. The d = 2 dilaton effective action with a bounday term is
+given by (15). For d > 2, the computation of boundary terms is more laborious. The details of a
+derivation using dimensional regularization are provided in appendix C in dimensions four and six.
+We save the general discussion of how the universal entanglement entropy arises from the boundary
+terms of these dilaton actions for the next section.
+
+4.1
+
+The Dilaton Effective Action in d = 4
+
+The Euler density in d = 4 is given by
+E4 =
+
+1 µ1 ···µ4 ν1 ν2
+ν3 ν4
+µνρσ
+δ
+R
+− 4Rµν Rµν + R2 ,
+µ1 µ2 R
+µ3 µ4 = Rµνρσ R
+4 ν1 ···ν4
+
+(123)
+
+···µ4
+where δνµ11···ν
+4 is the fully antisymmetrized product of four Kronecker delta functions. The boundary
+
+term is
+Q4 = −4δνµ11νµ22νµ33 Kµν11
+
+
+
+2 ν2 ν3
+1 ν2 ν3
+R
+µ2 µ3 + Kµ2 Kµ3
+2
+3
+
+
+
+
+= 4 2E̊αβ K
+
+24
+
+αβ
+
+2
+1
++ tr(K 3 ) − KKαβ K αβ + K 3
+3
+3
+
+
+.(124)
+
+Denote the Einstein tensor as
+1
+E µν = Rµν − g µν R .
+2
+
+(125)
+
+In appendix C, we find the dilaton effective action in d = 4 to be
+Z
+
+a
+√ 
+−2τ
+W[gµν , e
+d4 x g τ E4 + 4E µν (∂µ τ )(∂ν τ ) + 8(Dµ ∂ν τ )(∂ µ τ )(∂ ν τ ) + 2(∂τ )4
+gµν ] =
+(4π)2 M
+
+
+Z
+8 3
+a
+αβ
+αβ
+3 √
+d y γ τ Q4 + 4(Kγ − K )(∂α τ )(∂β τ ) + τn ,
+−
+(126)
+(4π)2 ∂M
+3
+where τn = nµ ∂µ τ is a normal derivative of the Weyl scale factor. The bulk term agrees with ref.
+[8, 18] while the boundary contribution is to our knowledge a new result.
+
+4.2
+
+The Dilaton Effective Action in d = 6
+
+The Euler density in d = 6 is given by
+E6 =
+
+1 µ1 ···µ6 ν1 ν2
+ν3 ν4
+ν5 ν6
+δ
+R
+µ1 µ2 R
+µ3 µ4 R
+µ5 µ6
+8 ν1 ···ν6
+
+(127)
+
+
+
+1 α2 α3
+2 α2 α3
+2 α4 α4
+1 α4 α5
+R
+R
+β2 β3 + Kβ2 Kβ3
+β4 β5 + Kβ5 Kβ5
+2
+3
+2
+3
+
+4
++ Kβα22 Kβα33 Kβα54 Kβα54 .
+45
+
+(128)
+
+and the boundary term is
+α1
+5
+Q6 = − 6δαβ11···β
+···α5 Kβ1
+
+
+
+To present the bulk dilaton action, we define
+E (2)µν ≡ g µν E4 + 8Rρµ Rρν − 4Rµν R + 8Rρσ Rµρνσ − 4Rµ ρστ Rνρστ ,
+
+(129)
+
+Cµνρσ ≡ Rµνρσ − gµρ Rνσ + gµσ Rνρ .
+In appendix C, we use dimensional regularization to find the bulk dilaton action
+W[gµν , e−2τ gµν ](Bulk) =
+Z
+n
+a
+6 √
+(2) µ
+−τ E6 + 3Eµν
+∂ τ ∂ ν τ + 16Cµνρσ (Dµ ∂ ρ τ )(∂ ν τ )(∂ σ τ )
+d
+x
+g
+3(4π)3 M
+
+(130)
+
++ 16Eµν [(∂ µ τ )(∂ ρ τ )(Dρ ∂ ν τ ) − (∂ µ τ )(∂ ν τ )τ ] − 6R(∂τ )4
+−24(∂τ )2 (D∂τ )2 + 24(∂τ )2 (τ )2 − 36(τ )(∂τ )4 + 24(∂τ )6
+
+.
+
+This reproduces the bulk Wess-Zumino term first obtained in [17].
+We have not been able to generate the boundary term in a general curved background. However,
+
+25
+
+for a conformally flat geometry, we find
+Z
+a
+√ 
+−2τ
+W[δµν , e
+δµν ] = −
+d6 x g 2(∂τ )2 (∂µ ∂ν τ )2 − 2(∂τ )2 (τ )2 + 3τ (∂τ )4 − 2(∂τ )6
+3
+16π M
+Z
+h
+a
+5 √
+−
+d y γ − τ Q6 [δµν ] + 48Pβα (∂α τ )(∂ β τ ) + 3Q4 [δµν ](D̊τ )2
+3
+3(4π) ∂M
+˚ )(D̊α ∂β τ ) + 24K(D̊α ∂β τ )2 − 48Kαγ (D̊β ∂ α τ )(D̊γ ∂β τ )
++ 48K αβ (τ
+˚ )2 − 32K(D̊τ )2 τ
+˚ − 16K(∂ α τ )(∂ β τ )(D̊α ∂β τ )
+− 24K(τ
+
+(131)
+
+˚ + 32Kαβ (D̊α ∂ β τ )(D̊τ )2 + 12Kτn4
++ 16Kαβ (∂ α τ )(∂ β τ )τ
+˚ )(D̊τ )2 (τn ) + 16(τ
+˚ )(τn3 )
++ 12K(D̊τ )4 + 24K(D̊τ )2 τn2 + 48(τ
+i
+36
+− 24(D̊τ )2 τn3 − 36τn (D̊τ )4 − τn5 ,
+5
+where we have defined
+Pβα
+
+5
+
+≡
+
+
+K 2 − tr(K 2 ) Kβα − 2KK αγ Kβγ + 2Kγδ K αγ Kβδ .
+
+(132)
+
+The Sphere Entanglement Entropy: General Result
+
+We consider the entanglement entropy across a sphere with radius ` in flat space. The calculation is
+analogous to the discussion of the entanglement entropy for an interval in d = 2 in section 2.3. The
+information necessary to compute the entropy is contained in the causal development of the interior
+of the sphere, a ball of radius `. We can then map that causal development to all of hyperbolic space
+cross the real line R × H d−1 using the change of variables
+sinh τ /`
+,
+cosh u + cosh τ /`
+sinh u
+,
+r=`
+cosh u + cosh τ /`
+t=`
+
+(133)
+
+where τ labels the new time, u is the radial coordinate in hyperbolic space while (t, r) are time and
+radius in polar coordinates in flat space. The line elements on flat space and R × H d−1 are related
+by a Weyl rescaling (see for example ref. [45])
+η = −dt2 + dr2 + r2 dΩ2d−2 ,
+
+
+= e2σ −dτ 2 + `2 (du2 + sinh2 u dΩ2d−2 ) ,
+
+(134)
+
+where e−σ = cosh u + cosh τ /`. We proceed by using the Euclidean version of this map, where τE is
+1
+a periodic variable with period 2π` so that the theory is naturally at a temperature T = 2π`
+, and
+
+the Euclidean geometry is conformal to S 1 × Hd−1 . Note a difference here with the d = 2 case where
+the temperature was a free parameter.
+The computation of the entanglement entropy across a sphere thus reduces to a computation of
+the thermodynamic entropy of the hyperbolic space SE = 2π`hHi − W where W ≡ − ln tr e−2π`H .
+26
+
+���
+�
+
+�
+
+��
+
+�
+
+���
+
+���
+
+�
+
+-�
+-���
+-�
+-���
+-���
+
+���
+�
+
+-���
+
+a)
+
+���
+
+���
+
+-�
+
+-�
+
+b)
+
+�
+�
+
+�
+
+�
+
+Figure 2: a) Blue dashed curves are constant u contours. Red curves are constant τ contours. b)
+Blue dashed curves are constant u contours. Red curves are constant τE contours. Note that we
+have plotted negative values for r and u even though both technically are restricted to be positive.
+As it did in d = 2, this computation in turn breaks down into three pieces, a computation of hHi,
+a computation of the effective anomaly action W[δµν , e−2σ δµν ] and a computation of a universal
+f [δµν ],
+contribution to W
+f [δµν ] .
+SE = 2π`hHi + W[δµν , e−2σ δµν ] − W
+
+(135)
+
+To compute hHi, we shall not try to write down the Schwarzian derivative in arbitrary even d, but
+instead rely on an earlier closely related computation performed in ref. [46].
+We have not been able to compute W[δµν , e−2σ δµν ] in general d, but we shall argue based on
+computations in d = 2, 4 and 6 that it precisely cancels the contribution to SE from hHi. Finally, we
+f [δµν ] and show that the logarithmic contribution to it always reproduces the universal
+compute W
+part of the sphere entanglement entropy.
+
+5.1
+
+Casimir Energy
+
+The easy part of this computation is hHi because it has essentially been done in ref. [46]. In that
+paper, two of us computed the stress tensor in the vacuum on R × S d−1 in even d, within the scheme
+where the the trace anomaly takes the form
+hT µ µ i =
+
+X
+
+d
+
+cj Ij − (−1) 2
+
+j
+
+27
+
+4a
+Ed ,
+d! Vol(S d )
+
+(136)
+
+i.e. in a scheme where local counterterms are used to remove the total divergence from the stress
+tensor trace. Within that scheme, the stress tensor is unambiguously determined by a to be
+hT00 i = −
+
+4a
+4a
+, hTji i =
+δi .
+(−`2 )d/2 d Vol(S d )
+(−`2 )d/2 d(d − 1) Vol(S d ) j
+
+(137)
+
+(Note the change in conventions for a between that paper and this.) On R×H d−1 at the temperature
+1
+T = 2π`
+it follows that
+
+hT00 i = −
+
+4a
+4a
+, hTji i =
+δi ,
+d `d Vol(S d )
+d(d − 1)`d Vol(S d ) j
+
+(138)
+
+because the Riemann tensor is the opposite sign, and the result is constructed from the same
+product of d/2 Riemann tensors in each case. As the energy density is constant, the total energy
+is given by multiplying the energy density by the (divergent) volume of hyperbolic space, hHi =
+hT 00 i Vol(H d−1 ). We need to isolate the logarithmic contribution to this volume
+Z umax
+sinhd−2 u du
+Vol(H d−1 ) = `d−1 Vol(S d−2 )
+
+(139)
+
+0
+
+where our cut-off is
+umax = − ln
+
+δ/`
+.
+2 − δ/`
+
+(140)
+
+We find that
+Vol(H d−1 ) = . . . +
+
+δ
+(−1)d/2 d−1
+`
+Vol(S d−1 ) ln + . . .
+π
+`
+
+(141)
+
+and hence that
+2π`hHi = . . . + (−1)d/2
+
+8a Vol(S d−1 ) δ
+ln + . . .
+d Vol(S d )
+`
+
+(142)
+
+Like the stress tensor on R × S d−1 , neither the stress tensor on R × H d−1 nor hHi is independent
+of the choice of scheme. For example, if one computes the partition function of a d = 4 conformal
+field theory in two different schemes in d = 4, their generating functionals may differ by the local
+counterterm
+Z
+ξ
+
+√
+d4 x gR2 ,
+
+(143)
+
+where the coefficient ξ is real. Taking a metric variation of the counterterm, it is clear that the
+stress tensor on R × S d−1 , or hHi on R × H d−1 , depends on the choice of ξ. See refs. [46, 47, 48] for
+lengthier discussions of this issue. However, the dependence of W on ξ is linear in β. Thus while
+hHi depends on the choice of scheme, the result we obtain for the sphere entanglement entropy SE
+does not.
+In principle, we should also worry about boundary contributions to hHi. We claim these contributions do not contribute to the logarithm. One way to compute them is to look at the metric
+variation of the boundary Qn,m term in n = d +  dimensions. As we saw before, the variation of
+the metric through the spin connection will cancel against a bulk variation of En,m . The remaining
+variation comes only from the vielbeins, and cannot produce a logarithmic contribution.
+28
+
+5.2
+
+Dilaton Effective Action
+
+It is more involved to obtain W[δµν , e−2σ δµν ]. In d = 2, 4, and 6, we use the dilaton effective actions
+that we found in sections 2 and 4. We will see that logarithmic contributions from hHi and W
+cancel out, i.e. that
+2π`hHi + W[δµν , e−2σ δµν ]
+
+(144)
+
+has no logarithmic contribution. Thus, the entire entanglement entropy contribution comes from
+f [δµν ], which we will compute next.
+W
+In principle we, should be able to evaluate W[δµν , e−2σ δµν ] for general even d and find the same
+cancelation of the logarithmic pieces. In practice, there is an issue of non-commuting limits in
+dimensional regularization which makes the calculation difficult. The correct order of limits is to
+take the metric to be completely general, take the n → d limit, and only then specialize to the metric
+of interest. To see that the other order of limits is problematic, consider the following example. If
+we first fix the metric e−2σ δµν to be that of S 1 × H n−1 and then take the limit n → d, we get a
+divergence that disappears in the other order of limits. Because S 1 × H n−1 contains an S 1 factor,
+f [e−2σ δµν ], will vanish. In contrast,
+the Euler characteristic, i.e. the leading 1/(n − d) singularity in W
+f [δµν ] will not vanish. Thus
+the leading 1/(n − d) singularity from the boundary contribution to W
+W[δµν , e−2σ δµν ] computed in this order will not even be finite.
+We identify the conformal factor σ in the metric (134) with the dilaton τ of section 4 (not to be
+confused with hyperbolic time). For convenience, we divide up the bulk and boundary contributions
+to W. We find the following results.
+d=2
+c
+= a and recalling that
+The d = 2 case can be evaluated from the effective action (15). Denoting 12
+
+an interval has two endpoints, we find the bulk contribution to W is
+W[δµν , e−2σ δµν ]Bulk = −
+
+
+ a 
+2πu − 4π ln(sinh u) Vol(S 0 ) + ...
+2π
+
+(145)
+
+The boundary action contributes the following relevant divergence (the logarithmic divergence)
+W[δµν , e−2σ δµν ]Boundary = −
+
+ a 
+
+4πu Vol(S 0 ) + . . . ,
+2π
+
+(146)
+
+so that the logarithmic contribution to W is
+W[δµν , e−2σ δµν ] = −2au + . . . .
+
+(147)
+
+Using the expression (142) for hHi, we see that 2π`hHi + W[δµν , e−2σ δµν ] has no logarithmic term.
+
+29
+
+d=4
+In d = 4, we find that the bulk and boundary terms in the expression (126) for W contribute the
+following logarithmically divergent terms
+
+a 
+6πu
+−
+16π
+ln(sinh
+u)
+Vol(S 2 ) + . . . ,
+(4π)2
+
+a 
+W[δµν , e−2σ δµν ]Boundary =
+16πu
+Vol(S 2 ) + . . . .
+(4π)2
+W[δµν , e−2σ δµν ]Bulk =
+
+(148)
+
+d=6
+In d = 6, we find that the bulk and boundary terms in the expression (131) for W give
+a
+(30πu − 96π ln(sinh u)) Vol(S 4 ) + . . . ,
+(4π)3
+a
+W[δµν , e−2σ δµν ]Boundary = −
+(96πu)Vol(S 4 ) + . . . .
+(4π)3
+W[δµν , e−2σ δµν ]Bulk = −
+
+(149)
+
+In sum, using the dilaton effective action in d = 2, 4, 6, we confirm that there is no logarithmic
+contribution to 2π`hHi + W[δµν , e−2σ δµν ], as advertised.
+
+5.3
+
+The Boundary Contribution to W in General Dimension
+
+f [δµν ] in general
+The last calculation to do is then an evaluation of the logarithmic contribution to W
+dimension. To keep the boundary parametrization simple, it is useful to work in the (τ, u) coordinate
+system. In that system, we have that the extrinsic curvature takes the form
+Kττ = −
+
+sinh u
+,
+`
+
+Kuu = 0 ,
+
+Kij =
+
+τ
+1
+(cosh coth u + csch u)δji .
+`
+`
+
+(150)
+
+f vanishes identically in flat space, so it remains to evaluate the boundary term.
+The bulk term in W
+Two useful integrals for evaluating that boundary term in flat space are, for even d,
+Z 2π
+π
+(d − 2)!
+(1 + cosh u cos t)d−2
+dt =
+ ,
+d−1
+d−2 2
+d−3
+(cosh
+u
++
+cos
+t)
+sinh
+u
+0
+2
+2 !
+√ d−2 
+Z 1
+π 2 !
+2 d/2−1
+ .
+(1 − s )
+ds =
+2 d−1
+!
+0
+2
+
+(151)
+
+Starting with the expression (81) and using the Gauss equation to replace the non-zero R̊αβγδ with
+the vanishing Rµνρσ , the logarithmic contribution to the boundary term is
+Z
+2π(n − d)d!
+δ
+Qn,d/2 = . . . +
+Vol(S d−2 ) ln + . . . .
+d−1
+`
+∂M
+
+(152)
+
+Using that for even d,
+Vol(S d−2 )
+d−1
+=
+,
+Vol(S d )
+2π
+30
+
+(153)
+
+we then find the logarithmic contribution
+f [δµν ] = . . . + (−1)d/2 4a ln
+−W
+
+δ
++ ... .
+`
+
+(154)
+
+Using the expression (135) for SE and that 2π`hHi + W[δµν , e−2σ δµν ] has no logarithmic term, we
+indeed find that the universal term in the entanglement entropy SE across a sphere is
+SE = . . . + (−1)d/2 4a ln
+
+δ
++ ... ,
+`
+
+(155)
+
+as claimed in ref. [14].
+This computation is in fact almost a topological one. Under a constant rescaling σ = λ, the acontribution to the Weyl anomaly guarantees that the generating functional W varies on a manifold
+with Euler characteristic χ as (focusing just on the contribution proportional to a)
+δλ W = (−1)d/2 (2a)χλ .
+
+(156)
+
+Now, the 4a in the entanglement entropy is essentially (2a)χ(S d−2 ), and χ(S d−2 ) is the change in the
+Euler characteristic of flat space when a D × S d−2 is removed where D is an open two dimensional
+disk. To see this, we use that the Euler characteristic satisfies an inclusion/exclusion principle
+χ(A ∪ B) + χ(A ∩ B) = χ(A) + χ(B). Let A be Rd with a D × S d−2 removed. Let B = D × S d−2 be a
+closed set. From the inclusion/exclusion principle, it follows that removing the D × S d−2 subtracts
+a χ(S d−2 ) from the Euler characteristic of the original space A ∪ B.
+There is a sense in which introducing a boundary was not helpful. Often in these types of
+computations, knowing the value of a difference like W[δµν , e−2σ δµν ] is useful because there are
+f [δµν ] will vanish. Here, precisely
+symmetry reasons to believe that for the reference background W
+f [δµν ] did not vanish. As a result, we needed an independent way
+because we had a boundary, W
+f [δµν ], and in fact, when the dust settled, we saw that we only needed to calculate
+of calculating W
+f [δµν ]. Everything else canceled.
+W
+f [δµν ] gives the right answer could perhaps have been anticipated. From ref. [7], it is
+That W
+known at least in four dimensions that the a dependent contribution to the entanglement entropy
+for a general entangling surface Σ is proportional to the Euler characteristic of that surface, SE ∼
+f [δµν ] gives us the entanglement entropy in our case could be viewed
+2aχ(Σ) ln(δ/`). The fact that W
+as confirmation of ref. [7] in the case when Σ is a sphere. It is not too much of a stretch to
+imagine that in general even d, the a dependent part of the entanglement entropy will be SE ∼
+(−1)d/2 2aχ(Σ)(ln δ/`). Indeed, there are arguments to this effect in refs. [49, 50]. That we are
+f [δµν ]
+confirming in d = 4 a specific case of a more general result is reassuring because evaluating W
+involves taking limits in a problematic order, as we already described above, first fixing the metric
+and then taking the number of dimensions n → d.
+Before proceeding, we write down an expression for the thermal partition function WH = − ln ZH
+
+31
+
+on H d−1 at temperature T = 1/(2π`) whose logarithmic pieces agree with the results above
+
+  
+
+4π`
+d
+d
+d−1
+
+WH = −a
+Γ(d) − 2 Γ 1 +
+Γ
+Vol(H d−1 ) + . . . .
+(157)
+2
+2
+(4π`2 )d/2 d2 !
+The first term is proportional to hHi and the second term gives the entanglement entropy. The
+quantity in brackets is A160481 in the Online Encyclopedia of Integer Sequences [52].
+
+5.4
+
+A Different Conformal Transformation: de Sitter spacetime
+
+As we just saw, computing the entanglement entropy of a ball using the map to hyperbolic space is
+a rather intricate calculation that boils down, at the end of the day, to a computation in flat space
+f [δµν ]. In some sense, then, the conformal transformation is unnecessary and does not give us
+of W
+extra information. We can try to see this phenomenon in a different example, a map from the causal
+development of the ball in flat space to the static patch of de Sitter spacetime. Ref. [14] already
+used this map in a successful calculation of the universal term in the entanglement entropy across
+a sphere, but we should revisit this computation in light of our boundary terms. In the Euclidean
+version of this map, the target space is an even-dimensional sphere S d with no boundary. Naively,
+we can ignore boundary terms. Nevertheless, the Weyl scale factor is not well behaved everywhere,
+and to be rigorous, we can introduce an artificial boundary to regulate its divergences.
+The metric η on Minkowski space is related by a Weyl rescaling to the metric on the static patch
+of de Sitter
+η = −dt2 + dr2 + r2 dΩ2d−2
+= e2σ [− cos2 θdτ 2 + `2 (dθ2 + sin2 θ dΩ2d−2 )] ,
+
+(158)
+
+where
+σ = − ln(1 + cos θ cosh(τ /`)) ,
+
+(159)
+
+and 0 < θ < π/2 while −∞ < τ < ∞. The coordinates are related via the transformation
+cos θ sinh(τ /`)
+,
+1 + cos θ cosh(τ /`)
+sin θ
+r=`
+.
+1 + cos θ cosh(τ /`)
+t=`
+
+(160)
+
+The causal development of the ball, cut out by ` = ±(t − r) and ` = ±(t + r) is mapped to
+
+e±τ /` = tan θ2 − π4 . In the Euclidean version of this map τ → iτE , the boundary is reduced to
+the point (τE , θ) = (0, π/2). In contrast to the map to hyperbolic space where the boundary of the
+causal development mapped to the boundary of H d−1 , here the point (0, π/2) is a smooth interior
+point of the S d . The bulk integrals will not diverge here, and we do not need to introduce a regulated
+boundary.
+32
+
+In contrast, the Weyl scaling factor σ is divergent at the point (π`, 0), and technically we should
+regulate the anomaly action by introducing a boundary here. To do so, we introduce a local coordinate system in the vicinity of the point (π`, 0), θ ≈ ρ sin φ and τE /` − π ≈ ρ cos φ where 0 < φ < π
+in order to keep θ > 0. Near this point, the metric on flat space can be written
+η≈
+
+
+4
+dρ2 + ρ2 dφ2 + ρ2 sin2 φ dΩ2d−2 .
+4
+ρ
+
+(161)
+
+Introducing a boundary at ρ = δ  1, the nonzero components of the extrinsic curvature are
+Kβα = ρ2 δβα . It follows that
+Z π
+
+Z
+Qd =
+∂M
+
+sind−2 dφ
+
+ Z 1
+
+
+(1 − s2 )ds Vol(S d−2 ) d! 2 ln δ
+
+0
+
+0
+
+2πd!
+=
+ln δ .
+d−1
+
+(162)
+
+f [δµν ] and the boundary
+It is then straightforward to see that the logarithmic contribution to W
+logarithmic contribution to W[δµν , e−2σ δµν ] are identical. Moreover, these logarithmic contributions
+are the same as was found using a different boundary and the map to hyperbolic space. This
+equivalence is not surprising since the contributions are topological in nature, and the boundaries,
+though different, are still topologically the same.
+As already mentioned in ref. [14], the Casimir energy in de Sitter spacetime does not contribute
+to the logarithmic divergence and the full logarithmic term of the entropy is dictated by the partition
+function evaluated in the curved metric. The expression W[δµν , e−2σ δµν ] has bulk contributions from
+de Sitter and from the ball but also, now in light of our results, a boundary contribution from the
+surface ρ = δ. Ref. [14] got the right answer purely from the bulk contribution to W[δµν , e−2σ δµν ].
+As follows from the previous paragraph, had they computed the boundary contribution as well, they
+would have found, like us, that 2π`hHi + W[δµν , e−2σ δµν ] has no logarithmic contribution and that
+f [δµν ]. For example, using our explicit anomaly
+the entire log contribution can be attributed to W
+action in d = 4, we find
+W[δµν , e−2σ δµν ]|Bulk ∼
+
+a
+16π ln δ Vol(S 2 ) = 4a ln δ ,
+(4π)2
+
+(163)
+
+where we integrate only from −π` + δ < τE < π` − δ.
+Interestingly, though, the bulk contribution to W[δµν , e−2σ δµν ] considered in ref. [14] did give the
+correct answer for the entanglement entropy on its own. Similarly, in our case of the map to hyperbolic space, we could have thrown out the equal and opposite contributions from W[δµν , e−2σ δµν ]|Boundary
+f [δµν ] and also gotten the correct answer purely from W[δµν , e−2σ δµν ]|Bulk . As the split between
+and W
+bulk and boundary terms in W[δµν , e−2σ δµν ] is arbitrary up to a choice of which total derivatives to
+include in the bulk action, getting the correct answer from W[δµν , e−2σ δµν ]|Bulk alone appears to be
+a coincidence. In fact, at least regarding logarithmic terms, we have specified a separation between
+bulk and boundary terms by insisting that the only place in which τ appears without a derivative
+33
+
+in the boundary action is multiplying Qd . This split has the advantage of giving the boundary
+contribution a topological interpretation when the reference metric is flat. Indeed, given this choice,
+f [δµν ]
+it becomes manifest for the two maps we considered that both W[δµν , e−2σ δµν ]|Boundary and W
+will yield the Euler characteristic of the flat space multiplied by a logarithm of the UV cut-off.
+
+6
+
+Discussion
+
+We resolved the puzzle described in ref. [14]: the universal logarithmic term in the entanglement
+entropy (2) across a sphere in flat space (for a conformal theory) can be recovered by a Weyl transformation to hyperbolic space, provided one keeps careful track of boundary terms. One interesting
+consequence of our results is that the logarithmic term can be interpreted as a purely boundary effect. With the help of the conformal map to hyperbolic space cross a circle, focusing on the universal
+part, we identify the logarithmic contribution to the entanglement entropy SE and the dimensionally
+f [δµν ]:
+regularized effective action W
+f [δµν ] ,
+SE ≡ − tr(ρA ln ρA ) ∼ −W
+
+(164)
+
+f [δµν ] is given by eq. (113). W
+f [δµν ] corresponds to a dimensionally continued Euler charwhere W
+acteristic of the causal development of the interior of the sphere, a ball, which in turn receives
+contributions purely from the spherical boundary of the ball since the Riemann curvature and hence
+the Euler density vanish in flat space. The leading area law divergence in the entanglement entropy
+is also usually interpreted to be a boundary effect: entanglement entropy scales with the area of the
+boundary because in the ground state most of the entanglement is assumed to be local. But here we
+see that the subleading logarithmic divergence is also a boundary effect. Perhaps this result should
+have been anticipated since both divergences are regulated by a short distance cut-off δ, which one
+could think of as the distance between lattice points on either side of the boundary.
+f [δµν ] on its own gives the correct answer for the log term in
+As we discussed in section 5, that W
+the entanglement entropy across a sphere can be viewed as a special case of Solodukhin’s result [7]
+using a squashed cone in d = 4 that the a contribution to the entanglement entropy across a general
+surface Σ can be written
+SE ∼ 2aχ(Σ) ln(δ/`) .
+
+(165)
+
+For non-spherical entangling surfaces, there will of course be other contributions to SE , for example
+from the cj central charges. While we are not aware of a derivation (refs. [49, 50] come close but
+ultimately only consider the sphere case), it seems reasonable that in general dimension, the only
+modification needed to make this formula correct in our conventions is a factor of (−1)d/2 .
+In the process of resolving this puzzle, we produced a number of auxiliary results which are
+interesting in their own right. In two dimensions, where the trace anomaly is perhaps most powerful,
+34
+
+we were able to use an effective anomaly action to reproduce three well-known results in conformal
+field theory, namely the Schwarzian derivative, the entanglement entropy of an interval, and also
+the Rényi entropies for the interval. Neither the effective anomaly action we use nor the results are
+new. However, we have not seen our form of the effective anomaly action used to derive these three
+results before.8 Additionally, the story in two dimensions provides a simple warm-up example for
+the story in general dimension which we pursued next.
+Between d = 4 and d = 6, our story is the most complete in d = 4. In four dimensions, we derived
+from general principles the most general Wess-Zumino consistent result for the trace anomaly on a
+manifold with a codimension one boundary, including two boundary central charges we denoted b1
+and b2 . It would be interesting to study b1 and b2 further (as well as their counter-parts in higher
+dimensions). What values9 do they take for massless fermions? for a gauge field? for superconformal
+field theories? Might they be ordered under renormalization group flows, like the coefficient a?
+Another pair of key results in this paper are explicit formulae with boundary terms for the a
+contribution to the effective anomaly action in d = 4 and d = 6 dimensions. Previously, to our
+knowledge, only the bulk contribution had been worked out [8, 18, 17]. Unfortunately, in d = 6, we
+were only able to detail the boundary contribution to the action for a conformally flat metric. The
+conformally flat case was enough to study the entanglement entropy across a sphere. Nevertheless,
+it would be nice to write down the boundary contribution for a general metric.
+It would also of course be interesting to see if the a contribution to the effective anomaly action
+can be given an explicit and simple form in any dimension. That the sphere entanglement comes
+f [δµν ] depended on cancellation between the Casimir energy hHi and the effective
+solely from W
+anomaly action W[δµν , e−2σ δµν ] that we were only able to verify explicitly in d = 2, 4 and 6. In
+general even dimension, we were hampered by non-commuting limits that forced us to fix d before
+choosing a metric in order to calculate W[δµν , e−2σ δµν ].
+In appendix D we reproduce the holographic computation of the sphere entanglement entropy
+using hyperbolic space. Holographic renormalization allows us to write down a regulated effective
+action WH for S 1 × H d−1 itself without need for a reference background. Thus we are saved the
+trouble that we faced with our dilaton effective action of needing to compute W for the reference
+background.
+Another interesting result of the holographic calculation is the vanishing of the second derivative
+of the effective action WH (226). While experience suggests that the result is the consequence of a
+Maxwell relation combined with scale invariance, we have not been able to prove the vanishing for
+a general conformal field theory.
+Finally, in this paper we mostly adopted the dimensional regularization to construct W. It would
+8 See however ref. [29] for a similar calculation.
+9 Shortly after the first version of this paper appeared on the arXiv, these boundary central charges for fermions
+
+and gauge fields were computed in d = 4 in ref. [51].
+
+35
+
+be interesting to construct W using the integral formula (69).
+
+Acknowledgments
+We would like to thank K. Balasubramanian, H. Casini, A. O’Bannon, M. Roček, W. Siegel, and
+P. van Nieuwenhuizen for useful discussion. This work was supported in part by the NSF under
+Grant No. PHY13-16617.
+
+A
+
+Differential Geometry with a Boundary
+
+Let M be a d-dimensional, orientable, Riemannian manifold with metric g. In general M will have a
+boundary ∂M . We use xµ to indicate coordinates on patches of M and y α for coordinates on patches
+of ∂M . The boundary can be specified by means of the embedding functions X µ (y α ). These do not
+transform as tensors under reparameterizations in M , but their derivatives
+fα µ ≡ ∂α X µ ,
+
+(166)
+
+do. Rather, the fαµ transform as a vector under reparameterizations of the xµ and as a one-form under
+reparameterizations of the y α . The fαµ allow us to pull back covariant tensors on M to covariant
+tensors on ∂M . For instance, the metric g pulls back to the induced metric γ with components
+g̊αβ (y) = fα µ (y)fβ ν (y)gµν (X(y)) .
+
+(167)
+
+f α µ ≡ gµν γ αβ fβ ν ,
+
+(168)
+
+We also define
+
+which satisfies
+f α µ fβ µ = δβα ,
+
+f α µ fα ν ≡ hνµ ,
+
+(169)
+
+with hµν a tangential projector. We can also define a unit-length vector field nµ after picking an
+orientation on ∂M via
+nµ =
+
+1
+εµ ν1 ...νd−1 εα1 ...αd−1 fα1 ν1 . . . fαd−1 νd−1 .
+(d − 1)!
+
+(170)
+
+Throughout we take the orientation on ∂M to be such that nµ is always pointing outward.
+
+A.1
+
+The Covariant Derivative and the Second Fundamental Form
+
+We use the Levi-Civita connection built from g to take derivatives D on M . From this connection
+we construct a connection on ∂M that allows us to take derivatives D̊ of tensors on ∂M . D̊ acts on
+e.g. a mixed tensor Tµ α via
+D̊α Tµ β = ∂α Tµ β + Γµ να Tν β − Γ̊γ βα Tµ γ ,
+36
+
+(171)
+
+with
+Γµ να = Γµ νρ fα ρ ,
+
+Γ̊α βγ = f α µ (∂γ δνµ + Γµ νc ) fβ ν .
+
+(172)
+
+It is easy to show that Γ̊α βγ is the Levi-Civita connection constructed from the induced metric γαβ ,
+and furthermore that the derivative satisfies
+D̊α gµν = 0 ,
+
+D̊α γβγ = 0 .
+
+(173)
+
+There is a single tensor with one derivative that can be built from the data at hand, namely the
+second fundamental form IIµ αβ ,
+IIµ αβ ≡ D̊α fβ µ .
+
+(174)
+
+One can show that
+hµν IIν αβ = 0 ,
+
+IIµ αβ = IIµ βα ,
+
+(175)
+
+and the latter implies that
+IIµ αβ = −nµ Kαβ ,
+
+(176)
+
+where Kαβ is the extrinsic curvature of the boundary. From this and nµ D̊α nµ = 0 we also find
+D̊α nµ = f β µ Kαβ .
+
+(177)
+
+Let us relate this presentation to the more common one in terms of Gaussian normal coordinates.
+For some patch on M which includes a patch of ∂M , we choose coordinates so that g takes the form
+g = dr2 + ĝαβ (r, y)dy α dy β ,
+
+(178)
+
+where the boundary is extended in the y α at r = 0. That is, the embedding functions are fα r =
+0 , fα β = δαβ , and consequently the induced metric is
+γαβ (y) = ĝαβ (r = 0, y) .
+
+(179)
+
+In this coordinate choice we have
+nr = 1 ,
+
+IIr αβ = Γr αβ = −
+
+1
+∂r ĝαβ |y=0 .
+2
+
+Note that the trace of the extrinsic curvature, K = γ αβ Kαβ is
+√
+1 αβ
+£n ĝ
+K = ĝ ∂r ĝαβ r=0 = √
+,
+2
+ĝ r=0
+
+(180)
+
+(181)
+
+with £n the Lie derivative along nµ , which coincides with a common formula used by physicists for
+the extrinsic curvature of a spacelike boundary.
+
+37
+
+A.2
+
+Gauss and Codazzi
+
+Consider the Levi-Civita connection one-form Γµ ν = Γµ νρ dxρ and its curvature
+Rµ ν = dΓµ ν + Γµ ρ ∧ Γρ ν =
+
+1 µ
+R νρσ dxρ ∧ dxσ .
+2
+
+(182)
+
+Here Rµ νρσ is the Riemann curvature which can also be defined through the commutator of derivatives
+[Dρ , Dσ ]vµ = Rµ νρσ vν ,
+
+(183)
+
+for vµ a vector field. The pullback of Rµ ν to ∂M can be expressed in terms of the curvature R̊µ ν of Γ̊
+and the second fundamental form. The resulting expressions are the Gauss and Codazzi equations.
+They can be summarized as
+P[Rµ ν ] = R̊α β fα µ f β ν + D̊Mµ ν − Mµ ρ ∧ Mρ ν ,
+
+(184)
+
+where D̊ is the covariant exterior derivative and
+Mµ ν = IIµ α f α ν − fα µ IIν α ,
+
+IIµ α ≡ IIµ αβ dy β .
+
+(185)
+
+Alternatively, we can define
+Γ̃µ ν = Γµ να dy α − Mµ ν ,
+
+(186)
+
+R̃µ ν = R̊α β fα µ f β ν .
+
+(187)
+
+whose curvature satisfies
+
+In components, the Gauss and Codazzi equations read
+Rαβγδ = R̊αβγδ − Kαγ Kβδ + Kαδ Kβγ ,
+Rµαβγ nµ = −D̊β Kαγ + D̊γ Kαβ ,
+
+(188)
+
+and we have used the embedding scalars to convert indices on the bulk Riemann tensor into indices
+on ∂M .
+
+B
+
+Wess-Zumino Consistency in d = 4
+
+We now perform the algorithm described in Subsection 3.4, beginning with step 1. We need to
+parameterize the most general variation of W , which we denote as δσ Wb . After some computation,
+we find that this variation contains sixteen independent terms10
+( 8
+)
+Z
+8
+X
+X
+√
+δ σ Wb =
+d3 y γ
+bI BI +
+BJ DJ δσ ,
+∂M
+
+I=1
+
+(189)
+
+J=1
+
+10 In compiling the list of these sixteen terms, we have made extensive use of the Gauss and Codazzi equations (103).
+
+We also use that the action of nµ Dµ is only well-defined on bulk tensors.
+
+38
+
+indexed by the eight bI and eight BJ . (The coefficients bI and BJ are used to denote boundary
+central charges.) We organize the terms in the following way. The eight BI are three-derivative
+scalars. The eight DJ all involve derivatives of the Weyl variation δσ, and so we denote them with
+a calligraphic D to suggest a derivative. We distinguish the BI and DJ for two reasons. First, the
+allowed three-derivative counterterms are given by the BI . Second, we will see shortly that those
+local counterterms redefine the coefficients of the DJ .
+In any case, the BI are
+B1 = R̊K ,
+
+B2 = RK ,
+
+B3 = R̊αβ K αβ ,
+
+B5 = K 3 ,
+
+B6 = nµ ∂µ R ,
+
+B7 = tr K̂ 3 ,
+
+B4 = tr K 3 ,
+B8 = Wαβγδ γ αγ K̂ βδ ,
+
+(190)
+
+Here Wαβγδ is the pullback of the Weyl tensor to the boundary, and we have defined K̂ to be the
+traceless part of the extrinsic curvature,
+K
+γαβ ,
+d−1
+
+K̂αβ ≡ Kαβ −
+
+(191)
+
+which transforms covariantly under Weyl rescaling as K̂αβ → eσ K̂αβ . B7 and B8 are then manifestly
+covariant under Weyl rescaling. They are the only nonzero scalars that can be formed from either
+three factors of K̂, or one factor of K̂ and one of the Weyl tensor. They cannot be eliminated
+by the addition of a local counterterm and are trivially Wess-Zumino consistent, and so represent
+genuine boundary anomalies. The tr(K̂ 3 ) term first appeared in ref. [36], while the Wαβγδ γ αγ K̂ βδ
+term appeared later in ref. [37]. The DJ are
+˚ ,
+D1 = K
+
+D2 = D̊α D̊β K αβ ,
+
+D5 = Kαβ K αβ nµ ∂µ ,
+
+D3 = R̊nµ ∂µ ,
+
+D6 = K 2 nµ ∂µ ,
+
+D4 = Rnµ ∂µ .
+
+D7 = Knµ nν Dµ Dν ,
+
+D8 = nµ nν nρ Dµ Dν Dρ ,
+
+(192)
+
+Continuing with step 2, the most general local boundary counterterm is
+Z
+WCT =
+
+6
+
+√ X
+d3 y γ
+dI BI .
+
+∂M
+
+(193)
+
+I=1
+
+The dI represent a choice of scheme. They can be adjusted to eliminate various coefficients in δσ Wb .
+We would like to deduce which coefficients can be eliminated. This is an exercise in linear algebra.
+√
+√
+As γB7 and γB8 are invariant under Weyl rescalings, we do not include them in WCT . The Weyl
+variation of WCT may then be understood as a linear map Σ : R6 → R8 which maps the {BI } (for
+I = 1, .., 6) to the {DJ } as
+Z
+δσ
+∂M
+
+√
+d3 y γ BI =
+
+Z
+∂M
+
+8
+
+√ X J
+d3 y γ
+Σ I DJ .
+
+(194)
+
+J=1
+
+The number of DJ which can be eliminated is given by the dimension of the image of Σ, and the
+null vectors of Σt encode the linear combinations of the DJ which cannot be removed by a judicious
+choice of scheme.
+39
+
+A straightforward computation gives
+
+−4
+
+0
+
+
+3
+
+
+0
+Σ=
+
+0
+
+0
+
+
+0
+
+0
+
+
+
+−6
+
+−1
+
+0
+
+0
+
+−1
+
+0
+
+1
+
+3
+
+0
+
+0
+
+0
+
+−6
+
+0
+
+−6
+
+0
+
+0
+
+0
+
+
+0
+
+
+0 0 −3
+
+
+0 0 1
+
+
+3 0 3
+
+0 9 3
+
+
+0 0 −6
+
+0 0 −6
+0
+
+0
+
+6
+
+0
+
+(195)
+
+The map Σ is injective, so six of DJ can be eliminated. The null vectors of Σt are given by
+
+
+
+
+χ1 = 3 1 4 0 0 0 −3 4 ,
+χ2 = 0 0 0 6 0 0 3 −2 ,
+
+(196)
+
+so the image of Σ is given by R8 modulo the R2 spanned by χ1 and χ2 . In terms of the DJ , the
+linear combinations
+3D1 + D2 + 4D3 − 3D7 + 4D8 ,
+
+6D4 + 3D7 − 2D8 ,
+
+(197)
+
+are never generated from the variation of WCT . Said another way, the dI can be adjusted to eliminate
+all of the DJ except for D1 and D4 . So the most general boundary Weyl variation, having modded
+out by local counterterms, is
+Z
+δ σ Wb =
+
+3
+
+√
+
+d y γ
+∂M
+
+( 8
+X
+
+)
+˚ + B4 Rn ∂µ
+bI BI + B1 K
+µ
+
+δσ .
+
+(198)
+
+I=1
+
+Now we implement step 3, by computing the second Weyl variation. The second variations of
+B1 δσ2 through B8 δσ2 follow (almost) immediately from the δσ WCT that we computed above. Let
+us then consider carefully the second Weyl variation of the terms proportional to B1 and B4 . From
+these terms we get
+Z
+δσ1 δσ2 Wb
+
+=
+
+
+√ n 
+˚ 2 ) + 2K(∂ α δσ1 )(∂α δσ2 )
+d3 y γ B1 3(nµ ∂µ δσ1 )(δσ
+
+
+o
+˚ + nν nρ Dν Dρ + Knν ∂ν δσ1 + . . . ,
+−6B4 (nµ ∂µ δσ2 ) 
+
+(199)
+
+where the ellipsis denotes terms that depend on b1 through b6 . The only terms with a normal
+derivative of δσ2 come from B4 . Given that fact, it is impossible to symmetrize under δσ1 ↔ δσ2
+the term involving one normal derivative of δσ2 and two normal derivatives of δσ1 . Thus WessZumino consistency forces B4 = 0.
+It is slightly more involved to see that B1 must vanish. First, observe that the B6 term is the
+only one which produces a second variation δσ2 D8 δσ1 , which has three normal derivatives and is
+not symmetric under δσ1 ↔ δσ2 and so is not WZ consistent. So b6 = 0. In fact, the same sort of
+40
+
+reasoning tells us that b2 = b4 = b5 = 0 and that b3 is proportional to b1 as b3 = −3b1 . In terms of
+the remaining parameters b1 , B1 , the second Weyl variation is simply
+Z
+
+o
+√ n
+˚ 2 ) + 2K(∂ α δσ1 )(∂α δσ2 )
+δσ1 δσ2 Wb = d3 y γ 3b1 δσ2 K̂ αβ D̊α D̊β δσ1 + B1 3(nµ ∂µ δσ1 )(δσ
+.(200)
+This expression is not symmetric under δσ1 ↔ δσ2 for any nonzero value of b1 and B1 , and so WZ
+consistency enforces that they both vanish b1 = B1 = 0.
+The only “boundary central charges” that survive are b7 and b8 , and the boundary term in the
+anomaly is
+Z
+δ σ Wb =
+
+o
+√ n
+d3 y γ b7 trK̂ 3 + b8 γ αγ K̂ βδ Wαβγδ .
+
+(201)
+
+∂M
+
+Putting the pieces together, the total anomaly is given by (108) as advertised in Subsection 3.4. In
+the text, we relabel: b7 → b1 and b8 → b2 .
+
+C
+
+Effective Action from Dimensional Regularization
+
+In this appendix we consider the anomaly effective action W in even d dimensions as obtained from
+dimensional regularization via the expression (114), which we recall here
+Z
+
+ Z
+Z
+Z
+1
+Q̂n,m
+W[gµν , e−2τ gµν ] = A lim
+En,m −
+Qn,m −
+Ên,m −
+,
+n→d n − d
+M
+∂M
+∂M
+M
+
+(202)
+
+where m = d/2 and A = (−1)d/2 4a/(d! Vol(S d )). Here we obtain the explicit forms of W in d = 4, 6
+including boundary terms. (In d = 6 the boundary action will be evaluated in a conformally flat
+geometry.) The bulk dilaton effective actions can be found in the literature; the boundary terms to
+our knowledge are new results.
+We begin with the Lipschitz-Killing curvature En,m and the associated boundary term Qn,m
+defined in (111) and (112) respectively. Denote the densities associated with these forms as En,m
+and Qn,m . The first step in evaluating the expression (114) for W is to deduce how En,m and Qn,m
+change under Weyl rescalings. Starting with the metric gµν and performing a Weyl transformation
+to ĝµν = e−2τ gµν , the transformed curvatures Ên,m and Q̂n,m are
+p
+
+√
+
+
+g e−(n−d)τ Ed + Dµ J µ + (n − d)G + O(n − d)2 .
+n
+o
+p
+√
+γ̂ Q̂n,m = γ e−(n−d)τ Qd + nµ J µ + D̊α H α + (n − d)B + O(n − d)2 ,
+ĝ Ên,m =
+
+(203)
+
+where it remains to determine J µ , G, H α , and B. Note that, in the n → d limit, (203) implies
+Z
+
+Z
+
+Z
+Z
+lim
+Ên,m −
+Q̂n,m = lim
+En,m −
+Qn,m ,
+(204)
+n→d
+
+M
+
+∂M
+
+n→d
+
+M
+
+∂M
+
+which is just a consequence of the fact that the Euler characteristic is a topological invariant and
+so is invariant under Weyl rescalings. This has the practical effect that the dimensionally regulated
+41
+
+formula (114) for W is well-defined. From (203) we see that the integrand of (202) is
+o
+
+
+p
+√
+√ n
+ĝ Ên,m − gEn,m = g Dµ J µ − (n − d) τ Ed − J µ ∂µ τ − G + Dµ (τ J µ ) + O(n − d)2 ,
+o
+
+
+p
+√
+√ n
+γ̂ Q̂n,m − γQn,m = γ nµ J µ + D̊α H α − (n − d) τ Qd + τ (nµ J µ + D̊α H α ) − B + O(n − d)2 .
+In order to write W in as simple a way as possible, it will be useful to decompose G as
+G = G0 + Dµ K µ ,
+
+(205)
+
+for some current K µ . Putting the pieces together, we find that the anomaly action W is
+Z
+√
+−2τ
+W[gµν , e
+gµν ] =A
+dd x g {τ Ed − J µ ∂µ τ − G0 }
+M
+
+Z
+d−1 √
+α
+µ
+−
+d y γ {τ Qd − H ∂α τ − B + n Kµ } .
+
+(206)
+
+∂M
+
+We see that besides obtaining B and G defined in (203), we also need to determine J µ , K µ and H α .
+
+C.1
+
+d=4
+
+To obtain the bulk action in d = 4, we find that J µ is
+Jµ
+
+
+= −8 E µν ∂ν τ + (Dµ ∂ν τ )∂ ν τ + (∂ µ τ )(∂τ )2 − (τ )∂ µ τ
+
+,
+
+(207)
+
+and we find it useful to split G into G0 and K µ as
+Kµ =
+
+3 µ
+J + 4E µν ∂ν τ ,
+2
+
+(208)
+
+G0 = 4E µν (∂µ τ )(∂ν τ ) − 8τ (∂τ )2 + 6(∂τ )4 .
+We find that the boundary data H α and B are given by
+n
+
+o
+H α = 8 K αβ − γ αβ K ∂β τ + τn ∂ α τ ,
+
+
+
+B = nµ Kµ + 4D̊α ∂β τ K αβ − γ αβ K − 4 K αβ − γ αβ K (∂α τ )(∂β τ )
+
+(209)
+
+8
+− 8(D̊τ )2 τn − τn3 ,
+3
+where we have denoted the normal derivative of τ as τn ≡ nµ ∂µ τ . Substituting these expressions
+into the general formula (206) for W, we find the result (126) quoted in subsection 4.1.
+
+C.2
+
+d=6
+
+After some tedious computation, we find that the current J µ in d = 6 for general gµν is given by
+µ
+J(6d)
+= J1µ + J2µ + J3µ + J4µ + J5µ ,
+
+42
+
+(210)
+
+where Jnµ contains n powers of τ , and
+J1µ
+
+=
+
+J2µ
+
+=
+
+6Eν(2)µ (∂ ν τ ) ,
+
+
+48Eνµ (Dρ ∂ ν τ )(∂ ρ τ ) − (∂ ν τ )τ + 48Rµ ρνσ (∂ ν τ )(Dσ ∂ ρ τ )
+
+
++48Rνρ (∂ ν τ )(Dρ ∂ µ τ ) − (Dρ ∂ ν τ )(∂ µ τ ) ,
+
+J3µ
+
+=
+
+48Eνµ (∂ ν τ )(∂τ )2 + 48(∂ µ τ )(τ )2 − 96τ (∂ ν τ )(Dν ∂ µ τ )
+
+(211)
+
++96(∂ ν τ )(Dρ ∂ν τ )(Dρ ∂ µ τ ) − 48(D∂τ )2 (∂ µ τ ) ,
+J4µ
+
+=
+
+−144(∂τ )2 τ (∂ µ τ ) + 144(∂τ )2 (∂ρ τ )(Dρ ∂ µ τ ) ,
+
+J5µ
+
+=
+
+144(∂τ )4 (∂ µ τ ) .
+
+The quantities E (2)µν and C µνρσ are defined in (129).
+We have also computed G for a general metric gµν . We split it into G0 and K µ so that the bulk
+part of the anomaly action W matches the expression obtained in ref. [17]. The resulting K µ is
+Kµ
+
+=
+
+
+
+11 µ
+J − 5E (2)µν ∂ν τ + 16E µν (∂ν τ )τ − (Dρ ∂ν τ )(∂ρ τ ) + 16C µ νρσ (Dρ ∂ ν τ )(∂ σ τ )
+6
++48(Dµ ∂ ν τ )(∂ν τ )(∂τ )2 + 72(∂τ )4 (∂ µ τ ) − 48(∂τ )2 τ (∂ µ τ ) ,
+(212)
+
+and the expression for G0 is too lengthy to be worth writing here. It can be deduced by comparing
+the general expression for W given in (206) with the bulk part of the anomaly action in (130), using
+the formulae for J µ and K µ above.
+Similarly we decompose H α into powers of τ as
+H α = H1α + H2α + H3α + H4α .
+
+(213)
+
+The computation on the boundary becomes much more tedious. We have computed B in general
+but its expression is too lengthy to present here. We have not yet succeeded in finding the current
+H α when for a general metric gµν . When ĝµν is conformally flat, ĝµν = e−2τ δµν , we find
+H1α = 48Pβα ∂ β τ + 6Q4 [δµν ]∂ α τ ,
+˚ − 48Kβα (D̊γ ∂ β τ )(∂ γ τ ) − 48K(∂ α τ )τ
+˚
+H2α = 48Kβα (∂ β τ )τ
++ 48Kγβ (D̊γ ∂β τ )(∂ α τ ) + 48K(∂β τ )(D̊α ∂ β τ ) − 48Kγβ (D̊α ∂β τ )(∂ γ τ ) ,
+H3α = −48Kβα (∂ β τ )(D̊τ )2 + 48K(D̊τ )2 (∂ α τ ) + 48Kτn2 (∂ α τ ) − 48τn2 Kβα (∂ β τ )
+
+(214)
+
+˚ (∂ α τ ) − 96τn (D̊α ∂β τ )(∂ β τ ) ,
++ 96τn τ
+H4α = −144τn (D̊τ )2 ∂ α τ − 48τn3 (∂ α τ ) ,
+where we defined P αβ in (132). Using the expressions present above and the general expression for
+the boundary term of W in (206), we obtain the explicit form in d = 6 given in (131).
+
+43
+
+D
+
+Holographic Calculation
+
+In this appendix, we study d-dimensional conformal field theories with a dual gravitational description via the AdS/CFT correspondence. We then use the correspondence to compute the thermodynamics of these conformal field theories when they live on a hyperbolic space H d−1 with radius of
+curvature ` at temperature T . In the special case T = 1/(2π`), we will be able to compare with the
+previous anomaly calculations.
+Much of the following calculation can be found already in ref. [53] and [14]. In particular, the
+expression for the thermal entropy on H d−1 at temperature T = 1/(2π`) in terms of a is given
+in section 3 of [14]. Our new result is the thermal partition function on hyperbolic space at any
+temperature and in any d.
+We start with the usual bulk plus Gibbons-Hawking plus counterterm action for these holographic
+calculations (see for example ref. [54]):
+S = Sbulk + Ssurf + Sct ,
+
+
+Z
+√
+1
+d(d − 1)
+Sbulk = − 2
+dd+1 X −G R +
+,
+2κ M
+L2
+Z
+√
+1
+dd x −gK ,
+SGH = − 2
+κ ∂M
+
+Z
+1
+2(d − 1)
+L
+d √
+SCT = 2
+d x −g
++
+R
+2κ ∂M
+L
+d−2
+
+
+
+L3
+d
+2
+µν
++
+R + ... .
+R Rµν −
+(d − 4)(d − 2)2
+4(d − 1)
+
+(215)
+
+We denote the bulk metric as G, bulk coordinates as X, and R is the bulk scalar curvature. The
+bulk spacetime M is asymptotically AdS, and so the on-shell Einstein-Hilbert action Sbulk diverges
+owing to the infinite volume “near” the AdS boundary. To compute thermodynamic quantities,
+we must holographically renormalize the bulk gravity. In the usual way, we introduce a “cutoff
+surface” ∂M near the AdS boundary; the induced metric on the cutoff surface is g, coordinates on
+it are denoted as xµ , and Rµ νρσ refers to the Riemann tensor constructed from g. We introduce the
+Gibbons-Hawking term on this cutoff surface, along with various counterterms SCT , and ultimately
+take the limit where we send the cutoff surface to the AdS boundary. The counterterms are tuned
+so that this limit exists.
+To obtain the thermodynamic partition function WH = − ln ZH on hyperbolic space, we first
+identify the gravitational solution dual to the thermal state on hyperbolic space, namely the AdSblack hole with hyperbolic boundary. We then Wick rotate the bulk spacetime to Euclidean signature
+and compute the on-shell, holographically renormalized, Euclidean action.
+The AdS-black hole metric with hyperbolic boundary is a solution to the equations of motion:
+ 2
+ 2
+L 2
+dr2
+r
+f
+(r)
+−
+1
+dt + r2 (du2 + sinh2 u dΩd−2 ) + r2
+,
+(216)
+G=−
+2
+2
+L
+`
+L2 f (r) − 1
+44
+
+with f (r) = 1 − m/rd where m is an integration constant related to the temperature. The constant
+m can be expressed in terms of the horizon radius rh : m = (rh2 − L2 )rhd−2 . In terms of the horizon
+radius, the temperature is
+T =
+
+1
+r2 d − (d − 2)L2
+= h
+,
+β
+4πL`rh
+
+(217)
+
+which can be inverted to give the horizon radius as a function of β:
+s
+
+2
+rh
+2π`
+2π`
+.
+d=
++ d(d − 2) +
+L
+β
+β
+Note that at m = 0, the metric becomes that of pure AdS with a hyperbolic slicing, and the horizon
+radius is the same as the radius L of curvature of AdS. The temperature at this point is T = 1/(2π`),
+and the black hole is “topological” in the sense that it is simply a causal horizon.
+The most direct way to check the entanglement entropy calculation is to compute the area of
+the black hole horizon and use the Bekenstein-Hawking area law for black hole entropy. One finds
+straightforwardly that
+SBH =
+
+2πrhd−1
+Vol(H d−1 ) ,
+`d−1 κ2
+
+(218)
+
+where the hyperbolic space has radius of curvature `. This entropy diverges for the simple reason
+that hyperbolic space has infinite volume, in the same way that the total entropy in flat space
+diverges. However, unlike in flat space, we may appropriately regulate the volume of H d−1 and
+thereby identify a universal logarithmic term in Vol(H d−1 ) as in (141). To check the calculation of
+the entanglement entropy across a sphere in flat space, we work with the “topological” black hole
+at T = 1/(2π`) with horizon radius rh = L.
+To compare the holographic entropy result (218) with field theory, we need an expression relating
+a to the gravitational coupling constant κ in general dimension:
+a=
+
+Ld−1
+1
+Vol(S d−1 ) 2 .
+2
+κ
+
+(219)
+
+This relation is consistent with the holographic Weyl anomaly computed in d = 2, 4 and 6 dimensions
+in ref. [55]. In general d, this relation can be extracted from ref. [56].11 As we did in the previous
+11 It is straightforward to derive eq. (219) by placing the field theory on an S d , computing the Euclidean partition
+
+function and using the relation
+WS d = − ln ZS d = (−1)d/2 4a ln(µ`) + . . . ,
+where µ is an energy scale introduced in the course of defining the theory. The “sphere free energy” WS d is equal
+to the holographically renormalized, on-shell action S evaluated on the asymptotically hyperbolic metric with S d
+boundary,
+G = r2 `2 dΩ2d + L2
+
+dr2
+r2 + L2 /`2
+
+.
+
+The logarithmic ambiguity in S arises purely from a logarithmic divergence in the on-shell bulk action Sbulk at large
+r, and using some of the same steps we employ below to compute the partition function on S 1 × H d−1 , we find eq.
+(219).
+
+45
+
+section, we now extract the logarithmic contribution to Vol(H d−1 ) and use the formula (219) for a
+to obtain
+SBH = SE = . . . + (−1)d/2 4a ln
+
+δ
++ ...
+`
+
+(220)
+
+in agreement with the universal result (2). This holographic result was also obtained in [14] although
+their result is stronger as it allows for higher derivative curvature corrections to the gravity action.
+We are also interested in looking at the partition function WH which can be equated holographically to the on-shell value of the gravity action on the Euclidean version of (216). Einstein’s
+equations imply that the Lagrangian density evaluates to
+R+
+
+d(d − 1)
+2d
+=− 2
+L2
+L
+
+(221)
+
+on shell. To avoid a lengthy discussion of counter-terms, we note that because the time direction in
+√
+the boundary is flat, the counterterms can depend on rh only through the metric determinant g.
+√
+It is therefore convenient to divide out a factor of −gtt from on-shell quantities. The bulk and
+Gibbons-Hawking actions evaluate to
+
+
+s
+ 2
+
+
+
+
+
+
+d
+d
+d−2
+Sbulk + SGH 
+L
+r
+1 rh
+1 rh
+1−
+= (d − 1)
+−
+−
++ O(r−2 )
+`√
+L
+r
+2
+L
+2
+L
+−g
+tt
+r
+
+(222)
+
+βLd−1 Vol(H d−1 )
+×
+.
+`κ2
+The counterterms should be whatever they need to be to cancel the divergent factors coming from
+the square root. By dimensional analysis, a counterterm with 2n derivatives of the boundary metric
+will cancel a divergence at O(rd−2n ). In a minimal counterterm prescription where we add no finite
+terms with d derivatives, e.g. (Rµνρσ )d/2 , expanding out the square root, the on-shell action is
+#
+"
+1  rh d 1  rh d−2 βLd−1 Vol(H d−1 )
+(d − 1)!
+−
+.
+(223)
+WH = − d−1 d  d−2  −
+2 L
+`d κ2
+2
+! 2 L
+2 !
+2
+We have the partition function as a function of β and ` and not just in the “topological” limit
+β = 2π`.
+It is straightforward to verify the black hole entropy calculation above using standard thermodynamic identities. We can compute the thermal energy from the effective action by taking a β
+derivative:
+hHi = −
+
+∂WH
+.
+∂β
+
+(224)
+
+The black hole entropy is then SBH = βhHi − WH , in agreement with the event horizon area (218).
+Note that the energy and WH itself are ambiguous quantities. The first term in WH can be altered
+if we decide to add a local counterterm like (Rµνρσ )d/2 . Because the first term is linear in β, the
+energy suffers a similar ambiguity, but this scheme-dependence drops out of the black hole entropy.
+46
+
+Because not all field theories have classical gravity duals, this partition function will not hold
+generally, but we can compare with the other parts of the paper when β = 2π`. In the “topological”
+case, making use of the expression (219) for a, we see that WH agrees with the general CFT
+result (157). Interestingly, the derivative of the rh dependent terms of WH with respect to β
+vanishes at β = 2π`. Thus the entire contribution to the energy comes from the first (regulator
+dependent) piece linear in β when β = 2π`:
+hHi = −
+
+∂WH
+Γ(d)
+= 2a
+∂β
+(4π`2 )d/2
+
+d
+2
+
+ Vol(H d−1 ) .
+!
+
+(225)
+
+Note this result agrees with the general CFT calculation (142) as well.
+A peculiar observation about this holographic thermal partition function is that
+
+
+∂2
+WH
+=0.
+∂` ∂β
+`β
+β=2π`
+
+(226)
+
+Note that WH = f (2π`/β) is essentially a function of one variable, the ratio 2π`/β. It follows that
+β∂β WH = −`∂` WH . As ∂β WH is proportional to the energy while ∂` WH is proportional to a trace
+of the stress tensor over the H d−1 directions, the fact that WH depends on `/β encodes the fact that
+the integral of the trace of the stress tensor vanishes. The relation (226) is a stronger statement,
+which naively relates integrals of the two-point function of the stress tensor. Perhaps it follows from
+the form of the two-point function of the stress tensor on S 1 × H d−1 at T = 1/(2π`), which is
+determined by conformal symmetry.
+
+References
+[1] T. J. Osborne and M. A. Nielsen, “Entanglement in a simple quantum phase transition,” Phys.
+Rev. A 66, 032110 (2002) [quant-ph/0202162].
+[2] G. Vidal, J. I. Latorre, E. Rico and A. Kitaev, “Entanglement in quantum critical phenomena,”
+Phys. Rev. Lett. 90, 227902 (2003) [quant-ph/0211074].
+[3] L. Bombelli, R. K. Koul, J. Lee and R. D. Sorkin, “Quantum source of entropy for black holes,”
+Phys. Rev. D 34, 373 (1986).
+[4] M. Srednicki, “Entropy and area,” Phys. Rev. Lett. 71, 666 (1993) [hep-th/9303048].
+[5] H. Casini and M. Huerta, “A c-theorem for the entanglement entropy,” J. Phys. A 40, 7031
+(2007) [cond-mat/0610375].
+[6] H. Casini and M. Huerta, “On the RG running of the entanglement entropy of a circle,” Phys.
+Rev. D 85, 125016 (2012) [arXiv:1202.5650 [hep-th]].
+
+47
+
+[7] S. N. Solodukhin, “Entanglement entropy, conformal invariance and extrinsic geometry,” Phys.
+Lett. B 665, 305 (2008) [arXiv:0802.3117 [hep-th]].
+[8] Z. Komargodski and A. Schwimmer, “On Renormalization Group Flows in Four Dimensions,”
+JHEP 1112, 099 (2011) [arXiv:1107.3987 [hep-th]].
+[9] P. Buividovich and M. Polikarpov, “Entanglement entropy in gauge theories and the holographic
+principle for electric strings,” Phys. Lett. B 670, 141 (2008) [arXiv:0806.3376 [hep-th]].
+[10] H. Casini, M. Huerta and J. Rosabal, “Remarks on entanglement entropy for gauge fields,”
+Phys. Rev. D 89, 085012 (2014) [arXiv:1312.1183 [hep-th]].
+[11] W. Donnelly and A. C. Wall, “Entanglement entropy of electromagnetic edge modes,” Phys.
+Rev. Lett. 114, no. 11, 111603 (2015) [arXiv:1412.1895 [hep-th]].
+[12] K.-W. Huang, “Central Charge and Entangled Gauge Fields,” Phys. Rev. D 92, no. 2, 025010
+(2015) [arXiv:1412.2730 [hep-th]].
+[13] S. Deser and A. Schwimmer, “Geometric classification of conformal anomalies in arbitrary
+dimensions,” Phys. Lett. B 309, 279 (1993) [hep-th/9302047].
+[14] H. Casini, M. Huerta and R. C. Myers, “Towards a derivation of holographic entanglement
+entropy,” JHEP 1105, 036 (2011) [arXiv:1102.0440 [hep-th]].
+[15] D. Fursaev, “Quantum Entanglement on Boundaries,” JHEP 1307 119 (2013) [arXiv:1305.2335
+[hep-th]].
+[16] J. Polchinski, String Theory: Volume 1, Cambridge University Press, 1998.
+[17] H. Elvang, D. Z. Freedman, L. Y. Hung, M. Kiermaier, R. C. Myers and S. Theisen, “On
+renormalization group flows and the a-theorem in 6d,” JHEP 1210, 011 (2012) [arXiv:1205.3994
+[hep-th]].
+[18] M. R. Brown and A. C. Ottewill, “Effective actions and conformal transformations,” Phys. Rev.
+D 31, 2514 (1985).
+[19] K. Jensen and A. O’Bannon, “A Constraint on Defect and Boundary Renormalization Group
+Flows,” arXiv:1509.02160 [hep-th].
+[20] V. Korepin and B.-Q. Jin, “Quantum Spin Chain, Toeplitz Determinants and Fisher-Hartwig
+Formula,” J. Stat. Phys. 116, 79 (2004) [quant-ph/0304108].
+[21] P. Calabrese and J. L. Cardy, “Entanglement entropy and quantum field theory,” J. Stat. Mech.
+0406, P06002 (2004) [hep-th/0405152].
+
+48
+
+[22] Z. Komargodski, “The Constraints of Conformal Symmetry on RG Flows,” JHEP 1207, 069
+(2012) [arXiv:1112.4538 [hep-th]].
+[23] J. Wess and B. Zumino, “Consequences of anomalous Ward identities,” Phys. Lett. B 37, 95
+(1971).
+[24] A. Cappelli and A. Coste, On The Stress Tensor Of Conformal Field Theories In Higher Dimensions, Nucl. Phys. B 314, 707 (1989).
+[25] A. Schwimmer and S. Theisen, “Spontaneous Breaking of Conformal Invariance and Trace
+Anomaly Matching,” Nucl. Phys. B 847, 590 (2011) [arXiv:1011.0696 [hep-th]].
+[26] L. S. Brown and J. P. Cassidy, “Stress Tensors and their Trace Anomalies in Conformally Flat
+Space-Times,” Phys. Rev. D 16, 1712 (1977).
+[27] S. M. Christensen and M. J. Duff, “Quantum Gravity in Two +  Dimensions,” Phys. Lett. B
+79, 213 (1978).
+[28] C. Holzhey, F. Larsen and F. Wilczek, “Geometric and renormalized entropy in conformal field
+theory,” Nucl. Phys. B 424, 443 (1994) [hep-th/9403108].
+[29] S. N. Solodukhin, “The Conical singularity and quantum corrections to entropy of black hole,”
+Phys. Rev. D 51, 609 (1995) [hep-th/9407001].
+[30] V. P. Frolov, W. Israel and S. N. Solodukhin, “On one loop quantum corrections to the thermodynamics of charged black holes,” Phys. Rev. D 54, 2732 (1996) [hep-th/9602105].
+[31] C. R. Graham and E. Witten, “Conformal anomaly of submanifold observables in AdS / CFT
+correspondence,” Nucl. Phys. B 546, 52 (1999) [hep-th/9901021].
+[32] A. Schwimmer and S. Theisen, “Entanglement Entropy, Trace Anomalies and Holography,”
+Nucl. Phys. B 801, 1 (2008) [arXiv:0802.1017 [hep-th]].
+[33] T. Eguchi, P. B. Gilkey and A. J. Hanson, “Gravitation, Gauge Theories and Differential
+Geometry,” Phys. Rept. 66, 213 (1980).
+[34] K. Jensen, R. Loganayagam and A. Yarom, “Anomaly inflow and thermal equilibrium,” JHEP
+1405, 134 (2014) [arXiv:1310.7024].
+[35] O. Miskovic and R. Olea, “Counterterms in Dimensionally Continued AdS Gravity,” JHEP
+0710, 028 (2007) [arXiv:0706.4460 [hep-th]].
+[36] J. Melmed, “Conformal invariance and the regularised one-loop effective action,” J. Phys. A:
+Math. Gen. 21, L1131 (1988).
+
+49
+
+[37] J. S. Dowker and J. P. Schofield, “Conformal Transformations and the Effective Action in the
+Presence of Boundaries,” J. Math. Phys. 31, 808 (1990).
+[38] D. M. McAvity and H. Osborn, “Quantum field theories on manifolds with curved boundaries:
+Scalar fields,” Nucl. Phys. B 394, 728 (1993) [cond-mat/9206009].
+[39] T. P. Branson, P. B. Gilkey and D. V. Vassilevich, “The Asymptotics of the Laplacian on a
+manifold with boundary. 2,” Boll. Union. Mat. Ital. 11B, 39 (1997) [hep-th/9504029].
+[40] I. G. Moss, “Boundary terms in the heat kernel expansion,” Class. Quant. Grav. 6, 759 (1989).
+[41] K. Jensen and A. O’Bannon, “Holography, Entanglement Entropy, and Conformal Field Theories with Boundaries or Defects,” Phys. Rev. D 88, 106006 (2013) [arXiv:1309.4523].
+[42] J. Estes, K. Jensen, A. O’Bannon, E. Tsatis and T. Wrase “On Holographic Defect Entropy,”
+JHEP 1405, 084 (2014) [arXiv:1403.6475].
+[43] D. Gaiotto, “Boundary F-maximization”, [arXiv:1403.8052].
+[44] R. C. Myers, “Higher Derivative Gravity, Surface Terms and String Theory,” Phys. Rev. D 36,
+392 (1987).
+[45] P. Candelas and J. S. Dowker, “Field Theories On Conformally Related Space-times: Some
+Global Considerations,” Phys. Rev. D 19, 2902 (1979).
+[46] C. P. Herzog and K.-W. Huang, “Stress Tensors from Trace Anomalies in Conformal Field
+Theories,” Phys. Rev. D 87, 081901 (2013) [arXiv:1301.5002 [hep-th]].
+[47] K.-W. Huang, “Weyl Anomaly Induced Stress Tensors in General Manifolds,” Nucl. Phys. B
+879, 370 (2014) [arXiv:1308.2355 [hep-th]].
+[48] B. Assel, D. Cassani, L. Di Pietro, Z. Komargodski, J. Lorenzen and D. Martelli, “The
+Casimir Energy in Curved Space and its Supersymmetric Counterpart,” JHEP 07, 043 (2015)
+[arXiv:1503.05537 [hep-th]].
+[49] R. C. Myers and A. Sinha, “Holographic c-theorems in arbitrary dimensions,” JHEP 1101, 125
+(2011) [arXiv:1011.5819 [hep-th]].
+[50] R. C. Myers and A. Sinha, “Seeing a c-theorem with holography,” Phys. Rev. D 82, 046006
+(2010) [arXiv:1006.1263 [hep-th]].
+[51] D. Fursaev, “Conformal anomalies of CFT’s with boundaries,” arXiv:1510.01427 [hep-th].
+[52] The On-line Encyclopedia of Integer Sequences, http://oeis.org.
+
+50
+
+[53] R. Emparan, “AdS / CFT duals of topological black holes and the entropy of zero energy
+states,” JHEP 9906, 036 (1999) [hep-th/9906040].
+[54] R. Emparan, C. V. Johnson and R. C. Myers, “Surface terms as counterterms in the AdS /
+CFT correspondence,” Phys. Rev. D 60, 104001 (1999) [hep-th/9903238].
+[55] M. Henningson and K. Skenderis, “The Holographic Weyl anomaly,” JHEP 9807, 023 (1998)
+[hep-th/9806087].
+[56] C. Imbimbo, A. Schwimmer, S. Theisen and S. Yankielowicz, “Diffeomorphisms and holographic
+anomalies,” Class. Quant. Grav. 17, 1129 (2000) [hep-th/9910267].
+
+51
+
+

@@ -1,0 +1,1896 @@
+JINR E2-95-28, January 1995
+
+On the Description of the Riemannian Geometry
+
+arXiv:hep-th/9501127v1 27 Jan 1995
+
+in the Presence of Conical Defects
+
+Dmitri V. Fursaev∗ and Sergey N. Solodukhin∗∗
+Bogoliubov Laboratory of Theoretical Physics,
+Joint Institute for Nuclear Research,
+141 980, Dubna, Moscow Region, Russia
+
+Abstract
+A consistent approach to the description of integral coordinate invariant functionals of the metric on manifolds Mα with conical defects (or singularities) of the
+topology Cα × Σ is developed. According to the proposed prescription Mα are
+considered as limits of the converging sequences of smooth spaces. This enables one
+to give a strict mathematical meaning to a number of invariant integral quantities
+on Mα and make use of them in applications. In particular, an explicit representation for the Euler numbers and Hirtzebruch signature in the presence of conical
+singularities is found. Also, higher dimensional Lovelock gravity on Mα is shown
+to be well-defined and the gravitational action in this theory is evaluated. Other
+series of applications is related to computation of black hole entropy in the higher
+derivative gravity and in quantum 2-dimensional models. This is based on its direct
+statistical-mechanical derivation in the Gibbons-Hawking approach, generalized to
+the singular manifolds Mα , and gives the same results as in the other methods.
+
+PACS number(s): 04.60.+n, 12.25.+e, 97.60.Lf, 11.10.Gh
+
+∗
+
+e-mail: fursaev@theor.jinrc.dubna.su; ∗∗ e-mail: solod@thsun1.jinr.dubna.su
+
+1
+
+1
+
+Introduction
+
+Thin cosmic strings are known to give rise to remarkable gravitational effects. They do
+not affect immediately the local geometry of a space-time manifold but change instead
+its global properties. Placing the origin of the polar coordinate system on the string axis,
+one reveals a deficit 2π(1 − α) of the polar angle ϕ [1]. Thus, near the string world sheet
+Σ the space looks like the direct product Cα × Σ where Cα is the conical space with the
+corresponding ranging of the angle 0 ≤ ϕ ≤ 2πα.
+This peculiarity results in the interesting quantum effects which have been studied for
+both simple cones [2] and around cosmic strings [3]. Spaces with analogous features appear
+also in the other important physical applications. The well-known example is the orbifolds
+occurring in the string compactifications [4]. A similar set of spaces, called conifolds, has
+been proposed to generalize the histories included in Euclidean functional integrals in
+quantum gravity [5]. Finally, much attention has been paid recently to conical defects in
+connection with thermodynamics in the presence of black-hole [6], [7] and cosmological
+[8] horizons, where the conical angle α is associated with the inverse temperature of a
+system.
+One should also point out a number of mathematical results. For instance, the general
+theory of the Laplace and heat kernel operators on such a kind of cones has been developed
+in [9] and an explicit form of the DeWitt-Schwinger coefficients has been found out in
+some cases [10]. As well many works were devoted to the functional determinants and
+zeta-function on the different types of orbifolds [11].
+On the other hand, a consistent description of the geometrical quantities and invariant
+functionals of the metric on the conical defects seems to be absent. To elucidate this problem, let us remind that a cone is everywhere flat space (like the plane) except the tip where
+its curvature R is singular. Obviously, calculations by means of the standard formulas
+of the Riemannian geometry cannot reveal this delta-like singularity, and other methods
+must be used to get a correct result. One of these, based on topological arguments, was
+suggested many years ago by Sokolov and Starobinsky [12] for two-dimensional cones and
+used recently in higher dimensions in [13]. However, an approach like that does not seem
+
+2
+
+to be quite satisfactory. It only concerns computation of the scalar curvature, saying nothing about components of the Riemann tensor, and faces difficulties under generalization
+to arbitrary invariant functionals.
+In this paper, we consider a more natural recipe how to handle singularities with a
+particular topology Cα × Σ and use it in the relevant examples. The corresponding manifolds will be denoted by Mα . This method is to replace the singular space by a sequence
+of regular manifolds. All the integral invariants are then well-defined, and final results are
+obtained when the regularization is taken off. Some aspects of such a regularization have
+already been discussed in the literature (see, for instance, [5], [14], [15]) and we represent
+its further development. Thus, we show that although arbitrary curvature polynomials
+in such a procedure turn out to be divergent and depend on regularization, some specific
+integral quantities can be finite and have the strict mathematical meaning. We make use
+of this fact to derive a number of new results of both mathematical and physical interest.
+The paper is organized as follows. The regularization method is described in section
+2. Its features are discussed in detail for two-dimensional cones where the regularization
+ambiguity and the structure of the integral of R2 and Polyakov-Liouville action are investigated. Then, the technique and results are extended for the higher dimensional cases.
+We evaluate the components of the Riemann tensor on Mα and give examples of the
+functionals being quadratic in the curvature.
+A number of consequences and applications is presented in the second part of the
+paper, in section 3, which starts with the discussion of the generalized variational principle on a class of spaces including Mα . Then, we analyze the higher order curvature
+polynomials that can be defined on Mα . An important example is the Euler characteristics and Hirtzebruch signature of Mα for which the explicit integral representation is
+found. Also the Lovelock gravity turns out to be strictly defined on the manifolds with
+conical singularities and we give the corresponding generalization of the Lovelock action
+and equations. Finally, using our technique, we calculate the black hole entropy in the
+higher derivative gravity and in quantum 2-dimensional models. This is based on a direct
+statistical-mechanical derivation of the entropy in the Gibbons-Hawking approach generalized to the singular manifolds and gives the same results as in the other methods. Some
+3
+
+technical moments are clarified in Appendix A.
+
+2
+
+The method
+
+A. Two-dimensional cones
+A.1. Integral curvature
+The method is worth illustrating when Mα is a two-dimensional space with topology
+of the cone Cα . Then its metric reads
+ds2 = eσ (dρ2 + ρ2 dφ2 ) ≡ eσ ds2C
+
+(2.1)
+
+where ds2C is the line element on Cα , φ runs from 0 to 2πα, and the conformal factor σ is
+assumed to have the following expansion in the vicinity of ρ = 0:
+σ = σ1 ρ2 + σ2 ρ4 + ... .
+
+(2.2)
+
+In general, σ1 and σ2 can be functions of the angle φ and a possible constant term in (2.2)
+can be absorbed by redefinition of ρ.
+Due to asymptotics (2.2), the singularity comes out only from the conical metric
+ds2C . Hence, to understand how to introduce the regularization of Mα , consider an embedding of Cα in 3-dimensional (pseudo)Euclidean space. It can be given by equations
+x = αρ cos(φ/α), y = αρ sin(φ/α), z =
+z2 −
+
+q
+
+|1 − α2 |ρ, that define the surface
+
+|1 − α2 | 2
+(x + y 2 ) = 0 ,
+α2
+
+z≥0 .
+
+(2.3)
+
+Obviously, if α 6= 1, there is a singularity at z = 0 where one cannot introduce the tangent
+space and calculate the curvature in the usual way.
+It is easy to ”roll off” the cone tip if going from Cα to a surface C˜α with the equation
+z=
+
+q
+
+|1 − α2 |f (ρ, a) where f (ρ, a) is a smooth function and a is a regularization parameter
+
+such that lima→0 f = ρ. So far as for Cα the function z has a minimum at ρ = 0, this
+should also be valid for f in the case of the regularized surface. Thus, the only additional
+condition on f (ρ, a) is ∂ρ f |ρ=0 = 0 and the line element on C˜α can be written as
+ds2C̃ = udρ2 + ρ2 dφ2
+
+u = α2 + (1 − α2 )(fρ′ )2
+
+,
+4
+
+(2.4)
+
+where the function u has the following asymptotics
+u|ρ=0 = α2 ;
+
+u|ρ>>a = 1 .
+
+(2.5)
+
+The simplest example of the regularization is that corresponding to the change of Cα to a
+hyperbolic space
+z2 −
+
+|1 − α2 | 2
+(x + y 2) = a2 , z ≥ 0 ,
+α2
+ρ2 + a2 α2 2
+dρ + ρ2 dφ2 .
+ds2H = 2
+2
+ρ +a
+
+(2.6)
+(2.7)
+
+Instead of the singular manifold (2.1) one can use now the regularized space M̃α with
+
+topology of C˜α . To proceed, it is convenient to represent the scalar curvature on it in the
+form
+R = e−σ RC˜ − e−σ ✷C˜σ
+
+(2.8)
+
+where RC˜ and ✷C˜ are the curvature and Laplace operator defined with respect to metric
+(2.4). Then, by taking into account the form of the regularized volume element dµ =
+√
+eσ uρdρdφ and asymptotics (2.5), one can evaluate the integral curvature on M̃α
+Z
+
+M̃α
+
+R = 2πα
+
+Z ∞
+0
+
+3
+
+dρu′ρ u− 2 −
+
+4π(1 − α) −
+
+Z ∞ Z 2πα √
+0
+
+Z ∞ Z 2πα √
+0
+
+0
+
+0
+
+uρdρdφ ✷C˜σ =
+
+uρdρdφ ✷C˜σ
+
+.
+
+(2.9)
+
+The conical metric results in the first term in the r. h. s. in (2.9) which does not depend
+on the regularization. The dependence on u appears only in the second ”volume” term in
+(2.9), but the latter turns out to be finite in the limit when regularization is taken off and
+it coincides with integral curvature computed in the standard way on the smooth domain
+Mα /Σ of Mα . (Let us remind that Σ denotes the singular set that is the point ρ = 0 in
+the given case.) Thus, in the limit a → 0 one has from (2.9)
+lim
+
+Z
+
+M̃α →Mα M̃α
+
+R = 4π(1 − α) +
+
+Z
+
+Mα /Σ
+
+R .
+
+(2.10)
+
+When in the region Mα /Σ the curvature R equals to zero, equation (2.10) reproduces the
+formula by Sokolov and Starobinsky [12]. This result does not depend on the concrete
+behaviour of the regularization function u, which can be shown to be a consequence of the
+
+5
+
+Gauss-Bonnet theorem relating the integral curvature in two dimensions with the Euler
+characteristics. A more deep discussion of this point will be given in section 3.
+So far as only singular point ρ = 0 can give rise to the first term in (2.10), one can
+introduce a local representation for the curvature on Mα
+(α)
+
+R=
+
+2(1 − α)
+δ(ρ) + R
+α
+
+(2.11)
+
+where δ(ρ) is the delta-function normalized as
+Z ∞
+0
+
+δ(ρ)ρdρ = 1 .
+
+In applications one also needs to handle with the higher order curvature polynomials or
+non-local functionals on conical defects. However, as distinct from the integral curvature
+(2.10), they include in general non-integrable singularities like δ n (ρ). Let us consider the
+properties of such functionals on the simplest examples.
+A.2. Integral of R2
+Without loss of generality, assume that metric (2.1) does not depend on the angle
+variable φ. In this case, introducing a new radial coordinate x = aρ , one can on M̃α write
+the curvature at the singular point as a decomposition
+4σ1
+xu′
+1 u′
++ σ1 2 + O(a2 ))
+R = (1 − a2 σ1 x2 )( 2 2 −
+a xu
+u
+u
+
+(2.12)
+
+where u′ ≡ ∂u
+. Using this it can be shown that the following equality
+∂x
+Z
+
+M̃α
+
+2
+
+R =
+
+Z
+
+Mα /Σ
+
+R2 + 2R(0)I1 (α) + X(α, a) ,
+
+1
+1
+X(α, a) = − R(0)I2 (α) + 2 I3 (α)
+4
+a
+
+(2.13)
+(2.14)
+
+holds at small values of the regularization parameter. Here the relation −4σ1 = R(ρ =
+0) ≡ R(0) has been used and Ik (α) denote the integrals
+I1 (α) = 2πα
+
+Z ∞
+
+dx(
+
+u′x
+5
+2
+
+)=
+
+4π (1 − α3 )
+3
+α2
+
+u
+Z ∞
+1
+u′
+dxx( x2 )2 u 2 ,
+I2 (α) = 2πα
+u
+0
+Z ∞
+dx u′x 2 1
+I3 (α) = 2πα
+( ) u2 .
+x u2
+0
+0
+
+6
+
+,
+
+(2.15)
+
+The quantity I1 (α) that enters into the finite part of the integral R2 does not depend
+on choice of the regularization function u(ρ, a) and it is determined only by asymptotics
+(2.5). However, I2 (α) and I3 (α) change under variations of u(ρ), including coordinate
+transformations. Taking this into account there is no reason to consider such terms in
+(2.13) separately and so they were gathered in a combination X(α, a). It follows from the
+form of (2.13), (2.14) and (2.15) that X(α, a) should be an invariant function, singular
+in the limit a → 0. It is also important that at small conical deficits X(α, a) vanishes as
+fast as (1 − α)2 and only finite terms in (2.13) dominate. This can be proved in general
+with the help of equation (2.4) but it is better to demonstrate for particular regularization
+(2.7)
+16π(1 − α2 )2 (α2 + 3α + 1)
+15α2
+(1 + α)3
+8π(1 − α2 )2 (8α2 + 9α + 3)
+I3 (α) =
+15α4
+(1 + α)3
+
+I2 (α) =
+
+,
+.
+
+(2.16)
+
+The above consideration teaches that (2.13) and other similar invariant functionals
+cannot have a strict mathematical meaning in the presence of conical singularities. Nevertheless, the structure of singular terms in these integrals can be described and, as will
+be shown, in some important cases all of them cancel each other or not contribute to the
+considered quantities leaving there finite terms not depending on the regularization.
+A.3. Polyakov-Liouville action
+This is an example of the non-local functional playing an important role in twodimensional quantum gravity since it is result of integrating the conformal anomaly. It
+looks as follows [16]
+WP L =
+
+Z
+
+Rψ
+
+(2.17)
+
+✷ψ = R .
+
+(2.18)
+
+where ψ is a solution of the equation:
+
+Consider (2.17) on the regularized space M̃α and make use of (2.8). Then (2.18) solves
+as follows
+ψ = −σ + ψC̃
+
+,
+7
+
+ψC˜ = −2 log ρ + C
+
+Z ρ
+
+1
+
+u2
+dρ + E
+ρ
+
+(2.19)
+
+where ψC˜ is a solution of equation (2.18) for the smoothed cone C˜ with the curvature
+RC˜ = u′ρ /(ρu2 ), C and E are constants. It should be noted that only for C = α2 this can
+be written in everywhere regular form
+2
+ψC˜ =
+α
+
+1
+
+u2 − α ′
+dρ + E
+ρ′
+0
+
+Z ρ
+
+(2.20)
+
+and, moreover, the function ψC˜ coincides in the limit a → 0 with the corresponding
+solution on the conical space Cα
+ψC˜ → ψC = 2
+
+(1 − α)
+log ρ + E
+α
+
+.
+
+(2.21)
+
+where the possible singular term ∼ ln a absorbed in redefinition of constant E. The
+function ψ is important for analysis of quantum effects on gravitational background and
+enters into the formulas for the energy density of the Hawking radiation and black hole
+entropy [7].
+The non-local action (2.17) on regularized two-dimensional manifold M̃α can be written in a more suitable form
+WP L [M̃α ] =
+
+Z
+
+C˜
+
+(RC˜ψC˜ − 2σRC˜ + σ✷C˜σ)
+
+.
+
+(2.22)
+
+Obviously, the second and third terms in the r. h. s. of (2.22) give a regular contributions
+when regularization is taken off. Taking into account equation (2.11), one gets when
+C̃α → Cα
+
+Z
+
+C˜
+
+σRC˜
+
+→
+
+4π(1 − α)σ(0)
+
+(2.23)
+
+where σ(0) can be zero, if the asymptotics (2.2) is assumed. Besides, the limit
+Z
+
+C˜
+
+σ✷C˜σ →
+
+Z
+
+C
+
+σ✷C σ ≡ WP L [Mα /Σ]
+
+(2.24)
+
+can be identified with the contribution to the Polyakov-Liouville action from the regular
+points of Mα . The remaining term in (2.22) for E = 0 has a nonlocal form
+Z
+
+C̃α
+
+RC˜ψC˜ = 2πα
+
+Z ∞
+0
+
+u′ρ
+3
+
+u2
+
+ψC˜(ρ)dρ = 2πα
+
+Z ∞
+0
+
+8
+
+Z ρ 1/2
+u′ρ
+u −α ′
+dρ
+dρ ≡ X(α, a) . (2.25)
+3/2
+u
+u3/2
+0
+
+As one can see, X(α, a) is regular in the limit a → 0 (for the regularization (2.6) dependence on a is absent) but depends on the form of the regularization function u. From
+equation (2.4) other important property follows that when α → 1 the function X(α, a)
+vanishes as (1 − α)2 .
+Finally, one obtains the action (2.17) on Mα in the form
+WP L [Mα ] = WP L [Mα /Σ] + 8π(1 − α)ψ(Σ) + X(α)
+
+(2.26)
+
+where ψ = −σ is a solution of equation (2.18) when α = 1, Σ is a singular point and
+X(α) ≡ X(α, a = 0). Thus the non-local action WP L turns out to be finite (in the limit
+a → 0) but regularization dependent.
+We will return to equation (2.26) in section 3.
+B. Higher-dimensional case
+The technique can be extended now to higher dimensions. Let us consider a twodimensional cone Cα embedded in the Riemann d-dimensional manifold Mα so that near
+the singularity (ρ = 0) the metric is represented as
+2
+
+σ
+
+2
+
+2
+
+2
+
+ds = e (dρ + ρ dφ +
+
+d−2
+X
+
+(γij (θ) + hij (θ)ρ2 )dθi dθj + ...) ≡ eσ ds̃2
+
+(2.27)
+
+i,j=1
+
+where ... means terms of higher power in ρ2 and φ runs from 0 to 2πα. For convenience
+we prefer to use the same parametrization as in two dimensions but, as distinct from
+this case, the singular set now is a (d − 2)–dimensional surface Σ with coordinates {θi }
+and metric γij (θ). Near it Mα looks as a direct product Cα × Σ. One can also consider
+Mα having a number of singular sets Σi , each with the corresponding conical angle αi .
+Hereafter the metric will be assumed not to depend on ϕ at least in the small region of
+Σ.
+The metric (2.27) can be regularized with a parameter a as in two dimensions by
+changing the gρρ component in the conical part
+ds2 = eσ (u(ρ, a)dρ2 + ρ2 dφ2 +
+
+d−2
+X
+
+(γij (θ) + hij (θ)ρ2 )dθi dθj + ...) .
+
+(2.28)
+
+i,j=1
+
+The curvature tensors for a manifold M̃α with metric (2.28) and evaluation of the geometrical quantities in the limit a → 0 are similar to that we considered in two dimensions.
+9
+
+Leaving the details for Appendix A, it should be mentioned that only the two-dimensional
+conical part of (2.28) gives rise to the singular contributions.
+We begin with formulas for components of the Riemann tensor that can be represented
+near Σ as
+(α)
+
+Rµναβ = Rµναβ + 2π(1 − α) ((nµ nα )(nν nβ ) − (nµ nβ )(nν nα )) δΣ
+
+(α)
+
+Rµν = Rµν + 2π(1 − α)(nµ nν )δΣ
+
+(α)
+
+R = R + 4π(1 − α)δΣ
+
+where δΣ is the delta-function:
+orthogonal to Σ, (nµ nν ) =
+
+R
+
+M f δΣ =
+
+(2.29)
+R
+
+k
+k
+µ
+Σ f ; n = nµ dx are two orthonormal vectors
+
+µν
+k k
+µ
+k=1 nµ nν and the quantities R αβ , R ν and R are computed
+
+P2
+
+in the regular points Mα /Σ by the standard method.
+A consequence of (2.29) is the following important formula for the integral curvature
+of Mα
+
+Z
+
+Mα
+
+(α)
+
+R = 4π(1 − α)AΣ +
+
+Z
+
+Mα /Σ
+
+R
+
+(2.30)
+
+R
+
+where AΣ = Σ is the area of Σ. Equation (2.30) already appeared in a number of recent
+publications for particular cases [6] and it was virtually implied in results of [13]. If Mα
+has a number of singular surfaces Σi with different conical deficits 2π(1 − αi ) then the
+first term in (2.30) should be changed by the sum over all Σi .
+As arbitrary functionals on Mα are concerned, we give, as an example, the integrals of
+quadratic combinations in Rµνλρ . The chosen regularization leads to the following results
+(for details see Appendix A):
+!Z
+Z
+(5d − 8)
+I2
+R =
+(R − RΣ ) + 8π(1 − α) RΣ +
+R + 2I1 −
+8(d − 1)
+Mα
+Σ
+Mα /Σ
+Σ
+Z
+3
+I2 QΣ + Y (α)AΣ ,
+(2.31)
+4(d − 1)
+Σ
+
+Z
+
+2
+
+Z
+
+2
+
+d
+(3d − 4)
+1
+I1 −
+I2
+(d − 1) 2
+16
+Mα
+Mα /Σ
+
+Z
+1
+1
+1
+I1 + I2
+QΣ + Y (α)AΣ ,
+(d − 1)
+8
+2
+Σ
+
+Z
+
+2
+Rµν
+=
+
+Z
+
+2
+Rµν
++
+
+10
+
+!Z
+
+Σ
+
+(R − RΣ ) +
+(2.32)
+
+Z
+
+Mα
+
+2
+Rµναβ
+=
+
+Z
+
+Mα /Σ
+
+1
+1
+4I1 − I2
+(d − 1)
+4
+
+
+2
+Rµναβ
++
+
+Z
+
+Σ
+
+d
+1
+2I1 − I2
+(d − 1)
+8
+
+!Z
+
+Σ
+
+(R − RΣ ) +
+
+QΣ + Y (α)AΣ
+
+(2.33)
+
+where Y (α) is a quantity divergent in the limit a → 0 and
+d
+QΣ = Rµανβ nµi nνi nαj nβj − Rµν nµi nνj
+2
+
+.
+
+For d = 2 expression (2.31) coincides with that derived in the previous section. As in two
+dimensions, integrals (2.31)-(2.33) contain both divergent (Y (α)) and dependent on the
+regularization (I2 (α)) terms and can be brought into the same form as (2.13) by gathering
+these terms together. In this case the remaining part of (2.31)- (2.33) will be a sum of
+the integrals over the smooth domain of Mα and regularization-independent additions
+in the form of surface integrals depending on either internal or external geometry of Σ.
+Obviously, one can proceed in this way and obtain similar expressions for functionals
+being higher order curvature polynomials on Mα . These examples follow below.
+
+3
+
+Applications
+
+A. Generalized variational principle
+As the first straightforward application of equation (2.30), we consider the variational
+principle generalized on a class of manifolds admitting conical singularities. It can be
+used, for instance, in the description of gravitational effects caused by cosmic strings.
+The gravitational action including a cosmic string with the tension µ and 2-dimensional
+worldsheet Σ reads
+W =−
+
+1
+R + µ ≡ Wgr + µ
+16πG
+Σ
+Σ
+Z
+
+Z
+
+Z
+
+.
+
+(3.1)
+
+Without loss of generality we assume that manifolds on which (3.1) is defined do not have
+the boundaries. Consider this functional on the spaces Mα with conical singularities
+distributed over Σ and represent it, according to (2.30), as follows:
+!Z
+(1 − α)
++µ
+W [Mα ] = Wgr [Mα /Σ] + −
+4πG
+Σ
+
+11
+
+(3.2)
+
+The form of (3.2) can be used now to find its variations on the given class of singular
+spaces, but without fixing the actual value of the deficit angle at the conical singularity.
+Thus, it is easy to see that, apart from the standard Einstein equations following from
+the first regular term in the r. h. s. of (3.2), the independent change of the metric on Σ
+results in the additional condition
+1 − α = 4πGµ
+
+(3.3)
+
+being the well-known relation between the string tension µ and the conical angle deficit
+[1]. Condition (3.3) is analogous to the ”surface Einstein equations” in the presence of
+matter shells [17] that can also be obtained from variations of the gravitational functional
+[14]. As is seen, in the absence of strings (3.3) is satisfied only at the vanishing deficit
+angle, α = 1. Therefore, even in the generalized variational principle the extrema of the
+Einstein action in vacuum are realized on the smooth manifolds. The same conclusion
+was previously derived in [14] for a minisuperspace model. On the other hand, spaces
+with a number of different conical defects cannot be extrema of the vacuum functional.
+B. Topological characteristics of Mα
+Let us turn to definition of the Euler numbers χ and the Hirtzebruch signature τ
+on manifolds with conical singularities. We are interested in these quantities so far as
+they are expressed through the integrals on powers of the Riemann tensor to which the
+regularization technique introduced above can be naturally applied. To be more specific,
+consider such a characteristic, say χ, on Mα as a limit of this quantity taken on the
+converging sequence M̃α
+χ[Mα ] ≡
+
+lim
+M̃α →Mα
+
+χ[M̃α ] = χ .
+
+(3.4)
+
+By definition, the right hand side of (3.4) is only determined by the topology of the
+smooth spaces and does not depend on the regularization parameter. Therefore, topological characteristics like χ of a singular manifold Mα simply coincide with those of M̃α
+and should be well-defined integral invariants. Our aim now is to find a concrete integral
+representation of χ and τ for Mα .
+12
+
+B1. Euler numbers
+To begin with, let us investigate the simplest example when Mα is a closed fourdimensional space with one singular surface Σ. For its regularized analog M̃α the Euler
+number reads
+1
+χ=
+32π 2
+
+Z
+
+M̃α
+
+2
+2
+(R2 − 4Rµν
++ Rµναβ
+) .
+
+(3.5)
+
+Using (2.31)-(2.33) and going from M̃α to Mα one obtains from (3.5) a finite expression
+χ[Mα ] =
+
+1
+32π 2
+
+Z
+
+Mα /Σ
+
+2
+2
+(R2 − 4Rµν
++ Rµναβ
+) + (1 − α)χ[Σ] ,
+
+(3.6)
+
+where all the terms depending on the regularization are mutually cancelled. Formula (3.6)
+gives the desired representation for χ[Mα ] in which the first term in the r. h. s. is the
+1
+contribution to the integral from the regular points, and χ[Σ] = 4π
+Σ RΣ is the Euler
+
+R
+
+number of the surface Σ.
+
+Equation (3.6) can be generalized to higher even dimensions d = 2p. Without loss of
+generality, we confine ourselves to the compact spaces without boundaries. In this case,
+the Euler number of a 2p-dimensional smooth manifold M is given by the integral [18]
+χ = cp
+
+Z
+
+M
+
+√
+L2p gd2p x
+
+(3.7)
+
+where Lp is the following quantity
+µ2p
+Lp = ǫµ1 µ2 ...µ2p−1 µ2p ǫν1 ν2 ...ν2p−1 ν2p Rµ1νµ12ν2 ...Rµ2p−1
+ν2p−1 ν2p
+
+(3.8)
+
+and the constant cp is
+cp =
+
+1
+22(p+1) π p p!
+
+.
+
+(3.9)
+
+Now let manifold in (3.7) be a smooth approximation M̃α of a 2p-dimensional space
+Mα with a singular 2(p − 1)-dimensional surface Σ. Then the Riemann tensor of M̃α can
+be represented as the sum
+µν
+µν
+Rµναβ = R(reg)
+αβ + R(con) αβ
+
+(3.10)
+
+µν
+of a term remaining regular when the regularization is taken off and a term R(con)
+αβ
+
+provided by the conical singularity. The latter has only one non-trivial component (see
+(A.3)):
+φρ
+R(con)
+φρ =
+
+13
+
+1 u′x
+a2 2xu2
+
+(3.11)
+
+where x = aρ and it is assumed that M̃α in the vicinity of Σ is covered by coordinates
+{φ, ρ, θi } with metric (2.28). Inserting (3.10) into (3.8) one gets a polynomial with respect
+
+µν
+to R(con)
+αβ . However, due to antisymmetricity of the ǫ-tensor only the first order of this
+
+quantity survives and
+i
+
+i
+
+2p−2
+φρj1 ...j2p−2 φρ
+Lp = Lreg
+R(con) φρ Ri1 ij21 j2 ...R 2p−3
+j2p−3 j2p−2
+p + 4pǫφρi1 ...i2p−2 ǫ
+
+(3.12)
+
+where indices ik and jk run from 1 to 2p − 2. This means that no singularities appear in
+(3.12) in the limit a → 0 apart from an integrable δ-function resulting in a surface addition
+on Σ. To evaluate it, choose the normal vectors nk to Σ so that n1 = {n1φ , 0, ..., 0} and
+n2 = {0, n2ρ , 0, ..., 0}. Then the ǫ-tensor reads
+ǫφρi1 ...i2p−2 = n1φ n2ρ ǫi1 ...i2(p−1)
+where ǫi1 ...i2(p−1) is the rank 2(p − 1) Levi-Civita tensor on Σ. Due to the orthonormality
+of the vectors nk , the product of ǫ-tensors in (3.12) becomes the product of their 2(p − 1)dimensional analogs
+ǫφρi1 ...i2p−2 ǫφρj1 ...j2p−2 = ǫi1 ...i2p−2 ǫj1 ...j2p−2
+Besides, so far as the extrinsic curvatures of the surface Σ vanish due to the isometry, the
+Gauss-Codacci equations [19] enable one to identify Rik ijnl jm on Σ with the components of
+the Riemann tensor of this surface. Thus, in the limit a → 0 one obtains the integral
+χ[Mα ] = cp
+
+Z
+
+Mα /Σ
+
+Lp + 8πpcp (1 − α)
+
+Z
+
+Σ
+
+L(p−1)
+
+(3.13)
+
+where the first term in r. h. s. is evaluated in the regular points of Mα and L(p−1) takes
+the form (3.8) defined with respect to the metric on Σ. Finally, comparing this with (3.7)
+and using identity c(p−1) = 8pπcp one gets the desired formula for the Euler number (3.7).
+We will write this for the general case when Mα has several singular surfaces Σi with the
+conical deficits 2π(1 − αi )
+χ[Mα ] = cp
+
+Z
+
+Mα /Σ
+
+Lp +
+
+X
+i
+
+(1 − αi )χ[Σi ]
+
+(3.14)
+
+As was expected the whole expression does not depend on the regularization and reproduces (3.6) as a particular case. This formula is also valid for a two-dimensional space
+14
+
+when the Euler number is proportional to the integral curvature and the singular surfaces
+are the point sets. In this case (3.14) is a consequence of (2.10) if one takes into account
+that χ = 1 for a point.
+It is worth mentioning as well that (3.14) reminds a formula for the Euler characteristic
+of polygons where each vertex gives a contribution in χ determined by the corresponding
+angular defect [20].
+The case is of special interest when Mα possesses a continuous isometry rotation
+group in the polar coordinate φ (Eq. (2.27)) and all the singular surfaces in (3.14) have
+equal angles αi = α. Then, if α = 1, the space is everywhere smooth. Otherwise, when
+α 6= 1, Mα can be obtained by the following chain of continuous topology preserving
+deformations: Mα=1 → M̃α=1 → M̃α → Mα . Therefore, one can identify the Euler
+numbers χ[Mα ] = χ[Mα=1 ], which results, due to (3.14), in the interesting formula
+reducing the number χ of a manifold Mα to that of the fixed points set of its abelian
+isometry
+χ[Mα=1 ] =
+
+X
+
+χ[Σi ]
+
+(3.15)
+
+i
+
+where we made use of the fact that for the given case the volume term in (3.14) equals
+αχ[Mα=1 ]. Equation (3.15) can be illustrated for the deformed hyperspheres Sαd [8] with
+the conical deficits of the polar angle. Thus, the singular set of Sα2 consists of its ”north”
+and ”south” poles. Each of these points has χ = 1 and one gets from (3.15): χ[S 2 ] =
+1 + 1 = 2. On the other hand, the singular surface of Sαd (d ≥ 3) is S d−2 and from (3.15)
+the known identity χ[S d ] = χ[S d−2 ] follows. Note that equation (3.15) is valid only for
+spaces with continuous isometry in φ and it is violated for arbitrary kind orbifolds with
+conical singularities.
+B2. Hirtzebruch signature
+We confine the analysis to the four-dimensional case that is of the most importance
+in applications. The Hirtzebruch signature τ on the smooth spaces without boundaries is
+represented by the integral [18]
+1
+τ=
+96π 2
+
+Z
+
+M
+
+√
+Rµναβ Rµν γσ ǫαβγσ gd4 x .
+
+15
+
+(3.16)
+
+Consider this integral on the regularized space M̃α and use equation (3.10) to extract
+the term giving a singular contribution to the curvature tensor when regularization is
+removed. Due to the Levi-Civita tensor, the only additional surface term that can appear
+in (3.16) is defined by the quantity
+ρφ
+ijρφ
+Rρφij R(con)
+ρφ ǫ
+
+where Rρφij are regular components of the Riemann tensor taken on the singular surface
+Σ and ij indices are referred to its coordinates. However, taking into account the behavior
+(2.27) of the metric near Σ one can show that Rρφij = 0 and the surface terms are absent.
+Therefore, the Hirtzebruch signature on Mα has the same form as that on the smooth
+manifolds; it is given by the integral over the regular region
+τ [Mα ] =
+
+1
+96π 2
+
+Z
+
+Mα /Σ
+
+√
+Rµναβ Rµν γσ ǫαβγσ gd4 x .
+
+(3.17)
+
+One can also obtain τ [Mα ] in higher dimensions and show that, similar to (3.17), it is
+represented by the integral over region Mα /Σ without extra surface terms.
+C. Lovelock gravity
+Now a natural question arises: can one indicate higher order curvature polynomials
+not reducible to topological characteristics but still having strict meaning on the conical
+singularities? The answer is positive. To begin with, let us note that the integral of
+2
+2
+(R2 −4Rµν
++Rµναβ
+) is the topological invariant only in four dimensions where it is reduced
+
+to a total derivative. Nevertheless, as one can show with the help of (2.31)-(2.33), this
+integral, having extended to higher dimensions, will be strictly defined as before and can
+be represented in the same form as its topological analog (3.6).
+The given integral combination is a particular example of the so-called Lovelock gravity [21] and its property holds also for the general Lovelock gravitational action. This
+functional is introduced on a d-dimensional Riemannian manifold as the following polynomial
+WL =
+
+kd
+X
+
+p=1
+
+λp
+
+Z
+
+kd
+X
+1 [ν1 ν2 ...ν2p−1ν2p ] µ1 µ2
+µ2p−1 µ2p
+λp Wp
+R
+...R
+≡
+δ
+ν2p−1 ν2p
+22p p! [µ1 µ2 ...µ2p−1 µ2p ] ν1 ν2
+p=1
+
+(3.18)
+
+[...]
+
+where δ[...] is the totally antisymmetrized product of the Kronecker symbols and kd is
+(d − 2)/2 (or (d − 1)/2) for even (odd) dimension d. In the 4-dimensional case there is
+16
+
+only one term W1 = 21 R in this functional and it is reduced to the Einstein action. It
+R
+
+was argued [22] that the gravitational action similar to (3.18) arises in the low-energy
+expansion of string models. Moreover, due to antisymmetrization, no derivatives higher
+than second order appear in the equations in the Lovelock theory [21] and it turns out to
+be free of ghosts when expanding about flat space [22].
+The fact that the Lovelock action is a finite and well-defined functional on manifolds
+with conical singularities can be proved along the lines given for the Euler characteristics.
+Indeed, each the integral Wp in WL can be shown by using the properties of the LeviCivita tensor to be a dimensional extension of the corresponding Euler number χ (3.7).
+Thus, the analysis showing that Wp is finite on Mα and independent of the regularization
+is completely the same as that given for χ. The important things one should use for this
+are the antisymmetricity property and a helpful relation
+[ν ...ν ]
+
+δ[µ11 ...µnn ] =
+
+n
+X
+
+[ν ..ν ..ν ]
+
+(−1)k+1 δµνk1 δ[µ22 ..µ1k ..µnn ]
+
+.
+
+(3.19)
+
+k=1
+
+After a simple algebra the Lovelock action on Mα can be represented as the sum of the
+volume and surface parts
+WL [Mα ] = WL [Mα /Σ] + 2π(1 − α)
+
+kX
+d −1
+
+λp+1Wp [Σ]
+
+(3.20)
+
+p=0
+
+where the first term is the action computed at the regular points and the second one is a
+Lovelock’s action given on the singular surface. It should be stressed that integrals Wp [Σ]
+are defined completely in terms of the Riemann tensor on Σ
+Wp [Σ] =
+
+1
+22p p!
+
+Z
+
+Σ
+
+[i ...i ]
+
+i
+
+i
+
+2p
+Ri1 i2j1 j2 ...R 2p−1
+δ[j11 ...j2p
+j2p−1 j2p
+2p ]
+
+(3.21)
+
+R
+
+and W0 ≡ Σ .
+Formula (3.20) can be used to investigate the equations following from the extrema
+of WL (Mα ). The variations of this functional at fixed α result in the normal Lovelock
+equations [21] and the surface ones
+
+
+2π(1 − α) 
+
+kX
+d −1
+p=1
+
+
+
+jj j ...j2p−1 j2p i1 i2
+i2p−1 i2p
+j
+= µδij
+λp+1 δii11i22...i2p−1
+i2p R j1 j2 ...R j2p−1 j2p + λ1 δi
+
+(3.22)
+
+where µ is the density of a matter distributed over Σ. The latter equation generalizes
+relation (3.3) between string tension and polar angle deficit in the Einstein theory. Remarkably, in the higher dimensional case, an essential feature comes out: even if µ = 0,
+17
+
+(3.22) may have non-trivial solutions different from these with α = 1. This means that
+singular manifolds Mα can be extrema in the pure Lovelock gravity. However, further
+discussion of this point is outside the aim of this paper.
+D. Calculus of black hole entropy
+Manifolds with conical singularities naturally appear in the path integral approach
+to gravitational thermodynamics in the presence of the Killing horizons [6]-[8],[26]. Let
+the space-time possess a globally defined time-like Killing vector ∂t and be static. Then
+the free energy of a field system at temperature T = β −1 can be shown to coincide, up
+to multiplier β, with an effective action functional W (β) given on an Euclidean section
+Mβ of the corresponding background manifold. The time coordinate τ of this Euclidean
+space has to be periodical with the period β. In the case of the Killing horizon Σ, Mβ
+acquires conical singularities on this surface and can be described near it by the metric
+−1
+(2.27) with α = ββH . Here βH
+is the Hawking temperature at which conical singularities
+
+vanish and at which the black-hole thermodynamics is considered. However, to get the
+entropy S from the partition function Z(β) according to the standard definition
+!
+
+∂
++ 1 ln Z(β)|β=βH
+S = −β
+∂β
+
+(3.23)
+
+one should put β to be slightly different from βH . In terms of the effective action equation
+(3.23) can be rewritten as
+!
+
+∂
+− 1 W (Mα )
+S= α
+∂α
+
+(3.24)
+
+where for the background manifold the previous notation Mα has been introduced and
+−1
+α ≡ ββH
+. Several examples how this formula can be used in the framework of the given
+
+regularization approach follow below.
+D1. Higher-derivative gravity
+Consider the following gravitational action being quadratic in the curvature tensor:
+W =
+
+Z
+
+√
+
+
+
+gdd x −
+
+1
+R + a1 R2 + a2 Rµν Rµν + a3 Rµνλρ Rµνλρ
+16πG
+
+
+
+(3.25)
+
+The first term in (3.25) is the standard Einstein action, whereas the others are usually
+motivated by necessity to get rid off the one-loop ultraviolet divergences.
+18
+
+Obviously, a straightforward application of (3.24) to calculate the black hole entropy
+in such a theory faces a difficulty so far as the higher order terms are ill-defined on the
+conical singularities and first one should change Mα by its regular analog [7]. Then the
+formulas (2.31)-(2.33) give the following expressions valid for any dimension d:
+Z
+
+R=α
+
+Mα
+
+Z
+
+Mα
+
+Z
+
+Mα
+
+Z
+
+Mα
+
+R
+
+R =α
+
+Rµν Rµν = α
+
+µνλρ
+
+2
+
+Rµνλρ = α
+
+Z
+
+Mα=1
+
+Z
+
+Mα=1
+
+Z
+
+Mα=1
+
+Z
+
+R + 4π(1 − α)
+
+2
+
+Mα=1
+
+R + 8π(1 − α)
+
+Rµν Rµν + 4π(1 − α)
+R
+
+µνλρ
+
+Z
+
+,
+
+(3.26)
+
+R + O((1 − α)2 ) ,
+
+(3.27)
+
+Rµν nµi nνi + O((1 − α)2 ) ,
+
+(3.28)
+
+Z
+
+Σ
+
+Z
+
+Σ
+
+Rµνλρ + 8π(1 − α)
+
+Z
+
+Σ
+
+Σ
+
+Rµνλρ nµi nλi nνj nρj + O((1 − α)2 ) ,
+(3.29)
+
+where nµi are two orthonormal vectors orthogonal to the horizon surface Σ. To get (3.26)(3.29) we made use of the fact that Mα is static and of the Gauss-Codacci identity on
+Σ:
+R = RΣ + 2Rµν nµi nνi − Rµρνσ nµi nνi nρj nσj
+in which the second fundamental forms are absent due to the symmetry. The first integrals
+in (3.26)-(3.29) are defined on the smooth space at α = 1, they are proportional to α and
+do not affect the entropy S. As for the terms O((1 − α)2) in (3.27)-(3.29), they depend on
+the regularization prescription and turn out to be singular in the limit M̃α → Mα , but
+they do not contribute to S and the energy of the system at the Hawking temperature
+(α = 1). Indeed, from (3.24) and (3.26)-(3.29) one obtains for S the following integral
+over the horizon Σ
+Z 
+
+1
+AΣ −
+8πa1 R + 4πa2 Rµν nµi nνi + 8πa3 Rµνλρ nµi nλi nνj nρj
+S=
+4G
+Σ
+
+.
+
+(3.30)
+
+1
+Remarkably, this expression differs from the Bekenstein-Hawking entropy S = 4G
+AΣ in the
+
+Einstein gravity by the contributions depending both on internal and external geometry
+of the horizon due to higher order curvature terms in (3.25). It is easy to see that the
+effect of internal geometry of Σ is reduced to the integral curvature of this surface. In
+four dimensions (d = 4) this, being a topological invariant, is an irrelevant addition to S.
+It is worth noting that exactly the same expression can be derived by the Noether
+charge method suggested by Wald [27]. A difference, between two approaches is that the
+19
+
+Wald’s method seems to be more general, but it is defined on the equations of motion,
+whereas the above derivation of (3.30) can be also applied off-shell. A general proof of
+their equivalence when taken on-shell has been given in [28].
+D2. Lovelock gravity
+The expression (3.30) can be generalized to the theory with the gravitational action
+being an arbitrary polynomial in the Riemann tensor. A relevant example is again the
+Lovelock gravity, where the static black-hole solutions do exist [23] and their thermodynamics can be treated along lines of thermodynamics in the Einstein gravity [24]. The
+entropy of a hole in this case can be inferred from the Lovelock action (3.20) associated
+with the free energy
+kX
+d −1
+∂
+λp+1Wp (Σ) .
+− 1 WL (Mα )|α=1 = −2π
+S= α
+∂α
+p=0
+
+!
+
+(3.31)
+
+and it turns out to depend only on the internal geometry of Σ. Formula (3.31) has been
+previously derived in the Hamiltonian approach in [25], whereas arguments based on the
+dimensional continuation of the Euler characteristics have been used for its derivation in
+[13].
+D3. Two-dimensional quantum models
+Two-dimensional models of quantum gravity represent a remarkable example when
+the one-loop effective action W can be found explicitly. Thus, in the 2d dilaton gravity
+W is the combination
+c
+WP L
+96π
+
+(3.32)
+
+√
+d2 x g[F (Φ)R + G(Φ)(∇Φ)2 + U(Φ)]
+
+(3.33)
+
+W = W0 −
+of the classical dilaton action
+W0 = −
+
+Z
+
+and the Polyakov-Liouville functional (2.17) generated by the quantum effects, c is a
+constant associated with the central charge.
+The contribution of classical action W0 (3.33) to the entropy can easily be found using
+equation (3.23):
+S0 = 4πF (Φh )
+20
+
+(3.34)
+
+where Φh is the value of the dilaton field Φ at the horizon which in two dimensions is
+a point xh . This expression coincides with that previously obtained in [30]. As for the
+quantum correction to S, it can be derived using formula (2.26) that defines WP L on
+conical singularities and the fact that X(α) ≃ (1 − α)2 . From (2.26) one immediately
+finds
+S1 =
+
+c
+ψ(xh ) .
+12
+
+(3.35)
+
+The total entropy for the effective action (3.32) reads
+S = S0 + S1 = 4πF (Φh ) +
+
+c
+ψh
+12
+
+.
+
+(3.36)
+
+In conformal gauge one puts ψh = σh . Again this result coincides with that previously
+obtained by means of the Wald method [32]. We seen that the function ψ(x) is not
+uniquely defined; one may add any solution of the homogeneous equation w(x): ✷w = 0.
+The concrete choice of w(x) means the specification of the quantum state of the system and
+it can be found from appropriate boundary conditions [32]. Finally, it is worth noting that
+the last term in (3.36) determines a correction which comes from the conformal anomaly
+and for the dilaton holes it leads to a logarithmic dependence of the entropy on the mass
+of the hole [7], [31].
+
+Acknowledgments
+One of the authors (D.F.) thanks Alexander Popov for a number of useful remarks.
+This work was partially supported by the International Science Foundation, grant RFL000.
+
+21
+
+Appendix
+Here we present some technical details omitted in section 2. Thus, to compute the
+curvature on the regularized space M̃α , one can take into account that the metric (2.28)
+is of the form gµν = eσ g̃µν and then make use of the formulas for the curvature tensors of
+two conformally related manifolds
+1
+R[g̃] + (d − 1)σ αα
+R[g] = e
+,
+2
+
+
+1
+µ
+µ
+µ α
+µ
+−σ
+R ν [g̃] + ((d − 2)σ ν + δ ν σ α )
+R ν [g] = e
+4
+
+
+[µ ν]
+µν
+µν
+−σ
+R αβ [g̃] + δ [α σ β]
+R αβ [g] = e
+−σ
+
+
+
+
+
+,
+(A.1)
+
+where
+˜ µ∇
+˜ νσ + ∇
+˜ µσ∇
+˜ ν σ − 1 g̃µν (∇σ)
+˜ 2
+σµν ≡ −2∇
+2
+
+.
+
+(A.2)
+
+For metric g̃µν (2.28) we have in the vicinity of ρ = 0:
+1 u′x
++ O(a2 ) ,
+a2 2xu
+xu′
+1 u′
+R̃ρρ = 2 x − h(1 − x ) + O(a2 ) ,
+a 2xu
+2u
+′
+1 u
+h
+R̃φφ = 2 x 2 − + O(a2 ) ,
+a 2xu
+u
+1 u′x
+xu′
+h
+R̃ = 2 2 + RΣ − (4 − x ) + O(a2 )
+a xu
+u
+u
+R̃φρφρ =
+
+(A.3)
+
+where h = γ ij hij and we introduced the variable x = ρa ; RΣ is the scalar curvature of
+Σ. Other components of the curvature tensors do not contain the terms divergent in the
+limit a → 0. As for the tensor σµν (A.2), near the point ρ = 0 its components read
+xu′x
+σρρ = −8σ1 + 4σ1
++ O(a2 ) ,
+u
+σ1
+φ
+2
+σ φ = −8 + O(a ) ,
+u
+1 1 xu′x
+) + O(a2 ) .
+σ αα = −16σ1 ( −
+u 4 u2
+
+(A.4)
+
+It is easy to see that in the limit a → 0 only the two-dimensional conical part of the metric
+g̃µν gives singular contributions to the curvature tensors whereas the terms in (A.3) result
+in regular additions. Finally, taking into account the form of the volume element
+1
+1
+√
+dµ̃ = a2 e−dσ/2 u 2 (1 + a2 x2 h) γxdxdφdd−2 θ
+2
+
+22
+
+one obtains equations (2.29).
+Consider now the integrals of quadratic curvature combinations on Mα . By using
+(A.2), (A.3), (A.4) in the limit a → 0 it can be shown that
+5
+R =α
+R + 8π(1 − α) RΣ − 8I1 − I2
+2
+Mα
+Mα=1
+Σ
+ Z
+
+
+1
+1
+(d − 4)I2 − 16(d − 1) I1 − I2
+σ1 + 2 I3 AΣ ,
+4
+a
+Σ
+
+Z
+
+Z
+
+2
+
+Z
+
+
+
+Z
+
+2
+
+Z
+3
+I2 − 2I1
+h+
+4
+Mα
+Mα=1
+Σ
+
+
+ Z
+1
+1
+1
+(d − 4)I2 − 4d I1 − I2
+σ1 + 2 I3 AΣ
+2
+4
+2a
+Σ
+
+Z
+
+2
+Rµν
+=α
+
+Z
+
+2
+Rµν
++
+
+Σ
+
+h+
+(A.5)
+
+
+
+,
+
+1
+2
+Rµναβ
++ I2 h +
+2
+Mα
+Σ
+Mα=1
+ Z
+
+
+1
+1
+σ1 + 2 I3 AΣ
+(d − 4) − 16 I1 − I2
+4
+a
+Σ
+
+Z
+
+R
+
+where AΣ = Σ
+the integrals
+
+R
+
+√
+
+2
+Rµναβ
+=α
+
+(A.6)
+
+Z
+
+Z
+
+(A.7)
+
+γdd−2 θ is the area of the singular surface Σ. By means of identities (A.1)
+
+Σ h and
+
+R
+
+Σ σ1 can be written in a coordinate invariant form in terms of the
+
+curvature tensors for the initial metric gµν (2.27):
+Z
+
+Σ
+
+h=
+
+Z
+
+8(d − 1)
+
+1
+d
+Rµρνλ nµi nνi nλj nρj − Rµν nµi nνi
+4
+2
+
+Σ
+
+Z
+
+Σ
+
+σ1 =
+
+Z
+
+Σ
+
+!
+
+(RΣ − R − dRµρνλ nµi nνi nλj nρj + 2Rµν nµi nνi ) .
+
+(A.8)
+
+Finally, when using (A.8), expressions (A.5), (A.6), (A.7) take the invariant form of
+equations (2.31), (2.32), (2.33).
+
+23
+
+References
+[1] A.A. Vilenkin, Phys. Rep. 121 N5, 263 (1985).
+[2] J.S. Dowker, J. Phys. A: Math. Gen. 10, 115 (1977); S. Deser and R. Jackiw, Comm.
+Math. Phys 118, 495 (1988).
+[3] T.M. Halliwell and D.A. Konkowsky, Phys. Rev. D33, 1918 (1986); J.S. Dowker, Phys.
+Rev. D36, 3095 (1987); V.P. Frolov and E.M. Serebriany, Phys. Rev. D35, 3779 (1987).
+[4] M.B. Green, J.H. Schwarz and E. Witten, Superstring Theory, vol. 2, Cambridge
+University Press, Cambridge, 1987.
+[5] K. Schleich and D.M. Witt, Nucl. Phys. B402, 411; 469 (1993).
+[6] L. Susskind and J. Uglum, Phys. Rev. D50, 2700 (1994); L. Susskind, Some speculations about black hole entropy in string theory, RU-93-44, hep-th/9309145; C. Callan
+and F. Wilczek, Phys. Lett. B333, 55 (1994); S. Carlip and C. Teitelboim, The offshell black hole, gr-qc/9312002; C. Teitelboim, Topological roots of black hole entropy,
+preprint, April 1994; A.I. Barvinsky, V.P. Frolov and A.I. Zelnikov, Wavefunction of a
+black hole and the dynamical origin of entropy, Phys. Rev. D to be published.
+[7] S.N. Solodukhin, Phys.Rev. D51 (1995), 609.
+[8] D.V. Fursaev and G. Miele, Phys. Rev. D49, 987 (1994).
+[9] J. Cheeger, Proc. Nat. Acad. Sci. USA 76, 2103 (1979), J. Diff. Geometry, 18, 575
+(1983).
+[10] G. Cognola, K. Kirsten and L. Vanzo, Phys. Rev. D49, 1029 (1994); H. Donnelly,
+Math. Ann. 224, 161 (1976); J.S. Dowker, Class. Quantum Grav. 11, L137 (1994);
+D.V. Fursaev, Class. Quantum Grav. 11, 1431 (1994), Phys. Lett. 334B, 53 (1994).
+[11] J.S. Dowker, Commun. Math. Phys. 162, 633 (1994); P. Chang and J.S. Dowker,
+Nucl. Phys. 395, 407 (1993) (and references therein); G. Cognola and L. Vanzo, The
+trace of the heat kernel on a compact hyperbolic 3-orbifold, preprint UTF-288, Phys.
+Rev. D to be published.
+24
+
+[12] D.D. Sokolov and A.A. Starobinsky, DAN SSSR 22, 312 (1977).
+[13] M. Bañados, C. Teitelboim and J. Zanelli, Phys. Rev. Lett. 72, 957 (1994).
+[14] G. Hayward and J. Louko, Phys. Rev. D42, 4032 (1990).
+[15] B. Allen and A.C. Ottewill, Phys. Rev. D42, 2669 (1990).
+[16] A.M. Polyakov, Phys. Lett. 103B, 207 (1981).
+[17] W. Israel, Nuovo Cimento, 44B, 1 (1966).
+[18] S. Kobayashi and K. Nomizu, Foundations of Differential Geometry, (New York,
+1969).
+[19] J.A. Schouten, Ricci-Calculus (Spriner-Verlag, Berlin 1954).
+[20] T. Eguchi, P.B. Gilkey and A.J. Hanson, Phys. Rep. 66, 213 (1980)
+[21] D. Lovelock, J. Math. Phys. 12, 498 (1971).
+[22] B. Zwiebach, Phys. Lett. B156, 315 (1985); B. Zumino, Phys. Rep. 137, 137 (1986).
+[23] D.G. Boulware and S. Deser, Phys. Rev. Lett. 55, 2656 (1985); J.T. Wheeler, Nucl.
+Phys. B268, 737 (1986), Nucl. Phys. B273, 732 (1986); D.L. Wiltshire, Phys. Lett.
+B169, 36 (1986), Phys. Rev. D38, 2445 (1988).
+[24] R.C. Myers and J.Z. Simon, Phys. Rev. D38, 2434 (1988); B. Whitt, Phys. Rev.
+D38, 3000 (1988).
+[25] T. Jacobson and R.C. Myers, Phys. Rev. Lett. 70, 3684 (1993).
+[26] G.W.Gibbons, S.W.Hawking, Phys. Rev. D15, 2752 (1977); S.W.Hawking in General
+Relativity, edited by S.W.Hawking and W.Israel (Cambridge University Press, Cambridge, 1979).
+[27] R.M. Wald, Phys. Rev. D48, R3427 (1993); V. Iyer and R.M. Wald, Phys. Rev. D50,
+846 (1994); T.A. Jacobson, G. Kang, and R.C. Myers, Phys. Rev. D49, 6587 (1994).
+
+25
+
+[28] W. Nelson, A comment on black hole entropy in string theory, UCSBTH-93-41.
+[29] G.Mandal, A.Sengupta and S.Wadia, Mod. Phys. Lett. A6, 1685 (1991); E.Witten,
+Phys. Rev. D44, 314 (1991).
+[30] C.Nappi, A.Pasquinucci, Mod. Phys. Lett. A17, 3337 (1992); G.W.Gibbons and
+M.Perry, Int. J. Mod. Phys. D1, 335 (1992); V.P.Frolov, Phys. Rev. D46, 5383 (1992).
+[31] T.M.Fiola, J.Preskill, A.Strominger, S.P.Trivedi, Black hole thermodynamics and
+information loss in two dimensions, hep-th/9403137.
+[32] R.C.Myers, Black hole entropy in two dimensions, hep-th/9405162.
+
+26
+
+

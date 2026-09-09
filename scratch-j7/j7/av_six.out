@@ -1,0 +1,4 @@
+  d2 = norm((f1 - f0) / scale) / h0
+  return np.abs(h) * err5_norm_2 / np.sqrt(denom * len(scale))
+  return (A0**2*A2 - A0*epsilon*(3*A1*A3 + A2**2) + A0*(A1**2 - 1) + A2*epsilon*(5*A1**2 - 2) + 2*A2*(A1**2 - 1))/(A0**2*epsilon)
+  err5 = np.dot(K.T, self.E5) / scale

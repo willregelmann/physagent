@@ -1,0 +1,2998 @@
+Boundary Terms, Variational Principles and
+Higher Derivative Modified Gravity
+
+arXiv:0809.4033v2 [gr-qc] 28 Jan 2009
+
+Ethan Dyer1 and Kurt Hinterbichler2
+Institute for Strings, Cosmology and Astroparticle Physics
+and Department of Physics
+Columbia University, New York, NY 10027 USA
+
+We discuss the criteria that must be satisfied by a well-posed variational
+principle. We clarify the role of Gibbons-Hawking-York type boundary terms
+in the actions of higher derivative models of gravity, such as F (R) gravity, and
+argue that the correct boundary terms are the naive ones obtained though
+the correspondence with scalar-tensor theory, despite the fact that variations
+of normal derivatives of the metric must be fixed on the boundary. We show
+in the case of F (R) gravity that these boundary terms reproduce the correct
+ADM energy in the hamiltonian formalism, and the correct entropy for black
+holes in the semi-classical approximation.
+
+1
+2
+
+esd2107@columbia.edu
+kurth@phys.columbia.edu
+
+1
+
+Introduction and outline
+
+The Einstein-Hilbert action for general relativity (GR) is
+Z
+√
+SEH ∼ d4 x −gR.
+
+(1.1)
+
+When varying this action, one finds surface contributions that must vanish if
+the action is to be stationary. The surface contributions contain the metric
+variation δgµν and variations of the derivatives of the metric δ(∂σ gµν ). Setting
+δgµν = 0 on the boundary is not sufficient to kill all the surface contributions.
+Fixing both the metric and the derivatives of the metric on the boundary
+is uncomfortable, however it may not be initially obvious why this is so, or
+that there exists a unique and correct prescription for dealing with it.
+Gibbons, Hawking, and York proposed adding the trace of the extrinsic
+curvature of the boundary, K, to the action [1, 2]. With this modification
+the action takes the form
+Z
+I
+p
+√
+4
+S = SEH + SGHY ∼ d x −gR + 2 d3 x |h|K.
+(1.2)
+h is the determinant of the induced metric on the boundary. This modification is appealing because the variation of the Gibbons-Hawking-York (GHY)
+boundary term cancels the terms involving δ(∂σ gµν ), and so setting δgµν = 0
+becomes sufficient to make the action stationary. This has been widely accepted as the correct modification to the action.
+This modification raises some questions. Is the modification unique? Is
+it necessarily incorrect to require δ(∂σ gµν ) = 0? If this is incorrect, why is it
+appropriate to require the fixing of all components of gµν , when the graviton
+has only two degrees of freedom? More generally, what criteria determine
+which quantities to fix on the boundary? Should it be related to the number
+of degrees of freedom in the theory?
+Despite these questions the GHY term is desirable, as it possesses a number of other key features. The term is required to ensure the path integral
+has the correct composition properties [1]. When passing to the hamiltonian
+formalism, it is necessary to include the GHY term in order to reproduce the
+correct Arnowitt-Deser-Misner (ADM) energy [3]. When calculating black
+1
+
+hole entropy using the euclidean semiclassical approach, the entire contribution comes from the GHY term [44]. These considerations underscore the
+necessity of a complete understanding of boundary terms.
+Higher derivative theories of gravity have attracted attention recently,
+mostly as modifications to GR that have the potential to explain cosmic
+acceleration without vacuum energy. A simple example of such a modification
+is F (R) gravity, where the action becomes some arbitrary function, F , of the
+Ricci scalar (for reviews, see [4, 5]),
+Z
+√
+S ∼ d4 x −gF (R).
+(1.3)
+It is well known that this theory is dynamically equivalent to a scalar-tensor
+theory [25, 26, 27, 28, 30] . By extending this equivalence to the GHY term,
+we find that the F (R) action is left with a boundary term,
+I
+Z
+p
+p
+4
+(1.4)
+d x |g|F (R) + 2 d3 x |h|F 0 (R)K.
+This boundary term must be present if the correspondence to scalar-tensor
+theory is to hold at the boundary.
+This term has been arrived at before, both directly and indirectly, and in
+several different contexts [15, 16, 17, 18, 19]. There has been some confusion,
+as this boundary term does not allow δ(∂σ gµν ) to remain arbitrary on the
+boundary. Various ways around this have been attempted, for example, when
+restricting to maximally symmetric backgrounds a boundary term for F (R)
+theory can be found that allows δ(∂σ gµν ) to remain arbitrary on the boundary
+[18].
+F (R) theory is a higher derivative theory, however, and the derivatives of
+the metric encode true degrees of freedom. δ(∂σ gµν ) should not remain arbitrary on the boundary. Instead, δ(∂σ gµν ) must be subject to the constraint
+that the variation of the four-dimensional Ricci scalar be held fixed on the
+boundary. This corresponds to holding the scalar field fixed in the equivalent
+scalar-tensor theory. We will show that the above boundary term reproduces
+the expected ADM energy upon passing to the hamiltonian formalism, and
+the expected entropy for black holes.
+In what follows, we will elaborate upon the above in detail.
+2
+
+An outline of this paper is as follows. In section 2, we go over the criteria
+that are necessary to have a well-posed variational principle. In section 3,
+we examine several toy examples of lagrangians in classical mechanics that
+share some of the features of the more complicated GR case. We discuss
+what adding total derivatives can do to the variational principle, and what
+happens in higher derivative theories. We also discuss the complications due
+to constraints and gauge invariance, and we work out the case of electromagnetism. In section 4, we review the GHY term, its variation, and how it
+renders the GR action well-posed. In section 5, we discuss higher derivative
+modified gravity theories, scalar-tensor theories, and their equivalence, using
+F (R) theory as the prime example. We find the boundary terms for F (R)
+theory using this equivalence. In section 6, we derive the hamiltonian formulation of scalar-tensor theory and F (R) theory, keeping all boundary terms,
+and show how the boundary term is essential for obtaining the ADM energy.
+In section 7, we calculate the entropy of a Schwartzschild black hole in F (R)
+theory, using the euclidean semi-classical approach, and compare the result
+to the Wald entropy formula. We conclude in section 8, and some formulae,
+theorems and technicalities are relegated to the appendices.
+Conventions: We use the conventions of Carroll [20]. These include using the mostly plus metric signature (−, +, +, +, . . .), and the following definitions of the Riemann and Ricci tensors, Rκ λµν = ∂µ Γκνλ − ∂ν Γκµλ + Γκµη Γηνλ −
+Γκνη Γηµλ , Rλν = Rµ λµν . The weight for anti-symmetrization and symmetrization is, e.g. A[µν] = 21 (Aµν − Aνµ ). For spacelike hypersurfaces, the normal
+vector will always be inward pointing. For timelike hypersurfaces, it will be
+outward pointing. The dimension of spacetime is n. Further conventions and
+notation for foliations of spacetime are laid out in appendices A and B.
+
+2
+
+What makes a variational principle wellposed?
+
+A traditional approach to field theory is to integrate by parts at will, ignoring boundary contributions. The reasoning is that if there are no physical
+boundaries in the space under consideration, or if they are so far away that
+their effects can be expected not to interfere with the system under study,
+then they can be ignored.
+3
+
+If one is interested only in the local equations of motion of a theory, this
+is a valid approach. In this case, one uses the action only as a formal device
+for arriving at the equations of motion. Denoting the fields collectively by
+φi , one writes down the lagrangian, which is a local density,
+L ([φ], x) .
+
+(2.1)
+
+Here [φ] stands for dependence on φi and any of its higher derivatives, [φ] ≡
+φi , ∂µ φi , ∂µ ∂ν φi , . . ., and x are the coordinates on spacetime. One then defines
+the equations of motion to be the Euler-Lagrange equations
+δ EL L
+= 0,
+δφi
+where
+
+(2.2)
+
+δ EL
+∂
+∂
+∂S
+=
+−
+∂
++
+∂
+∂
+− ···
+µ
+µ ν
+δφi
+∂φi
+∂(∂µ φi )
+∂(∂µ ∂ν φi )
+
+is the Euler-Lagrange derivative and the symmetric derivative is defined by
+∂S
+µ1
+∂ν . . . ∂νk φj = δji δ(ν
+· · · δνµkk) .
+1
+∂(∂µ1 . . . ∂µk φi ) 1
+
+(2.3)
+
+(The symmetric derivative is to avoid over-counting multiple derivatives
+which are not independent.)
+All the relevant local theory, i.e. equations of motion, symmetries, conserved currents, gauge symmetries, Noether identities, etc., can be developed
+in terms of the lagrangian density alone, without ever writing an integral and
+without consideration of boundary contributions. For example, Noether’s
+theorem can be stated as: an infinitesimal transformation δφi ([φ], x) is a
+symmetry if the lagrangian changes by a total derivative,
+δL = ∂µ k µ ,
+
+(2.4)
+
+from which one can show directly that the following current is conserved on
+shell
+µ
+
+µ
+
+j = −k +
+
+n
+X
+r=1
+
+n
+X
+(−1)l−r ∂µr . . . ∂µl−1
+∂µ1 . . . ∂µr−1 δφ
+i
+
+l=r
+
+4
+
+∂S L
+.
+∂(∂µ ∂µ1 . . . ∂µl−1 φi )
+(2.5)
+
+µ
+in the usual case where the lagrangian
+(This reduces to j µ = δφi ∂(∂∂L
+i − k
+µφ )
+depends at most on first derivatives of the fields.)1
+
+Without specifying boundary conditions, the Euler-Lagrange equations
+(2.2) typically have many solutions (if there are no solutions, the lagrangian
+is said to be inconsistent). To select out the true solution, boundary conditions must be set. There should be some class of boundary conditions that
+render the system well-posed. A class of boundary conditions is well-posed
+if, given any choice of boundary conditions from this class, there exists a
+unique solution to the system compatible with that choice. The equations of
+motion are typically hyperbolic, so the class will generally involve all possible choices of initial conditions and velocities for the fields, and all possible
+choices of spatial boundary conditions at all times. There may be several
+different classes of well-posed data, but each class will involve specifying the
+same number of boundary data. This number is the number of degrees of
+freedom in the theory.
+The choice of spatial boundary conditions generally corresponds to a
+choice of “vacuum state” for the theory. For example, in GR, if spatial boundary conditions (fall-off behavior for the fields, in this case) are chosen so that
+the spacetime is asymptotically flat, we find ourselves in the asymptotically
+flat vacuum of the theory. A choice of initial condition generally corresponds
+to a choice of state within the vacuum. For example, both Minkowski space
+and the Schwartzschild black hole have the same spatial boundary behavior,
+so they are both in the asymptotically flat vacuum of GR, but they have
+different initial data, and so they represent different states. Thus, from the
+point of view that the action is just a formal device to arrive at the local
+equations of motion, information about the possible vacua of the theory, and
+the space of states in each vacuum, is not encoded directly in the action,
+only indirectly through the boundary conditions required of the equations of
+motion.
+Ideally, the action should do more. We want to say that the true field
+1
+
+If one wishes, still keeping with this line of thought, the action integral can be introduced as a formal device,
+Z
+S=
+
+dn x L ([φ], x) .
+
+(2.6)
+
+The integration region need not be specified, and the equations of motion are obtained by
+setting δS = 0 and integrating by parts ignoring all boundary contributions.
+
+5
+
+Σ2
+
+V
+
+B
+
+Σ1
+Figure 1: Region over which a field theory is defined.
+
+configuration, among all field configurations with given boundary data, extremizes the action. Consider a spacetime region, V, such as that in figure
+1. The boundary of this region consists of a timelike part B, (which may be
+at infinity), which we will refer to as the spatial boundary, and two spacelike edges, Σ1 and Σ2 , which we will refer to as the endpoints. We consider
+configurations of the fields φi in V that have some given boundary values,
+φi (B), as well as initial and final values, φi (Σ1 ), φi (Σ2 ) (possibly involving
+derivatives of the fields or other combinations), chosen from a class which is
+well-posed, meaning that for each choice in the class there exists a unique
+solution to the equations of motion.2
+The action is a functional of field configurations in V,
+S = S[φ(V)],
+in the form of an integral over over V of the lagrangian L ([φ], x) ,
+Z
+S[φ(V)] =
+dn x L ([φ], x) .
+
+(2.7)
+
+(2.8)
+
+V
+2
+
+Well-posedness of hyperbolic equations usually requires initial data, such as the values
+of φi and its time derivatives at Σ1 , rather than endpoint data such as the value of φi at
+Σ1 and Σ2 . The action naturally wants endpoint data, however. As we will elaborate on
+in the next section, endpoint data is usually just as well posed as initial data, with the
+exception of “unfortunate choices” which are measure zero in the space of all choices.
+
+6
+
+The criteria for a well-posed action should be the following. If we restrict
+the action to those field configurations consistent with our choice of boundary
+and initial data,
+Z
+dn x L ([φ], x)
+,
+(2.9)
+S=
+V
+
+φi consistent with data φi (B),φi (Σ1 ),φi (Σ2 )
+
+the unique solution to the Euler-Lagrange equations should be the only extremum of the action. It is important that the space of paths over which we
+vary be all paths that have the given boundary data.
+Of course, a necessary condition for the action to be stationary is that
+the field satisfy the Euler-Lagrange equations
+δ EL L
+= 0.
+δφi
+
+(2.10)
+
+For the action to be truly stationary, any boundary contributions arising
+from the variation must vanish. No conditions other than those implicit
+in the class of well-posed data may be used in checking whether boundary
+contributions vanish.
+There will be many possible choices of the boundary data φi (B) (corresponding to different choices of vacuum) and endpoint data φi (Σ1 ), φi (Σ2 )
+(corresponding to different choices of the state) within a well-posed class.
+Each such choice leads to a different set of paths to consider in the action,
+and a well-posed action will give a unique stationary field configuration for
+each. The action, when evaluated on the classical path φic , is thus a well
+defined functional on the class of possible boundary data,
+Z
+S[φ(B), φ(Σ1 ), φ(Σ2 )]|φ=φc =
+dn x L ([φ], x)
+.
+(2.11)
+V
+
+φ=φc
+
+The number of physical degrees of freedom in the theory is the number of
+free choices of φi (∂V) (modulo gauge invariance, see later), i.e. the size of
+the class of well-posed boundary data.
+These criteria are essential to setting up a Hamilton-Jacobi theory, where
+the stationary value of the action, as a function of endpoint data, gives the
+canonical transformation that solves the equations of motion [22]. These
+7
+
+criteria are also essential to setting up a quantum theory based on the path
+integral. [1].
+We will now turn to some examples. We will look at some actions which
+are well-posed in the sense we have just described, and some which are not.
+We will see that adding boundary terms or, equivalently, total derivatives
+to the action affects whether the action can be well-posed. Second class
+constraints and gauge freedom complicate the issue, and we will have more
+to say about these as well.
+
+3
+
+Some Toy Examples
+
+We start with some simple examples from point particle mechanics. These are
+one-dimensional field theories, with fields q i (t) that depend on one parameter,
+the time t. The issue of spatial boundary data does not arise in this case;
+it is only the endpoint data, q i (t1 ) and q i (t2 ) that we need to worry about.3
+The number of degrees of freedom in the theory is half the number of free
+choices that may be made in specifying endpoint data.
+
+3.1
+
+Standard classical mechanics
+
+The best example of a well-defined variational principle is an ordinary unconstrained lagrangian system for n variables q i (t), i = 1, . . . , n without higher
+derivatives,
+Z
+t2
+
+S[q1i , q2i , t1 , t2 ] =
+
+dt L(q i , q̇ i , t),
+
+(3.1)
+
+t1
+
+
+det
+
+∂ 2L
+∂ q̇ i ∂ q̇ j
+
+
+6= 0.
+
+(3.2)
+
+The action is a function of the endpoint data q1i , q2i , and the endpoint times
+t1 , t2 . The set of paths over which we vary is all q i (t) satisfying q i (t1 ) = q1i
+3
+
+In this sense, one dimensional theories do not possess different vacua, only a space of
+states, given by the various values the endpoint data are allowed to take.
+
+8
+
+and q i (t2 ) = q2i . Varying the action we have
+Z t2
+
+
+dt
+
+δS =
+t1
+
+
+t
+∂L
+∂L i 2
+d ∂L
+i
+δq + i δq .
+−
+∂q i dt ∂ q̇ i
+∂ q̇
+t1
+
+(3.3)
+
+The boundary variation vanishes since the q i are fixed there, so the necessary and sufficient condition for the action to be stationary is that the
+Euler-Lagrange equations of motion hold,
+∂L
+d ∂L
+−
+= 0,
+∂q i dt ∂ q̇ i
+
+(3.4)
+
+or, upon expanding out the time derivative,
+∂L
+∂ 2L j
+∂ 2L j
+q̈
+=
+−
+q̇ .
+∂ q̇ i ∂ q̇ j
+∂q i ∂ q̇ i ∂q j
+
+(3.5)
+
+Because of (3.2), we can solve algebraically for the highest derivative q̈ i in
+terms of the lower derivatives, and we have a well formed initial value problem: given a choice from the class of data q i (t1 ) and q̇ i (t1 ), we will have a
+unique solution to the equations of motion.
+However, the action principle is not well suited to the initial value class.
+It is suited to the class where we choose endpoint data, i.e. where we fix q i
+on the two endpoints but do not specify the q̇ i anywhere. For a second order
+differential equation such as (3.5), the endpoint problem will be well posed
+for all but a few “unfortunate” choices of the endpoint data (borrowing the
+language of [23]). An example of such an unfortunate choice is the following.
+Take the action of a simple harmonic Roscillator in one dimension, with unit
+t
+mass and angular frequency ω, S = t12 dt 12 (q̇ 2 − ω 2 q 2 ). The equation of
+motion is q̈ + ω 2 q = 0. If the time interval is chosen to be a half integer
+multiple of the period of the oscillator, t2 − t1 = nπ
+, n = 1, 2, . . ., and we
+ω
+choose q1 = q2 = 0, then there will be an infinite number of distinct solutions
+to the equations of motion compatible with the endpoint data. This reflects
+the fact that the period of oscillations is independent of the amplitude. It
+is not hard to think of other such examples of “unfortunate” choices. The
+problem is that the equations of motion want initial conditions, but the action
+principle wants endpoint conditions, and the result is a failure of the action
+principle to be well defined for all choices.
+9
+
+These unfortunate choices will make up a set of measure zero among all
+possible choices for the endpoint data. This is because finding degeneracies in
+the initial value formulation is equivalent to an eigenvalue problem over the
+interval t2 − t1 and the eigenvalues are discrete. We will still consider such
+a variational principle well-posed. With this caveat, the action principle
+above, using the class of endpoint data, is well-posed, because for almost
+any choice of endpoint data, q1i , q2i , t1 , t2 , there is a unique solution to the
+equation of motion, corresponding to the unique path which extremizes the
+action. The action, evaluated on this path, becomes a well defined functional
+of q1i , q2i , t1 , t2 almost everywhere, and so the number degrees of freedom (i.e.
+the size of the class of data), or the possibility of differentiating the action
+with respect to endpoint data is not affected. There are 2n free choices
+among the field endpoint values, so the model has n degrees of freedom.
+Going to the hamiltonian poses no problem. We introduce fields pi (t),
+pi =
+
+∂L
+,
+∂ q̇ i
+
+(3.6)
+
+which by virtue of (3.2) can be inverted to solve for q̇ i = q̇ i (p, q). We then
+write the action
+Z t
+2
+
+dt pi q̇ i − H,
+
+S=
+
+(3.7)
+
+t1
+
+where
+H(p, q) = pi q̇ i − L
+
+
+q̇ i =q̇ i (p,q)
+
+.
+
+(3.8)
+
+The variation with respect to the pi ’s is done without fixing the endpoints,
+so their endpoint values are not specified, and the action is not a function
+of them. The equations of motion for p are (3.6), which upon plugging
+back into the action reproduces the original lagrangian action (the transition
+to the hamiltonian is a special case of the fundamental theorem of auxiliary
+variables, see appendix D). Note that adding a total derivative, dtd F (q), of any
+function of the q i to the original lagrangian does not change the variational
+principle or the equations of motion, but does change the canonical momenta
+in a way that amounts to a canonical transformation.
+
+10
+
+3.2
+
+Constraints
+
+ 2 
+Consider now a lagrangian that does not satisfy det ∂ q̇∂i ∂Lq̇j 6= 0. This is
+the case for essentially all theories of interest to most high energy physicists,
+with the exception of scalar field theories on fixed backgrounds. The theory
+then has constraints, and the Dirac constraint algorithm or some equivalent
+method must be applied [24, 23].
+As an example, consider a theory with a free point particle of mass m,
+labeled by q1 , along with a harmonic oscillator of mass M and angular frequency ω, labeled by q2 , coupled through a derivative interaction λq̇1 q̇2 ,
+Z t2
+1
+1
+1
+S=
+(3.9)
+dt mq̇12 + M q̇22 − M ω 2 q22 + λq̇1 q̇2 .
+2
+2
+2
+t1
+√
+This lagrangian is free of constraints except when λ = ± M m, in which
+case there is a single primary constraint and a single secondary constraint,
+which taken together are second class. It is easy to see why these values of
+λ are special, because for these values we can factor the action,
+Z t2
+2 1
+√
+1 √
+S=
+mq̇1 ± M q̇2 − M ω 2 q22 ,
+dt
+(3.10)
+2
+2
+t1
+√
+√
+after which a change of variables q 0 ≡ mq1 ± M q2 shows that q 0 behaves
+as a free point particle while q2 , which has no kinetic term, is constrained to
+be zero.
+Varying the action, we find the endpoint term
+√
+ √
+ t2
+√
+√
+mq̇1 ± M q̇2 δ
+mq1 ± M q2
+.
+
+(3.11)
+
+t1
+
+√
+√
+The action is stationary if we choose the quantity mq1 ± M q2 to be fixed
+on the endpoints. q2 must be chosen to be zero, so choosing this quantity is
+equivalent to choosing q1 .
+This illustrates what should be the case in general with constrained systems. The variations of the unconstrained variables are fixed on the boundary, and the constrained variables are not fixed. Each choice of endpoint
+11
+
+data for the unconstrained variables determines a choice of data for the constrained variables, which then determines a unique solution to the equations
+of motion. The action is thus a function of the endpoint data for the unconstrained variables. The action should be such that even though all variables
+may appear in the endpoint variation, the number that must be fixed to
+make the action stationary is fewer, equal in number to the number of unconstrained degrees of freedom.
+
+3.3
+
+Gauge invariance
+
+Gauge invariance also complicates the well-posedness of variational principles. Consider the following action for two variables q1 and q2 .
+Z t2
+1
+S=
+(3.12)
+dt (q1 − q̇2 )2 .
+2
+t1
+Varying with respect to q1 gives the equation of motion q1 = q̇2 with no
+endpoint contribution. q1 can thus be eliminated as an auxiliary field, and
+plugging this back into the action gives identically zero. The general solution
+to the equation of motion is to let q2 be a completely arbitrary function of
+t, and then set q1 = q̇2 . The presence of arbitrary functions in the general
+solution to the equations of motion is the hallmark of a gauge theory, and
+indeed this theory is invariant under the gauge transformation δq1 = ,
+˙ δq2 =
+, where (t) is an arbitrary function of t.
+Arbitrary functions in the solution also indicate that the action principle
+is not well defined as it stands. Given endpoint data, we can make a gauge
+transformation that changes the solution somewhere in the bulk, away from
+the endpoints, and so the solution for the given endpoint data will not be
+unique. We salvage uniqueness by identifying as equivalent all solutions
+which differ by a gauge transformation. For example, given any q2 (t), we
+can, without changing the endpoint values q2 (t1 ), q2 (t2 ), bring it to the gauge
+q̈2 = 0, by making a gauge transformation with the gauge parameter (t),
+obtained by solving ¨ + q̈2 = 0 subject to the endpoint conditions (t1 ) =
+(t2 ) = 0. Then, given any choice of q2 (t1 ), q2 (t2 ), there is a unique solution
+compatible with q̈2 = 0.
+The gauge condition q̈2 = 0 still allows residual gauge transformations,
+those where (t) is linear in t. These gauge transformations do not vanish at
+12
+
+the endpoints. If a gauge transformation does not vanish at the endpoints,
+we must identify endpoint data that differ by such a gauge transformation.
+In the case above, q2 (t1 ) and q2 (t2 ) can be set to any desired value by a
+residual gauge transformation, so all the q2 endpoint data is to be identified
+into a single equivalence class. The q1 data is constrained, so in total this
+model has only a single state, and carries no degrees of freedom.
+The variational principle is still well-posed. The action is stationary without fixing the constrained variable q1 . The unconstrained variable q2 must
+be fixed, so the action is a function of its chosen boundary values. However, gauge invariance of the action ensures that the action takes the same
+value over all the gauge identified endpoint data, so it is well defined on the
+equivalence classes.4
+
+3.4
+
+Field theory/spatial boundaries
+
+As an example of a field theory with gauge invariance, we will show how the
+action for electromagnetism is well-posed. Consider Maxwell’s equations for
+a vector field Aµ , to be solved in a region such as that shown in figure 1,
+Aµ − ∂µ (∂ν Aν ) = 0.
+
+(3.13)
+
+They are gauge invariant under Aµ → Aµ + ∂µ Λ for any function Λ(x).
+We wish to know what boundary data are required to make this system
+well-posed. Start by fixing Lorentz gauge ∂µ Aµ = 0 in the bulk, by choosing
+Λ to satisfy Λ = −∂µ Aµ . The equations of motion are then equivalent to
+Aµ = 0,
+
+∂µ Aµ = 0.
+
+(3.14)
+
+These still allow for a residual gauge transformation Aµ → Aµ + ∂µ Λ where
+Λ satisfies Λ = 0 in the bulk. Solving the equation Λ = 0 requires
+4
+
+In general, gauge transformations may force the identification of other data besides the
+endpoint data. An example is the lagrangian for a relativistic point particle which contains
+reparametrization invariance of the world-line. In this case, it is the time interval t2 − t1
+that is identified [48]. In the case of general relativity, there are gauge transformations
+of both kind. Spatial diffeomorphisms(generated by the momentum constraints) generate
+equivalences among the endpoint data, whereas the diffeomorphisms generated by the
+hamiltonian constraint generates equivalences among the boundary data.
+
+13
+
+specifying Λ on the boundary, so the residual gauge transformations will be
+transformations of the data on the boundary, which will be used to generate
+equivalence classes.
+The wave equation Aµ = 0 requires specifying Aµ on Σ1 , Σ2 and B (except for “unfortunate” choices). Differentiating, we have (∂µ Aµ ) = 0, which
+is the wave equation for the quantity ∂µ Aµ . Thus, if we fix boundary conditions for Aµ , then extend into the bulk using Aµ = 0, we need only check
+that ∂µ Aµ = 0 on the boundary, as the extension will then automatically
+satisfy ∂µ Aµ = 0 in the bulk.
+For a given choice of Aµ on the boundary, ∂µ Aµ is entirely specified by
+Laplace’s equation Aµ = 0, thus there will be a single constraint on the
+allowed choices of Aµ on the boundary to ensure ∂µ Aµ = 0 there. To see the
+form of the constraint, note that the perpendicular derivatives of the Aµ are
+not set as part of the boundary data, but are determined by extending the
+solution into the bulk. For instance, we can write
+∂⊥ A⊥ = f (A⊥ |∂V , Ak ∂V ),
+
+(3.15)
+
+where f is some function of the components of Aµ on the boundary specified
+by solving Laplace’s equation. Therefore we need only impose the restriction
+
+
+(3.16)
+∂k Ak + f (A⊥ , Ak ) ∂V = 0
+on the boundary data. For every choice of boundary data satisfying this restriction, there is a unique solution to Maxwell’s equations in Lorentz gauge.
+We can think of this condition as determining A⊥ , given Ak , so we obtain
+a unique solution given any choice of Ak , with A⊥ determined through the
+constraint. To have a well defined variational problem given this choice of
+the free data, the action should be stationary with only Ak fixed on the
+boundary.
+We now return to the residual gauge freedom. A gauge transformation
+such that Λ = 0 is still permissible. These residual gauge transformations
+leave the constraint (3.15) invariant, and serve to identity the unconstrained
+boundary data into equivalence classes. We can select a member of each
+class by fixing the residual gauge. For example, we can use it to set A⊥ = 0.
+We then have two independent functions that must be specified, namely Ak ,
+14
+
+subject to the single constraint (3.15) . These two functions correspond to
+the two polarization states of the photon.
+Consider now the Maxwell action in this volume,
+Z
+1
+S=
+d4 x − Fµν F µν , Fµν ≡ ∂µ Aν − ∂ν Aµ .
+4
+V
+
+(3.17)
+
+Variation gives
+Z
+
+4
+
+µν
+
+I
+
+d x ∂µ F δAν −
+V
+
+d3 x nµ F µν δAν .
+
+(3.18)
+
+∂V
+
+nµ is the outward pointing normal on the timelike surface B, and the inward
+pointing normal on the spacelike surfaces Σ1 and Σ2 . Notice that the action is stationary when only Ak is held fixed at the boundaries, due to the
+anti-symmetry of Fµν , exactly the data required of the equations of motion.
+Furthermore, we are to able to identify as equivalent any data that differ by
+a gauge transformation because the gauge invariance of the action ensures
+that it is well defined on the equivalence classes. Thus we have a well-posed
+action principle.
+
+3.5
+
+Adding total derivatives
+
+Adding a boundary term such as the Gibbons-Hawking-York term amounts
+to adding a total derivative to the lagrangian. We would like to understand
+how adding a total derivative can change the variational problem. The bulk
+equations of motion are always unaffected by adding a total derivative, even
+one that contains higher derivatives of the fields. However, the addition of a
+total derivative may render the variational problem inconsistent, or require
+different boundary data in order to remain well-posed.
+Consider adding a total derivative to the lagrangian L1 = 21 q̇ 2 of the free
+non-relativistic point particle, so that the action reads
+Z t2
+1
+S2 =
+dt L2 , L2 = − q q̈.
+(3.19)
+2
+t1
+The lagrangian contains higher derivatives, but they appear only as total
+derivatives, so the equations of motion are still second order. This is analogous to the Einstein-Hilbert action without the GHY term.
+15
+
+Varying the action produces the endpoint contribution
+1
+(q̇δq − qδ q̇)|tt21 .
+2
+
+(3.20)
+
+Setting q(t1 ) and q(t2 ), and the associated requirement δq = 0 at the endpoints, is no longer sufficient to kill the surface contribution in the variation.
+Fixing q̇(t1 ) and q̇(t2 ), as well as q(t1 ) and q(t2 ), and hence δq = 0 and δ q̇ = 0,
+would be sufficient to kill the endpoint term. But this is now setting 4 pieces
+of boundary data for a second order equation of motion, so for most choices
+of data the equations of motion will have no solution.
+One might try to say the following. In the four dimensional space of
+variables that are fixed, parametrized by q(t1 ), q(t2 ), q̇(t1 ), q̇(t2 ), there is some
+two dimensional subspace that is unconstrained. The others are fixed by the
+equations of motion, so the parameters of this subspace are the true degrees
+of freedom of the theory. In fact, there are many such subspaces, i.e. that
+parametrized by q(t1 ), q(t2 ), or that parametrized by q(t1 ), q̇(t2 ), etc. The
+essential point is that the action should be stationary when only variations
+of the quantities parametrizing the subspace are held fixed, because we must
+vary over all paths. This is not true of the two subspaces just given. If we
+could find a subspace for which this were true, we could salvage the action
+S2 , by saying that the degrees of freedom have been mixed up in the q’s and
+q̇’s.
+For example, we might try writing the boundary contribution as
+  t2
+1 2
+q̇
+− q δ
+,
+(3.21)
+2
+q t1
+and fixing the quantity qq̇ on the boundary. If fixing endpoint data for q̇/q
+leads to a unique solution for most choices, then the endpoint variation vanishes upon fixing only this quantity, and we can say that the degree of freedom is encoded in the combination q̇/q. However, this does not work, since
+the quantities qq̇ (t1 ) and q̇q (t2 ) do not parametrize a subspace over which the
+equation of motion is well-posed. We can see this by noting that the general
+solution to the equation of motion is q(t) = At + B, so fixing qq̇ (t2 ) at the
+endpoints yields
+A
+A
+= C1 ,
+= C2 ,
+(3.22)
+At1 + B
+At2 + B
+16
+
+which cannot be solved for A, B given generic values of C1 , C2 , t1 , t2 .
+In fact, there is no way to find such a subspace for the action based on
+L2 . For this reason,
+ t2 if we are given the lagrangian L2 , we must add the GHY
+1
+type term 2 q q̇ t1 , to bring the lagrangian back to L1 , which is well-posed.
+As a general rule of thumb, if an action contains higher derivatives which
+appear only as total derivatives, a boundary term will need to be added.
+5
+
+As a final example, which cleanly illustrates why the space of competing
+curves in the variational principle
+must be kept as large as possible, consider
+...
+the lagrangian L3 = 21 q̇ 2 + q . The boundary variation is then q̇δq + δ q̈|tt21 . We
+are fixing δq, and we might think we can simply fix q̈ = 0 as well. As long
+as we can fix q̈ to be those values given by solving the equations of motion
+(i.e. q̈ = 0), it is still true that there is a two parameter (q(t1 ) and q(t2 ))
+family of endpoint data, all of which yield a unique solution to the equation of
+motion. We are tempted to think of q̈ as a second-class constrained variable.
+However, fixing q̈ and hence δ q̈ = 0 at the endpoints restricts the class of
+paths...over which we are extremizing. Taken to the extreme, we could also
+fix δ q = 0 at the endpoints, and so forth until the entire Taylor series is
+fixed and the only curve competing for the extremum is the solution itself.
+To avoid arbitrariness, we need to keep the space of competing paths as large
+as possible by varying over all paths consistent with the specified boundary
+data. The action based on L3 is not well-posed.
+
+3.6
+
+Higher derivative lagrangians
+
+We now turn to an example with higher derivatives that is analogous to the
+F (R) gravity case. Consider the action for a single variable q(t) that involves
+5
+
+In general, to set up such a two dimensional subspace we must set functions of q or q̇
+on the boundary separately, or a function F (q, q̇) on both boundaries. It is clear that the
+first approach fails to set the above boundary variation to zero. We may imagine functions
+F (q, q̇) and f such thatf δF = 21 (q̇δq − qδ q̇). These would have the desired property that
+setting F = C1 |t1 and F = C2 |t2 parametrize a two dimensional subspace and would imply
+the vanishing of the boundary variation. It is not difficult to show, however, that any such
+F must be of the form F ( q̇q ) and thus is not a valid choice for the same reason that q̇q is
+not.
+
+17
+
+an arbitrary function F of the second derivative q̈, which satisfies F 00 6= 0,
+Z t2
+dt F (q̈), F 00 6= 0.
+(3.23)
+S1 =
+t1
+
+Variation gives the following
+Z t2
+
+...
+....
+... t
+dt F 000 (q̈) q 2 + F 00 (q̈) q δq + [F 0 (q̈)δ q̇ − F 00 (q̈) q δq]|t21 . (3.24)
+δS1 =
+t1
+
+....
+The bulk equation of motion can be solved for the highest derivative q in
+terms of the lower derivatives. This is a fourth order equation in standard
+form, and requires four pieces of boundary data to be well-posed. Fixing q
+and q̇ at both endpoints is a valid choice. With this, the variation at the
+endpoints vanishes and we have a well defined action principle for two degrees
+of freedom,
+S1 = S1 [q1 , q̇1 , q2 , q̇2 , t].
+(3.25)
+Consider now introducing an auxiliary field, λ(t), to try and get rid of
+the higher derivatives (this can always be done, a general method is the
+Ostrogradski method [50, 51, 9]),
+Z t2
+S2 =
+dt F (λ) + F 0 (λ)(q̈ − λ).
+(3.26)
+t1
+
+Varying gives
+Z t2 h
+i
+h
+i t2
+δS2 =
+dt F 000 (λ)λ̇2 + F 00 (λ)λ̈ δq+F 00 (λ) [q̈ − λ] δλ+ F 0 (λ)δ q̇ − F 00 (λ)λ̇δq
+.
+t1
+
+t1
+
+(3.27)
+This action is well-posed if q and q̇ are held fixed at the boundary, and λ
+is kept arbitrary. The equation of motion for λ can be solved for λ = q̈,
+which when plugged back into the action yields S1 , and hence S1 and S2 are
+equivalent by the fundamental theorem of auxiliary variables (see Appendix
+D).
+The action S2 still involves the higher derivatives q̈, but now they appear
+only through a total derivative, so we integrate by parts,
+Z t2
+t
+S2 =
+dt F (λ) − λF 0 (λ) − F 00 (λ)q̇ λ̇ + F 0 (λ)q̇|t21 .
+(3.28)
+t1
+
+18
+
+The integration by parts has generated a boundary contribution. We can
+render the action first order by subtracting this boundary term, that is, by
+adding to S2 the GHY type term −F 0 (λ)q̇|tt21 .
+The action and its variation now read
+Z t2
+dt F (λ) − λF 0 (λ) − F 00 (λ)q̇ λ̇,
+S3 =
+
+(3.29)
+
+t1
+
+Z t2
+δS3 =
+
+h
+i
+h
+i t2
+dt F 000 (λ)λ̇2 + F 00 (λ)λ̈ δq+F 00 (λ) [q̈ − λ] δλ− F 00 (λ)(λ̇δq + q̇δλ)
+.
+t1
+
+t1
+
+(3.30)
+The bulk variation is unchanged because we have only added a total derivative, but the boundary variation has changed. We must modify the variational principle to keep λ and q fixed on the boundary. The action now
+becomes a functional S3 = S3 [q1 , λ1 , q2 , λ2 , t]. The degree of freedom q̇ has
+has been shifted into λ.
+Here adding the GHY type term was not strictly necessary to keep the
+variational principle well defined, as was the case in the previous section.
+Here the effect is simply to shift the degrees of freedom into different variables.6
+We are still free to eliminate the auxiliary variable λ from the equations
+of motion. Doing so yields the action
+Z t2
+d
+S4 =
+dt F (q̈) − (F 0 (q̈)q̇) ,
+(3.31)
+dt
+t1
+with variation
+Z t2
+
+...
+....
+...
+t
+δS4 =
+dt F 000 (q̈) q 2 + F 0 (q̈) q δq − [F 00 (q̈) q δq + F 00 (q̈)q̇δ q̈]|t21 . (3.32)
+t1
+
+The action is now a functional S4 = S4 [q1 , q̈1 , q2 , q̈2 , t]. The degrees of freedom
+have been relabeled as q and q̈.
+6
+
+This may be true of F (R) theory as well, that is, the boundary term obtained from
+the correspondence to scalar-tensor theory is not necessarily the only one that renders
+the variational principle well-posed. It is, however, the one that must be used if the
+correspondence to scalar-tensor theory is to be maintained at the boundary.
+
+19
+
+The moral of all this is that while adding total derivatives (equivalently,
+boundary terms) to the action does not change the bulk equations of motion,
+it can change the variational principle, and the corresponding labeling of
+degrees of freedom, or it can make it impossible for the variational principle
+to be well-posed.
+
+4
+
+Review of the Gibbons-Hawking-York term
+
+The GHY boundary term is a modification to the Einstein-Hilbert action
+which makes the action well-posed. The modified action may be written as
+(conventions and definitions for boundary quantities laid out in appendices
+A and B),
+Z
+I
+p
+√
+n
+d x −gR + 2
+16πG S = 16πG(SEH + SGHY ) =
+dn−1 x |h|K, (4.1)
+V
+
+∂V
+
+Where G is Newton’s constant. Upon varying the action, we arrive at
+
+
+Z
+I
+p
+√
+1
+n
+µν
+16πG δS =
+d x −g Rµν − Rgµν δg −
+dn−1 x |h|hαβ nµ ∂µ δgαβ
+2
+V
+∂V
+I
+p
++ 2
+dn−1 x |h|δK.
+(4.2)
+∂V
+
+Here we have used the assumption δg µν = 0 on ∂V, which also implies that
+the tangential derivative vanishes on ∂V, hαβ ∂α δgµβ = 0. Noting that
+
+δK = δ hαβ (∂α nβ − Γµαβ nµ )
+= −hαβ δΓµαβ nµ
+1 αβ µ
+=
+h n ∂µ δgαβ ,
+2
+
+(4.3)
+
+We see that
+√
+
+
+
+1
+16πG δS =
+d x −g Rµν − Rgµν δg µν .
+2
+V
+Z
+
+n
+
+(4.4)
+
+We now have the boundary variation vanishing without any restriction on
+the normal derivatives. However, if this is the only property we desire, the
+20
+
+choice of 2K for the boundary term is not unique. We are free to add an
+arbitrary function of the metric, normal vector, and tangential derivatives,
+F (gµν , nµ , hαβ ∂β ), because the variation of such an addition vanishes with
+the assumption δgµν = 0 on ∂V.
+In fact, because of this freedom, Einstein unwittingly used the GHY
+boundary term well before either Gibbons, Hawking, or York proposed it
+[53]. He used an object H for the lagrangian, instead of R,
+
+(4.5)
+H = g αβ Γνµα Γµνβ − Γµµν Γναβ .
+This is sometimes called the gamma-gamma lagrangian for GR, and has
+the advantage that it is first order in the metric, so there is no need to fix
+derivatives of the metric at the boundary.
+H differs from R by a total derivative,
+H = R − ∇ α Aα ,
+where Aα = g µν Γαµν − g αµ Γνµν . As such, it produces the same equations of
+motion, i.e. the Einstein equations, upon variation. It also possesses all the
+same bulk symmetries as the Einstein-Hilbert action, namely diffeomorphism
+invariance. Under a diffeomorphism, it does not change like a scalar, but it
+does change by a total derivative.
+We can see that the gamma-gamma action differs from the EinsteinHilbert plus GHY action by a boundary term of the form F (gµν , nµ , hαβ ∂β ),
+Z
+Z
+√
+√
+n
+d x −gH =
+dn x −g [R − ∇α Aα ]
+V
+I
+ZV
+√
+n
+dn−1 x Aα nα .
+(4.6)
+=
+d x −gR −
+V
+
+∂V
+
+21
+
+But7
+Aα nα = −2K + 2hαβ ∂β nα − nµ hνσ ∂ν gσµ ,
+
+(4.7)
+
+so this is an example of a choice of boundary term that differs from K by a
+function F , namely F = 2hαβ ∂β nα − nµ hνσ ∂ν gσµ .
+The Einstein-Hilbert plus GHY action requires even fewer variables than
+those of the metric to be fixed on the boundary. Only the induced metric
+hab need be fixed. To see this, we foliate in ADM variables with timelike
+hypersurfaces relative to B,
+Z
+Z
+
+√
+√
+n
+d x −gR =
+16πG SEH =
+dn x N −γ (n−1) R − Kab Kab + K2
+V
+V
+
++ 2∇α rβ ∇β rα − rα ∇β rβ .
+(4.8)
+The total derivative term, when reduced to a surface term, cancels against
+the GHY term. So the action is
+I
+Z
+p
+√
+n
+16πG(SEH + SGHY ) =
+d x −gR + 2 dn−1 z |h|K
+B
+ZV
+
+
+√
+dn x N −γ (n−1) R − Kab Kab + K2 . (4.9)
+=
+V
+
+(Here we are ignoring total time derivatives and the GHY terms on the
+endpoints, but a similar cancellation will apply there.) There are no radial
+derivatives of the lapse or shift, so their variation need not be set to zero
+on the boundary. Fixing the induced metric on the boundary is sufficient to
+render the action stationary.
+7
+
+In detail,
+n α Aα
+
+αµ ν
+nα (g µν Γα
+Γµν )
+µν − g
+1
+= (nσ g µν − nµ g νσ ) [∂µ gνσ + ∂ν gµσ − ∂σ gµν ]
+2
+σ µν
+µ νσ 1
+= (n h − n h ) [∂µ gνσ + ∂ν gµσ − ∂σ gµν ]
+2
+1
+µν α
+= nα h Γµν − nα g µα hνσ ∂µ gνσ
+2
+µ νσ
+= 2nα hµν Γα
+µν − n h ∂ν gσµ
+
+=
+
+=
+
+−2K + 2hαβ ∂β nα − nµ hνσ ∂ν gσµ .
+
+22
+
+For most choices of an induced metric on ∂V, the Einstein equations
+should produce a unique solution in V, up to diffeomorphisms that vanish
+at the boundary. In this case, the Einstein-Hilbert plus GHY action is wellposed. The counting in four dimensions goes as follows. Of the ten pieces of
+boundary data for the ten components of the metric, there are 4 constraints.
+The six components of the induced metric can be taken as the unconstrained
+components. These are subject to equivalence under four gauge transformations, leaving two independent pieces of data, corresponding to the two
+degrees of freedom of the graviton.
+
+5
+
+Higher derivative gravity and scalar-tensor
+theory
+
+Higher derivative theories of gravity have been studied extensively in many
+different contexts (for a review see [12]). They are invoked to explain cosmic
+acceleration without the need for dark energy [6, 7, 8, 9, 10], and as quantum
+corrections to Einstein gravity [13, 14].
+One can imagine trying to modify gravity by writing a quite general
+function of arbitrary curvature invariants, of any order in metric derivatives,
+Z
+√
+dn x −gF (R, Rµν Rµν , Rµνλσ Rµνλσ , . . . , ∇µ R∇µ R, Rµν Rµλ Rλν , . . .).
+(5.1)
+Typically these are true higher derivative lagrangians, i.e. second and higher
+derivatives of the metric appear in a way that cannot be removed by adding
+total derivatives to the action, so the equations of motion are at least fourth
+order. The amount of gauge symmetry is typically unchanged from general
+relativity, i.e. diffeomorphism invariance remains the only gauge symmetry.
+This means that the theories either have more degrees of freedom than general
+relativity, the presence of second class constraints/auxiliary fields, or both.
+Such models are not as diverse as it might seem, since they are essentially
+all equivalent to various multiple scalar-tensor theories [25, 26, 27, 28, 29,
+30, 31]. The transition to scalar-tensor theory amounts to an elimination
+of auxiliary fields represented by some of the higher derivatives of the metric. They are replaced by scalar fields that more efficiently encapsulate the
+23
+
+physical degrees of freedom.
+We can get GHY terms for such theories by exploiting this equivalence.
+The equivalent scalar-tensor theory is typically a Brans-Dicke like theory
+in Jordan frame with a potential for the scalar fields, minimally coupled
+to matter. The theory can be brought to Einstein frame by a conformal
+transformation. The boundary term in Einstein frame is just the GHY term,
+so we can find the boundary term for the original higher derivative theory
+by taking the Einstein frame GHY term backwards through the conformal
+transformation and through the scalar-tensor equivalence. The term found
+in this way must be the correct one if the equivalence between the higher
+derivative theory and scalar-tensor theory is to hold for the boundary terms.
+The GHY terms obtained in this way are not generally sufficient to kill
+the boundary variation of the action when only δgµν = 0. This is simply a
+reflection of the fact that we are dealing with a higher-order theory. Some
+of the boundary values that the action depends upon involve derivatives of
+the metric, in a fashion exactly analogous to the fourth order toy example in
+section 3.6. The only metric theories where δgµν = 0 should be sufficient are
+those with the special property that the equations of motion are still second
+order, despite the appearance of higher order terms in the action, namely
+the Lovelock lagrangians [33]. Indeed, such GHY terms can be found for
+Lovelock theory [34, 35, 36].
+In what follows, we analyze in detail the simplest case, namely the case
+where the lagrangian is allowed to be an arbitrary function of the Ricci scalar,
+F (R), but does not contain any other curvature invariants. The extension
+to more complicated cases follows easily when the scalar-tensor equivalence
+is known.
+
+5.1
+
+F (R) gravity
+
+F (R) theory is one of the most widely studied modifications of gravity [5, 4].
+It has the ability to explain cosmic acceleration without dark energy [6, 7, 8, 9]
+and to evade local solar system constraints [8, 11].
+
+24
+
+The action for F (R) gravity is
+Z
+√
+S = dn x −gF (R).
+
+(5.2)
+
+We would typically add matter which is minimally coupled to the metric, but
+it plays no essential role in the boundary terms, so we will omit the matter in
+what follows. The Euler-Lagrange variation gives equations of motion which
+are fourth order in the metric.
+The equivalence to scalar-tensor theory is seen by introducing a scalar
+field, φ,
+Z
+√
+S = dn x −g [F (φ) + F 0 (φ)(R − φ)] .
+(5.3)
+The equation of motion for the scalar is
+F 00 (φ) (R − φ) = 0,
+
+(5.4)
+
+which, provided F 00 6= 0, implies R = φ. Note that the scalar has mass
+dimension 2. Plugging this back into the action, using the fundamental
+theorem of auxiliary fields, recovers the original F (R) action, so the two are
+classically equivalent. This is ω = 0 Brans-Dicke theory with a scalar field
+F 0 (φ), and a potential.
+In the GR limit F (R) → R, we have F 00 → 0 so the transformation breaks
+down. As the limit is taken, the scalar field decouples from the theory [32].
+
+5.2
+
+Boundary terms for general scalar-tensor theory
+
+In this section we consider a general scalar-tensor action of the form
+
+
+Z
+√
+1
+n
+µν
+S=
+d x −g f (φ)R − λ(φ)g ∂µ φ∂ν φ − U (φ) .
+2
+V
+We show that this should be supplemented by the boundary term
+I
+p
+SGHY = 2
+dn−1 x |h|f (φ)K.
+∂V
+
+25
+
+(5.5)
+
+(5.6)
+
+We do this by showing that this reduces to the usual GHY term upon conformal transformation to the Einstein frame.
+Once this is done, the equations of motion for the metric are obtained by
+setting δgµν = 0 on the boundary,
+
+
+1
+φ
+,
+(5.7)
+2f (φ) Rµν − Rgµν + 2f (φ)gµν − 2∇µ ∇ν f (φ) = Tµν
+2
+where
+
+
+
+
+1
+2
+∂µ φ∂ν φ − gµν (∂φ) − gµν U (φ).
+(5.8)
+2
+The equation of motion for the scalar field is obtained by setting δφ = 0 on
+the boundary,
+φ
+Tµν
+= λ(φ)
+
+1
+λ(φ)φ + λ0 (φ) (∂φ)2 − U 0 (φ) + f 0 (φ)R = 0.
+2
+
+(5.9)
+
+We now proceed with the conformal transformation, keeping careful track
+of all boundary contributions [17]. Assuming
+f (φ) 6= 0,
+we can rewrite the action in terms of a conformaly re-scaled metric,
+(
+2
+G > 0 if f (φ) > 0,
+g̃µν = [16πGf (φ)] n−2 gµν ,
+(5.10)
+G < 0 if f (φ) < 0.
+G can be chosen to be anything consistent with the sign of f , and will
+become the Einstein frame Newton’s constant. Re-writing the action is just
+a matter of using the conformal transformation formulae we have collected
+for convenience in appendix C. In particular, we see from the second term of
+(C.8), used to rewrite R, that there is an integration by parts that will be
+necessary to bring the scalar kinetic term to its usual form. This will generate
+a surface term which must be combined with the conformal transformation
+of the GHY term (5.6).
+The result is,
+
+Z
+p
+n
+S=
+d x −g̃
+V
+
+
+I
+q
+1
+1
+1
+µν
+n−1
+R̃ − A(φ)g̃ ∂µ φ∂ν φ − V (φ) +
+d x |h̃|K̃,
+16πG
+2
+8πG ∂V
+(5.11)
+26
+
+where
+
+
+1 λ(φ) n − 1 f 0 (φ)2
+1
++
+,
+A(φ) =
+16πG 2 f (φ) n − 2 f (φ)2
+U (φ)
+V (φ) =
+n .
+[16πGf (φ)] n−2
+
+(5.12)
+(5.13)
+
+The GHY term has the usual form in Einstein frame, so working backwards,
+the Jordan frame expression must be correct as well. Variation is done with
+δgµν = 0, δφ = 0 on the boundary.
+
+5.3
+
+Boundary term for F (R) theory
+
+Adding the boundary term to the scalar-tensor form of the F (R) action, we
+have
+Z
+I
+p
+√
+n
+0
+S=
+d x −g [F (φ) + F (φ)(R − φ)] + 2
+dn−1 x |h|F 0 (φ)K. (5.14)
+V
+
+∂V
+
+The variation of the action with respect to the scalar field now contains the
+boundary contribution
+I
+p
+2
+dn−1 x |h|F 00 (φ)Kδφ,
+(5.15)
+∂V
+
+which vanishes since we require δφ = 0 on the boundary.
+Plugging back in we have
+Z
+I
+√
+n
+S=
+d x −gF (R) + 2
+V
+
+p
+dn−1 x |h|F 0 (R)K.
+
+(5.16)
+
+∂V
+
+This boundary term has been arrived at before in several different contexts, sometimes indirectly [15, 16, 17, 18, 19]. However, there has been some
+confusion, because this boundary term is not enough to make the action stationary given only δgµν = 0 on the boundary. Indeed, there is in general
+no such boundary term with this property [18]. We see that this is because
+R now carries the scalar degree of freedom, so we must set δR = 0 on the
+boundary as well.
+27
+
+We will now go on to accumulate some evidence that this is indeed the
+correct boundary term. We first calculate the energy in the hamiltonian
+formalism, and show that to obtain the correct energy that reduces to the
+ADM energy when F (R) ∼ R, this boundary term must be included. We
+then calculate the entropy of Schwartzschild black holes, and show that in
+order to reproduce the results of the Wald entropy formula, the boundary
+term is necessary.
+
+6
+
+Hamiltonian formulation and ADM energy
+
+In this section, we will develop the hamiltonian formulation of a general
+scalar-tensor theory, which will encompass the F (R) case. We will stay in
+Jordan frame, and keep track of all boundary terms. Just as in GR, the
+bulk hamiltonian vanishes on shell, and the only contribution comes from
+the boundary, so it will be essential to include the GHY terms found in the
+previous section.
+We start with the action (5.5), which we write as S = SG + Sφ + SB ,
+where
+Z
+√
+SG =
+dn x −g f (φ)R,
+(6.1)
+V
+
+
+Z
+√
+1
+n
+αβ
+Sφ =
+d x −g − λ(φ)g ∂α φ∂β φ − U (φ) ,
+(6.2)
+2
+V
+Z
+p
+SGHY = 2
+dn−1 x |h| Kf (φ).
+(6.3)
+∂V
+
+We change to ADM variables [52], (see appendices A and B for conventions and definitions of the various quantities). The boundary term splits
+into three integrals over the three boundaries. The integral over Σ2 gets an
+additional minus sign, since by convention the normal should be directed
+inward for spacelike surfaces, whereas for Σ2 it is directed outward. We will
+suppress the argument of f , g and λ over the course of the calculation.
+
+28
+
+First look at the combination S = SG + SGHY ,
+Z
+√
+SG + SGHY =
+dn x −g f [(n−1) R − K 2 + K ab Kab − 2∇α (nβ ∇β nα − nα K)]
+V I
+I
+I
+√
+√
+√
+n−1
+n−1
+d y hKf − 2
+dn−1 y hKf.
++2 d z −γKf + 2
+B
+
+Σ1
+
+Σ2
+
+(6.4)
+Integrating by parts the last term in the bulk integral, we find surface contributions that exactly cancel the boundary integrals over Σ1 and Σ2 . The
+surface contribution over B does not cancel its corresponding boundary integral, and we are left with,
+Z
+√
+
+
+
+SG + SGHY =
+dn x hN f (n−1) R − K 2 + K ab Kab + 2f 0 (nβ ∇β nα − nα K)∂α φ
+V I
+√
++2 dn−1 z γf [K − rα nβ ∇β nα ].
+(6.5)
+B
+
+We can simplify the integrand of the boundary piece,
+K − rα nβ ∇β nα = K + nα nβ ∇β rα
+= g αβ ∇β rα + nα nβ ∇β rα
+= (σ AB eαA eβB − nα nβ )∇β rα + nα nβ ∇β rα
+= σ AB eαA eβB ∇β rα
+= k.
+
+29
+
+(6.6)
+
+The bulk terms multiplying f 0 can be further simplified8 ,
+nβ ∇β nα = hακ nβ (∂β nκ − ∂κ nβ ) .
+Putting all this together, we have
+Z
+√
+
+SG + SGHY =
+dn x hN f
+
+
+R − K 2 + K ab Kab
+V
+
+
++ 2f 0 hακ nβ (∂β nκ − ∂κ nβ ) − nα K ∂α φ
+I
+√
++2 dn−1 z σN f k.
+
+(6.7)
+
+(n−1)
+
+(6.8)
+
+B
+
+We now specialize to the (t, y a ) coordinate system, in which nα = −N δα0 ,
+eaα = δαa . The term hακ nβ ∂β nκ vanishes. We are left with
+Z
+√ 
+
+dn x h N f (n−1) R − K 2 + K ab Kab
+SG + SGHY =
+V
+i
++ 2f 0 (hab ∂a N ∂b φ − K φ̇ + KN a ∂a φ)
+I
+√
++2 dn−1 z σN f k.
+(6.9)
+B
+8
+
+In detail,
+nβ ∇β nα
+
+= g ακ nβ ∇β nκ
+=
+
+(hακ − nα nκ )nβ ∇β nκ
+
+= hακ nβ ∇β nκ
+= hακ nβ ∂β nκ − hακ nβ nλ Γλβκ
+1
+= hακ nβ ∂β nκ − hακ nβ nσ (∂β gκσ + ∂κ gβσ − ∂σ gβκ )
+2
+1
+= hακ nβ ∂β nκ − hακ nβ nσ ∂κ gβσ
+2
+1
+= hακ nβ ∂β nκ + hακ nβ nσ ∂κ (nβ nσ )
+2
+= hακ nβ ∂β nκ − hακ nβ ∂κ nβ .
+
+30
+
+The scalar action, in ADM variables, is
+√ h 
+Z
+
+i
+√
+hλ
+n
+a
+2 ab
+a
+2
+Sφ =
+d x
+φ̇ φ̇ − 2N ∂a φ − N h ∂a φ∂b φ + (N ∂a φ) − N hU.
+2N
+V
+(6.10)
+Define now
+Z
+√
+
+0
+SG ≡
+dn x h N f [(n−1) R − K 2 + K ab Kab ] + 2f 0 hab ∂a N ∂b φ ,(6.11)
+V
+Z
+√
+0
+(6.12)
+Sφ ≡ Sφ − 2 dn x hf 0 K(φ̇ − N a ∂a φ),
+V
+I
+√
+0
+(6.13)
+SB ≡ 2 dn−1 z σN f k,
+B
+
+S = SG0 + Sφ0 + SB0 .
+
+(6.14)
+
+The action is now in a form amenable to transition to the hamiltonian,
+namely it is in the form of a time integral over a lagrangian, L, (which is
+itself a space integral plus boundary parts) containing no time derivatives
+higher than first, and no boundary contributions at the time endpoints,
+Z t2
+h
+i
+S=
+dt L hab , ḣab , N, N a , φ, φ̇ .
+(6.15)
+t1
+
+Note that this would not be the case were it not for the GHY term on
+the surfaces Σ1 and Σ2 . It now remains to transition to the hamiltonian
+formulation. This has been done without keeping surface terms by [37, 38],
+and at the level of the equations of motion by [39]. We start by finding the
+canonical momentum conjugate to φ,
+√ 
+
+√
+δL
+hλ
+=
+φ̇ − N a ∂a φ − 2 hf 0 K.
+(6.16)
+pφ =
+N
+δ φ̇
+To find the canonical momenta conjugate
+with respect
+ to hab , we vary 
+1
+to Kab , then use the relation Kab = 2N ḣab − ∇a Nb − ∇b Na to replace
+
+31
+
+1
+δ ḣab ,
+δKab = 2N
+
+δL
+δ ḣab
+
+
+√
+ f 0 ab
+c
+ab
+ab
+=
+h f K − Kh − h (φ̇ − N ∂c φ) .
+N
+
+pab =
+
+(6.17)
+Equations (6.16) and (6.17) are invertible for φ̇ and K ab (which is essentially
+ḣab ) in terms of pφ , pab (and φ, hab , N , N a ),
+
+
+N
+(n − 2)f pφ − 2f 0 p
+φ̇ = √
++ N a ∂a φ,
+(6.18)
+02
+h 2(n − 1)f + (n − 2)f λ
+"
+#
+02
+pφ f 0 + 2p ff + pλ
+1 pab
+√ − hab
+Kab =
+,
+f h
+2(n − 1)f 02 + (n − 2)f λ
+where p = hab pab . The canonical momenta conjugate to N and N a both
+vanish, just as in GR.
+Notice that the map from velocities (φ̇, ḣab ) to momenta (pφ , pab ) is nonsingular even when the scalar kinetic term vanishes, λ → 0, as in the case
+of theories equivalent to F (R). This corresponds to the fact that the scalar
+is still dynamical in this limit, by virtue of its non-minimal coupling. The
+case f → const 6= 0 is also well behaved, provided λ 6= 0, as the scalar has
+dynamics stemming from the kinetic term. The case f → const and λ → 0
+is indeed singular, because the scalar field then loses its dynamics.
+We now start the calculation of the hamiltonian. Starting with the scalar
+field part, we must express everything in terms of the fields and momenta,
+by eliminating all time derivatives,
+Z
+
+0
+n−1
+Hφ =
+d y pφ φ̇ − L0φ
+Σt
+ 
+
+Z
+2
+√
+1 p2φ
+1 ab
+n−1
+0 K pφ
+02 K
+√ + 2f
+=
+d y h N
++ 2f
++ λh ∂a φ∂b φ + U
+2λ h
+λ h
+λ
+2
+Σt
+
+
+pφ
+(6.19)
++ N a √ ∂a φ .
+h
+32
+
+Here we must treat Kab as the function of pab , hab , φ and pφ given by (6.18).
+Naively, the above appears singular in the limit λ → 0 (the F (R) case),
+however once we re-express Kab in terms of the momenta, the 1/λ terms
+cancel and the limit is smooth.
+Now the metric part,
+Z
+
+0
+n−1
+ab
+HG =
+d y p ḣab − L0G
+Z Σt
+√
+=
+dn−1 y pab (2N Kab + 2∇a Nb ) − h N f [(n−1) R − K 2 + K ab Kab ]
+Σt
+
++2f 0 hab ∂a N ∂b φ .
+(6.20)
+Integrate by parts to pull all the derivatives off of N and N a , being sure to
+keep the boundary contributions,
+
+Z
+√
+
+pab
+0
+n−1
+HG =
+d y h 2N √ Kab − N f (n−1) R − K 2 + K ab Kab
+h
+Σt
+ ab 
+p
+a
+0
++ 2N ∇ (f ∇a φ) − 2Na ∇b √
+h
+
+
+I
+ab
+√
+p
+n−2
+0 a
+d θ σ ra Nb √ − N f ∂ φ .
+(6.21)
++2
+h
+St
+The boundary term in the lagrangian contributes
+I
+√
+0
+0
+HB = −LB = −2
+dn−2 θ σN f k.
+St
+
+Combining these terms yields the full hamiltonian
+H = HG0 + Hφ0 + HB0
+Z
+√ 
+
+=
+dn−1 y h N f −(n−1) R − K 2 + K ab Kab
+Σt
+ ab
+
+p
+1 p2φ
+1 ab
+a
+0
+0 K pφ
+√ + λh ∂a φ∂b φ + U
++N √ Kab + 2∇ (f ∇a φ) +
++f
+2λ h
+λ h 2
+h
+
+
+pφ a
+pab
++ Na √ ∂ φ − 2∇b √
+h
+h
+
+
+I
+ab
+√
+p
+n−2
+a 0
++2
+d θ σ ra Nb √ − N (f k + r f ∂a φ) .
+(6.22)
+h
+St
+33
+
+This hamiltonian is like that for GR in the sense that the equations of
+motion for N and N a are Lagrange multipliers which cause the bulk terms
+to vanish. We have not bothered to write out Kab using (6.18) because it
+because it does not contain N or N a .
+The hamiltonian evaluated on solutions reduces to the boundary part
+I
+√
+pab
+n−2
+√
+Hsolution = 2
+d θ σra Nb
+− N (f k + ra f 0 ∂a φ).
+(6.23)
+h
+St
+The ADM energy, E, is given by choosing the lapse to vanish and the shift
+to be unity,
+I
+√
+(6.24)
+E = −2
+dn−2 θ σ [f k + f 0 ra ∂a φ] .
+St
+
+Alternatively, we could also have obtained this expression by finding the
+hamiltonian in Einstein frame and then performing a conformal transformation.
+As an example, consider the Schwartzschild solution in four dimensions,
+ds2 = −f (r)dt2 +
+
+1
+dr2 + r2 dω 2 ,
+f (r)
+
+φ = φ0 ,
+
+(6.25)
+
+where f (r) = 1 − 2GM
+, GM is a constant, and φ0 is a constant. This will
+r
+be a solution to the scalar-tensor theory equations of motion (5.7), (5.8),
+and (5.9), provided that Minkowski space is a solution, and φ0 is set to the
+vacuum value of φ in the Minkowski solution. The ADM energy for this
+solution is9
+E = 16πGM f (φ0 ),
+(6.26)
+which is what one expects, given that f (φ0 ) is playing the role of the effective
+1
+gravitational constant, f (φ0 ) = 16πG
+.
+eff
+F (R) theory is the special case where f (φ) = F 0 (φ), U (φ) = F 0 (φ)φ −
+F (φ), λ(φ) = 0. In order to hamiltonize F (R) theory, it must first be brought
+to first order form (this is essentially the content of the Ostrogradski method
+for hamiltonizing higher order systems [50, 51, 9]). Passing to the scalartensor description is the simplest way to do this, so we have also found the
+9
+
+Recall that we must measure the energy relative to the energy of Minkowski space,
+which is the vacuum solution. The energy of each is individually divergent as r → ∞, but
+the difference is finite and yields the above expression.
+
+34
+
+ADM energy for F (R) theory. The boundary term must be passed in the
+same way, and so plays the same essential role.
+
+7
+
+Black hole entropy
+
+When calculating the entropy of a black hole in the euclidean semi-classical
+approximation, it is essential to have the correct GHY term [44]. In fact,
+this term is responsible for the entire contribution to the euclidean action.
+In this section we will calculate the entropy for a Schwartzschild black hole
+in F (R) theory using our boundary term, and compare this to the entropy
+given by the Wald entropy formula.
+The Wald entropy formula allows one to calculate the entropy of a black
+hole in any diffeomorphism invariant metric theory of gravity. It involves
+an integral over the bifurcation two sphere of the horizon of the black hole
+[40, 41]. The formula does not rely on having a well-posed action principle,
+i.e. it depends only on the lagrangian density, and hence the GHY terms
+are not needed in order to apply it. For a Schwartzschild black hole in F (R)
+theory in four dimensions, the Wald formula gives the result [43]
+A
+SBH = 16πF 0 (R0 ),
+(7.1)
+4
+where A is the area of the horizon and R0 is the (constant) background
+curvature of the spacetime the black hole sits in. Wald has shown that his
+entropy formula gives the same value as the euclidean semi-classical approach
+for theories which satisfy several conditions in addition to those needed by
+the formula itself [42]. One of these additional conditions is that there be
+a variational principle for the action where only the metric is held fixed on
+the boundary, so this does not cover the general F (R) case. Nevertheless,
+we will see that our surface term still gives the entropy in agreement with
+Wald’s formula.
+The partition function in the semiclassical limit is
+Z[β] = e−SE ,
+
+(7.2)
+
+where β = T1 is the inverse temperature and SE is the euclidean action of the
+
+dominant classical field configuration where the time variable is identified
+with period β.
+35
+
+In Einstein gravity in four dimensions, we have the Schwartzschild solution
+1
+ds2 = −f (r)dt2 +
+dr2 + r2 dω 2 ,
+(7.3)
+f (r)
+, and M is the ADM mass.
+where f (r) = 1 − 2GM
+r
+The temperature can be determined by finding the corresponding solution
+to the euclidean action, which amounts to taking t → iτ , and then finding
+the period of τ required to eliminate the conical singularity at the horizon.
+The resulting metric is then
+ds2E = f (r)dτ 2 +
+
+1
+dr2 + r2 dω 2 ,
+f (r)
+
+τ = τ + β,
+
+β = 8πGM.
+
+(7.4)
+
+The temperature of a black hole is model-independent, since no use of the
+Einstein equations was made other than the fact that Schwartzschild is a
+solution. Thus in any theory of modified gravity where Schwartzschild is a
+solution, the black hole will have the same temperature.
+We first review the euclidean action calculation in GR, since the extension
+to F (R) is then trivial. The euclidean action for GR is
+I
+Z
+p
+p
+4
+d3 x |h|(K − K0 ).
+(7.5)
+16πGSE = − d x |g|R − 2
+V
+
+∂V
+
+The action for a general theory must be zeroed on the action for the background one is expanding about, i.e. the vacuum state. The true, finite action
+is thus S − S0 , where S0 is the action of the background. In our case, the
+background is flat space. The bulk contribution to S0 vanishes, and all that
+remains is K0 , the extrinsic curvature of the boundary as measured in flat
+space. The term K0 is often called the boundary counterterm (misappropriated from the quantum field theory jargon) and may in general have to take
+a more complicated form [49]).
+Since the Ricci curvature of Schwartzschild vanishes, the bulk term does
+not contribute to the classical action. The entire contribution comes from
+the boundary term. Taking the boundary to be a sphere of radius r about
+the origin, we have
+I
+p
+d3 x |h|K = 4πβ(2r − 3GM ).
+(7.6)
+∂V
+
+36
+
+For the background, we periodically identify the time to the period β, red1/2
+,
+shifted by the factor 1 − 2GM
+r
+1/2
+
+p
+2GM
+d x |h|K0 = 8πβr 1 −
+.
+r
+∂V
+
+I
+
+3
+
+(7.7)
+
+Taking the difference and the limit r → ∞ yields
+SE =
+
+β2
+.
+16πG
+
+(7.8)
+
+The free energy, entropy, and energy are then
+1
+1
+β
+F = − ln Z = SE =
+,
+β
+β
+16πG
+∂F
+β
+E = F +β
+=
+= M,
+∂β
+8πG
+∂F
+β2
+A
+S = β2
+=
+=
+,
+∂β
+16πG
+4G
+
+(7.9)
+(7.10)
+(7.11)
+
+where A = 4π(2GM )2 is the area of the horizon.
+We now extend the calculation to F (R) theory. The bulk vacuum equations of motion are
+1
+F 0 (R)Rµν − F (R)gµν + gµν ∇2 F 0 (R) − ∇µ ∇ν F 0 (R) = 0,
+2
+
+(7.12)
+
+which are fourth order in the metric, as expected. AdS/dS Schwartzschild
+has the property Rµν = R4 gµν , with R = R0 a constant. Using this ansatz
+the equation of motion reduces to
+F 0 (R0 )R0 − 2F (R0 ) = 0,
+
+(7.13)
+
+which is an algebraic equation for R0 . This is the same equation one would
+obtain seeking constant curvature solutions, so for every constant curvature
+background, we also have a Schwartzschild black hole that asymptotically
+approaches this background.
+The euclidean action, including the GHY term, is
+Z
+I
+p
+p
+4
+d3 x |h|F 0 (R)K.
+SE + S0 = − d x |g|F (R) − 2
+V
+
+∂V
+
+37
+
+(7.14)
+
+Here S0 is the action for the background. Since the Schwartzschild solution
+has the same constant curvature as the background, the bulk contribution
+vanishes, and the entire contribution again comes from the boundary term,
+I
+p
+0
+SE = −2F (R0 )
+d3 x |h| (K − K0 ) .
+(7.15)
+∂V
+
+where R0 is the scalar curvature of the background/black hole.
+If we assume for simplicity that F (R) is such that there is a flat space
+solution, then the calculation proceeds just as in the GR case, with the result
+SE = β 2 F 0 (R0 ).
+
+(7.16)
+
+The thermodynamic quantities are then
+F = βF 0 (R0 ),
+
+E = 16πGF 0 (R0 )M,
+
+S=
+
+A
+16πF 0 (R0 ).
+4
+
+(7.17)
+
+These formulae make good sense from the point of view of the scalartensor theory. The scalar field is just R, the Ricci curvature, so the Schwartzschild
+solutions we are considering have constant scalar field everywhere. This is in
+accord with no hair theorems, which forbid non-trivial scalar profiles around
+black holes in space with zero or positive curvature [45, 46, 47]. The value
+of the effective Newton’s constant is set by the constant value of the scalar
+field
+1
+= F 0 (R0 ),
+(7.18)
+16πGef f
+so the entropy is simply one quarter the area of the horizon in units of the
+effective Planck length. The energy is the ADM energy we found in the
+previous section.
+An interesting consequence of this formula is that higher curvature terms
+make no correction to the entropy. From (7.13) we see that if R = 0 is to be
+a solution, then F (0) = 0, so F can be taylor expanded around the origin,
+starting with the Einstein-Hilbert term: F (R) = F 0 (0)R + 21 F 00 (0)R2 + · · · .
+All the higher power corrections to the action do not affect the entropy. In
+particular, the entropy of a black hole in pure Rn gravity, for n ≥ 2, vanishes.
+
+38
+
+8
+
+Conclusions
+
+Having correct boundary terms is essential to the consistency of any theory.
+One can generally get away without them, but there are instances where they
+are vitally important. We have argued that consistent GHY terms for higher
+derivative modified gravity theories can be obtained by using any scalartensor equivalence the theory may posses. The boundary terms obtained
+in this way, while not necessarily unique, do give a well-posed variational
+problem and give the expected ADM energy and black hole entropy, even
+though derivatives of the metric may have to be fixed on the boundary.
+What we have given is by no means a complete analysis of boundary
+terms, however. For a general lagrangian of any kind of field, not necessarily
+a modified gravity theory, it is far from clear whether there always exists a
+boundary term that renders the variational principle well-posed. Furthermore, even if such a term can be found, it is not evident what freedom is
+allowed in choosing the boundary term, or what physical significance this
+freedom entails.
+Acknowledgements
+The authors are grateful to Allan Blaer, Adam Brown, Norman Christ,
+Solomon Endlich, Brian Greene, Dan Kabat, Alberto Nicolis, and Erick
+Weinberg for discussions, and to their anonymous referee for helpful comments. KH is supported by DOE grant DE-FG02-92ER40699 and by a
+Columbia University Initiatives in Science and Engineering grant.
+
+A
+
+The ADM decomposition
+
+Here we review the ADM hypersurface decomposition of spacetime, and lay
+out our conventions in the process. The conventions and notation are those
+of [21]. In this appendix we will describe a generic foliation of a volume
+V, by spacelike or timelike hypersurfaces, and in the next appendix we will
+describe the specific foliations we use throughout the paper.
+Put coordinates xµ on V. We foliate the volume V with hypersurfaces Σt
+by giving a global time function t(xµ ) and declaring the hypersurfaces to be
+39
+
+its level sets. We then set up functions y a (xµ ), a = 1 . . . n − 1, independent
+of t(xµ ) and each other, to serve as coordinates on the submanifolds. Taken
+together, t and y a form a new coordinate system on V, and we have an
+invertible transformation from the these coordinates to the old ones
+xµ (y a , t),
+
+t(xµ ), y a (xµ ).
+
+(A.1)
+
+The coordinate basis vectors of this new coordinate system are
+tµ =
+
+∂xµ
+,
+∂t
+
+eµa =
+
+∂xµ
+.
+∂y a
+
+(A.2)
+
+t̃µ =
+
+∂t
+,
+∂xµ
+
+ẽµa =
+
+∂y a
+.
+∂xµ
+
+(A.3)
+
+The dual one forms are
+
+They satisfy the duality and completeness relations
+tµ t̃µ = 1, eµb ẽµa = δba , tµ ẽµa = eµa t̃µ = 0.
+
+(A.4)
+
+tµ t̃ν + eµa ẽνa = δ µν .
+
+(A.5)
+
+Introduce a bulk metric gµν . There is now a well defined one-dimensional
+normal subspace at each point of Σt , which may be different from the subspace spanned by tµ . We set up a basis consisting of the forward pointing
+unit normal vector nµ along with the eµa . The eµa are not required to be
+orthonormal among themselves, but are orthogonal to nµ . We have
+gµν nµ nν = , gµν eµa nν = 0.
+
+(A.6)
+
+(
+1
+Σt timelike
+=
+.
+−1 Σt spacelike
+
+(A.7)
+
+Here  is defined by
+
+We define the associated dual forms eµa , ñµ , at each point,
+nµ ñµ = 1, eµb eµa = δba , nµ eµa = eµa ñµ = 0.
+
+(A.8)
+
+nµ ñν + eµa eνa = δ µν .
+
+(A.9)
+
+40
+
+(We use ñµ for the dual one form, and reserve nµ for the form gµν nν . They
+differ by a sign for spacelike hypersurfaces, i.e. ñµ = nµ .)
+A vector field Aµ is called parallel if it admits the decomposition Aµ =
+A form Aµ is parallel if it admits the decomposition Aµ = Aa eµa .
+Similarly, a general tensor is parallel if it admits a similar decomposition, for
+example, a (2, 1) tensor is parallel if
+Aa eµa .
+
+Aµνγ = Aabc eµa eνb eγc .
+
+(A.10)
+
+There is a bijective relation between tensors on the submanifold Σt (really a
+one parameter family of tensors, one on each surface, parametrized by t) and
+parallel tensors in the bulk. Given a parallel bulk tensor Aµνγ , it corresponds
+to the submanifold tensor Aabc , and vice versa.
+Define the projection tensor
+P µν = δνµ − nµ ñν .
+
+(A.11)
+
+It projects the tangent space of V onto the tangent space of Σt , along the
+subspace spanned by nµ . It satisfies
+P µλ P λν = P µν ,
+P µν eνa = eµa , P µν nν = 0
+P µν eµa = eνa , P µν ñµ = 0.
+
+(A.12)
+(A.13)
+(A.14)
+
+Given any bulk tensor, e.g. Aµνγ , we can make a parallel tensor by projecting it,
+Akµνγ = P µρ P νσ P λγ Aρσλ .
+(A.15)
+A tensor is parallel if and only if it is equal to its projection.
+We have the relation
+eµa eνa = P µν .
+
+(A.16)
+
+Projecting the metric gives the induced metric h on the hypersurfaces,
+hµν = P ρµ P σν gρσ = hab eµa eνb ,
+
+hab = eµa eνb hµν = eµa eνb gµν .
+
+41
+
+(A.17)
+
+We raise and lower bulk indices µ, ν . . . with gµν and its inverse g µν , and we
+raise and lower submanifold indices a, b, . . . with hab and its inverse hab . In
+particular, we have,
+hab gµν eνb = eµa ,
+
+gµν nν ≡ nµ = ñµ ,
+
+(A.18)
+
+hab g µν eνb = eµa ,
+
+g µν ñν ≡ ñµ = nµ ,
+
+(A.19)
+
+g µα P να = hµν .
+
+(A.20)
+
+as well as
+gµα P αν = hµν ,
+
+To perform the ADM decomposition, we want to write the bulk metric in
+the (y a , t) coordinate system. We start by expanding the coordinate vector
+tµ over the new basis,
+tµ = N nµ + N a eµa .
+(A.21)
+The coefficients N and N a are called the lapse and the shift, respectively.
+We have
+1
+t̃µ = ∂µ t =  nµ , nµ = N t̃µ = N ∂µ t.
+(A.22)
+N
+The coordinate one-forms are
+dxµ = tµ dt + eµa dy a = N nµ dt + (N a dt + dy a ) eµa .
+
+(A.23)
+
+
+gµν dxµ dxν = N 2 dt + hab (N a dt + dy a ) N b dt + dy b .
+
+(A.24)
+
+The metric is
+
+In matrix form this is,
+
+g=
+
+N 2 + N a Na Na
+Na
+hab
+
+
+.
+
+(A.25)
+
+The inverse metric is
+g
+
+−1
+
+
+=
+
+a
+
+ N12
+− N
+N2
+a
+N aN b
+ab
+− N
+h
++
+
+N2
+N2
+
+The square root of the norm of the determinant is
+p
+p
+|g| = N |h|.
+42
+
+
+.
+
+(A.26)
+
+(A.27)
+
+The normal vector is
+n0 =
+
+1
+,
+N
+
+na = −
+
+Na
+,
+N
+
+n0 = N,
+
+na = 0.
+
+(A.28)
+
+The extrinsic curvature is a parallel tensor defined by
+Kab ≡ eµa eνb ∇µ nν .
+
+(A.29)
+
+Kab = Kba ,
+
+(A.30)
+
+It is symmetric,
+as can be easily shown by noting that the basis vectors have zero Lie bracket,
+eνb ∇ν eµa = eνa ∇ν eµb . We also have
+1
+Kab = ∇(µ nν) eµa eνb = eµa eνb Ln gµν ,
+2
+
+(A.31)
+
+where L is the Lie derivative. The trace of the extrinsic curvature is given
+by
+K = hab Kab = ∇µ nµ .
+(A.32)
+In terms of ADM variables, we have
+
+1 
+Kab =
+ḣab − ∇a Nb − ∇b Na .
+2N
+
+(A.33)
+
+We often use the decomposition
+
+
+R = (n−1) R +  K 2 − Kab K ab + 2∇α nβ ∇β nα − nα K .
+
+(A.34)
+
+Here R is the Ricci scalar constructed from gµν , and (n−1) R is the Ricci scalar
+constructed from the induced metric hab .
+
+B
+
+Foliation of spacetime
+
+Throughout this paper it is necessary to refer to spacetime, boundaries of
+spacetime, foliations of spacetime, and all of the geometrical quantities that
+these induce. As such it is necessary to layout some standard terminology to
+describe the situation. See figure 2.
+43
+
+Σ2
+
+B
+
+V
+tµ
+
+nµ
+eµ
+a
+
+Σt
+
+nµ
+rµ
+eµ
+A
+
+St
+line of constant y a
+
+Σ1
+
+Figure 2: Foliation of spacetime
+
+Spacetime will be referred to as V bounded by ∂V. ∂V has three parts,
+a timelike boundary B, a spacelike initial surface Σ1 and a spacelike final
+surface Σ2 . We foliate the volume V with hypersurfaces Σt by giving a
+global time function t(x) and declaring the hypersurfaces to be its level sets.
+44
+
+The top and bottom surfaces Σ1 and Σ2 are to coincide with Σt1 and Σt2 , for
+some times t1 and t2 . The normal vector to the Σt is denoted nµ and is future
+pointing. The coordinates on Σt are y a . The lapse and shift relative to this
+foliation are N , N a . The induced metric is hab and the extrinsic curvature is
+Kab .
+The boundary B can be thought of as part of a foliation by timelike
+surfaces. The coordinates on B are z i . The radially outward pointing normal
+vector is rµ . We demand that the surfaces Σt intersect B orthogonally, so
+that gµν rµ nν = 0 on B. This implies that rµ is parallel to Σt on B, so that
+rµ = ra eµa there, for some ra . The lapse and shift relative to this foliation
+are N , N i . The induced metric is γij , and the extrinsic curvature is Kij .
+The intersections of Σt with B are denoted St = Σt ∩ B. These form a
+spacelike foliation of B. The coordinates on St are θA , the induced metric is
+σAB , and the extrinsic curvature of St as embedded in Σt is kAB .
+
+C
+
+Conformal transformation formulae
+
+Here we collect some formulae on conformal transformations of the metric.
+g̃µν = ω 2 (x)gµν ,
+
+ω(x) > 0.
+
+g̃ µν = ω −2 (x)g µν .
+
+(C.1)
+(C.2)
+
+The connection transforms as
+Γ̃ρµν = Γρµν + C ρµν ,
+
+(C.3)
+
+
+C ρµν = ω −1 δµρ ∂ν ω + δνρ ∂µ ω − gµν g ρσ ∂σ ω .
+
+(C.4)
+
+The curvature scalar transforms as
+R̃ = ω −2 R − 2(n − 1)g αβ ω −3 ∇α ∇β ω − (n − 1)(n − 4)g αβ ω −4 ∂α ω∂β ω. (C.5)
+Some convenient covariant derivative transformations are
+
+˜ µ∇
+˜ ν φ = ∇µ ∇ν φ − δ α δ β + δ β δ α − gµν g αβ ω −1 ∂α ω∂β φ.
+∇
+µ ν
+µ ν
+˜ = ω −2 φ + (n − 2)g αβ ω −3 ∂α ω∂β φ.
+φ
+45
+
+(C.6)
+(C.7)
+
+The inverse transformations are
+˜ α∇
+˜ β ω − n(n − 1)g̃ αβ ∂α ω∂β ω.
+R = ω 2 R̃ + 2(n − 1)g̃ αβ ω ∇
+
+(C.8)
+
+
+˜ µ∇
+˜ ν φ + δ α δ β + δ β δ α − g̃µν g̃ αβ ω −1 ∂α ω∂β φ.
+∇µ ∇ν φ = ∇
+µ ν
+µ ν
+
+(C.9)
+
+˜ − (n − 2)g̃ αβ ω∂α ω∂β φ.
+φ = ω 2 φ
+
+(C.10)
+
+The various 3+1 dimensional quantities transform as follows
+h̃ab = ω 2 hab ,
+
+D
+
+Ñ a = N a ,
+
+Ñ = ωN,
+
+(C.11)
+
+h̃ab = ω −2 hab ,
+
+Ña = ω 2 Na ,
+
+(C.12)
+
+ñµ = ω −1 nµ ,
+
+ñµ = ωnµ ,
+
+(C.13)
+
+K̃ab = ωKab + hab nµ ∂µ ω,
+
+(C.14)
+
+K̃ = ω −1 K + ω −2 (n − 1)nµ ∂µ ω.
+
+(C.15)
+
+The fundamental theorem of auxiliary variables
+
+Here we recall some facts about auxiliary fields in classical field theory. For
+more, see for example [54, 23].
+Suppose the lagrangian depends on two sets of fields φi and χA , L =
+L([φ], [χ], x), (here [ ] stands for dependence on the fields and any of its
+spacetime derivatives of arbitrary but finite order) and that the equations of
+motion for χA can be solved in terms of the φi ,
+δ EL L
+= 0 ⇒ χA = χA ([φ], x).
+δχA
+
+(D.1)
+
+Plugging these relations back into L, we get a lagrangian depending only on
+the φi , which we call L̄,
+L̄([φ], x) ≡ L([φ], [χ([φ], x)], x).
+46
+
+(D.2)
+
+We will christen the following the fundamental theorem of auxiliary variables.
+• The equations of motion derived from L and L̄ are equivalent in the φi
+EL
+sector, i.e. if φi (x) is a solution to δ δφiL = 0, then it is also a solution
+EL
+
+EL
+
+to δ δφiL̄ = 0, and vice versa, if φi (x) is a solution to δ δφiL̄ = 0, then it
+EL
+
+is also a solution to δ δφiL = 0, with the extension to the χA given by
+the χA ([φ], x) obtained from solving the χA equations of motion.
+Proving this is a matter of convincing yourself that you can extremize a
+function of several variables either by extremizing with respect to all the
+variables, or by first extremizing with respect to a few, and then with respect
+to the rest.
+The other important property that hold when eliminating auxiliary variables is that both the global and gauge symmetry groups of L and L̄ are
+the same. One does not lose or gain symmetries by eliminating or adding
+auxiliary variables.
+Notice that in the fundamental theorem, there is no requirement that the
+auxiliary fields be solved for algebraically. However, when this is not the
+case, one must be careful about boundary contributions. To illustrate this,
+we reprint here a nice example taken from the exercises of chapter one of
+[23].
+Consider the action for two variables q(t) and A(t) with values fixed on
+the endpoints,
+!
+Z t2
+2
+1
+Ȧ
+S=
+dt
+q̇ 2 + 2 .
+(D.3)
+2
+q
+t1
+The equations of motion for q and A are, respectively,
+!
+Ȧ2
+d Ȧ
+q̈ + 3 = 0,
+= 0.
+q
+dt q 2
+
+(D.4)
+
+Notice that the A equation implies Ȧ = cq 2 , where c is a constant of integration. Plugging this back into the action, we obtain
+Z t2
+
+1 2
+S=
+dt
+q̇ + c2 q 2 ,
+(D.5)
+2
+t1
+47
+
+which gives naively for the q equation of motion q̈ − c2 q = 0. Looking back
+at the original q equation of motion, and plugging in Ȧ = cq 2 , we obtain
+q̈ + c2 q = 0, a contradiction for c2 6= 0.
+It is often said that auxiliary variables can only be eliminated if their
+equations of motion can be solved algebraically, and “counterexamples” like
+this are quoted to illustrate this. However, if we are careful to take into account the endpoints,we can resolve the problem. Consider again the equation
+of motion for A, dtd qȦ2 = 0. We must solve this subject to the endpoint
+conditions A(t1 ) = A1 , A(t2 ) = A2 . Integrating both sides of the solution
+Ȧ = cq 2 , we find that the constant c actually depends non-locally on q, as
+well as on the endpoint data for A,
+A2 − A1
+c = R t2
+.
+2 dt
+q(t)
+t1
+
+(D.6)
+
+Plugging this more careful result into the action, we obtain a non-local
+action for q,
+
+!2 
+Z t2
+1
+A2 − A1
+S=
+dt q̇ 2 + R t2
+q2 .
+(D.7)
+0 )2 dt0
+2
+q(t
+t1
+t1
+Varying this carefully with respect to q, we recover the correct (non-linear,
+non-local) equation of motion q̈ + c2 q = 0.
+
+References
+[1] G. W. Gibbons and S. W. Hawking, “Action Integrals And Partition
+Functions In Quantum Gravity,” Phys. Rev. D 15, 2752 (1977).
+[2] J. W. York, “Role of conformal three geometry in the dynamics of
+gravitation,” Phys. Rev. Lett. 28 (1972) 1082.
+[3] S. W. Hawking and G. T. Horowitz, “The Gravitational Hamiltonian,
+action, entropy and surface terms,” Class. Quant. Grav. 13 (1996)
+1487 [arXiv:gr-qc/9501014].
+
+48
+
+[4] T. P. Sotiriou and V. Faraoni, “f(R) Theories Of Gravity,”
+arXiv:0805.1726 [gr-qc].
+[5] S. Nojiri and S. D. Odintsov, “Introduction to modified gravity and
+gravitational alternative for dark energy,” eConf C0602061, 06 (2006)
+[Int. J. Geom. Meth. Mod. Phys. 4, 115 (2007)]
+[arXiv:hep-th/0601213].
+[6] B. Boisseau, G. Esposito-Farese, D. Polarski and A. A. Starobinsky,
+“Reconstruction of a scalar-tensor theory of gravity in an accelerating
+universe,” Phys. Rev. Lett. 85, 2236 (2000) [arXiv:gr-qc/0001066].
+[7] S. M. Carroll, V. Duvvuri, M. Trodden, and M. S. Turner, “Is cosmic
+speed-up due to new gravitational physics?,” Phys. Rev. D70 (2004)
+043528, astro-ph/0306438.
+[8] S. Nojiri and S. D. Odintsov, “Modified gravity with negative and
+positive powers of the curvature: Unification of the inflation and of the
+cosmic acceleration,” Phys. Rev. D 68, 123512 (2003)
+[arXiv:hep-th/0307288].
+[9] R. P. Woodard, “Avoiding dark energy with 1/R modifications of
+gravity,” Lect. Notes Phys. 720, 403 (2007) [arXiv:astro-ph/0601672].
+[10] S. M. Carroll et al., “The cosmology of generalized modified gravity
+models,” Phys. Rev. D71 (2005) 063513, astro-ph/0410031.
+[11] W. Hu and I. Sawicki, “Models of f(R) cosmic acceleration that evade
+solar-system tests,” Phys. Rev. D76 (2007) 064004, arXiv:0705.1158
+[astro-ph].
+[12] M. Farhoudi, “On higher order gravities, their analogy to GR, and
+dimensional dependent version of Duff’s trace anomaly relation,” Gen.
+Rel. Grav. 38, 1261 (2006) [arXiv:physics/0509210].
+[13] M. Asorey, J. L. Lopez and I. L. Shapiro, “Some remarks on high
+derivative quantum gravity,” Int. J. Mod. Phys. A 12, 5711 (1997)
+[arXiv:hep-th/9610006].
+[14] M. Bojowald and A. Skirzewski, “Quantum gravity and higher
+curvature actions,” eConf C0602061, 03 (2006) [Int. J. Geom. Meth.
+Mod. Phys. 4, 25 (2007)] [arXiv:hep-th/0606232].
+49
+
+[15] A. Balcerzak and M. P. Dabrowski, “Gibbons-Hawking Boundary
+Terms and Junction Conditions for Higher-Order Brane Gravity
+Models,” arXiv:0804.0855 [hep-th].
+[16] N. H. Barth, “The Fourth Order Gravitational Action For Manifolds
+With Boundaries,” Class. Quant. Grav. 2, 497 (1985).
+[17] R. Casadio and A. Gruppuso, “On boundary terms and conformal
+transformations in curved spacetimes,” Int. J. Mod. Phys. D 11, 703
+(2002) [arXiv:gr-qc/0107077].
+[18] M. S. Madsen and J. D. Barrow, “De Sitter Ground States And
+Boundary Terms In Generalized Gravity,” Nucl. Phys. B 323 (1989)
+242.
+[19] S. Nojiri and S. D. Odintsov, “Finite gravitational action for higher
+derivative and stringy gravities,” Phys. Rev. D 62, 064018 (2000)
+[arXiv:hep-th/9911152].
+[20] S. M. Carroll, “Spacetime and geometry: An introduction to general
+relativity,” San Francisco, USA: Addison-Wesley (2004)
+[21] E. Poisson, “A Relativist’s Toolkit: The Mathematics of Black-Hole
+Mechanics,” Cambridge University Press (2004)
+[22] H. Goldstein, “Classical Mechanics,” Addison Wesley; 3rd edition
+(2001)
+[23] M. Henneaux and C. Teitelboim, “Quantization of gauge systems,”
+Princeton, USA: Univ. Pr. (1992)
+[24] P. A. M. Dirac, “Lectures on Quantum Mechanics,” Dover
+Publications (2001)
+[25] P. Teyssandier and Ph. Tourrenc, “The Cauchy problem for the R + R2
+theories of gravity without torsion,” J. Math. Phys. 24, 2793 (1983).
+[26] B. Whitt, “Fourth Order Gravity As General Relativity Plus Matter,”
+Phys. Lett. B 145, 176 (1984).
+[27] J. D. Barrow and S. Cotsakis, “Inflation and the Conformal Structure
+of Higher Order Gravity Theories,” Phys. Lett. B 214, 515 (1988).
+50
+
+[28] J. D. Barrow, “The Premature Collapse Problem in Closed
+Inflationary Universes,” Nucl. Phys. B 296, 697 (1988).
+[29] D. Wands, “Extended gravity theories and the Einstein-Hilbert
+action,” Class. Quant. Grav. 11, 269 (1994) [arXiv:gr-qc/9307034].
+[30] T. Chiba, “1/R gravity and scalar-tensor gravity,” Phys. Lett. B 575,
+1 (2003) [arXiv:astro-ph/0307338].
+[31] T. Chiba, “Generalized gravity and ghost,” JCAP 0503, 008 (2005)
+[arXiv:gr-qc/0502070].
+[32] G. J. Olmo, “Limit to general relativity in f(R) theories of gravity,”
+Phys. Rev. D 75, 023511 (2007) [arXiv:gr-qc/0612047].
+[33] D. Lovelock, “The Einstein tensor and its generalizations,” J. Math.
+Phys. 12, 498 (1971).
+[34] R. C. Myers, “Higher Derivative Gravity, Surface Terms and String
+Theory” Phys. Rev. D 36, 392 (1987).
+[35] C. Charmousis and R. Zegers, “Matching conditions for a brane of
+arbitrary codimension,” JHEP 0508, 075 (2005)
+[arXiv:hep-th/0502170].
+[36] J. T. Liu and W. A. Sabra, arXiv:0807.1256 [hep-th].
+[37] L. J. Garay and J. Garcia-Bellido, “Jordan-Brans-Dicke Quantum
+Wormholes And Coleman’s Mechanism,” Nucl. Phys. B 400, 416
+(1993) [arXiv:gr-qc/9209015].
+[38] S. Capozziello and R. Garattini, “The cosmological constant as an
+eigenvalue of f(R)-gravity Hamiltonian Class. Quant. Grav. 24, 1627
+(2007) [arXiv:gr-qc/0702075].
+[39] M. Salgado, “The Cauchy problem of scalar tensor theories of gravity,”
+Class. Quant. Grav. 23, 4719 (2006) [arXiv:gr-qc/0509001].
+[40] R. M. Wald, “Black hole entropy is the Noether charge,” Phys. Rev. D
+48, 3427 (1993) [arXiv:gr-qc/9307038].
+[41] V. Iyer and R. M. Wald, “Some properties of Noether charge and a
+proposal for dynamical black hole Phys. Rev. D 50, 846 (1994)
+[arXiv:gr-qc/9403028].
+51
+
+[42] V. Iyer and R. M. Wald, “A Comparison of Noether charge and
+Euclidean methods for computing the Phys. Rev. D 52, 4430 (1995)
+[arXiv:gr-qc/9503052].
+[43] F. Briscese and E. Elizalde, “Black hole entropy in modified gravity
+models,” Phys. Rev. D 77, 044009 (2008) [arXiv:0708.0432 [hep-th]].
+[44] J. D. Brown and J. W. . York, “The Microcanonical functional
+integral. 1. The Gravitational field,” Phys. Rev. D 47, 1420 (1993)
+[arXiv:gr-qc/9209014].
+[45] J. D. Bekenstein, “Nonexistence of baryon number for static black
+holes,” Phys. Rev. D 5, 1239 (1972).
+[46] M. Heusler, “A Mass bound for spherically symmetric black hole
+spacetimes,” Class. Quant. Grav. 12, 779 (1995) [arXiv:gr-qc/9411054].
+[47] E. Winstanley, “Dressing a black hole with non-minimally coupled
+scalar field hair,” Class. Quant. Grav. 22, 2233 (2005)
+[arXiv:gr-qc/0501096].
+[48] C. Teitelboim, “Quantum Mechanics Of The Gravitational Field,”
+Phys. Rev. D 25, 3159 (1982).
+[49] R. B. Mann and D. Marolf, “Holographic renormalization of
+asymptotically flat spacetimes,” Class. Quant. Grav. 23, 2927 (2006)
+[arXiv:hep-th/0511096].
+[50] M. Ostrogradski, Mem. Ac. St. Petersbourg VI 4, 385 (1850).
+[51] T. Nakamura and S. Hamamoto, “Higher Derivatives and Canonical
+Formalisms,” Prog. Theor. Phys. 95, 469 (1996)
+[arXiv:hep-th/9511219].
+[52] R. L. Arnowitt, S. Deser and C. W. Misner, “The dynamics of general
+relativity,” arXiv:gr-qc/0405109.
+[53] A. Einstein, “Hamilton’s Principle and the General Theory of
+Relativity,” Sitzungsber. Preuss. Akad. Wiss. Berlin (Math. Phys. )
+1916, 1111 (1916).
+
+52
+
+[54] M. Henneaux, “On the use of auxiliary fields in classical mechanics and
+in field theory,” Contemporary Mathematics, Proceedings of the 1991
+Joint Summer Research Conference on Mathematical Aspects of
+Classical Field Theory.
+
+53
+
+

@@ -1,0 +1,16 @@
+=== eps=1.0: turning-point (K=0) caps with maximum radius a_t; I_(a,R)=I_inv there; sphere dS Re I=-(1+2eps)=-3.000 ===
+  a_t=1.0: no bracket (f(lo)=0.000, f(hi)=8.579)
+  a_t= 1.2: c3=-0.108177 tau_turn=1.8323 a=1.2000 v=-2.3e-12 R=+9.1667 | I_(a,R)=I_inv=-3.0696 | flat ball I_inv=-0.9350 | sphere dS -3.000
+  a_t= 1.5: c3=-0.061954 tau_turn=2.2077 a=1.5000 v=-8.1e-12 R=+6.6667 | I_(a,R)=I_inv=-3.4006 | flat ball I_inv=-1.0962 | sphere dS -3.000
+  a_t= 2.0: c3=-0.028349 tau_turn=2.8005 a=2.0000 v=+2.7e-11 R=+4.5000 | I_(a,R)=I_inv=-4.4458 | flat ball I_inv=-1.8333 | sphere dS -3.000
+  a_t= 3.0: c3=-0.007834 tau_turn=3.9102 a=3.0000 v=+8.6e-12 R=+2.6667 | I_(a,R)=I_inv=-8.0558 | flat ball I_inv=-4.7724 | sphere dS -3.000
+  a_t= 4.0: c3=-0.002565 tau_turn=4.9649 a=4.0000 v=-2.8e-11 R=+1.8750 | I_(a,R)=I_inv=-13.4380 | flat ball I_inv=-9.4470 | sphere dS -3.000
+  a_t= 6.0: c3=-0.000332 tau_turn=7.0058 a=6.0000 v=-4.6e-11 R=+1.1667 | I_(a,R)=I_inv=-29.0852 | flat ball I_inv=-23.6361 | sphere dS -3.000
+=== eps=0.3: turning-point (K=0) caps with maximum radius a_t; I_(a,R)=I_inv there; sphere dS Re I=-(1+2eps)=-1.600 ===
+  a_t=1.0: no bracket (f(lo)=0.000, f(hi)=4.930)
+  a_t= 1.2: c3=-0.090685 tau_turn=1.7451 a=1.2000 v=+8.6e-12 R=+10.7107 | I_(a,R)=I_inv=-1.6594 | flat ball I_inv=-0.9350 | sphere dS -1.600
+  a_t= 1.5: c3=-0.041772 tau_turn=2.0436 a=1.5000 v=+8.9e-13 R=+8.7281 | I_(a,R)=I_inv=-1.9519 | flat ball I_inv=-1.0962 | sphere dS -1.600
+  a_t= 2.0: c3=-0.013704 tau_turn=2.5523 a=2.0000 v=-1.2e-11 R=+6.4749 | I_(a,R)=I_inv=-2.9005 | flat ball I_inv=-1.8333 | sphere dS -1.600
+  a_t= 3.0: c3=-0.001941 tau_turn=3.5617 a=3.0000 v=-9.2e-11 R=+4.1733 | I_(a,R)=I_inv=-6.2557 | flat ball I_inv=-4.7724 | sphere dS -1.600
+  a_t= 4.0: c3=-0.000313 tau_turn=4.5627 a=4.0000 v=-1.1e-10 R=+3.0530 | I_(a,R)=I_inv=-11.3438 | flat ball I_inv=-9.4470 | sphere dS -1.600
+  a_t=6.0: no bracket (f(lo)=-5.000, f(hi)=-0.070)

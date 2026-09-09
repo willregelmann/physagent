@@ -1,0 +1,27 @@
+(1) c(v)-c(1) = -(v - 1)**2*(3*epsilon*v**2 + 6*epsilon*v + 3*epsilon + v**2 + 2*v - 3)/(4*v)
+    R^2 sector:  -3*epsilon*(v - 1)**2*(v + 1)**2/(4*v)  (<=0 for all v>0, every eps>0)
+    anomaly sector: -(v - 1)**3*(v + 3)/(4*v)  (>0 for v<1, <0 for v>1)
+    check sum: 0
+    roots of the bracket: [-1 + 2/sqrt(3*epsilon + 1)]
+    closed form v*(eps) = 2/sqrt(1+3 eps) - 1 ; check bracket at v*: 0
+      eps=0.25: v*=0.5119  (I->+inf for 0<v<v*; I->-inf for v>v*, v!=1)
+      eps=0.3: v*=0.4510  (I->+inf for 0<v<v*; I->-inf for v>v*, v!=1)
+      eps=0.355: v*=0.3918  (I->+inf for 0<v<v*; I->-inf for v>v*, v!=1)
+      eps=0.5: v*=0.2649  (I->+inf for 0<v<v*; I->-inf for v>v*, v!=1)
+      eps=0.8: v*=0.0847  (I->+inf for 0<v<v*; I->-inf for v>v*, v!=1)
+      eps=1.0: v*=0.0000  (I->+inf for 0<v<v*; I->-inf for v>v*, v!=1)
+    v*(eps)>0 iff eps<1 ; v*(1)=0 ; at eps>=1 the coefficient is <=0 for every v>0: -(v - 1)**2*(v + 2)
+    near v=1 (both signs of v-1): -(v - 1)**3 - 3*epsilon*(v - 1)**2 + O((v - 1)**4, (v, 1))
+    v->0+: 3/4 - 3*epsilon/4 /v
+    v->inf: -3*epsilon/4 - 1/4 * v^3
+(2) odd family: a'(0)= 1  a''(0)= 0  a'''(0)= 6*(v - 1)/delta**2
+    odd family R at tau->0: (72 - 72*v)/delta**2   (finite: fully regular pole)
+    note's family R at tau->0: ~ (18 - 18*v)/delta /tau  (integrable 1/tau curvature singularity at the tip: a''(0)=(v-1)/delta)
+    quadrature (dI/dln(1/delta) between delta=1e-3 and 1e-4):
+      eps=1.0 v=2.0: note-family slope=-4.0019  odd(fully regular)-family slope=-4.0000  sympy cone coeff=-4.0000
+      eps=1.0 v=0.1: note-family slope=-1.7018  odd(fully regular)-family slope=-1.7010  sympy cone coeff=-1.7010
+      eps=0.3 v=2.0: note-family slope=-1.6389  odd(fully regular)-family slope=-1.6375  sympy cone coeff=-1.6375
+      eps=0.3 v=0.1: note-family slope=+3.4257  odd(fully regular)-family slope=+3.4445  sympy cone coeff=+3.4445
+      eps=0.3 v=0.8: note-family slope=-0.0270  odd(fully regular)-family slope=-0.0269  sympy cone coeff=-0.0269
+      eps=0.3 v=1.2: note-family slope=-0.0433  odd(fully regular)-family slope=-0.0433  sympy cone coeff=-0.0433
+      eps=0.25 v=0.3: note-family slope=+0.4237  odd(fully regular)-family slope=+0.4257  sympy cone coeff=+0.4257

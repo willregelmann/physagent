@@ -1,0 +1,12 @@
+=== data (a,v)=(2.0,-3.5978), eps=1: complex-cap search; real cap I_inv=-33.7276 ===
+  err5 = np.dot(K.T, self.E5) / scale
+  err3 = np.dot(K.T, self.E3) / scale
+   48 seeds, 6 distinct complex caps, 120s
+   real cap: Re I_inv=-33.728  E_HH=-9.446  E_T=+9.446
+   c3=-0.055830-0.119030j T=1.61488+9.04540j R=20.687-4.268j N_E=7.519-12.857j I_inv=-50.6029+38.2703j gauge=ok | E_HH=+7.429 E_T=-7.429 | BELOW real cap (matters for e^{-I})
+   c3=-0.055830+0.119030j T=1.61488-9.04540j R=20.687+4.268j N_E=7.519+12.857j I_inv=-50.6029-38.2703j gauge=ok | E_HH=+7.429 E_T=-7.429 | BELOW real cap (matters for e^{-I})
+   c3=-0.541815-0.272128j T=2.31165-4.06617j R=-37.544+0.279j N_E=-1.386-0.244j I_inv=38.6508-9.1769j gauge=ok | E_HH=-81.824 E_T=+81.824 | ABOVE real cap (matters for e^{+I})
+   c3=-0.541815+0.272128j T=2.31165+4.06617j R=-37.544-0.279j N_E=-1.386+0.244j I_inv=38.6508+9.1769j gauge=ok | E_HH=-81.824 E_T=+81.824 | ABOVE real cap (matters for e^{+I})
+   c3=0.163547+0.355949j T=-0.57993+2.05280j R=-37.320-0.645j N_E=-1.824+0.628j I_inv=38.6897+4.4758j gauge=ok | E_HH=-81.863 E_T=+81.863 | ABOVE real cap (matters for e^{+I})
+   c3=0.163547-0.355949j T=-0.57993-2.05280j R=-37.320+0.645j N_E=-1.824-0.628j I_inv=38.6897-4.4758j gauge=ok | E_HH=-81.863 E_T=+81.863 | ABOVE real cap (matters for e^{+I})
+   lowest Re I_inv=-50.603, highest=+38.690; real cap -33.728

@@ -1,0 +1,11 @@
+=== data (a,v)=(2.0,1.0), eps=1: complex-cap search; real cap I_inv=-1.8333 ===
+   48 seeds, 7 distinct complex caps, 74s
+   real cap: Re I_inv=-1.833  E_HH=+13.833  E_T=-13.833
+   c3=-0.020662+0.162559j T=0.77535-6.78665j R=-3.432+9.239j N_E=2.067+6.753j I_inv=-8.3192-25.7060j gauge=ok | E_HH=+20.319 E_T=-20.319 | BELOW real cap (matters for e^{-I}) | constant-lapse=NO (t-path end a=3.525+1.118j v=2.006-0.886j, min|a|=0.012)
+   c3=-0.020662-0.162559j T=0.77535+6.78665j R=-3.432-9.239j N_E=2.067-6.753j I_inv=-8.3192+25.7060j gauge=ok | E_HH=+20.319 E_T=-20.319 | BELOW real cap (matters for e^{-I}) | constant-lapse=NO (t-path end a=3.525-1.118j v=2.006+0.886j, min|a|=0.012)
+   c3=-0.214367+0.157720j T=-3.83651-4.46225j R=-3.265-2.807j N_E=1.934-3.325j I_inv=-7.7658-36.7090j gauge=ok | E_HH=+19.766 E_T=-19.766 | BELOW real cap (matters for e^{-I}) | constant-lapse=NO (t-path end a=5.574+0.701j v=1.264+8.540j, min|a|=0.009)
+   c3=-0.090461+0.135542j T=3.28645+3.15568j R=-3.384+2.956j N_E=3.230+4.317j I_inv=-5.6171-2.6695j gauge=ok | E_HH=+17.617 E_T=-17.617 | BELOW real cap (matters for e^{-I}) | constant-lapse=YES (t-path end a=2.000-0.000j v=1.000+0.000j, min|a|=0.010)
+   c3=-0.090461-0.135542j T=3.28645-3.15568j R=-3.384-2.956j N_E=3.230-4.317j I_inv=-5.6171+2.6695j gauge=ok | E_HH=+17.617 E_T=-17.617 | BELOW real cap (matters for e^{-I}) | constant-lapse=YES (t-path end a=2.000+0.000j v=1.000-0.000j, min|a|=0.010)
+   c3=0.012211+0.013568j T=7.73328+4.22067j R=6.648-12.291j N_E=0.487+5.161j I_inv=6.7577-2.7708j gauge=ok | E_HH=+5.242 E_T=-5.242 | ABOVE real cap (matters for e^{+I}) | constant-lapse=NO (t-path end a=1.925+1.874j v=0.309-0.130j, min|a|=0.010)
+   c3=0.012211-0.013568j T=7.73328-4.22067j R=6.648+12.291j N_E=0.487-5.161j I_inv=6.7577+2.7708j gauge=ok | E_HH=+5.242 E_T=-5.242 | ABOVE real cap (matters for e^{+I}) | constant-lapse=NO (t-path end a=1.925-1.874j v=0.309+0.130j, min|a|=0.010)
+   lowest Re I_inv=-8.319, highest=+6.758; real cap -1.833

@@ -1,0 +1,106 @@
+
+===== eps=1.0 (a) fate of the -1/6<c3<0 caps after recontraction; all crossings of a=2 up to tau=40 =====
+c3=-0.02750: crossings of a=2 at tau=['2.612', '3.025'] ; ends: a->0 (irregular pole) at tau=4.109; a_max=2.020; necks=[]
+c3=-0.02000: crossings of a=2 at tau=['2.293', '3.721'] ; ends: a->0 (irregular pole) at tau=4.409; a_max=2.251; necks=[]
+c3=-0.01000: crossings of a=2 at tau=['2.115', '4.708'] ; ends: a->0 (irregular pole) at tau=5.102; a_max=2.795; necks=[]
+c3=-0.00447: crossings of a=2 at tau=['2.047', '5.709'] ; ends: a->0 (irregular pole) at tau=5.951; a_max=3.489; necks=[]
+c3=-0.00200: crossings of a=2 at tau=['2.020', '6.668'] ; ends: a->0 (irregular pole) at tau=6.831; a_max=4.233; necks=[]
+c3=-0.00100: crossings of a=2 at tau=['2.010', '7.480'] ; ends: a->0 (irregular pole) at tau=7.601; a_max=4.902; necks=[]
+c3=-0.00050: crossings of a=2 at tau=['2.005', '8.283'] ; ends: a->0 (irregular pole) at tau=8.376; a_max=5.588; necks=[]
+
+===== eps=1.0 (b) neck-class caps c3 < -1/6: do they reach a=2 after a neck? =====
+c3=-0.2000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.990; a_max=0.924; necks=[(2.974, 0.3634), (3.896, 0.0559)]
+c3=-0.2500: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=4.285; a_max=0.837; necks=[(2.625, 0.4986), (4.118, 0.0869)]
+c3=-0.3000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=4.346; a_max=0.771; necks=[(2.308, 0.5456), (4.207, 0.0778)]
+c3=-0.3495: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=4.192; a_max=0.720; necks=[(2.103, 0.5585)]
+c3=-0.4000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=4.128; a_max=0.772; necks=[(1.923, 0.5567)]
+c3=-0.5000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=4.063; a_max=0.844; necks=[(1.654, 0.5367)]
+c3=-0.7000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.964; a_max=0.928; necks=[(1.333, 0.4857)]
+c3=-1.0000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.857; a_max=0.995; necks=[(1.077, 0.4233)]
+c3=-2.0000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.667; a_max=1.077; necks=[(0.713, 0.311)]
+c3=-5.0000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.465; a_max=1.133; necks=[(0.435, 0.2002)]
+
+===== eps=0.3 (a) fate of the -1/6<c3<0 caps after recontraction; all crossings of a=2 up to tau=40 =====
+c3=-0.02750: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.099; a_max=1.679; necks=[]
+c3=-0.02000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.251; a_max=1.822; necks=[]
+c3=-0.01000: crossings of a=2 at tau=['2.225', '3.087'] ; ends: a->0 (irregular pole) at tau=3.610; a_max=2.152; necks=[]
+c3=-0.00447: crossings of a=2 at tau=['2.078', '3.759'] ; ends: a->0 (irregular pole) at tau=4.057; a_max=2.559; necks=[]
+c3=-0.00200: crossings of a=2 at tau=['2.032', '4.326'] ; ends: a->0 (irregular pole) at tau=4.524; a_max=2.983; necks=[]
+c3=-0.00100: crossings of a=2 at tau=['2.016', '4.786'] ; ends: a->0 (irregular pole) at tau=4.934; a_max=3.359; necks=[]
+c3=-0.00050: crossings of a=2 at tau=['2.008', '5.234'] ; ends: a->0 (irregular pole) at tau=5.348; a_max=3.740; necks=[]
+
+===== eps=0.3 (b) neck-class caps c3 < -1/6: do they reach a=2 after a neck? =====
+c3=-0.2000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.640; a_max=0.947; necks=[]
+c3=-0.2500: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.802; a_max=0.890; necks=[]
+c3=-0.3000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.812; a_max=0.851; necks=[]
+c3=-0.3495: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.652; a_max=0.840; necks=[]
+c3=-0.4000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.564; a_max=0.861; necks=[]
+c3=-0.5000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.472; a_max=0.905; necks=[]
+c3=-0.7000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.365; a_max=0.965; necks=[]
+c3=-1.0000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.271; a_max=1.016; necks=[]
+c3=-2.0000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=3.123; a_max=1.084; necks=[]
+c3=-5.0000: crossings of a=2 at tau=[] ; ends: a->0 (irregular pole) at tau=2.979; a_max=1.134; necks=[]
+
+===== (c) on-shell I_(a,R) at each real cap's own (a=2, R): from the vfamily tables (I_inv - eps*R*v at a=2) =====
+eps=1.0: c3, side, v, R, I_inv, I_(a,R)@own R
+   -0.02750 expanding   v= +0.1940 R=   +3.939 I_inv=    -3.626  I_(a,R)=    -4.390
+   -0.02750 contracting v= -0.2192 R=   +5.030 I_inv=    -5.492  I_(a,R)=    -4.389
+   -0.02088 expanding   v= +0.5386 R=   +2.624 I_inv=    -2.481  I_(a,R)=    -3.895
+   -0.02088 contracting v= -0.8224 R=   +6.221 I_inv=    -8.897  I_(a,R)=    -3.781
+   -0.01425 expanding   v= +0.7225 R=   +1.710 I_inv=    -2.080  I_(a,R)=    -3.316
+   -0.01425 contracting v= -1.4514 R=   +7.379 I_inv=   -13.173  I_(a,R)=    -2.463
+   -0.00763 expanding   v= +0.8639 R=   +0.891 I_inv=    -1.895  I_(a,R)=    -2.665
+   -0.00763 contracting v= -2.5328 R=   +9.537 I_inv=   -22.293  I_(a,R)=    +1.861
+   -0.00100 expanding   v= +0.9833 R=   +0.115 I_inv=    -1.834  I_(a,R)=    -1.947
+   -0.00100 contracting v= -7.5057 R=  +24.717 I_inv=  -103.477  I_(a,R)=   +82.040
+   -0.00050 expanding   v= +0.9917 R=   +0.057 I_inv=    -1.834  I_(a,R)=    -1.890
+   -0.00050 contracting v= -9.8037 R=  +35.166 I_inv=  -171.847  I_(a,R)=  +172.913
+   +0.00000 expanding   v= +1.0000 R=   +0.000 I_inv=    -1.833  I_(a,R)=    -1.833
+   +0.00050 expanding   v= +1.0082 R=   -0.057 I_inv=    -1.834  I_(a,R)=    -1.776
+   +0.00200 expanding   v= +1.0325 R=   -0.228 I_inv=    -1.837  I_(a,R)=    -1.601
+   +0.00600 expanding   v= +1.0944 R=   -0.679 I_inv=    -1.865  I_(a,R)=    -1.121
+   +0.01000 expanding   v= +1.1529 R=   -1.126 I_inv=    -1.918  I_(a,R)=    -0.620
+   +0.01400 expanding   v= +1.2084 R=   -1.568 I_inv=    -1.992  I_(a,R)=    -0.097
+   +0.01800 expanding   v= +1.2614 R=   -2.008 I_inv=    -2.087  I_(a,R)=    +0.446
+   +0.02200 expanding   v= +1.3123 R=   -2.445 I_inv=    -2.200  I_(a,R)=    +1.009
+   +0.02600 expanding   v= +1.3612 R=   -2.881 I_inv=    -2.330  I_(a,R)=    +1.591
+   +0.03000 expanding   v= +1.4085 R=   -3.315 I_inv=    -2.477  I_(a,R)=    +2.193
+   +0.03400 expanding   v= +1.4542 R=   -3.749 I_inv=    -2.638  I_(a,R)=    +2.813
+   +0.03800 expanding   v= +1.4986 R=   -4.181 I_inv=    -2.814  I_(a,R)=    +3.452
+   +0.04200 expanding   v= +1.5417 R=   -4.614 I_inv=    -3.004  I_(a,R)=    +4.109
+   +0.04600 expanding   v= +1.5838 R=   -5.046 I_inv=    -3.207  I_(a,R)=    +4.784
+   +0.05000 expanding   v= +1.6248 R=   -5.478 I_inv=    -3.423  I_(a,R)=    +5.477
+   +0.10000 expanding   v= +2.0741 R=  -10.901 I_inv=    -7.055  I_(a,R)=   +15.555
+   +0.20000 expanding   v= +2.7819 R=  -22.041 I_inv=   -18.525  I_(a,R)=   +42.792
+   +0.50000 expanding   v= +4.3363 R=  -57.804 I_inv=   -78.562  I_(a,R)=  +172.093
+   +1.00000 expanding   v= +6.2407 R= -122.888 I_inv=  -246.900  I_(a,R)=  +520.004
+   +2.00000 expanding   v= +9.1179 R= -265.680 I_inv=  -793.054  I_(a,R)= +1629.392
+   min of I_(a,R) along the family: -4.3898; min of I_inv: -793.0537
+eps=0.3: c3, side, v, R, I_inv, I_(a,R)@own R
+   -0.00763 expanding   v= +0.6986 R=   +2.381 I_inv=    -1.944  I_(a,R)=    -2.444
+   -0.00763 contracting v= -1.3853 R=  +12.403 I_inv=    -6.848  I_(a,R)=    -1.694
+   -0.00100 expanding   v= +0.9670 R=   +0.283 I_inv=    -1.835  I_(a,R)=    -1.917
+   -0.00100 contracting v= -5.2409 R=  +35.618 I_inv=   -33.118  I_(a,R)=   +22.883
+   -0.00050 expanding   v= +0.9837 R=   +0.141 I_inv=    -1.834  I_(a,R)=    -1.875
+   -0.00050 contracting v= -6.9180 R=  +51.093 I_inv=   -54.784  I_(a,R)=   +51.253
+   +0.00000 expanding   v= +1.0000 R=   +0.000 I_inv=    -1.833  I_(a,R)=    -1.833
+   +0.00050 expanding   v= +1.0160 R=   -0.140 I_inv=    -1.834  I_(a,R)=    -1.791
+   +0.00200 expanding   v= +1.0623 R=   -0.552 I_inv=    -1.839  I_(a,R)=    -1.663
+   +0.00600 expanding   v= +1.1754 R=   -1.610 I_inv=    -1.875  I_(a,R)=    -1.307
+   +0.01000 expanding   v= +1.2772 R=   -2.627 I_inv=    -1.940  I_(a,R)=    -0.933
+   +0.01400 expanding   v= +1.3709 R=   -3.618 I_inv=    -2.027  I_(a,R)=    -0.539
+   +0.01800 expanding   v= +1.4581 R=   -4.592 I_inv=    -2.135  I_(a,R)=    -0.126
+   +0.02200 expanding   v= +1.5404 R=   -5.553 I_inv=    -2.260  I_(a,R)=    +0.307
+   +0.02600 expanding   v= +1.6185 R=   -6.507 I_inv=    -2.401  I_(a,R)=    +0.759
+   +0.03000 expanding   v= +1.6932 R=   -7.457 I_inv=    -2.557  I_(a,R)=    +1.231
+   +0.03400 expanding   v= +1.7649 R=   -8.404 I_inv=    -2.728  I_(a,R)=    +1.722
+   +0.03800 expanding   v= +1.8341 R=   -9.351 I_inv=    -2.912  I_(a,R)=    +2.233
+   +0.04200 expanding   v= +1.9011 R=  -10.298 I_inv=    -3.109  I_(a,R)=    +2.764
+   +0.04600 expanding   v= +1.9661 R=  -11.247 I_inv=    -3.319  I_(a,R)=    +3.314
+   +0.05000 expanding   v= +2.0294 R=  -12.198 I_inv=    -3.542  I_(a,R)=    +3.885
+   +0.10000 expanding   v= +2.7232 R=  -24.478 I_inv=    -7.300  I_(a,R)=   +12.698
+   +0.20000 expanding   v= +3.8505 R=  -51.818 I_inv=   -19.940  I_(a,R)=   +39.917
+   +0.50000 expanding   v= +6.5377 R= -154.517 I_inv=   -99.545  I_(a,R)=  +203.510
+   +1.00000 expanding   v=+10.1850 R= -378.882 I_inv=  -382.444  I_(a,R)=  +775.230
+   +2.00000 expanding   v=+16.2708 R= -971.214 I_inv= -1573.420  I_(a,R)= +3167.308
+   min of I_(a,R) along the family: -2.4436; min of I_inv: -1573.4197
