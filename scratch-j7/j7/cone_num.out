@@ -1,0 +1,10 @@
+eps=0.3 v=0.8: I(d=1e-2,1e-3,1e-4)=+40.3497,+40.2855,+40.2232  dI/dln(1/d)=-0.0270  sharp-cone log coeff (sympy)=-0.0269
+eps=0.3 v=0.9: I(d=1e-2,1e-3,1e-4)=+40.5796,+40.5606,+40.5422  dI/dln(1/d)=-0.0080  sharp-cone log coeff (sympy)=-0.0079
+eps=0.3 v=1.1: I(d=1e-2,1e-3,1e-4)=+40.6689,+40.6461,+40.6232  dI/dln(1/d)=-0.0099  sharp-cone log coeff (sympy)=-0.0100
+eps=0.3 v=1.2: I(d=1e-2,1e-3,1e-4)=+40.4691,+40.3690,+40.2693  dI/dln(1/d)=-0.0433  sharp-cone log coeff (sympy)=-0.0433
+eps=0.3 v=2.0: I(d=1e-2,1e-3,1e-4)=+29.8985,+26.0956,+22.3219  dI/dln(1/d)=-1.6389  sharp-cone log coeff (sympy)=-1.6375
+eps=1.0 v=0.8: I(d=1e-2,1e-3,1e-4)=+39.9255,+39.6656,+39.4075  dI/dln(1/d)=-0.1121  sharp-cone log coeff (sympy)=-0.1120
+eps=1.0 v=0.9: I(d=1e-2,1e-3,1e-4)=+40.4725,+40.4050,+40.3382  dI/dln(1/d)=-0.0290  sharp-cone log coeff (sympy)=-0.0290
+eps=1.0 v=1.1: I(d=1e-2,1e-3,1e-4)=+40.5587,+40.4874,+40.4161  dI/dln(1/d)=-0.0310  sharp-cone log coeff (sympy)=-0.0310
+eps=1.0 v=1.2: I(d=1e-2,1e-3,1e-4)=+40.0206,+39.7254,+39.4306  dI/dln(1/d)=-0.1280  sharp-cone log coeff (sympy)=-0.1280
+eps=1.0 v=2.0: I(d=1e-2,1e-3,1e-4)=+16.7685,+7.5152,-1.6994  dI/dln(1/d)=-4.0019  sharp-cone log coeff (sympy)=-4.0000

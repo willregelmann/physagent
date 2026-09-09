@@ -1,0 +1,5 @@
+eps=0.25: gap(q=4)=-0.6101;  crossover q* = 9.4723 (a* = 3.0777), recontracting cap lower only for q < q*
+eps=0.28: gap(q=4)=-0.4072;  crossover q* = 6.8204 (a* = 2.6116), recontracting cap lower only for q < q*
+eps=0.3: gap(q=4)=-0.2554;  crossover q* = 5.5205 (a* = 2.3496), recontracting cap lower only for q < q*
+eps=0.32: gap(q=4)=-0.0906;  crossover q* = 4.4713 (a* = 2.1145), recontracting cap lower only for q < q*
+eps=0.33: gap(q=4)=-0.0035;  crossover q* = 4.0169 (a* = 2.0042), recontracting cap lower only for q < q*

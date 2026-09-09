@@ -1,0 +1,25 @@
+=== fixed (q,R)=(4,12): sphere-dS, real-Euclidean recontracting cap, complex pair; I_(a,R)=I_inv-(eps/4)a^2 R v ===
+eps=0.300 | sphere: I_inv= -1.6000 B=-0.0000+6.2354j I_aR(Re)= -1.6000 | recontracting: c3=-0.008064 tau1=3.29029 v=-1.2901 I_inv= -6.4996 B= +4.6442 I_aR= -1.8554  gap(rec-sph)= -0.2554 | pair: v=-0.0369-1.7301j I_inv=-1.8594-3.6562j B=0.1328+6.2283j Re I_aR= -1.7266 gap=-0.1266
+eps=0.320 | sphere: I_inv= -1.6400 B=-0.0000+6.6511j I_aR(Re)= -1.6400 | recontracting: c3=-0.008135 tau1=3.37024 v=-1.3736 I_inv= -7.0052 B= +5.2746 I_aR= -1.7306  gap(rec-sph)= -0.0906 | pair: v=-0.0366-1.7304j I_inv=-1.9252-3.8650j B=0.1407+6.6447j Re I_aR= -1.7845 gap=-0.1445
+eps=0.340 | sphere: I_inv= -1.6800 B=-0.0000+7.0668j I_aR(Re)= -1.6800 | recontracting: c3=-0.008162 tau1=3.44937 v=-1.4552 I_inv= -7.5303 B= +5.9372 I_aR= -1.5931  gap(rec-sph)= +0.0869 | pair: v=-0.0363-1.7306j I_inv=-1.9921-4.0734j B=0.1481+7.0609j Re I_aR= -1.8439 gap=-0.1639
+eps=0.355 | sphere: I_inv= -1.7100 B=-0.0000+7.3785j I_aR(Re)= -1.7100 | recontracting: c3=-0.008157 tau1=3.50820 v=-1.5153 I_inv= -7.9368 B= +6.4550 I_aR= -1.4818  gap(rec-sph)= +0.2282 | pair: v=-0.0360-1.7308j I_inv=-2.0430-4.2296j B=0.1534+7.3730j Re I_aR= -1.8896 gap=-0.1796
+eps=0.400 | sphere: I_inv= -1.8000 B=-0.0000+8.3138j I_aR(Re)= -1.8000 | recontracting: c3=-0.008046 tau1=3.68207 v=-1.6902 I_inv= -9.2189 B= +8.1130 I_aR= -1.1059  gap(rec-sph)= +0.6941 | pair: v=-0.0350-1.7310j I_inv=-2.1991-4.6972j B=0.1678+8.3090j Re I_aR= -2.0314 gap=-0.2314
+eps=0.500 | sphere: I_inv= -2.0000 B=-0.0000+10.3923j I_aR(Re)= -2.0000 | recontracting: c3=-0.007500 tau1=4.05534 v=-2.0557 I_inv=-12.3863 B=+12.3339 I_aR= -0.0524  gap(rec-sph)= +1.9476 | pair: v=-0.0322-1.7313j I_inv=-2.5636-5.7339j B=0.1934+10.3879j Re I_aR= -2.3702 gap=-0.3702
+eps=0.700 | sphere: I_inv= -2.4000 B=-0.0000+14.5492j I_aR(Re)= -2.4000 | recontracting: c3=-0.006129 tau1=4.75465 v=-2.7176 I_inv=-19.9060 B=+22.8276 I_aR= +2.9216  gap(rec-sph)= +5.3216 | pair: v=-0.0000-1.7321j I_inv=3505.8881-7.7783j B=0.0000+14.5492j Re I_aR=+3505.8881 gap=+3508.2881
+eps=1.000 | sphere: I_inv= -3.0000 B=-0.0000+20.7846j I_aR(Re)= -3.0000 | recontracting: c3=-0.004475 tau1=5.70887 v=-3.5978 I_inv=-33.7276 B=+43.1736 I_aR= +9.4460  gap(rec-sph)=+12.4460 | pair: v=0.0000-1.7321j I_inv=3505.2881-10.8960j B=-0.0000+20.7846j Re I_aR=+3505.2881 gap=+3508.2881
+eps=0.280 | sphere: I_inv= -1.5600 B=-0.0000+5.8197j I_aR(Re)= -1.5600 | recontracting: c3=-0.007939 tau1=3.20951 v=-1.2044 I_inv= -6.0141 B= +4.0469 I_aR= -1.9672  gap(rec-sph)= -0.4072 | pair: v=-0.0370-1.7297j I_inv=-1.7948-3.4470j B=0.1245+5.8118j Re I_aR= -1.6704 gap=-0.1104
+eps=0.260 | sphere: I_inv= -1.5200 B=-0.0000+5.4040j I_aR(Re)= -1.5200 | recontracting: c3=-0.007749 tau1=3.12786 v=-1.1165 I_inv= -5.5493 B= +3.4835 I_aR= -2.0658  gap(rec-sph)= -0.5458 | pair: NOT FOUND
+eps=0.250 | sphere: I_inv= -1.5000 B=-0.0000+5.1962j I_aR(Re)= -1.5000 | recontracting: c3=-0.007626 tau1=3.08672 v=-1.0716 I_inv= -5.3248 B= +3.2147 I_aR= -2.1101  gap(rec-sph)= -0.6101 | pair: NOT FOUND
+bisection start: gap(0.3)=-0.25537 gap(0.355)=+0.22823
+crossover eps* = 0.33039  (gap=+6.41e-09)
+=== recontracting cap vs sphere at (q,12), eps=1.0: continuation in q ===
+   q=  4.0: rec c3=-0.004475 tau1=5.7089 v=-3.5978 I_inv= -33.7276 B= +43.1736 I_aR=  +9.4460 | sphere I_aR= -3.0000 | gap= +12.4460
+   q=  6.0: rec c3=-0.001554 tau1=6.8809 v=-4.6760 I_inv= -59.5189 B= +84.1688 I_aR= +24.6498 | sphere I_aR= -3.0000 | gap= +27.6498
+   q=  9.0: rec c3=-0.000443 tau1=8.2931 v=-5.9941 I_inv=-106.2048 B=+161.8397 I_aR= +55.6349 | sphere I_aR= -3.0000 | gap= +58.6349
+   q=16.0: not found
+=== recontracting cap vs sphere at (q,12), eps=0.3: continuation in q ===
+   q=  4.0: rec c3=-0.008064 tau1=3.2903 v=-1.2901 I_inv=  -6.4996 B=  +4.6442 I_aR=  -1.8554 | sphere I_aR= -1.6000 | gap=  -0.2554
+   q=  6.0: rec c3=-0.002500 tau1=3.9926 v=-1.8239 I_inv= -11.3015 B=  +9.8491 I_aR=  -1.4524 | sphere I_aR= -1.6000 | gap=  +0.1476
+   q=  9.0: rec c3=-0.000617 tau1=4.8455 v=-2.4772 I_inv= -19.9007 B= +20.0655 I_aR=  +0.1648 | sphere I_aR= -1.6000 | gap=  +1.7648
+   q= 16.0: rec c3=-0.000049 tau1=6.3874 v=-3.6630 I_inv= -44.7194 B= +52.7471 I_aR=  +8.0277 | sphere I_aR= -1.6000 | gap=  +9.6277
+   q=25.0: not found

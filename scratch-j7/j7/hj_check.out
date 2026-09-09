@@ -1,0 +1,8 @@
+bulk p_v on sphere: (6*epsilon + 1)*sin(tau)**2/2
+bulk p_a on sphere: -(sin(tau)*cos(tau)*tan(tau) - 4)/(2*tan(tau))
+HJ residual dI_T/dT - (p_a cos T - p_v sin T) for position T's I(T): -sin(T)**3/4 + sin(T) - 2/sin(T)
+Ostrogradsky energy on sphere: 0
+dF/dv = R*a**2*epsilon/4 - v**2/2 + 1/2   vs bulk p_v(a,v,R) = R*a**2*epsilon/4 - v**2/2 + 1/2
+fixed-(a,R) boundary condition residual p_v + B_v - (2v/a) B_{a''} = 0
+B(a,v,R) = -A1*(3*A0**2*R*epsilon - 2*A1**2 + 6)/12
+B on sphere at (4,12) (a=2,v=-i sqrt3): sqrt(3)*I*(12*epsilon + 1)

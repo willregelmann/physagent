@@ -1,0 +1,103 @@
+=== eps=1.0: real caps through a1=2 (R_t=12).  columns: c3, side, tau1, v, R(cut), I_inv, E_HH=-I_(a,R), E_T=+I_(a,R)-form ===
+c3=-0.16000: no crossing of a=2 (max radius below 2)
+c3=-0.15338: no crossing of a=2 (max radius below 2)
+c3=-0.14675: no crossing of a=2 (max radius below 2)
+c3=-0.14012: no crossing of a=2 (max radius below 2)
+c3=-0.13350: no crossing of a=2 (max radius below 2)
+c3=-0.12688: no crossing of a=2 (max radius below 2)
+c3=-0.12025: no crossing of a=2 (max radius below 2)
+c3=-0.11363: no crossing of a=2 (max radius below 2)
+c3=-0.10700: no crossing of a=2 (max radius below 2)
+c3=-0.10038: no crossing of a=2 (max radius below 2)
+c3=-0.09375: no crossing of a=2 (max radius below 2)
+c3=-0.08713: no crossing of a=2 (max radius below 2)
+c3=-0.08050: no crossing of a=2 (max radius below 2)
+c3=-0.07388: no crossing of a=2 (max radius below 2)
+c3=-0.06725: no crossing of a=2 (max radius below 2)
+c3=-0.06063: no crossing of a=2 (max radius below 2)
+c3=-0.05400: no crossing of a=2 (max radius below 2)
+c3=-0.04738: no crossing of a=2 (max radius below 2)
+c3=-0.04075: no crossing of a=2 (max radius below 2)
+c3=-0.03413: no crossing of a=2 (max radius below 2)
+c3=-0.02750 expanding   tau1= 2.6125 v= +0.1940 R=  +3.9386 I_inv=   -3.6257  E_HH=   +5.9534  E_T=   -5.9534
+c3=-0.02750 contracting tau1= 3.0249 v= -0.2192 R=  +5.0304 I_inv=   -5.4918  E_HH=   +2.8617  E_T=   -2.8617
+c3=-0.02088 expanding   tau1= 2.3155 v= +0.5386 R=  +2.6243 I_inv=   -2.4814  E_HH=   +8.9445  E_T=   -8.9445
+c3=-0.02088 contracting tau1= 3.6487 v= -0.8224 R=  +6.2210 I_inv=   -8.8967  E_HH=   -0.9720  E_T=   +0.9720
+c3=-0.01425 expanding   tau1= 2.1789 v= +0.7225 R=  +1.7105 I_inv=   -2.0804  E_HH=  +10.7498  E_T=  -10.7498
+c3=-0.01425 contracting tau1= 4.2324 v= -1.4514 R=  +7.3794 I_inv=  -13.1730  E_HH=   -4.2439  E_T=   +4.2439
+c3=-0.00763 expanding   tau1= 2.0838 v= +0.8639 R=  +0.8910 I_inv=   -1.8951  E_HH=  +12.2618  E_T=  -12.2618
+c3=-0.00763 contracting tau1= 5.0539 v= -2.5328 R=  +9.5366 I_inv=  -22.2932  E_HH=   -8.1007  E_T=   +8.1007
+c3=-0.00100 expanding   tau1= 2.0099 v= +0.9833 R=  +0.1148 I_inv=   -1.8343  E_HH=  +13.6341  E_T=  -13.6341
+c3=-0.00100 contracting tau1= 7.4798 v= -7.5057 R= +24.7169 I_inv= -103.4773  E_HH=  +13.4093  E_T=  -13.4093
+c3=-0.00050 expanding   tau1= 2.0049 v= +0.9917 R=  +0.0573 I_inv=   -1.8336  E_HH=  +13.7339  E_T=  -13.7339
+c3=-0.00050 contracting tau1= 8.2829 v= -9.8037 R= +35.1664 I_inv= -171.8474  E_HH=  +54.2034  E_T=  -54.2034
+c3=+0.00000 expanding   tau1= 2.0000 v= +1.0000 R=  +0.0000 I_inv=   -1.8333  E_HH=  +13.8333  E_T=  -13.8333
+c3=+0.00050 expanding   tau1= 1.9952 v= +1.0082 R=  -0.0572 I_inv=   -1.8336  E_HH=  +13.9323  E_T=  -13.9323
+c3=+0.00200 expanding   tau1= 1.9810 v= +1.0325 R=  -0.2281 I_inv=   -1.8370  E_HH=  +14.2270  E_T=  -14.2270
+c3=+0.00600 expanding   tau1= 1.9459 v= +1.0944 R=  -0.6795 I_inv=   -1.8650  E_HH=  +14.9982  E_T=  -14.9982
+c3=+0.01000 expanding   tau1= 1.9140 v= +1.1529 R=  -1.1259 I_inv=   -1.9177  E_HH=  +15.7522  E_T=  -15.7522
+c3=+0.01400 expanding   tau1= 1.8848 v= +1.2084 R=  -1.5683 I_inv=   -1.9924  E_HH=  +16.4931  E_T=  -16.4931
+c3=+0.01800 expanding   tau1= 1.8578 v= +1.2614 R=  -2.0079 I_inv=   -2.0871  E_HH=  +17.2240  E_T=  -17.2240
+c3=+0.02200 expanding   tau1= 1.8327 v= +1.3123 R=  -2.4452 I_inv=   -2.2002  E_HH=  +17.9473  E_T=  -17.9473
+c3=+0.02600 expanding   tau1= 1.8093 v= +1.3612 R=  -2.8809 I_inv=   -2.3305  E_HH=  +18.6649  E_T=  -18.6649
+c3=+0.03000 expanding   tau1= 1.7873 v= +1.4085 R=  -3.3152 I_inv=   -2.4769  E_HH=  +19.3784  E_T=  -19.3784
+c3=+0.03400 expanding   tau1= 1.7666 v= +1.4542 R=  -3.7486 I_inv=   -2.6384  E_HH=  +20.0888  E_T=  -20.0888
+c3=+0.03800 expanding   tau1= 1.7470 v= +1.4986 R=  -4.1813 I_inv=   -2.8143  E_HH=  +20.7974  E_T=  -20.7974
+c3=+0.04200 expanding   tau1= 1.7285 v= +1.5417 R=  -4.6136 I_inv=   -3.0040  E_HH=  +21.5049  E_T=  -21.5049
+c3=+0.04600 expanding   tau1= 1.7109 v= +1.5838 R=  -5.0456 I_inv=   -3.2070  E_HH=  +22.2121  E_T=  -22.2121
+c3=+0.05000 expanding   tau1= 1.6941 v= +1.6248 R=  -5.4775 I_inv=   -3.4226  E_HH=  +22.9196  E_T=  -22.9196
+c3=+0.10000 expanding   tau1= 1.5329 v= +2.0741 R= -10.9010 I_inv=   -7.0551  E_HH=  +31.9446  E_T=  -31.9446
+c3=+0.20000 expanding   tau1= 1.3416 v= +2.7819 R= -22.0414 I_inv=  -18.5250  E_HH=  +51.9082  E_T=  -51.9082
+c3=+0.50000 expanding   tau1= 1.0716 v= +4.3363 R= -57.8039 I_inv=  -78.5619  E_HH= +130.5976  E_T= -130.5976
+c3=+1.00000 expanding   tau1= 0.8756 v= +6.2407 R=-122.8876 I_inv= -246.9003  E_HH= +321.7892  E_T= -321.7892
+c3=+2.00000 expanding   tau1= 0.6996 v= +9.1179 R=-265.6802 I_inv= -793.0537  E_HH= +902.4686  E_T= -902.4686
+=== eps=0.3: real caps through a1=2 (R_t=12).  columns: c3, side, tau1, v, R(cut), I_inv, E_HH=-I_(a,R), E_T=+I_(a,R)-form ===
+c3=-0.16000: no crossing of a=2 (max radius below 2)
+c3=-0.15338: no crossing of a=2 (max radius below 2)
+c3=-0.14675: no crossing of a=2 (max radius below 2)
+c3=-0.14012: no crossing of a=2 (max radius below 2)
+c3=-0.13350: no crossing of a=2 (max radius below 2)
+c3=-0.12688: no crossing of a=2 (max radius below 2)
+c3=-0.12025: no crossing of a=2 (max radius below 2)
+c3=-0.11363: no crossing of a=2 (max radius below 2)
+c3=-0.10700: no crossing of a=2 (max radius below 2)
+c3=-0.10038: no crossing of a=2 (max radius below 2)
+c3=-0.09375: no crossing of a=2 (max radius below 2)
+c3=-0.08713: no crossing of a=2 (max radius below 2)
+c3=-0.08050: no crossing of a=2 (max radius below 2)
+c3=-0.07388: no crossing of a=2 (max radius below 2)
+c3=-0.06725: no crossing of a=2 (max radius below 2)
+c3=-0.06063: no crossing of a=2 (max radius below 2)
+c3=-0.05400: no crossing of a=2 (max radius below 2)
+c3=-0.04738: no crossing of a=2 (max radius below 2)
+c3=-0.04075: no crossing of a=2 (max radius below 2)
+c3=-0.03413: no crossing of a=2 (max radius below 2)
+c3=-0.02750: no crossing of a=2 (max radius below 2)
+c3=-0.02088: no crossing of a=2 (max radius below 2)
+c3=-0.01425: no crossing of a=2 (max radius below 2)
+c3=-0.00763 expanding   tau1= 2.1508 v= +0.6986 R=  +2.3813 I_inv=   -1.9445  E_HH=   +4.4594  E_T=   -4.4594
+c3=-0.00763 contracting tau1= 3.3390 v= -1.3853 R= +12.4029 I_inv=   -6.8481  E_HH=   +1.8611  E_T=   -1.8611
+c3=-0.00100 expanding   tau1= 2.0156 v= +0.9670 R=  +0.2834 I_inv=   -1.8347  E_HH=   +5.3160  E_T=   -5.3160
+c3=-0.00100 contracting tau1= 4.7862 v= -5.2409 R= +35.6177 I_inv=  -33.1180  E_HH=  +14.2509  E_T=  -14.2509
+c3=-0.00050 expanding   tau1= 2.0077 v= +0.9837 R=  +0.1410 I_inv=   -1.8337  E_HH=   +5.3749  E_T=   -5.3749
+c3=-0.00050 contracting tau1= 5.2338 v= -6.9180 R= +51.0925 I_inv=  -54.7843  E_HH=  +29.8795  E_T=  -29.8795
+c3=+0.00000 expanding   tau1= 2.0000 v= +1.0000 R=  +0.0000 I_inv=   -1.8333  E_HH=   +5.4333  E_T=   -5.4333
+c3=+0.00050 expanding   tau1= 1.9925 v= +1.0160 R=  -0.1397 I_inv=   -1.8337  E_HH=   +5.4913  E_T=   -5.4913
+c3=+0.00200 expanding   tau1= 1.9710 v= +1.0623 R=  -0.5517 I_inv=   -1.8385  E_HH=   +5.6627  E_T=   -5.6627
+c3=+0.00600 expanding   tau1= 1.9204 v= +1.1754 R=  -1.6100 I_inv=   -1.8749  E_HH=   +6.1063  E_T=   -6.1063
+c3=+0.01000 expanding   tau1= 1.8769 v= +1.2772 R=  -2.6274 I_inv=   -1.9395  E_HH=   +6.5376  E_T=   -6.5376
+c3=+0.01400 expanding   tau1= 1.8386 v= +1.3709 R=  -3.6183 I_inv=   -2.0271  E_HH=   +6.9622  E_T=   -6.9622
+c3=+0.01800 expanding   tau1= 1.8044 v= +1.4581 R=  -4.5916 I_inv=   -2.1345  E_HH=   +7.3838  E_T=   -7.3838
+c3=+0.02200 expanding   tau1= 1.7734 v= +1.5404 R=  -5.5532 I_inv=   -2.2595  E_HH=   +7.8050  E_T=   -7.8050
+c3=+0.02600 expanding   tau1= 1.7451 v= +1.6185 R=  -6.5073 I_inv=   -2.4008  E_HH=   +8.2274  E_T=   -8.2274
+c3=+0.03000 expanding   tau1= 1.7190 v= +1.6932 R=  -7.4569 I_inv=   -2.5571  E_HH=   +8.6526  E_T=   -8.6526
+c3=+0.03400 expanding   tau1= 1.6947 v= +1.7649 R=  -8.4041 I_inv=   -2.7277  E_HH=   +9.0814  E_T=   -9.0814
+c3=+0.03800 expanding   tau1= 1.6721 v= +1.8341 R=  -9.3507 I_inv=   -2.9119  E_HH=   +9.5148  E_T=   -9.5148
+c3=+0.04200 expanding   tau1= 1.6508 v= +1.9011 R= -10.2980 I_inv=   -3.1093  E_HH=   +9.9533  E_T=   -9.9533
+c3=+0.04600 expanding   tau1= 1.6308 v= +1.9661 R= -11.2469 I_inv=   -3.3194  E_HH=  +10.3974  E_T=  -10.3974
+c3=+0.05000 expanding   tau1= 1.6119 v= +2.0294 R= -12.1985 I_inv=   -3.5419  E_HH=  +10.8477  E_T=  -10.8477
+c3=+0.10000 expanding   tau1= 1.4356 v= +2.7232 R= -24.4777 I_inv=   -7.2998  E_HH=  +17.1034  E_T=  -17.1034
+c3=+0.20000 expanding   tau1= 1.2340 v= +3.8505 R= -51.8180 I_inv=  -19.9404  E_HH=  +33.8023  E_T=  -33.8023
+c3=+0.50000 expanding   tau1= 0.9569 v= +6.5377 R=-154.5165 I_inv=  -99.5452  E_HH= +123.0808  E_T= -123.0808
+c3=+1.00000 expanding   tau1= 0.7609 v=+10.1850 R=-378.8821 I_inv= -382.4442  E_HH= +419.1104  E_T= -419.1104
+c3=+2.00000 expanding   tau1= 0.5897 v=+16.2708 R=-971.2139 I_inv=-1573.4197  E_HH=+1631.9945  E_T=-1631.9945

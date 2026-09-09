@@ -1,0 +1,8 @@
+EL on sphere (should be 0 for the right C): (1 - C/8)/sin(tau)**2
+Ostrogradsky energy on sphere (should be 0 for the right C): (1 - C/8)/sin(tau)
+-> solve C from H=0: [8]
+p_v as function of (a, v, R): (A0**2*Rc*epsilon - 2*A1**2 + 2)/4
+p_v at equator: 3*epsilon + 1/2
+log coefficient on a cone a=v*tau (per a, C symbolic): -(-C + 6*epsilon*v**4 - 12*epsilon*v**2 + 6*epsilon + 2*v**4 - 12*v**2 + 2)/(8*v)
+  at C=8, minus the regular value (v=1): -(v - 1)**2*(3*epsilon*v**2 + 6*epsilon*v + 3*epsilon + v**2 + 2*v - 3)/(4*v)
+  series in (v-1): -3*epsilon*(v - 1)**2 + O((v - 1)**3, (v, 1))

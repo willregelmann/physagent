@@ -1,0 +1,31 @@
+=== eps=0.3: fine contracting-side scan near the turning point and the saddle ===
+c3=-0.01250 expanding   tau1= 2.3517 v= +0.3376 R=  +4.6964 I_inv=   -2.3323  E_HH=   +3.5476  E_T=   -3.5476
+c3=-0.01250 contracting tau1= 2.8136 v= -0.4346 R=  +8.4416 I_inv=   -3.8758  E_HH=   +2.3111  E_T=   -2.3111
+c3=-0.01150 expanding   tau1= 2.2903 v= +0.4444 R=  +4.0632 I_inv=   -2.1918  E_HH=   +3.7918  E_T=   -3.7918
+c3=-0.01150 contracting tau1= 2.9299 v= -0.6330 R=  +9.2771 I_inv=   -4.4030  E_HH=   +2.1243  E_T=   -2.1243
+c3=-0.01050 expanding   tau1= 2.2446 v= +0.5257 R=  +3.5539 I_inv=   -2.0989  E_HH=   +3.9915  E_T=   -3.9915
+c3=-0.01050 contracting tau1= 3.0354 v= -0.8178 R= +10.0418 I_inv=   -4.9386  E_HH=   +1.9946  E_T=   -1.9946
+c3=-0.00950 expanding   tau1= 2.2073 v= +0.5933 R=  +3.1104 I_inv=   -2.0313  E_HH=   +4.1673  E_T=   -4.1673
+c3=-0.00950 contracting tau1= 3.1384 v= -1.0038 R= +10.8083 I_inv=   -5.5203  E_HH=   +1.9067  E_T=   -1.9067
+c3=-0.00850 expanding   tau1= 2.1755 v= +0.6522 R=  +2.7086 I_inv=   -1.9799  E_HH=   +4.3278  E_T=   -4.3278
+c3=-0.00850 contracting tau1= 3.2432 v= -1.1996 R= +11.6208 I_inv=   -6.1792  E_HH=   +1.8605  E_T=   -1.8605
+c3=-0.00750 expanding   tau1= 2.1475 v= +0.7049 R=  +2.3360 I_inv=   -1.9400  E_HH=   +4.4776  E_T=   -4.4776
+c3=-0.00750 contracting tau1= 3.3531 v= -1.4132 R= +12.5221 I_inv=   -6.9527  E_HH=   +1.8650  E_T=   -1.8650
+c3=-0.00650 expanding   tau1= 2.1223 v= +0.7530 R=  +1.9851 I_inv=   -1.9088  E_HH=   +4.6195  E_T=   -4.6195
+c3=-0.00650 contracting tau1= 3.4718 v= -1.6540 R= +13.5657 I_inv=   -7.8945  E_HH=   +1.9402  E_T=   -1.9402
+c3=-0.00550 expanding   tau1= 2.0995 v= +0.7974 R=  +1.6511 I_inv=   -1.8846  E_HH=   +4.7551  E_T=   -4.7551
+c3=-0.00550 contracting tau1= 3.6036 v= -1.9350 R= +14.8321 I_inv=   -9.0913  E_HH=   +2.1252  E_T=   -2.1252
+c3=-0.00450 expanding   tau1= 2.0785 v= +0.8388 R=  +1.3304 I_inv=   -1.8660  E_HH=   +4.8858  E_T=   -4.8858
+c3=-0.00450 contracting tau1= 3.7552 v= -2.2773 R= +16.4581 I_inv=  -10.6971  E_HH=   +2.4987  E_T=   -2.4987
+c3=-0.00350 expanding   tau1= 2.0590 v= +0.8779 R=  +1.0208 I_inv=   -1.8523  E_HH=   +5.0125  E_T=   -5.0125
+c3=-0.00350 contracting tau1= 3.9377 v= -2.7186 R= +18.7095 I_inv=  -13.0229  E_HH=   +3.2358  E_T=   -3.2358
+c3=-0.00250 expanding   tau1= 2.0409 v= +0.9148 R=  +0.7202 I_inv=   -1.8426  E_HH=   +5.1360  E_T=   -5.1360
+c3=-0.00250 contracting tau1= 4.1734 v= -3.3387 R= +22.2025 I_inv=  -16.8218  E_HH=   +4.8026  E_T=   -4.8026
+c3=-0.00150 expanding   tau1= 2.0238 v= +0.9500 R=  +0.4273 I_inv=   -1.8366  E_HH=   +5.2566  E_T=   -5.2566
+c3=-0.00150 contracting tau1= 4.5189 v= -4.3575 R= +28.8598 I_inv=  -24.5949  E_HH=   +8.9080  E_T=   -8.9080
+=== eps=1.0: fine contracting-side scan near the turning point and the saddle ===
+c3=-0.03100: no crossing
+c3=-0.02983: no crossing
+c3=-0.02867: no crossing
+c3=-0.02750 expanding   tau1= 2.6125 v= +0.1940 R=  +3.9386 I_inv=   -3.6257  E_HH=   +5.9534  E_T=   -5.9534
+c3=-0.02750 contracting tau1= 3.0249 v= -0.2192 R=  +5.0304 I_inv=   -5.4918  E_HH=   +2.8617  E_T=   -2.8617

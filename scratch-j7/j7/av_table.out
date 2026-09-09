@@ -1,0 +1,44 @@
+=== (a1,v1)=(3,-i sqrt8), eps=1: straight path 0->T; I_inv = frame-invariant (a,v)-action ===
+sphere  c3=-0.166667-0.000000j T=1.570796+1.762747j resid=4.7e-12 R=12.0000-0.0000j | I_loc(bulk EH+R2)=-3.6667-37.9481j | I_inv=-3.0000-30.5364j Re= -3.0000 gauge_ok=True
+A       c3=-0.061078-0.074741j T=0.958365-7.517934j resid=1.2e-11 R=0.4680-2.1213j | I_loc(bulk EH+R2)=-8.0724+13.7486j | I_inv=-5.5817+13.2098j Re= -5.5817 gauge_ok=True
+B       c3=-0.078012-0.080863j T=3.646649-7.552073j resid=4.4e-13 R=0.4472+2.1354j | I_loc(bulk EH+R2)=-0.9603+13.9200j | I_inv=-1.0509+13.2841j Re= -1.0509 gauge_ok=True
+C       c3=0.011760-0.000057j T=-6.007494-4.176755j resid=1.4e-13 R=7.5063-10.0702j | I_loc(bulk EH+R2)=-42.1109-66.5223j | I_inv=-15.7026-66.4884j Re=-15.7026 gauge_ok=True
+D       c3=0.006200+0.006758j T=4.931966+3.047997j resid=9.0e-14 R=3.8376+3.4979j | I_loc(bulk EH+R2)=6.7001-27.7235j | I_inv=5.4575-20.9519j Re= +5.4575 gauge_ok=True
+E       c3=-0.160805+0.117255j T=-4.089197-8.820504j resid=9.4e-13 R=0.4998+2.1240j | I_loc(bulk EH+R2)=1.6419+12.5999j | I_inv=1.3753+3.7625j Re= +1.3753 gauge_ok=True
+F       c3=-0.024640+0.090852j T=2.969438-8.244251j resid=6.5e-11 R=8.9916+11.9910j | I_loc(bulk EH+R2)=54.6842-86.5288j | I_inv=22.4727-77.5950j Re=+22.4727 gauge_ok=True
+G       c3=-0.073135-0.070948j T=2.275652-14.632213j resid=8.1e-11 R=0.2306+0.0178j | I_loc(bulk EH+R2)=-4.4392+44.4017j | I_inv=0.0655+0.8196j Re= +0.0655 gauge_ok=True
+H       c3=-0.074380-0.093827j T=0.233795+9.329840j resid=2.6e-12 R=-8.3031-6.9127j | I_loc(bulk EH+R2)=-46.1728+98.7770j | I_inv=-57.7839+83.3639j Re=-57.7839 gauge_ok=True
+   [sym_C: not converged, |f|=1.6e+00]
+I       c3=-0.103854-0.087970j T=-10.389552+3.304918j resid=3.9e-11 R=3.8544-3.4976j | I_loc(bulk EH+R2)=-15.8864-26.3225j | I_inv=-63.4022+28.3646j Re=-63.4022 gauge_ok=False
+   [sym_C: not converged, |f|=1.6e+00]
+J       c3=-0.067485+0.073246j T=4.536903+10.252188j resid=1.8e-11 R=2.1396+4.0683j | I_loc(bulk EH+R2)=11.8028-45.6613j | I_inv=-5663979583342689.0000-27486345704151120.0000j Re=-5663979583342689.0000 gauge_ok=False
+K       c3=-0.067834+0.076298j T=-6.494782-10.376287j resid=8.5e-13 R=7.7691-8.3283j | I_loc(bulk EH+R2)=-33.7518-82.9000j | I_inv=-20.0592-75.1184j Re=-20.0592 gauge_ok=True
+L       c3=-0.041756-0.168680j T=0.644368+8.539119j resid=2.7e-12 R=13.5874+3.4896j | I_loc(bulk EH+R2)=1.4385-25.6349j | I_inv=9.4354+20.3252j Re= +9.4354 gauge_ok=True
+   [sym_C: not converged, |f|=1.6e+00]
+M       c3=-0.099604-0.091109j T=11.524847-8.253794j resid=1.3e-11 R=21.2093+7.4734j | I_loc(bulk EH+R2)=-126.3881-113.5630j | I_inv=-47.1630-44.2239j Re=-47.1630 gauge_ok=False
+   [sym_C: not converged, |f|=1.5e+00]
+N       c3=-0.071493-0.074147j T=3.927697-16.782805j resid=9.5e-12 R=0.3925+2.0885j | I_loc(bulk EH+R2)=-1.2715+42.1602j | I_inv=-6.9300+34.2197j Re= -6.9300 gauge_ok=False
+   [sym_C: not converged, |f|=4.7e+00]
+O       c3=-0.091483+0.095266j T=-7.733206-8.265503j resid=9.2e-12 R=9.0220-11.9771j | I_loc(bulk EH+R2)=-63.9706-87.2189j | I_inv=-30.2338-63.0773j Re=-30.2338 gauge_ok=False
+   [sym_C: not converged, |f|=1.2e+00]
+P       c3=0.038850+0.108716j T=-1.880350+6.600720j resid=9.8e-12 R=8.5927-0.3276j | I_loc(bulk EH+R2)=2.9819-29.2211j | I_inv=2.9370+102.2805j Re= +2.9370 gauge_ok=False
+S       c3=-0.024619+0.074912j T=-6.323142+10.106159j resid=6.3e-11 R=7.9464-19.6957j | I_loc(bulk EH+R2)=133.5058-127.0955j | I_inv=-26.9505-100.5388j Re=-26.9505 gauge_ok=True
+ranking by Re I_inv (HH sign e^{-I}: lowest first):
+   J       Re I_inv=-5663979583342689.0000
+   I       Re I_inv=-63.4022
+   H       Re I_inv=-57.7839
+   M       Re I_inv=-47.1630
+   O       Re I_inv=-30.2338
+   S       Re I_inv=-26.9505
+   K       Re I_inv=-20.0592
+   C       Re I_inv=-15.7026
+   N       Re I_inv=-6.9300
+   A       Re I_inv=-5.5817
+   sphere  Re I_inv=-3.0000
+   B       Re I_inv=-1.0509
+   G       Re I_inv=+0.0655
+   E       Re I_inv=+1.3753
+   P       Re I_inv=+2.9370
+   D       Re I_inv=+5.4575
+   L       Re I_inv=+9.4354
+   F       Re I_inv=+22.4727
