@@ -169,9 +169,24 @@ jobs:
         if: github.event_name == 'schedule' && success()
         working-directory: ${{ github.workspace }}
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Must be AUTONOMY_BOT_PAT, not GITHUB_TOKEN: this repo has "Allow
+          # GitHub Actions to create and approve pull requests" turned OFF, so
+          # `gh pr create` on the default token is rejected outright. metrics.yml
+          # does the identical branch -> PR -> auto-merge write-back and works
+          # because its PR step runs on this PAT. Using GITHUB_TOKEN here pushed
+          # the branch but never opened the PR, leaving orphaned
+          # lean-build-record-* branches and an unfailing-but-failing job every
+          # Monday from 2026-07-27 to 2026-08-24.
+          GH_TOKEN: ${{ secrets.AUTONOMY_BOT_PAT }}
           REPO: ${{ github.repository }}
         run: |
+          set -euo pipefail
+
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::notice::AUTONOMY_BOT_PAT not set — build verified, but formal.last_built not written back."
+            exit 0
+          fi
+
           CHANGED=$(python tools/claim_graph.py record-build \
             --program co-emergence --result pass \
             | python -c "import json,sys; print(len(json.load(sys.stdin)['changed']))")
@@ -182,8 +197,8 @@ jobs:
 
           DATE=$(date -u +%Y-%m-%d)
           BRANCH="lean-build-record-$DATE"
-          git config user.name  "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name  "autonomy-metrics"
+          git config user.email "actions@users.noreply.github.com"
           git checkout -b "$BRANCH"
           git add programs/*/claims/
           git commit -m "Record lean build result ($DATE)
@@ -193,9 +208,12 @@ jobs:
           verified against Mathlib's standard axioms. Updates formal.last_built
           so the graph records a machine check rather than an assertion."
           git push -f "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" "$BRANCH"
+          # stderr is NOT discarded: a create failure must name itself rather
+          # than fall through to the `pr view` fallback and surface as the
+          # misleading "no pull requests found for branch".
           PR_URL=$(gh pr create --repo "$REPO" --head "$BRANCH" \
             --title "Record lean build result ($DATE)" \
             --body "Automated write-back from lean.yml. Not an agent research PR; quorum-exempt by design. Updates \`formal.last_built\` on formal claim nodes after a verified build." \
-            2>/dev/null || gh pr view "$BRANCH" --repo "$REPO" --json url --jq .url)
+            || gh pr view "$BRANCH" --repo "$REPO" --json url --jq .url)
           gh pr merge --repo "$REPO" --auto --squash "$PR_URL" || true
           echo "Opened $PR_URL"
