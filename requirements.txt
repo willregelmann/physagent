@@ -7,7 +7,7 @@
 # test, and broke the whole matrix twice (see requirements-plots.txt).
 numpy>=1.24
 scipy>=1.10
-pytest>=9.1.1
+pytest>=9.2.0
 
 # Plotting dependencies are in requirements-plots.txt and are deliberately NOT
 # installed by CI.
